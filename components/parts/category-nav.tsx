@@ -12,12 +12,16 @@ type Category = {
   sort_order: number
 }
 
-export function CategoryNav({ categories }: { categories: Category[] }) {
+export function CategoryNav({ categories, activeCategory }: { categories: Category[]; activeCategory?: string }) {
   return (
     <nav className="space-y-1">
       <Link
         href="/parts"
-        className="flex items-center rounded-lg bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary"
+        className={`flex items-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors ${
+          !activeCategory
+            ? "bg-primary/10 text-primary"
+            : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+        }`}
       >
         All Parts
       </Link>
@@ -25,7 +29,11 @@ export function CategoryNav({ categories }: { categories: Category[] }) {
         <Link
           key={cat.id}
           href={`/parts?category=${cat.slug}`}
-          className="flex items-center rounded-lg px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          className={`flex items-center rounded-lg px-4 py-2.5 text-sm transition-colors ${
+            activeCategory === cat.slug
+              ? "bg-primary/10 text-primary font-semibold"
+              : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+          }`}
         >
           {cat.name}
         </Link>

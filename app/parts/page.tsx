@@ -3,7 +3,8 @@ import { createClient } from "@/lib/supabase/server"
 import { PartsGrid } from "@/components/parts/parts-grid"
 import { CategoryNav } from "@/components/parts/category-nav"
 
-export default async function PartsPage() {
+export default async function PartsPage(props: { searchParams: Promise<{ category?: string }> }) {
+  const { category } = await props.searchParams
   const supabase = await createClient()
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,7 +12,18 @@ export default async function PartsPage() {
 
   const [{ data: categories }, { data: parts }] = await Promise.all([
     supabaseAny.from("parts_categories").select("*").order("sort_order"),
-    supabaseAny.from("parts").select("*, parts_categories(name, slug)").eq("is_available", true).order("name"),
+    category
+      ? supabaseAny
+          .from("parts")
+          .select("*, parts_categories(name, slug)")
+          .eq("parts_categories.slug", category)
+          .eq("is_available", true)
+          .order("name")
+      : supabaseAny
+          .from("parts")
+          .select("*, parts_categories(name, slug)")
+          .eq("is_available", true)
+          .order("name"),
   ])
 
   return (
@@ -31,7 +43,7 @@ export default async function PartsPage() {
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 lg:flex-row">
           <aside className="w-full shrink-0 lg:w-64">
-            <CategoryNav categories={categories ?? []} />
+            <CategoryNav categories={categories ?? []} activeCategory={category} />
           </aside>
           <main className="flex-1">
             <PartsGrid parts={parts ?? []} />
