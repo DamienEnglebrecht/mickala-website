@@ -1,9 +1,12 @@
 "use client"
 
+export const dynamic = "force-dynamic"
+
 import { Suspense } from "react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { createClient } from "@/lib/supabase/client"
 
 function RegisterForm() {
   const [email, setEmail] = useState("")
@@ -13,15 +16,12 @@ function RegisterForm() {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const supabase = createClient()
 
   async function handleRegister(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
     setError("")
-
-    // Lazy-load supabase only when user submits (avoids build-time env check)
-    const { createClient } = await import("@/lib/supabase/client")
-    const supabase = createClient()
 
     const { data, error: authError } = await supabase.auth.signUp({
       email,
