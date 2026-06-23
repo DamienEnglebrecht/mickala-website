@@ -6,7 +6,7 @@ const products = [
   {
     name: "Single Axle",
     type: "Lighting Tower",
-    image: "/product-single-axle.png",
+    image: "/product-single-axle.webp",
     description:
       "Compact, towable and quick to deploy. Ideal for fast-moving worksites that need reliable area lighting without the footprint.",
     specs: ["Single axle trailer", "Telescopic LED mast", "Rapid deployment"],
@@ -14,7 +14,7 @@ const products = [
   {
     name: "Dual Axle",
     type: "Lighting Tower",
-    image: "/product-dual-axle.png",
+    image: "/product-dual-axle.webp",
     description:
       "Heavy-duty stability for large coverage areas. Built for the toughest mining and construction environments.",
     specs: ["Dual axle trailer", "Wide LED array", "Maximum coverage"],
@@ -22,7 +22,7 @@ const products = [
   {
     name: "Sled Mount",
     type: "Lighting Tower",
-    image: "/product-sled-mount.png",
+    image: "/product-sled-mount.webp",
     description:
       "Skid-mounted for crane and forklift relocation around fixed sites. No wheels, no fuss — just dependable illumination.",
     specs: ["Steel skid base", "Lift & shift", "Site-fixed lighting"],
@@ -30,7 +30,7 @@ const products = [
   {
     name: "Sled Mount Long Range",
     type: "Lighting Tower",
-    image: "/product-long-range.png",
+    image: "/product-long-range.webp",
     description:
       "Extended mast and long-throw optics for high-mast applications and expansive open-cut operations.",
     specs: ["Extra-tall mast", "Long-throw optics", "High-mast ready"],

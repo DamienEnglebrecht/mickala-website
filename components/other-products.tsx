@@ -11,7 +11,7 @@ const items = [
   },
   {
     name: "Custom Fabrication",
-    image: "/custom-fabrication.png",
+    image: "/product-custom-fabrication.webp",
     description:
       "In-house steel fabrication for bespoke industrial equipment. If you can spec it, our workshop can build it to last.",
   },

@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section id="top" className="relative isolate min-h-[100svh] overflow-hidden bg-neutral-950">
       <Image
-        src="/hero-lighting-tower.png"
+        src="/hero-fleet.webp"
         alt="Mickala LED lighting tower deployed on an Australian mining site at dusk"
         fill
         priority

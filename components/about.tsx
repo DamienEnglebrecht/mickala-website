@@ -13,7 +13,7 @@ export function About() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <div className="relative order-last aspect-[4/3] overflow-hidden rounded-2xl lg:order-first">
           <Image
-            src="/factory-fleet.png"
+            src="/hero-fleet.webp"
             alt="A fleet of Mickala LED lighting towers outside the manufacturing facility"
             fill
             className="object-cover"
