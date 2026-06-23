@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { Package, ArrowRight, CheckCircle } from "lucide-react"
@@ -15,7 +15,7 @@ type Order = {
   created_at: string
 }
 
-export default function OrdersPage() {
+function OrdersContent() {
   const [orders, setOrders] = useState<Order[]>([])
   const [loading, setLoading] = useState(true)
   const [email, setEmail] = useState("")
@@ -100,73 +100,81 @@ export default function OrdersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {justPlaced && (
-          <div className="mb-6 flex items-center gap-3 rounded-xl bg-emerald-500/10 px-4 py-3">
-            <CheckCircle className="h-5 w-5 text-emerald-600" />
-            <p className="text-sm font-medium text-emerald-600">
-              Order placed successfully! We&apos;ll confirm shipping details via email.
-            </p>
-          </div>
-        )}
-
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="font-heading text-3xl font-bold uppercase tracking-tight">My Orders</h1>
-            <p className="mt-1 text-sm text-muted-foreground">{email}</p>
-          </div>
-          <button
-            onClick={handleSignOut}
-            className="rounded-lg border border-border px-4 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-          >
-            Sign Out
-          </button>
+    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      {justPlaced && (
+        <div className="mb-6 flex items-center gap-3 rounded-xl bg-emerald-500/10 px-4 py-3">
+          <CheckCircle className="h-5 w-5 text-emerald-600" />
+          <p className="text-sm font-medium text-emerald-600">
+            Order placed successfully! We&apos;ll confirm shipping details via email.
+          </p>
         </div>
+      )}
 
-        {orders.length === 0 ? (
-          <div className="mt-16 flex flex-col items-center justify-center text-center">
-            <Package className="h-16 w-16 text-muted-foreground/30" />
-            <h2 className="mt-4 text-xl font-semibold">No orders yet</h2>
-            <p className="mt-1 text-sm text-muted-foreground">Browse our parts catalog to place your first order.</p>
-            <Link
-              href="/parts"
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground uppercase tracking-wider transition-colors hover:bg-primary/90"
-            >
-              Browse Parts
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        ) : (
-          <div className="mt-8 space-y-3">
-            {orders.map((order) => (
-              <div
-                key={order.id}
-                className="flex items-center justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/30"
-              >
-                <div className="min-w-0 flex-1">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
-                    Order #{order.id.slice(0, 8)}
-                  </p>
-                  <p className="mt-0.5 text-sm text-foreground">
-                    {new Date(order.created_at).toLocaleDateString("en-AU", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className={`rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider ${statusColors[order.status] || "bg-secondary text-muted-foreground"}`}>
-                    {order.status}
-                  </span>
-                  <span className="text-sm font-bold text-foreground">${order.total_amount.toFixed(2)}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="font-heading text-3xl font-bold uppercase tracking-tight">My Orders</h1>
+          <p className="mt-1 text-sm text-muted-foreground">{email}</p>
+        </div>
+        <button
+          onClick={handleSignOut}
+          className="rounded-lg border border-border px-4 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        >
+          Sign Out
+        </button>
       </div>
+
+      {orders.length === 0 ? (
+        <div className="mt-16 flex flex-col items-center justify-center text-center">
+          <Package className="h-16 w-16 text-muted-foreground/30" />
+          <h2 className="mt-4 text-xl font-semibold">No orders yet</h2>
+          <p className="mt-1 text-sm text-muted-foreground">Browse our parts catalog to place your first order.</p>
+          <Link
+            href="/parts"
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground uppercase tracking-wider transition-colors hover:bg-primary/90"
+          >
+            Browse Parts
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      ) : (
+        <div className="mt-8 space-y-3">
+          {orders.map((order) => (
+            <div
+              key={order.id}
+              className="flex items-center justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/30"
+            >
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                  Order #{order.id.slice(0, 8)}
+                </p>
+                <p className="mt-0.5 text-sm text-foreground">
+                  {new Date(order.created_at).toLocaleDateString("en-AU", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className={`rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider ${statusColors[order.status] || "bg-secondary text-muted-foreground"}`}>
+                  {order.status}
+                </span>
+                <span className="text-sm font-bold text-foreground">${order.total_amount.toFixed(2)}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default function OrdersPage() {
+  return (
+    <div className="min-h-screen bg-background">
+      <Suspense fallback={<div className="flex min-h-screen items-center justify-center bg-background"><div className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" /></div>}>
+        <OrdersContent />
+      </Suspense>
     </div>
   )
 }
