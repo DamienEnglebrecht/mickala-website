@@ -1025,7 +1025,7 @@ INSERT INTO parts (category_id, sku, name, slug, description, price, unit, stock
   ((SELECT id FROM parts_categories WHERE slug = 'mast-sections'), 'M00174', 'COLLAR, ALTERNATOR', 'm00174', 'COLLAR, ALTERNATOR', 0.00, 'each', 0, 1),
   ((SELECT id FROM parts_categories WHERE slug = 'mast-sections'), 'M00176 - TS', 'FILTER, PRE CLEANER', 'm00176-ts', 'FILTER, PRE CLEANER', 0.00, 'each', 0, 1),
   ((SELECT id FROM parts_categories WHERE slug = 'mast-sections'), 'M00176-DB', 'FILTER, PRE CLEANER DUST BOWL', 'm00176-db', 'FILTER, PRE CLEANER DUST BOWL', 0.00, 'each', 0, 1),
-  ((SELECT id FROM parts_categories WHERE slug = 'mast-sections'), 'M00176-TS', 'FILTER, PRE CLEANER TOP SPIN', 'm00176-ts', 'FILTER, PRE CLEANER TOP SPIN', 0.00, 'each', 0, 1),
+  ((SELECT id FROM parts_categories WHERE slug = 'mast-sections'), 'M00176-TS', 'FILTER, PRE CLEANER TOP SPIN', 'm00176-ts-2', 'FILTER, PRE CLEANER TOP SPIN', 0.00, 'each', 0, 1),
   ((SELECT id FROM parts_categories WHERE slug = 'mast-sections'), 'M00177', 'GASKET, WATER PUMP Z482', 'm00177', 'GASKET, WATER PUMP Z482', 0.00, 'each', 0, 1),
   ((SELECT id FROM parts_categories WHERE slug = 'mast-sections'), 'M00178', 'TANK, RADIATOR OVERFLOW Z482', 'm00178', 'TANK, RADIATOR OVERFLOW Z482', 0.00, 'each', 0, 1),
   ((SELECT id FROM parts_categories WHERE slug = 'mast-sections'), 'M00178B', 'TANK, RADIATOR OVERFLOW Z482 ASSY', 'm00178b', 'TANK, RADIATOR OVERFLOW Z482 ASSY', 0.00, 'each', 0, 1),
