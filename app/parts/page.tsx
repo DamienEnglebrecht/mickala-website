@@ -39,12 +39,12 @@ export default async function PartsPage(props: { searchParams: Promise<{ categor
     <>
       <SiteHeader />
       <main className="min-h-screen bg-background pt-16 lg:pt-20">
-        <div className="bg-secondary/50 py-12">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className="font-heading text-4xl font-bold uppercase tracking-tight text-foreground">
-              Parts &amp; Spares
-            </h1>
-            <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
+        <div className="bg-neutral-950 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="font-heading text-4xl font-bold uppercase tracking-tight text-white">
+            Parts &amp; Spares
+          </h1>
+          <p className="mt-3 max-w-2xl text-lg text-white/70">
               Genuine Mickala replacement parts and accessories for your lighting tower fleet.
               Maintain uptime with OEM-quality components.
             </p>
