@@ -1,14 +1,17 @@
 import Link from "next/link"
-import { createClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/server"
 import { PartsGrid } from "@/components/parts/parts-grid"
 import { CategoryNav } from "@/components/parts/category-nav"
 
 export default async function PartsPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const supabaseAny: any = supabase
 
   const [{ data: categories }, { data: parts }] = await Promise.all([
-    supabase.from("parts_categories").select("*").order("sort_order"),
-    supabase.from("parts").select("*, parts_categories(name, slug)").eq("is_available", true).order("name"),
+    supabaseAny.from("parts_categories").select("*").order("sort_order"),
+    supabaseAny.from("parts").select("*, parts_categories(name, slug)").eq("is_available", true).order("name"),
   ])
 
   return (
