@@ -21,10 +21,11 @@ export default async function PartPage(props: { params: Promise<{ slug: string }
   const categoryName = (part.parts_categories as { name: string; slug: string } | null)?.name
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-950">
       <SiteHeader />
       <div className="pt-16 lg:pt-20">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="bg-background">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-8 flex items-center gap-2 text-sm text-muted-foreground">
             <a href="/parts" className="hover:text-foreground">Parts</a>
@@ -129,7 +130,8 @@ export default async function PartPage(props: { params: Promise<{ slug: string }
           </div>
         </div>
       </div>
-      <SiteFooter />
     </div>
+    <SiteFooter />
+  </div>
   )
 }
