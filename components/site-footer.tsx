@@ -1,6 +1,8 @@
+import Link from "next/link"
 import { Logo } from "./logo"
 
 const productLinks = [
+  { label: "Parts & Spares", href: "/parts" },
   { label: "Single Axle Towers", href: "#products" },
   { label: "Dual Axle Towers", href: "#products" },
   { label: "Sled Mount Towers", href: "#products" },
@@ -67,12 +69,21 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5">
               {productLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/70 transition-colors hover:text-primary"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/70 transition-colors hover:text-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-white/70 transition-colors hover:text-primary"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
