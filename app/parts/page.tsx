@@ -10,21 +10,29 @@ export default async function PartsPage(props: { searchParams: Promise<{ categor
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const supabaseAny: any = supabase
 
-  const [{ data: categories }, { data: parts }] = await Promise.all([
-    supabaseAny.from("parts_categories").select("*").order("sort_order"),
-    category
-      ? supabaseAny
-          .from("parts")
-          .select("*, parts_categories(name, slug)")
-          .eq("parts_categories.slug", category)
-          .eq("is_available", true)
-          .order("name")
-      : supabaseAny
-          .from("parts")
-          .select("*, parts_categories(name, slug)")
-          .eq("is_available", true)
-          .order("name"),
-  ])
+  const { data: categories } = await supabaseAny.from("parts_categories").select("*").order("sort_order")
+
+  let parts = null
+  if (category) {
+    // Get category id first, then filter parts by it
+    const { data: cat } = await supabaseAny.from("parts_categories").select("id").eq("slug", category).single()
+    if (cat) {
+      const { data: filteredParts } = await supabaseAny
+        .from("parts")
+        .select("*, parts_categories(name, slug)")
+        .eq("category_id", cat.id)
+        .eq("is_available", true)
+        .order("name")
+      parts = filteredParts
+    }
+  } else {
+    const { data: allParts } = await supabaseAny
+      .from("parts")
+      .select("*, parts_categories(name, slug)")
+      .eq("is_available", true)
+      .order("name")
+    parts = allParts
+  }
 
   return (
     <div className="min-h-screen bg-background">
