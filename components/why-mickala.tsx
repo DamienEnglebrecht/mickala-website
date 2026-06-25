@@ -24,7 +24,7 @@ const values = [
 
 export function WhyMickala() {
   return (
-    <section className="bg-card py-20 lg:py-28">
+    <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           align="center"
