@@ -6,44 +6,34 @@ import Link from "next/link"
 
 const specSheets = [
   {
-    title: "MLT-10 Lighting Tower",
-    description: "10m pneumatic mast, 4 x 1000W LED floodlights, diesel generator",
-    file: "/spec-sheets/mlt-10.pdf",
+    title: "Single Axle",
+    description: "Single axle lighting tower — compact, easy to tow and deploy for smaller sites",
+    file: "/spec-sheets/single-axle.pdf",
   },
   {
-    title: "MLT-12 Lighting Tower",
-    description: "12m pneumatic mast, 6 x 1000W LED floodlights, diesel generator",
-    file: "/spec-sheets/mlt-12.pdf",
+    title: "Dual Axle",
+    description: "Dual axle lighting tower — enhanced stability and payload for demanding conditions",
+    file: "/spec-sheets/dual-axle.pdf",
   },
   {
-    title: "MLT-Hybrid Solar/LED Tower",
-    description: "Hybrid solar/battery/diesel, 4 x 200W LED, 9m mast",
-    file: "/spec-sheets/mlt-hybrid.pdf",
+    title: "Sled Mount",
+    description: "Sled mounted lighting tower — skid-mounted design for extreme terrain and remote locations",
+    file: "/spec-sheets/sled-mount.pdf",
   },
   {
-    title: "MLT-LP Low Profile Tower",
-    description: "Low profile transport height, 6m mast, 4 x 1000W LED",
-    file: "/spec-sheets/mlt-lp.pdf",
+    title: "Long Range",
+    description: "Long range lighting tower — extended runtime and coverage for large-scale operations",
+    file: "/spec-sheets/long-range.pdf",
   },
   {
-    title: "Shield+ Light Tower",
-    description: "Premium sound-attenuated enclosure, 10m mast, 6 x 1000W LED",
-    file: "/spec-sheets/shield-plus.pdf",
+    title: "Fuel Trailers",
+    description: "Bulk fuel storage and dispensing trailers for remote mining and industrial operations",
+    file: "/spec-sheets/fuel-trailers.pdf",
   },
   {
-    title: "BTS Ballast Truck System",
-    description: "Truck-mounted lighting system, 12m mast, 8 x 1500W LED",
-    file: "/spec-sheets/bts.pdf",
-  },
-  {
-    title: "STS Skid Tower System",
-    description: "Skid-mounted, 9m mast, 4 x 1000W LED, ideal for remote sites",
-    file: "/spec-sheets/sts.pdf",
-  },
-  {
-    title: "Fuel Trailer",
-    description: "Bulk fuel storage and dispensing trailer for remote mining operations",
-    file: "/spec-sheets/fuel-trailer.pdf",
+    title: "Generators",
+    description: "Industrial diesel generators — reliable prime and standby power for mining and construction",
+    file: "/spec-sheets/generators.pdf",
   },
 ]
 
@@ -81,12 +71,14 @@ export default function SpecSheetsPage() {
                   <p className="text-sm text-muted-foreground">{sheet.description}</p>
                 </div>
               </div>
-              <Button variant="outline" size="sm" asChild>
-                <a href={sheet.file} download>
-                  <Download className="mr-2 h-4 w-4" />
-                  PDF
-                </a>
-              </Button>
+              <a
+                href={sheet.file}
+                download
+                className="inline-flex items-center gap-1.5 rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-1.5 text-xs font-semibold text-destructive transition-colors hover:bg-destructive/20"
+              >
+                <Download className="h-4 w-4" />
+                PDF
+              </a>
             </div>
           ))}
         </div>
