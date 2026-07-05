@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ShoppingCart } from "lucide-react"
+import { ShoppingCart, FileText } from "lucide-react"
 
 type Category = {
   id: string
@@ -38,6 +38,18 @@ export function CategoryNav({ categories, activeCategory }: { categories: Catego
           {cat.name}
         </Link>
       ))}
+
+      <Link
+        href="/parts-manuals/fuel-trailer"
+        className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm transition-colors ${
+          activeCategory === "fuel-trailers"
+            ? "bg-primary/10 text-primary font-semibold"
+            : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+        }`}
+      >
+        <FileText className="h-4 w-4" />
+        Fuel Trailers
+      </Link>
 
       <div className="pt-6">
         <Link

@@ -7,9 +7,9 @@ export function Logo({ className }: { className?: string }) {
       <Image
         src="/logo-mickala.png"
         alt="Mickala Group"
-        width={50}
-        height={50}
-        className="h-[50px] w-[50px] object-contain"
+        width={60}
+        height={60}
+        className="h-[60px] w-[60px] object-contain"
         priority
       />
       <span className="font-heading text-lg font-extrabold leading-none tracking-tight">

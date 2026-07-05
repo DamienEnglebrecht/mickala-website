@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>Stanmore</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//api.investi.com.au' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel="alternate" type="application/rss+xml" title="Stanmore &raquo; Feed" href="https://stanmore.au/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Stanmore &raquo; Comments Feed" href="https://stanmore.au/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://stanmore.au/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fstanmore.au%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://stanmore.au/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fstanmore.au%2F&#038;format=xml" />
+<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel='stylesheet' id='gutenberg-pdfjs-style-css' href='/wp-content/plugins/pdfjs-viewer-shortcode/inc/../blocks/build/style-index.css?ver=1779766139' media='all' />
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='wpdm-fonticon-css' href='/wp-content/plugins/download-manager/assets/wpdm-iconfont/css/wpdm-icons.css?ver=6.9' media='all' />
+<link rel='stylesheet' id='wpdm-front-css' href='/wp-content/plugins/download-manager/assets/css/front.min.css?ver=3.3.57' media='all' />
+<link rel='stylesheet' id='wpdm-front-dark-css' href='/wp-content/plugins/download-manager/assets/css/front-dark.min.css?ver=3.3.57' media='all' />
+<link rel='stylesheet' id='search-filter-plugin-styles-css' href='/wp-content/plugins/search-filter-pro/public/assets/css/search-filter.min.css?ver=2.5.21' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.4.5' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.4.5' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.5' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='elementor-post-6-css' href='/wp-content/uploads/elementor/css/post-6.css?ver=1780627011' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='widget-nav-menu-css' href='/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.33.2' media='all' />
+<link rel='stylesheet' id='widget-social-icons-css' href='/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='e-apple-webkit-css' href='/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='font-awesome-5-all-css' href='/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='font-awesome-4-shim-css' href='/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='e-animation-fadeIn-css' href='/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='swiper-css' href='/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5' media='all' />
+<link rel='stylesheet' id='e-swiper-css' href='/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='widget-slides-css' href='/wp-content/plugins/elementor-pro/assets/css/widget-slides.min.css?ver=3.33.2' media='all' />
+<link rel='stylesheet' id='widget-spacer-css' href='/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=3.33.4' media='all' />
+<link rel='stylesheet' id='elementor-post-13-css' href='/wp-content/uploads/elementor/css/post-13.css?ver=1780627012' media='all' />
+<link rel='stylesheet' id='elementor-post-22-css' href='/wp-content/uploads/elementor/css/post-22.css?ver=1780627012' media='all' />
+<link rel='stylesheet' id='elementor-post-30-css' href='/wp-content/uploads/elementor/css/post-30.css?ver=1780627012' media='all' />
+<link rel='stylesheet' id='hello-elementor-child-style-css' href='/wp-content/themes/stanmore-theme/style.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='elementor-gf-rubik-css' href='https://fonts.googleapis.com/css?family=Rubik:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap' media='all' />
+<script src="https://stanmore.au/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://stanmore.au/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script src="/wp-content/plugins/download-manager/assets/js/wpdm.min.js?ver=6.9" id="wpdm-frontend-js-js"></script>
+<script id="wpdm-frontjs-js-extra">
+var wpdm_url = {"home":"https://stanmore.au/","site":"https://stanmore.au/","ajax":"https://stanmore.au/wp-admin/admin-ajax.php"};
+var wpdm_js = {"spinner":"\u003Ci class=\"wpdm-icon wpdm-sun wpdm-spin\"\u003E\u003C/i\u003E","client_id":"206df8de713ea573688ddbdbfca28217"};
+var wpdm_strings = {"pass_var":"Password Verified!","pass_var_q":"Please click following button to start download.","start_dl":"Start Download"};
+//# sourceURL=wpdm-frontjs-js-extra
+</script>
+<script src="/wp-content/plugins/download-manager/assets/js/front.min.js?ver=3.3.57" id="wpdm-frontjs-js"></script>
+<script id="search-filter-elementor-js-extra">
+var SFE_DATA = {"ajax_url":"https://stanmore.au/wp-admin/admin-ajax.php","home_url":"https://stanmore.au/"};
+//# sourceURL=search-filter-elementor-js-extra
+</script>
+<script src="/wp-content/plugins/search-filter-elementor/assets/v2/js/search-filter-elementor.js?ver=1.3.4" id="search-filter-elementor-js"></script>
+<script id="search-filter-plugin-build-js-extra">
+var SF_LDATA = {"ajax_url":"https://stanmore.au/wp-admin/admin-ajax.php","home_url":"https://stanmore.au/","extensions":["search-filter-elementor"]};
+//# sourceURL=search-filter-plugin-build-js-extra
+</script>
+<script src="/wp-content/plugins/search-filter-pro/public/assets/js/search-filter-build.min.js?ver=2.5.21" id="search-filter-plugin-build-js"></script>
+<script src="/wp-content/plugins/search-filter-pro/public/assets/js/chosen.jquery.min.js?ver=2.5.21" id="search-filter-plugin-chosen-js"></script>
+<script src="/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.33.4" id="font-awesome-4-shim-js"></script>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<!-- Google Analytics snippet added by Site Kit -->
+<script src="https://www.googletagmanager.com/gtag/js?id=GT-T948MMSZ" id="google_gtagjs-js" async></script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["stanmore.au"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-T948MMSZ");
+ window._googlesitekit = window._googlesitekit || {}; window._googlesitekit.throttledEvents = []; window._googlesitekit.gtagEvent = (name, data) => { var key = JSON.stringify( { name, data } ); if ( !! window._googlesitekit.throttledEvents[ key ] ) { return; } window._googlesitekit.throttledEvents[ key ] = true; setTimeout( () => { delete window._googlesitekit.throttledEvents[ key ]; }, 5 ); gtag( "event", name, { ...data, event_source: "site-kit" } ); }; 
+//# sourceURL=google_gtagjs-js-after
+</script>
+<link rel="https://api.w.org/" href="https://stanmore.au/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://stanmore.au/wp-json/wp/v2/pages/13" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://stanmore.au/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9" />
+<link rel="canonical" href="https://stanmore.au/" />
+<link rel='shortlink' href='https://stanmore.au/' />
+<meta name="generator" content="Site Kit by Google 1.180.0" /><meta name="generator" content="Elementor 3.33.4; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="/wp-content/uploads/2025/08/cropped-Stanmore_Site-icon--32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2025/08/cropped-Stanmore_Site-icon--192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/2025/08/cropped-Stanmore_Site-icon--180x180.png" />
+<meta name="msapplication-TileImage" content="/wp-content/uploads/2025/08/cropped-Stanmore_Site-icon--270x270.png" />
+<meta name="generator" content="WordPress Download Manager 3.3.57" />
+                <style>
+        /* WPDM Link Template Styles */        </style>
+                <style>
+
+            :root {
+                --color-primary: #4a8eff;
+                --color-primary-rgb: 74, 142, 255;
+                --color-primary-hover: #5998ff;
+                --color-primary-active: #3281ff;
+                --clr-sec: #6c757d;
+                --clr-sec-rgb: 108, 117, 125;
+                --clr-sec-hover: #6c757d;
+                --clr-sec-active: #6c757d;
+                --color-secondary: #6c757d;
+                --color-secondary-rgb: 108, 117, 125;
+                --color-secondary-hover: #6c757d;
+                --color-secondary-active: #6c757d;
+                --color-success: #018e11;
+                --color-success-rgb: 1, 142, 17;
+                --color-success-hover: #0aad01;
+                --color-success-active: #0c8c01;
+                --color-info: #2CA8FF;
+                --color-info-rgb: 44, 168, 255;
+                --color-info-hover: #2CA8FF;
+                --color-info-active: #2CA8FF;
+                --color-warning: #FFB236;
+                --color-warning-rgb: 255, 178, 54;
+                --color-warning-hover: #FFB236;
+                --color-warning-active: #FFB236;
+                --color-danger: #ff5062;
+                --color-danger-rgb: 255, 80, 98;
+                --color-danger-hover: #ff5062;
+                --color-danger-active: #ff5062;
+                --color-green: #30b570;
+                --color-blue: #0073ff;
+                --color-purple: #8557D3;
+                --color-red: #ff5062;
+                --color-muted: rgba(69, 89, 122, 0.6);
+                --wpdm-font: "Sen", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            }
+
+            .wpdm-download-link.btn.btn-primary {
+                border-radius: 4px;
+            }
+
+
+        </style>
+        </head>
+<body class="home wp-singular page-template-default page page-id-13 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-stanmore-theme hello-elementor-default elementor-default elementor-kit-6 elementor-page elementor-page-13">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header data-elementor-type="header" data-elementor-id="22" class="elementor elementor-22 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-e89133a e-flex e-con-boxed e-con e-parent" data-id="e89133a" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1da3728 elementor-widget elementor-widget-image" data-id="1da3728" data-element_type="widget" data-widget_type="image.default">
+																<a href="https://stanmore.au/">
+							<img fetchpriority="high" width="2363" height="946" src="/wp-content/uploads/2025/08/Stanmore_Logo_Reversed.png" class="attachment-full size-full wp-image-23" alt="" srcset="/wp-content/uploads/2025/08/Stanmore_Logo_Reversed.png 2363w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-300x120.png 300w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-1024x410.png 1024w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-768x307.png 768w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-1536x615.png 1536w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-2048x820.png 2048w" sizes="(max-width: 2363px) 100vw, 2363px" />								</a>
+															</div>
+				<div class="elementor-element elementor-element-c3ecef6 elementor-nav-menu--stretch elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="c3ecef6" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-c3ecef6" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-456"><a href="https://stanmore.au/about-us/" class="elementor-item">About Us</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-458"><a href="https://stanmore.au/about-us/our-people/" class="elementor-sub-item">Our People</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2294"><a href="https://stanmore.au/about-us/board-leadership/" class="elementor-sub-item">Board &#038; Leadership</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-459"><a href="https://stanmore.au/about-us/supplier-information/" class="elementor-sub-item">Supplier Information</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-457"><a href="https://stanmore.au/about-us/corporate-governance/" class="elementor-sub-item">Corporate Governance</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-465"><a href="https://stanmore.au/investors/" class="elementor-item">Investor Centre</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-467"><a href="https://stanmore.au/investors/exchange-releases/" class="elementor-sub-item">Exchange Releases</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-468"><a href="https://stanmore.au/investors/reports-and-results/" class="elementor-sub-item">Reports and Results</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-466"><a href="https://stanmore.au/investors/annual-general-meeting/" class="elementor-sub-item">Annual General Meeting</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-469"><a href="https://stanmore.au/investors/shareholder-information/" class="elementor-sub-item">Shareholder Information</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-460"><a href="https://stanmore.au/assets/" class="elementor-item">Assets</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-461"><a href="https://stanmore.au/assets/operations/" class="elementor-sub-item">Operations</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-462"><a href="https://stanmore.au/assets/projects/" class="elementor-sub-item">Projects</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-470"><a href="https://stanmore.au/sustainability/" class="elementor-item">Sustainability</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-473"><a href="https://stanmore.au/sustainability/health-and-safety/" class="elementor-sub-item">Health and Safety</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-471"><a href="https://stanmore.au/sustainability/environment/" class="elementor-sub-item">Environment</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-475"><a href="https://stanmore.au/sustainability/social-performance/" class="elementor-sub-item">Social Performance</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-474"><a href="https://stanmore.au/sustainability/reports/" class="elementor-sub-item">Reports</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-472"><a href="https://stanmore.au/sustainability/governance/" class="elementor-sub-item">Governance</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3136"><a target="_blank" href="https://careers.stanmore.au/" class="elementor-item">Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-464"><a href="https://stanmore.au/contact-us/" class="elementor-item">Contact Us</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-c3ecef6" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-456"><a href="https://stanmore.au/about-us/" class="elementor-item" tabindex="-1">About Us</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-458"><a href="https://stanmore.au/about-us/our-people/" class="elementor-sub-item" tabindex="-1">Our People</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2294"><a href="https://stanmore.au/about-us/board-leadership/" class="elementor-sub-item" tabindex="-1">Board &#038; Leadership</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-459"><a href="https://stanmore.au/about-us/supplier-information/" class="elementor-sub-item" tabindex="-1">Supplier Information</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-457"><a href="https://stanmore.au/about-us/corporate-governance/" class="elementor-sub-item" tabindex="-1">Corporate Governance</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-465"><a href="https://stanmore.au/investors/" class="elementor-item" tabindex="-1">Investor Centre</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-467"><a href="https://stanmore.au/investors/exchange-releases/" class="elementor-sub-item" tabindex="-1">Exchange Releases</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-468"><a href="https://stanmore.au/investors/reports-and-results/" class="elementor-sub-item" tabindex="-1">Reports and Results</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-466"><a href="https://stanmore.au/investors/annual-general-meeting/" class="elementor-sub-item" tabindex="-1">Annual General Meeting</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-469"><a href="https://stanmore.au/investors/shareholder-information/" class="elementor-sub-item" tabindex="-1">Shareholder Information</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-460"><a href="https://stanmore.au/assets/" class="elementor-item" tabindex="-1">Assets</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-461"><a href="https://stanmore.au/assets/operations/" class="elementor-sub-item" tabindex="-1">Operations</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-462"><a href="https://stanmore.au/assets/projects/" class="elementor-sub-item" tabindex="-1">Projects</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-470"><a href="https://stanmore.au/sustainability/" class="elementor-item" tabindex="-1">Sustainability</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-473"><a href="https://stanmore.au/sustainability/health-and-safety/" class="elementor-sub-item" tabindex="-1">Health and Safety</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-471"><a href="https://stanmore.au/sustainability/environment/" class="elementor-sub-item" tabindex="-1">Environment</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-475"><a href="https://stanmore.au/sustainability/social-performance/" class="elementor-sub-item" tabindex="-1">Social Performance</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-474"><a href="https://stanmore.au/sustainability/reports/" class="elementor-sub-item" tabindex="-1">Reports</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-472"><a href="https://stanmore.au/sustainability/governance/" class="elementor-sub-item" tabindex="-1">Governance</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3136"><a target="_blank" href="https://careers.stanmore.au/" class="elementor-item" tabindex="-1">Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-464"><a href="https://stanmore.au/contact-us/" class="elementor-item" tabindex="-1">Contact Us</a></li>
+</ul>			</nav>
+						</div>
+					</div>
+				</div>
+				</header>
+		
+<main id="content" class="site-main post-13 page type-page status-publish hentry">
+
+	
+	<div class="page-content">
+				<div data-elementor-type="wp-page" data-elementor-id="13" class="elementor elementor-13" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-794f70e e-con-full e-flex e-con e-parent" data-id="794f70e" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,&quot;background_slideshow_gallery&quot;:[],&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_duration&quot;:5000,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_transition_duration&quot;:500}">
+				<div class="elementor-element elementor-element-d8e8d07 elementor--h-position-left elementor--v-position-bottom elementor-pagination-position-inside elementor-invisible elementor-widget elementor-widget-slides" data-id="d8e8d07" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;dots&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay_speed&quot;:3000,&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+										<div class="elementor-slides-wrapper elementor-main-swiper swiper" role="region" aria-roledescription="carousel" aria-label="Slides" dir="ltr" data-animation="">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-9d2b3a7 swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img" aria-label="Sth Walker Ck-92 resized"></div><div class="elementor-background-overlay"></div><div class="swiper-slide-inner" ><div class="swiper-slide-contents"><div class="elementor-slide-heading">Strength in Execution</div><div class="elementor-slide-description">At Stanmore, we invest in performance and operational excellence to deliver consistent value for our stakeholders and communities.</div><a href="https://stanmore.au/investors/" class="elementor-button elementor-slide-button elementor-size-sm">Find out more</a></div></div></div><div class="elementor-repeater-item-875bcd2 swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img" aria-label="Sth Walker Creek-96 resized"></div><div class="elementor-background-overlay"></div><div class="swiper-slide-inner" ><div class="swiper-slide-contents"><div class="elementor-slide-heading">Our People</div><div class="elementor-slide-description">Our fast-paced, agile culture is built on care, opportunity, and real outcomes. We back our people to lead, grow, and thrive.</div><a href="https://stanmore.au/about-us/our-people/" class="elementor-button elementor-slide-button elementor-size-sm">Find out more</a></div></div></div><div class="elementor-repeater-item-32fcc91 swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img" aria-label="Stanmore-Embracing-our-Sustainability-Journey"></div><div class="elementor-background-overlay"></div><a class="swiper-slide-inner" href="https://stanmore.au/sustainability/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">Embracing our Sustainability Journey</div><div class="elementor-slide-description">Sustainability is central to everything we do - guided by our five-year roadmap and a firm commitment to best practice and continuous improvement.</div><div  class="elementor-button elementor-slide-button elementor-size-sm">Read more</div></div></a></div>				</div>
+																				<div class="swiper-pagination"></div>
+												</div>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-97f3a82 e-flex e-con-boxed elementor-invisible e-con e-parent" data-id="97f3a82" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeIn&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-0a2d387 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="0a2d387" data-element_type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">Stanmore Resources is an Australian company with world-class operations and exploration projects in the Bowen Basin. We’re proud to be <b>one of Australia’s largest suppliers of metallurgical coal to global markets.</b> </h4>				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-41c12b2 e-flex e-con-boxed e-con e-parent" data-id="41c12b2" data-element_type="container">
+					<div class="e-con-inner">
+		<a class="elementor-element elementor-element-7d83aac e-con-full e-transform e-flex elementor-invisible e-con e-child" data-id="7d83aac" data-element_type="container" data-settings="{&quot;_transform_scale_effect_hover&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1.02,&quot;sizes&quot;:[]},&quot;animation&quot;:&quot;fadeIn&quot;,&quot;_transform_scale_effect_hover_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;_transform_scale_effect_hover_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" href="https://stanmore.au/about-us/">
+				<div class="elementor-element elementor-element-73070c0 elementor-widget elementor-widget-image" data-id="73070c0" data-element_type="widget" data-widget_type="image.default">
+															<img decoding="async" width="1200" height="839" src="/wp-content/uploads/2025/08/Discover-our-vision-mission-and-values.jpg" class="attachment-full size-full wp-image-81" alt="" srcset="/wp-content/uploads/2025/08/Discover-our-vision-mission-and-values.jpg 1200w, /wp-content/uploads/2025/08/Discover-our-vision-mission-and-values-300x210.jpg 300w, /wp-content/uploads/2025/08/Discover-our-vision-mission-and-values-1024x716.jpg 1024w, /wp-content/uploads/2025/08/Discover-our-vision-mission-and-values-768x537.jpg 768w" sizes="(max-width: 1200px) 100vw, 1200px" />															</div>
+				<div class="elementor-element elementor-element-1010215 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="1010215" data-element_type="widget" data-widget_type="heading.default">
+					<h5 class="elementor-heading-title elementor-size-default">Discover our Vision, Mission and Values.</h5>				</div>
+				<div class="elementor-element elementor-element-6d698b5 elementor-view-framed elementor-shape-circle elementor-widget elementor-widget-icon" data-id="6d698b5" data-element_type="widget" data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</div>
+		</div>
+						</div>
+				</a>
+		<a class="elementor-element elementor-element-7af90c3 e-con-full e-transform e-flex elementor-invisible e-con e-child" data-id="7af90c3" data-element_type="container" data-settings="{&quot;_transform_scale_effect_hover&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1.02,&quot;sizes&quot;:[]},&quot;animation&quot;:&quot;fadeIn&quot;,&quot;_transform_scale_effect_hover_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;_transform_scale_effect_hover_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" href="https://stanmore.au/assets/">
+				<div class="elementor-element elementor-element-870a250 elementor-widget elementor-widget-image" data-id="870a250" data-element_type="widget" data-widget_type="image.default">
+															<img decoding="async" width="1200" height="799" src="/wp-content/uploads/2025/08/Stanmore-assets-and-projects.jpg" class="attachment-full size-full wp-image-80" alt="" srcset="/wp-content/uploads/2025/08/Stanmore-assets-and-projects.jpg 1200w, /wp-content/uploads/2025/08/Stanmore-assets-and-projects-300x200.jpg 300w, /wp-content/uploads/2025/08/Stanmore-assets-and-projects-1024x682.jpg 1024w, /wp-content/uploads/2025/08/Stanmore-assets-and-projects-768x511.jpg 768w" sizes="(max-width: 1200px) 100vw, 1200px" />															</div>
+				<div class="elementor-element elementor-element-41904d7 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="41904d7" data-element_type="widget" data-widget_type="heading.default">
+					<h5 class="elementor-heading-title elementor-size-default">View our assets and projects.</h5>				</div>
+				<div class="elementor-element elementor-element-180e51b elementor-view-framed elementor-shape-circle elementor-widget elementor-widget-icon" data-id="180e51b" data-element_type="widget" data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</div>
+		</div>
+						</div>
+				</a>
+		<a class="elementor-element elementor-element-fc9c5b7 e-con-full e-transform e-flex elementor-invisible e-con e-child" data-id="fc9c5b7" data-element_type="container" data-settings="{&quot;_transform_scale_effect_hover&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1.02,&quot;sizes&quot;:[]},&quot;animation&quot;:&quot;fadeIn&quot;,&quot;_transform_scale_effect_hover_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;_transform_scale_effect_hover_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" href="https://stanmore.au/sustainability/">
+				<div class="elementor-element elementor-element-f0b4c92 elementor-widget elementor-widget-image" data-id="f0b4c92" data-element_type="widget" data-widget_type="image.default">
+															<img loading="lazy" decoding="async" width="1200" height="895" src="/wp-content/uploads/2025/08/Stanmore-our-ESG-responsibilities.jpg" class="attachment-full size-full wp-image-82" alt="" srcset="/wp-content/uploads/2025/08/Stanmore-our-ESG-responsibilities.jpg 1200w, /wp-content/uploads/2025/08/Stanmore-our-ESG-responsibilities-300x224.jpg 300w, /wp-content/uploads/2025/08/Stanmore-our-ESG-responsibilities-1024x764.jpg 1024w, /wp-content/uploads/2025/08/Stanmore-our-ESG-responsibilities-768x573.jpg 768w" sizes="(max-width: 1200px) 100vw, 1200px" />															</div>
+				<div class="elementor-element elementor-element-b803316 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="b803316" data-element_type="widget" data-widget_type="heading.default">
+					<h5 class="elementor-heading-title elementor-size-default">Read more about our ESG responsibilities.</h5>				</div>
+				<div class="elementor-element elementor-element-3ecbc4e elementor-view-framed elementor-shape-circle elementor-widget elementor-widget-icon" data-id="3ecbc4e" data-element_type="widget" data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</div>
+		</div>
+						</div>
+				</a>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-11ec91a e-flex e-con-boxed e-con e-parent" data-id="11ec91a" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-fd06b84 elementor-widget elementor-widget-heading" data-id="fd06b84" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Share Price</h2>				</div>
+				<div class="elementor-element elementor-element-600d2c9 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="600d2c9" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Our high-quality, long-life and well-capitalised assets are backed by an equipment-rich business and a highly experienced team.</p>								</div>
+				<div class="elementor-element elementor-element-498cb8e elementor-widget elementor-widget-heading" data-id="498cb8e" data-element_type="widget" data-widget_type="heading.default">
+					<h3 class="elementor-heading-title elementor-size-default">SMR:ASX</h3>				</div>
+				<div class="elementor-element elementor-element-bfb6e9c elementor-widget elementor-widget-heading" data-id="bfb6e9c" data-element_type="widget" data-widget_type="heading.default">
+					<h6 class="elementor-heading-title elementor-size-default">Stanmore Resources</h6>				</div>
+				<div class="elementor-element elementor-element-761ea6d inline-div elementor-widget elementor-widget-html" data-id="761ea6d" data-element_type="widget" data-widget_type="html.default">
+					<span>$</span><div class="investi-share-price-last"
+  
+  
+  ></div>				</div>
+				<div class="elementor-element elementor-element-04405e1 elementor-widget elementor-widget-heading" data-id="04405e1" data-element_type="widget" data-widget_type="heading.default">
+					<h6 class="elementor-heading-title elementor-size-default">Last Price / Today’s change</h6>				</div>
+		<div class="elementor-element elementor-element-c3c4f34 e-con-full e-flex e-con e-child" data-id="c3c4f34" data-element_type="container">
+				<div class="elementor-element elementor-element-ad03eb7 elementor-widget elementor-widget-html" data-id="ad03eb7" data-element_type="widget" data-widget_type="html.default">
+					<div class="investi-share-price-movement"
+  
+  
+  ></div>				</div>
+				<div class="elementor-element elementor-element-fdbc84d inline-div elementor-widget elementor-widget-html" data-id="fdbc84d" data-element_type="widget" data-widget_type="html.default">
+					<span>( </span><div class="investi-share-price-movement-percent"
+  
+  
+  ></div><span>% )</span>				</div>
+				</div>
+				<div class="elementor-element elementor-element-b61a8fc elementor-widget elementor-widget-button" data-id="b61a8fc" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://stanmore.au/investors/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Investor Centre</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-b3b7ec4 e-flex e-con-boxed e-con e-parent" data-id="b3b7ec4" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-c08a5e1 e-con-full e-flex elementor-invisible e-con e-child" data-id="c08a5e1" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeIn&quot;}">
+				<div class="elementor-element elementor-element-710fc84 elementor-widget elementor-widget-heading" data-id="710fc84" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Work with us</h2>				</div>
+				<div class="elementor-element elementor-element-4354239 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="4354239" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Looking for a career that challenges you and rewards ambition? Stanmore is built on opportunity, impact, and genuine care.</p>								</div>
+				<div class="elementor-element elementor-element-f9ea4e8 elementor-align-left elementor-widget elementor-widget-button" data-id="f9ea4e8" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://stanmore.au/careers/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Find out more</span>
+					</span>
+					</a>
+								</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-a2b05cf e-flex e-con-boxed elementor-invisible e-con e-parent" data-id="a2b05cf" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeIn&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-6e3251e elementor-widget elementor-widget-heading" data-id="6e3251e" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Get in Touch</h2>				</div>
+				<div class="elementor-element elementor-element-b4472eb elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="b4472eb" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Whether you&#8217;re looking for more information, want to explore opportunities, or have a general enquiry, our team is ready to assist. Reach out and connect with us today.</p>								</div>
+				<div class="elementor-element elementor-element-6481617 elementor-widget elementor-widget-button" data-id="6481617" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://stanmore.au/contact-us/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Contact</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-2412455 e-flex e-con-boxed elementor-invisible e-con e-parent" data-id="2412455" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeIn&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-912a630 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="912a630" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Stanmore recognises the Turrbul, Jagera, Barada Barna, Widi and Jangga People as the Traditional Owners of the land we work and operate on, and respects and acknowledges their role as custodians of the land and waterways.</p>								</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-34f2b56 e-flex e-con-boxed e-con e-parent" data-id="34f2b56" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-6c369f2 elementor-widget elementor-widget-spacer" data-id="6c369f2" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+					</div>
+				</div>
+				</div>
+		
+		
+			</div>
+
+	
+</main>
+
+			<footer data-elementor-type="footer" data-elementor-id="30" class="elementor elementor-30 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-5455112 e-flex e-con-boxed e-con e-parent" data-id="5455112" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-f41386f elementor-widget__width-inherit elementor-widget elementor-widget-image" data-id="f41386f" data-element_type="widget" data-widget_type="image.default">
+															<img width="800" height="320" src="/wp-content/uploads/2025/08/Stanmore_Logo_Reversed-1024x410.png" class="attachment-large size-large wp-image-23" alt="" srcset="/wp-content/uploads/2025/08/Stanmore_Logo_Reversed-1024x410.png 1024w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-300x120.png 300w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-768x307.png 768w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-1536x615.png 1536w, /wp-content/uploads/2025/08/Stanmore_Logo_Reversed-2048x820.png 2048w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+		<div class="elementor-element elementor-element-aca251a e-con-full e-flex e-con e-child" data-id="aca251a" data-element_type="container">
+				<div class="elementor-element elementor-element-05b2a1b elementor-widget elementor-widget-text-editor" data-id="05b2a1b" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Building and fostering a culture of an agile, entrepreneurial and simple organisation.</p>								</div>
+				<div class="elementor-element elementor-element-9c85c06 elementor-shape-circle e-grid-align-left elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="9c85c06" data-element_type="widget" data-widget_type="social-icons.default">
+							<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-repeater-item-a0ac007" href="https://www.linkedin.com/company/stanmore-resources-limited/" target="_blank">
+						<span class="elementor-screen-only">Linkedin-in</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin-in" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-9d57589 e-con-full e-flex e-con e-child" data-id="9d57589" data-element_type="container">
+				<div class="elementor-element elementor-element-d9a1bb7 elementor-nav-menu__align-start elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="d9a1bb7" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-d9a1bb7" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-13 current_page_item menu-item-485"><a href="https://stanmore.au/" aria-current="page" class="elementor-item elementor-item-active">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-486"><a href="https://stanmore.au/about-us/" class="elementor-item">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="https://stanmore.au/investors/" class="elementor-item">Investor Centre</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-491"><a href="https://stanmore.au/sustainability/" class="elementor-item">Sustainability</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-d9a1bb7" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-13 current_page_item menu-item-485"><a href="https://stanmore.au/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-486"><a href="https://stanmore.au/about-us/" class="elementor-item" tabindex="-1">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="https://stanmore.au/investors/" class="elementor-item" tabindex="-1">Investor Centre</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-491"><a href="https://stanmore.au/sustainability/" class="elementor-item" tabindex="-1">Sustainability</a></li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-56ec545 elementor-nav-menu__align-start elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="56ec545" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-56ec545" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-494"><a href="https://stanmore.au/assets/" class="elementor-item">Assets</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3135"><a target="_blank" href="https://careers.stanmore.au/" class="elementor-item">Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-496"><a href="https://stanmore.au/contact-us/" class="elementor-item">Contact Us</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-56ec545" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-494"><a href="https://stanmore.au/assets/" class="elementor-item" tabindex="-1">Assets</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3135"><a target="_blank" href="https://careers.stanmore.au/" class="elementor-item" tabindex="-1">Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-496"><a href="https://stanmore.au/contact-us/" class="elementor-item" tabindex="-1">Contact Us</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-006ee68 e-con-full e-flex e-con e-child" data-id="006ee68" data-element_type="container">
+				<div class="elementor-element elementor-element-d97c2e4 elementor-widget elementor-widget-heading" data-id="d97c2e4" data-element_type="widget" data-widget_type="heading.default">
+					<h6 class="elementor-heading-title elementor-size-default">Keep in touch</h6>				</div>
+				<div class="elementor-element elementor-element-888edf2 elementor-widget elementor-widget-text-editor" data-id="888edf2" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>+61 (7) 3238 1000</p>								</div>
+				<div class="elementor-element elementor-element-c323e0a elementor-widget elementor-widget-text-editor" data-id="c323e0a" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Level 32 <br />12 Creek Street <br />Brisbane QLD 4000</p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-ceed5c3 e-con-full e-flex e-con e-child" data-id="ceed5c3" data-element_type="container">
+				<div class="elementor-element elementor-element-d52b0df elementor-widget elementor-widget-text-editor" data-id="d52b0df" data-element_type="widget" data-widget_type="text-editor.default">
+									<p><a href="https://stanmore.au/download/privacy-policy-2/?wpdmdl=1413&amp;masterkey=WIyQKBHjJtSiwQ65-sJ_9lYjP_pf4oHEQ5LEJ7HejNzVvxGw4ark-Z8o3cp69xxk6RXyq8EHg9GKLuhi4SkQBWiiPOCkB-OWAPd1ayFWDLg">Privacy Policy</a> | <a href="https://stanmore.au/about-us/supplier-information/">Speak Up</a></p>								</div>
+				<div class="elementor-element elementor-element-fbe9846 elementor-widget elementor-widget-text-editor" data-id="fbe9846" data-element_type="widget" data-widget_type="text-editor.default">
+									© 2026 Stanmore Resources Limited. All rights reserved.								</div>
+				</div>
+					</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/stanmore-theme/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+            <script>
+                const abmsg = "We noticed an ad blocker. Consider whitelisting us to support the site ❤️";
+                const abmsgd = "download";
+                const iswpdmpropage = 0;
+                jQuery(function($){
+
+                    
+                });
+            </script>
+            <div id="fb-root"></div>
+            			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script src="https://stanmore.au/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script src="https://stanmore.au/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script src="https://stanmore.au/wp-includes/js/jquery/jquery.form.min.js?ver=4.3.0" id="jquery-form-js"></script>
+<script src="https://api.investi.com.au/investi.js?apiKey=093516b5-bd24-47b4-be07-1c076579cc83&amp;ver=6.9" id="investi-js-js"></script>
+<script src="https://stanmore.au/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script src="https://stanmore.au/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.3" id="jquery-ui-datepicker-js"></script>
+<script id="jquery-ui-datepicker-js-after">
+jQuery(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"d MM yy","firstDay":1,"isRTL":false});});
+//# sourceURL=jquery-ui-datepicker-js-after
+</script>
+<script src="/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.5" id="hello-theme-frontend-js"></script>
+<script src="/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.33.4" id="elementor-webpack-runtime-js"></script>
+<script src="/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.33.4" id="elementor-frontend-modules-js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.33.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true,"mega-menu":true,"e_pro_variables":true},"urls":{"assets":"\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/stanmore.au\/wp-admin\/admin-ajax.php","uploadUrl":"\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"07db3ac58a"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":13,"title":"Stanmore","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script src="/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.33.4" id="elementor-frontend-js"></script>
+<script src="/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js"></script>
+<script src="https://stanmore.au/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
+<script src="/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js"></script>
+<script src="/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.33.2" id="elementor-pro-webpack-runtime-js"></script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/stanmore.au\/wp-admin\/admin-ajax.php","nonce":"1d91e06102","urls":{"assets":"\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/stanmore.au\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_AU","app_id":""},"lottie":{"defaultAnimationUrl":"\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script src="/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.33.2" id="elementor-pro-frontend-js"></script>
+<script src="/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.33.2" id="pro-elements-handlers-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://stanmore.au/wp-includes/js/wp-emoji-release.min.js?ver=6.9"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://stanmore.au/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script>
+function waitForElement(selector, callback) {
+    const observer = new MutationObserver((mutations, observer) => {
+        const element = document.querySelector(selector);
+        if (element) {
+            observer.disconnect();
+            callback(element);
+        }
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+    });
+}		
+	
+jQuery( document ).ready(function() {
+
+	waitForElement('.investi-announcements-accordion table', (element) => {
+		
+		jQuery( ".investi-announcements-accordion table" ).each(function( index  ) {
+    	var rows = jQuery("tr", this).length;
+      jQuery(this).prev().append("<span> - <span class='row-num'>" + rows + "</span> results</span>");
+  	});
+    
+    jQuery('.investi-searchbox').on('input',function(e){
+        var count = 0;
+				setTimeout( function() {
+          jQuery( ".investi-announcements-accordion table" ).each(function( index  ) {
+						count = 0;
+						jQuery("tr", this).each(function( index  ) {
+							if (jQuery(this).css('display') != 'none')
+							{
+								 count++;
+							}
+						});
+						jQuery(this).prev().find(".row-num").text(count);
+          });
+        }, 500);
+    });
+	});
+});
+</script>
+
+</body>
+</html>

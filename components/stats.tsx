@@ -1,8 +1,8 @@
 const stats = [
   { value: "2007", label: "Australian-owned since" },
   { value: "1,000+", label: "Towers manufactured" },
-  { value: "320+", label: "People employed globally" },
-  { value: "100%", label: "Assets developed in-house" },
+  { value: "200+", label: "Mine sites served" },
+  { value: "100%", label: "Designed & built in-house" },
 ]
 
 export function Stats() {

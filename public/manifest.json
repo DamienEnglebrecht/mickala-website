@@ -1,0 +1,34 @@
+{
+  "name": "Mickala Operations",
+  "short_name": "MickalaOps",
+  "description": "Mickala Group field operations forms — inspections, servicing, pre-starts and safety",
+  "start_url": "/operations",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#c1272d",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["business", "productivity"],
+  "lang": "en-AU",
+  "dir": "ltr"
+}

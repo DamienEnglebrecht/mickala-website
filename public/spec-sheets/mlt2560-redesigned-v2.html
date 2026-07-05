@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLT 2560-LED Single Axle — Spec Sheet</title>
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  /* ===== PAGE 1: SPEC SHEET ===== */
+  .page1 {
+    background: #fff;
+  }
+  .page1 .header {
+    background: #1a1a1a;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page1 .header h1 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .page1 .header .mickala {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 3px;
+  }
+  .page1 .header .mickala span { color: #dc2626; }
+
+  .page1 .product-title {
+    background: #dc2626;
+    color: #fff;
+    padding: 14px 30px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+
+  .page1 .two-col {
+    display: flex;
+    height: calc(100% - 130px);
+  }
+  .page1 .left {
+    width: 45%;
+    padding: 20px 0 20px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  .page1 .right {
+    width: 55%;
+    padding: 20px 30px 20px 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page1 .product-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .page1 .product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .page1 .badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .page1 .badge {
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+  .page1 .badge.red { background: #dc2626; }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    flex: 1;
+  }
+  .spec-item {
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 10px 12px;
+    border-left: 3px solid #dc2626;
+  }
+  .spec-item .label {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    font-weight: 600;
+  }
+  .spec-item .value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 2px;
+  }
+  .spec-item .value span {
+    font-weight: 400;
+    font-size: 11px;
+    color: #666;
+  }
+
+  .spec-section-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #dc2626;
+    margin: 10px 0 6px;
+  }
+
+  /* ===== PAGE 2: LIGHT SIMULATION ===== */
+  .page2 {
+    background: #1a1a1a;
+  }
+  .page2 .header {
+    background: #dc2626;
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page2 .header h2 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .page2 .header .sub {
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+  }
+
+  .page2 .sims {
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .sim-card {
+    background: #2a2a2a;
+    border-radius: 8px;
+    padding: 14px;
+    border: 1px solid #333;
+  }
+  .sim-card h3 {
+    color: #dc2626;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .sim-card .info {
+    color: rgba(255,255,255,0.6);
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+  .sim-card .info strong { color: #fff; }
+  .sim-card canvas {
+    width: 100%;
+    height: 120px;
+    border-radius: 4px;
+    background: #1a1a1a;
+  }
+
+  .sim-card .footnote {
+    color: rgba(255,255,255,0.4);
+    font-size: 8px;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .page2 .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 30px;
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page2 .footer .mickala {
+    color: #dc2626;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+  }
+  .page2 .footer .details {
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    text-align: right;
+  }
+
+  /* ===== COMMON ===== */
+  .footer-bar {
+    background: #1a1a1a;
+    color: rgba(255,255,255,0.5);
+    font-size: 8px;
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .footer-bar strong { color: #dc2626; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: SPEC SHEET -->
+<div class="page page1">
+  <div class="header">
+    <div class="mickala">MICKALA <span>GROUP</span></div>
+    <h1>SPECIFICATION SHEET</h1>
+  </div>
+  <div class="product-title">MLT 2560-LED &mdash; SINGLE AXLE LIGHTING TOWER</div>
+
+  <div class="two-col">
+    <div class="left">
+      <div class="product-image">
+        <img src="/spec-sheets/img_mlt2560_3d.png" alt="MLT 2560-LED 3D Render" onerror="this.style.display='none'">
+      </div>
+      <div class="badges">
+        <span class="badge">AUSTRALIAN DESIGNED</span>
+        <span class="badge red">ELV</span>
+        <span class="badge red">12 MONTH WARRANTY</span>
+        <span class="badge">24/7 SUPPORT</span>
+        <span class="badge">HYDRAULIC CONTROL</span>
+        <span class="badge">3 STAGE PAINT</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="spec-section-title">Lighting</div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="label">Type</div><div class="value">LED</div></div>
+        <div class="spec-item"><div class="label">Lights</div><div class="value">8</div></div>
+        <div class="spec-item"><div class="label">Wattage</div><div class="value">2,560 w</div></div>
+        <div class="spec-item"><div class="label">Lumens</div><div class="value">532,480 lm</div></div>
+        <div class="spec-item"><div class="label">lm/W</div><div class="value">208</div></div>
+        <div class="spec-item"><div class="label">Lamp Life</div><div class="value">60,000 <span>hrs</span></div></div>
+      </div>
+
+      <div class="spec-section-title">Engine &amp; Generator</div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="label">Engine</div><div class="value">Kubota Z482-E</div></div>
+        <div class="spec-item"><div class="label">Cylinders</div><div class="value">2</div></div>
+        <div class="spec-item"><div class="label">Speed</div><div class="value">1,650 <span>RPM</span></div></div>
+        <div class="spec-item"><div class="label">Fuel</div><div class="value">Diesel</div></div>
+        <div class="spec-item"><div class="label">Generator Voltage</div><div class="value">24 <span>VDC</span></div></div>
+        <div class="spec-item"><div class="label">Fuel Capacity</div><div class="value">185 <span>L</span></div></div>
+      </div>
+
+      <div class="spec-section-title">Dimensions &amp; Chassis</div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="label">Width</div><div class="value">2,000 <span>mm</span></div></div>
+        <div class="spec-item"><div class="label">Length</div><div class="value">4,300 <span>mm</span></div></div>
+        <div class="spec-item"><div class="label">Height</div><div class="value">2,450 <span>mm</span></div></div>
+        <div class="spec-item"><div class="label">Net Weight</div><div class="value">2,220 <span>kg</span></div></div>
+        <div class="spec-item"><div class="label">Tyre Size</div><div class="value">235 R16</div></div>
+        <div class="spec-item"><div class="label">Tow Speed</div><div class="value">100 <span>km/h</span></div></div>
+        <div class="spec-item"><div class="label">Stabilisers</div><div class="value">4 <span>Hydraulic Legs</span></div></div>
+        <div class="spec-item"><div class="label">Mast Rotation</div><div class="value">340&deg;</div></div>
+        <div class="spec-item"><div class="label">Tow Point</div><div class="value">Ball or Ring</div></div>
+        <div class="spec-item"><div class="label">Paint Protection</div><div class="value">3 Stage <span>inc. E-Coat</span></div></div>
+      </div>
+
+      <div class="spec-section-title">Operating</div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="label">Hours @ 100% Load</div><div class="value">231 <span>hrs</span></div></div>
+        <div class="spec-item"><div class="label">Fuel Consumption</div><div class="value">0.8 <span>L/h</span></div></div>
+        <div class="spec-item"><div class="label">Service Interval</div><div class="value">500 <span>hrs</span></div></div>
+        <div class="spec-item"><div class="label">Auto Start/Stop</div><div class="value">Standard</div></div>
+        <div class="spec-item"><div class="label">Low Fuel Beacon</div><div class="value">Auto Email @10%</div></div>
+        <div class="spec-item"><div class="label">Air Filtration</div><div class="value">2 Stage</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <span>www.mickalagroup.com.au</span>
+    <span>1300 MICKALA</span>
+    <span>Rev 1.0 &bull; MLT 2560-LED SA</span>
+  </div>
+</div>
+
+<!-- PAGE 2: LIGHT SIMULATION -->
+<div class="page page2">
+  <div class="header">
+    <h2>LIGHT SIMULATION &mdash; MLT 2560-LED</h2>
+    <div class="sub">Model: DCB48-320 &bull; 8x Lights &bull; 320W Each &bull; 13&deg; Optic</div>
+  </div>
+
+  <div class="sims">
+    <!-- Sim 1: Straight 2700K -->
+    <div class="sim-card">
+      <h3>Simulation 1 &mdash; Straight &bull; 2700K</h3>
+      <div class="info">
+        <strong>Model:</strong> DCB48-320 &bull; <strong>Qty:</strong> 8x &bull; <strong>Lens:</strong> 13&deg;<br>
+        <strong>Direction:</strong> 0&deg; &bull; <strong>Angle:</strong> 5&deg; &bull; <strong>Color:</strong> 2700K
+      </div>
+      <canvas id="sim1"></canvas>
+      <div class="footnote">Lux values at distance &mdash; Peak: 463 lux @ 250m</div>
+    </div>
+
+    <!-- Sim 2: Spread 2700K -->
+    <div class="sim-card">
+      <h3>Simulation 2 &mdash; Spread &bull; 2700K</h3>
+      <div class="info">
+        <strong>Model:</strong> DCB48-320 &bull; <strong>Qty:</strong> 8x &bull; <strong>Lens:</strong> 13&deg;<br>
+        <strong>Direction:</strong> -45&deg; x 45&deg; &bull; <strong>Angle:</strong> 5&deg; &bull; <strong>Color:</strong> 2700K
+      </div>
+      <canvas id="sim2"></canvas>
+      <div class="footnote">Spread distribution &mdash; wider coverage area</div>
+    </div>
+
+    <!-- Sim 3: Straight 6500K -->
+    <div class="sim-card">
+      <h3>Simulation 3 &mdash; Straight &bull; 6500K</h3>
+      <div class="info">
+        <strong>Model:</strong> DCB48-320 &bull; <strong>Qty:</strong> 8x &bull; <strong>Lens:</strong> 13&deg;<br>
+        <strong>Direction:</strong> 0&deg; &bull; <strong>Angle:</strong> 5&deg; &bull; <strong>Color:</strong> 6500K
+      </div>
+      <canvas id="sim3"></canvas>
+      <div class="footnote">Lux values at distance &mdash; Peak: 463 lux @ 250m</div>
+    </div>
+
+    <!-- Sim 4: Spread 6500K -->
+    <div class="sim-card">
+      <h3>Simulation 4 &mdash; Spread &bull; 6500K</h3>
+      <div class="info">
+        <strong>Model:</strong> DCB48-320 &bull; <strong>Qty:</strong> 8x &bull; <strong>Lens:</strong> 13&deg;<br>
+        <strong>Direction:</strong> -45&deg; x 45&deg; &bull; <strong>Angle:</strong> 5&deg; &bull; <strong>Color:</strong> 6500K
+      </div>
+      <canvas id="sim4"></canvas>
+      <div class="footnote">Spread distribution &mdash; wider coverage area</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="mickala">MICKALA GROUP</div>
+    <div class="details">
+      www.mickalagroup.com.au &bull; 1300 MICKALA<br>
+      MLT 2560-LED &bull; Light Simulation Data &bull; Rev 1.0
+    </div>
+  </div>
+</div>
+
+<script>
+// Draw lux heatmap on canvases
+function drawLux(canvasId, data, label) {
+  const c = document.getElementById(canvasId);
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  const w = c.width = c.clientWidth * 2;
+  const h = c.height = c.clientHeight * 2;
+  ctx.scale(2, 2);
+  
+  const cw = c.clientWidth;
+  const ch = c.clientHeight;
+  
+  // Background
+  ctx.fillStyle = '#1a1a1a';
+  ctx.fillRect(0, 0, cw, ch);
+  
+  // Normalize data
+  const cols = 11, rows = 11;
+  const max = Math.max(...data, 1);
+  const cellW = (cw - 60) / cols;
+  const cellH = (ch - 40) / rows;
+  
+  // Draw grid
+  for (let r = 0; r < rows; r++) {
+    for (let c2 = 0; c2 < cols; c2++) {
+      const val = data[r * cols + c2] || 0;
+      const norm = val / max;
+      const x = 50 + c2 * cellW;
+      const y = 30 + r * cellH;
+      
+      // Color gradient: dark red → bright yellow → white
+      let rCol, gCol, bCol;
+      if (norm < 0.3) {
+        rCol = 100 + Math.floor(norm / 0.3 * 80);
+        gCol = 10;
+        bCol = 10;
+      } else if (norm < 0.6) {
+        const t = (norm - 0.3) / 0.3;
+        rCol = 180 + Math.floor(t * 75);
+        gCol = 10 + Math.floor(t * 100);
+        bCol = 10;
+      } else {
+        const t = (norm - 0.6) / 0.4;
+        rCol = 255;
+        gCol = 110 + Math.floor(t * 145);
+        bCol = 10 + Math.floor(t * 50);
+      }
+      
+      ctx.fillStyle = `rgb(${rCol},${gCol},${bCol})`;
+      ctx.fillRect(x, y, cellW, cellH);
+      
+      // Value text
+      if (val > 0) {
+        ctx.fillStyle = val > max * 0.4 ? '#1a1a1a' : '#fff';
+        ctx.font = '8px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(val.toString(), x + cellW/2, y + cellH/2 + 3);
+      }
+    }
+  }
+  
+  // Axis labels
+  ctx.fillStyle = '#999';
+  ctx.font = '7px Arial';
+  ctx.textAlign = 'center';
+  const dists = [250, 200, 150, 100, 50, 0, -50];
+  for (let i = 0; i < 7; i++) {
+    ctx.fillText(dists[i], 50 + i * cellW, 20);
+  }
+  
+  // Y labels
+  ctx.textAlign = 'right';
+  const yLabels = ['1000', '800', '600', '400', '200', '0', '-50'];
+  for (let i = 0; i < 7; i++) {
+    ctx.fillText(yLabels[i], 44, 35 + i * cellH * 1.67 + 3);
+  }
+  
+  // Title
+  ctx.fillStyle = '#fff';
+  ctx.font = '7px Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText(label, 50, ch - 5);
+}
+
+// Data from the actual PDF
+const dataStraight = [
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  1,1,1,1,1,1,1,1,1,0,0,
+  2,3,4,5,7,11,18,35,93,463,0,
+  0,1,2,2,2,2,2,1,1,1,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0
+];
+
+const dataSpread = [
+  0,0,1,1,1,1,2,3,4,0,0,
+  0,0,1,1,1,1,2,5,11,8,0,
+  0,0,1,1,1,1,2,5,13,60,0,
+  0,0,1,1,1,1,2,5,10,10,0,
+  0,0,0,1,1,1,2,3,4,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0
+];
+
+drawLux('sim1', dataStraight, 'Straight 2700K — Peak 463 lux @ 250m');
+drawLux('sim2', dataSpread, 'Spread 2700K — Wider coverage distribution');
+drawLux('sim3', dataStraight, 'Straight 6500K — Peak 463 lux @ 250m');
+drawLux('sim4', dataSpread, 'Spread 6500K — Wider coverage distribution');
+</script>
+
+</body>
+</html>

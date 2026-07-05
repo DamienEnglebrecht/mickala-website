@@ -1,4 +1,4 @@
-import { Handshake, ShieldCheck, TrendingUp } from "lucide-react"
+import { Handshake, ShieldCheck, TrendingUp, Wrench, Gauge, Clock } from "lucide-react"
 import { SectionHeading } from "./section-heading"
 
 const values = [
@@ -22,6 +22,13 @@ const values = [
   },
 ]
 
+const badges = [
+  { label: "MDG15 Compliant", icon: ShieldCheck },
+  { label: "ELV Safety Rated", icon: Gauge },
+  { label: "Australian Made", icon: Wrench },
+  { label: "24/7 Support", icon: Clock },
+]
+
 export function WhyMickala() {
   return (
     <section className="bg-background py-20 lg:py-28">
@@ -29,11 +36,23 @@ export function WhyMickala() {
         <SectionHeading
           align="center"
           eyebrow="Why Mickala"
-          title="Your Powerful Solution"
-          description="A privately owned group of companies delivering innovative solutions to Australia's leading businesses across multiple sectors and countries."
+          title="Built For Mining. Proven On Site."
+          description="A privately owned group of companies delivering innovative LED lighting solutions to Australia's leading mining and industrial operations."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          {badges.map((badge) => (
+            <span
+              key={badge.label}
+              className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary"
+            >
+              <badge.icon className="h-3.5 w-3.5" />
+              {badge.label}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {values.map((value) => (
             <div
               key={value.title}

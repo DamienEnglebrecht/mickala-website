@@ -1,6 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Archivo, Inter } from 'next/font/google'
+import { PageTracker } from '@/components/page-tracker'
+import { PwaRegister } from '@/components/pwa-register'
 import './globals.css'
 
 const inter = Inter({
@@ -21,6 +23,12 @@ export const metadata: Metadata = {
   description:
     'Australian-owned OEM manufacturer of extra-low-voltage LED lighting towers for mining, construction and industrial operations. Design, manufacture, maintenance and 24/7/365 support.',
   generator: 'v0.app',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Mickala Ops',
+  },
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
@@ -32,7 +40,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#16140f',
+  themeColor: '#c1272d',
 }
 
 export default function RootLayout({
@@ -43,6 +51,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${archivo.variable} bg-background`}>
       <body className="font-sans antialiased">
+        <PageTracker />
+        <PwaRegister />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
