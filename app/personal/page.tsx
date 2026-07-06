@@ -24,6 +24,9 @@ const sections: Section[] = [
     icon: Scale,
     items: [
       { label: "Costs Submission v4", href: "/costs-submission-v4" },
+      { label: "Costs Submission v8 (Updated — LSC Referral Added)", file: "costs/Costs Submission - Draft v8.docx" },
+      { label: "Affidavit of Damien Englebrecht (85 paragraphs)", file: "costs/Affidavit_of_Damien_Englebrecht_Costs.docx" },
+      { label: "Cross-Examination Brief (Hirst 11 themes, Hackett 6, Nicole 8)", file: "costs/Cross_Examination_Brief.docx" },
       { label: "Calderbank Offer (Dec 2022)", file: "20221209 - Settlement Offer (BarryNilsson to Stone Group).pdf" },
       { label: "Draft Final Orders (v2)", file: "2026.06.24 - Draft Final Orders (v2).pdf" },
     ],
@@ -58,6 +61,8 @@ const sections: Section[] = [
       { label: "White Industries v Flower & Hart", href: "/cases/white-industries" },
       { label: "Calderbank v Calderbank", href: "/cases/calderbank" },
       { label: "Briginshaw v Briginshaw", href: "/cases/briginshaw" },
+      { label: "[2006] LPT 015 — LSC v Hackett (Misleading Affidavit)", file: "costs/Hackett_LPT_2006_Decision.pdf" },
+      { label: "BD 1249/20 — Conley v Hirst (Negligence Claim)", file: "costs/C636 DOC 12.pdf" },
     ],
   },
   {
