@@ -130,7 +130,7 @@ const categories: Record<string, CategoryData> = {
   "long-range": {
     title: "Long Range",
     description: "Extended mast and long-throw optics for high-mast applications and expansive open-cut operations.",
-    heroImage: "/product-long-range.png",
+    heroImage: "/long-range-hero.jpg",
     statLine: "2 models · 4800W – 7200W · High-mast ready",
     models: [
       { name: "MLR 4800-LED", led: "4800W", desc: "Extended runtime and coverage for large-scale operations.", image: "/product-images/doc_8391d0d6a389_mlr-4800-led-sled-mounted-tower.png", slug: "long-range-4800-led", specSheet: "/spec-sheets/long-range-4800-led.pdf", lightSim: "/spec-sheets/long-range-4800-led-lightsim.pdf" },
