@@ -1,247 +1,311 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Users, Factory, Lightbulb, HeadphonesIcon } from "lucide-react"
+
+const stats = [
+  { label: "Founded", value: "2007" },
+  { label: "Towers Manufactured", value: "2,000+" },
+  { label: "Mine Sites Served", value: "200+" },
+  { label: "In-House Design", value: "100%" },
+]
+
+const values = [
+  "Innovation through continuous improvement — supply tomorrow's technology today",
+  "Australian-owned and operated, engineered for the harshest Australian conditions",
+  "100% in-house design and manufacture — total control over quality and IP",
+  "ISO 9001 Certified quality management systems across all operations",
+  "24/7/365 support from factory-trained technicians, nationwide",
+  "Long-term partnerships built on honesty, integrity, and trust",
+  "Reduce operational costs and carbon footprint through smarter design",
+  "Commitment to safety, quality, and environmental responsibility",
+]
 
 export default function OurStoryPage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Top nav */}
-      <div className="border-b">
-        <div className="container mx-auto px-4 py-3">
-          <Link href="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Home
+    <div className="bg-black text-white">
+      {/* ===== STICKY NAV ===== */}
+      <div className="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6 h-10 flex items-center justify-between">
+          <Link href="/" className="text-sm font-semibold tracking-tight">
+            Mickala
           </Link>
+          <nav className="hidden md:flex items-center gap-8">
+            <Link
+              href="/spec-sheets"
+              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
+            >
+              Lighting Towers
+            </Link>
+            <Link
+              href="/production-quality"
+              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
+            >
+              LED Lighting
+            </Link>
+            <Link
+              href="/fuel-trailers"
+              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
+            >
+              Fuel Trailers
+            </Link>
+            <Link
+              href="/our-story"
+              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
+            >
+              About
+            </Link>
+            <Link
+              href="/gallery"
+              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
+            >
+              Gallery
+            </Link>
+          </nav>
+          <a
+            href="tel:1300642525"
+            className="text-[11px] text-white/70 hover:text-white transition-colors tracking-wide uppercase shrink-0"
+          >
+            1300 642 525
+          </a>
         </div>
       </div>
 
-      {/* 18 Years Strong */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">18 Years Strong</h2>
-                <p className="text-sm uppercase tracking-widest text-primary font-semibold mb-6">
-                  Mickala&apos;s Ongoing Dedication to Local Success
-                </p>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Mickala would like to sincerely thank all of our clients, as well as our past and present employees,
-                    for their incredible support over the past 18 years. We wouldn&apos;t be where we are today without you.
-                  </p>
-                  <p>
-                    At Mickala, we believe in the power of strong partnerships and long-term relationships. Our philosophy
-                    has always centred around building close alliances with our clients, and it&apos;s these connections that
-                    have driven our success.
-                  </p>
-                  <p>
-                    At the heart of our philosophy is a deep understanding that long-term sustainability as a leading
-                    service contractor relies on consistent performance, uncompromising quality, and dependable reliability
-                    — all driven by a culturally strong and united team. At Mickala, we believe our people are our
-                    greatest asset, and our clients are a valued gift — offering the opportunity for shared success.
-                  </p>
-                </div>
-              </div>
-              <div className="bg-card rounded-2xl border overflow-hidden min-h-[300px]">
-                <Image
-                  src="/18-years-strong.webp"
-                  alt="Mickala Group Dual Axle Lighting Towers group of 6"
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <section className="bg-primary py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary-foreground">320+</div>
-              <div className="text-sm text-primary-foreground/80 mt-1">Employees Globally</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary-foreground">1,500+</div>
-              <div className="text-sm text-primary-foreground/80 mt-1">Units Manufactured</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary-foreground">100%</div>
-              <div className="text-sm text-primary-foreground/80 mt-1">In-House Design</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary-foreground">18</div>
-              <div className="text-sm text-primary-foreground/80 mt-1">Years of Innovation</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Narrative */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="md:col-span-1">
-                <div className="bg-card rounded-2xl border overflow-hidden min-h-[300px]">
-                  <Image
-                    src="/our-story-photo.webp"
-                    alt="Mickala Sled Mounted Lighting Tower"
-                    width={500}
-                    height={700}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="md:col-span-2">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Our Story</h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    <strong className="text-foreground">Every business begins with a spark</strong> — an idea, a challenge,
-                    or a need waiting to be met. Ours was no different.
-                  </p>
-                  <p>
-                    Founded on the belief that quality and integrity go hand in hand, Mickala started with a simple goal:
-                    to create something meaningful, lasting, and truly valuable for our customers.
-                  </p>
-                  <p>
-                    From our humble beginnings in a single office with a big vision, we&apos;ve grown into a team of
-                    passionate professionals, committed to excellence in everything we do. Along the way, we&apos;ve built
-                    strong relationships with our clients, partners, and communities, always guided by the same principles
-                    that sparked our journey.
-                  </p>
-                  <p>
-                    Today, we&apos;re proud of how far we&apos;ve come — but we&apos;re even more excited about where we&apos;re going.
-                    Our story is still being written, and we&apos;re glad you&apos;re a part of it.
-                  </p>
-                  <p>
-                    In 2011, Mickala expanded into LED lighting towers. After five years of searching for the ideal
-                    solution, we made the decision to design and manufacture our own. Since then, we&apos;ve perfected the art
-                    of lighting tower solutions.
-                  </p>
-                  <p>
-                    With full in-house design and manufacturing capabilities, Mickala delivers reliable, high-performance
-                    lighting towers that provide real value across all industries.
-                  </p>
-                  <p>
-                    Mickala&apos;s commitment to &ldquo;Innovation through continuous improvement&rdquo; has led to the
-                    development of an industry-specific LED lighting tower designed to reduce operational costs through our
-                    proven model. Each unit is thoroughly inspected by our factory-trained technicians, ensuring seamless
-                    integration and zero disruption to site productivity upon mobilisation.
-                  </p>
-                  <div className="bg-card border rounded-xl p-6 mt-6">
-                    <h3 className="text-xl font-bold mb-3">The Mickala Group Today</h3>
-                    <p className="mb-3">
-                      <strong>As a group, Mickala now employs over 320 people globally.</strong> We are proud to be the
-                      largest privately owned OEM of LED lighting towers, having manufactured over 1,500 units to date.
-                    </p>
-                    <p className="mb-3">
-                      At Mickala, we design and develop <strong>100% of our assets in-house.</strong> This end-to-end
-                      control ensures we maintain ownership of our intellectual property and, most importantly, uphold the
-                      highest standards of quality across every product we deliver.
-                    </p>
-                    <p>
-                      As we look ahead, we&apos;re excited about what the next 18 years hold for the Mickala Group, our
-                      dedicated team, and our valued clients around the world.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quote */}
-      <section className="bg-muted py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xl md:text-2xl font-medium italic text-foreground leading-relaxed">
-              &ldquo;We thrive in dynamic markets by staying adaptable and building strong partnerships with our clients,
-              ensuring mutual success through shared goals.&rdquo;
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Since 2007 */}
-      <section className="py-16 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="h-px flex-1 bg-border" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary">Since 2007</span>
-              <span className="h-px flex-1 bg-border" />
-            </div>
-            <p className="text-center text-lg text-muted-foreground max-w-2xl mx-auto">
-              Since 2007, we have built long-standing relationships founded on honesty, integrity, and trust
-              in everything we do.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Support & Maintenance */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-card border rounded-xl p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <HeadphonesIcon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-bold">Support 24/7/365</h3>
-                  </div>
-                </div>
-                <p className="text-muted-foreground">
-                  Our global support network is always ready to assist you — 24 hours a day, 7 days a week, 365 days a
-                  year. Whether you need technical advice or troubleshooting help, we&apos;re just a phone call away to keep
-                  your lighting tower fleet running smoothly.
-                </p>
-              </div>
-              <div className="bg-card border rounded-xl p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Factory className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-bold">Maintenance</h3>
-                  </div>
-                </div>
-                <p className="text-muted-foreground">
-                  Our Mickala Service Programs can help reduce operational expenditure by up to 70%. We&apos;ve already
-                  saved our customers an estimated AUD $250 million — while also making a significant impact on reducing
-                  the global carbon footprint.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <section className="bg-primary py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Want to know more about our lighting solutions?
-          </h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Contact our team today for spec sheets, technical support, or a quote.
+      {/* ===== HERO ===== */}
+      <section className="relative h-screen min-h-[600px]">
+        <Image
+          src="/our-story-hero.webp"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 max-w-[1200px] mx-auto px-6 pb-20 sm:pb-28">
+          <p className="text-xs text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">
+            Since 2007
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-white text-primary px-8 py-3.5 font-semibold hover:bg-white/90 transition-colors"
-          >
-            Get in Touch
-          </Link>
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-4">
+            Our Story
+          </h1>
+          <p className="text-base sm:text-lg text-white/60 max-w-lg mb-8">
+            From a dairy farm to Australia&apos;s leading privately owned OEM manufacturer of
+            LED lighting towers — built from nothing, driven by innovation.
+          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="tel:1300642525"
+              className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full"
+            >
+              Call 1300 642 525
+            </a>
+            <Link
+              href="/quote"
+              className="inline-flex items-center px-6 py-3 border border-white/20 hover:border-white/40 transition-colors text-sm font-semibold rounded-full"
+            >
+              Request a Quote
+            </Link>
+          </div>
         </div>
       </section>
+
+      {/* ===== STAT STRIP ===== */}
+      <section className="border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/[0.06]">
+            {stats.map((stat) => (
+              <div key={stat.label} className="py-8 sm:py-10 px-6 text-center">
+                <p className="text-2xl sm:text-3xl font-bold whitespace-nowrap">
+                  {stat.value}
+                </p>
+                <p className="text-[11px] text-white/40 font-medium tracking-[0.08em] uppercase whitespace-nowrap">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== MAIN CONTENT ===== */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div className="space-y-4 text-sm text-white/50 leading-relaxed">
+              <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-6">
+                How it began
+              </p>
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] text-white mb-6">
+                Founded in 2007 by Damien Englebrecht.
+              </h2>
+              <p>
+                Mickala started with nothing — on a dairy farm, with a simple idea
+                and a relentless work ethic. What began as a small operation grew
+                into something far bigger than anyone imagined.
+              </p>
+              <p>
+                Today, Mickala is an Australian-owned OEM manufacturer of
+                extra-low-voltage LED lighting towers. We design and manufacture
+                100% of our assets in-house — giving us total control over quality,
+                intellectual property, and reliability from end to end.
+              </p>
+              <p>
+                Every tower is thoroughly inspected by our factory-trained
+                technicians, ensuring seamless integration and zero disruption to
+                site productivity upon mobilisation.
+              </p>
+              <p>
+                With over 2,000 towers manufactured and deployed across 200+ mine
+                sites, Mickala has become a trusted partner to major mining
+                operations across Australia.
+              </p>
+              <p className="text-white/70 font-semibold pt-4">
+                &ldquo;Innovation through continuous improvement&rdquo; — our philosophy drives
+                everything we do.
+              </p>
+            </div>
+            <div className="relative aspect-[3/4] lg:aspect-auto lg:h-[550px] overflow-hidden border border-white/[0.06]">
+              <Image
+                src="/our-story-photo.webp"
+                alt="Mickala Sled Mounted Lighting Tower"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== LOCATIONS ===== */}
+      <section className="py-16 sm:py-20 bg-white/[0.02] border-t border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase text-center mb-8">
+            Our Locations
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-xl mx-auto">
+            <div className="text-center border border-white/[0.06] py-8 px-6">
+              <p className="text-sm font-semibold mb-1">Mackay — Head Office</p>
+              <p className="text-[11px] text-white/40">
+                21 Caterpillar Drive, Paget QLD 4740
+              </p>
+            </div>
+            <div className="text-center border border-white/[0.06] py-8 px-6">
+              <p className="text-sm font-semibold mb-1">Muswellbrook — NSW</p>
+              <p className="text-[11px] text-white/40">
+                37 Thomas Mitchell Dr, Muswellbrook NSW 2333
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== VALUES ===== */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4 text-center">
+              Our Philosophy
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-10 text-center">
+              Innovation through continuous improvement.
+            </h2>
+            <div className="space-y-4">
+              {values.map((value) => (
+                <div key={value} className="flex items-start gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626] mt-2 shrink-0" />
+                  <p className="text-sm text-white/60 leading-relaxed">{value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CTA ===== */}
+      <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">
+            Get in touch
+          </p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">
+            Want to learn more?
+          </h2>
+          <p className="text-sm text-white/50 mb-8 max-w-md mx-auto">
+            Talk to our team about our story, our towers, and how we can support
+            your next project.
+          </p>
+          <div className="flex items-center justify-center gap-6">
+            <a
+              href="tel:1300642525"
+              className="text-sm text-white/70 hover:text-white transition-colors"
+            >
+              1300 642 525
+            </a>
+            <span className="text-white/[0.06]">/</span>
+            <Link
+              href="/quote"
+              className="text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold"
+            >
+              Request a Quote →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FOOTER ===== */}
+      <footer className="border-t border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6 py-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <p className="text-sm font-semibold tracking-tight">Mickala Group</p>
+            <nav className="flex flex-wrap gap-x-6 gap-y-2">
+              <Link
+                href="/spec-sheets"
+                className="text-[11px] text-white/30 hover:text-white transition-colors"
+              >
+                Lighting Towers
+              </Link>
+              <Link
+                href="/production-quality"
+                className="text-[11px] text-white/30 hover:text-white transition-colors"
+              >
+                LED Lighting
+              </Link>
+              <Link
+                href="/fuel-trailers"
+                className="text-[11px] text-white/30 hover:text-white transition-colors"
+              >
+                Fuel Trailers
+              </Link>
+              <Link
+                href="/custom-fabrication"
+                className="text-[11px] text-white/30 hover:text-white transition-colors"
+              >
+                Custom Fabrication
+              </Link>
+              <Link
+                href="/our-story"
+                className="text-[11px] text-white/30 hover:text-white transition-colors"
+              >
+                About
+              </Link>
+              <Link
+                href="/gallery"
+                className="text-[11px] text-white/30 hover:text-white transition-colors"
+              >
+                Gallery
+              </Link>
+            </nav>
+          </div>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-6 border-t border-white/[0.06]">
+            <p className="text-[11px] text-white/20">ABN 92 180 218 353</p>
+            <p className="text-[11px] text-white/20">
+              ISO 9001 Certified
+            </p>
+            <p className="text-[11px] text-white/20">
+              21 Caterpillar Drive, Paget QLD 4740
+            </p>
+            <p className="text-[11px] text-white/20">1300 642 525</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

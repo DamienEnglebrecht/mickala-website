@@ -14,6 +14,7 @@ const items = [
     image: "/product-custom-fabrication.webp",
     description:
       "In-house steel fabrication for bespoke industrial equipment. If you can spec it, our workshop can build it to last.",
+    href: "/custom-fabrication",
   },
 ]
 
@@ -54,10 +55,10 @@ export function OtherProducts() {
                   {item.description}
                 </p>
                 <a
-                  href="#contact"
+                  href={item.href || "#contact"}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white transition-colors hover:text-primary"
                 >
-                  Enquire now
+                  {item.href ? "Learn more" : "Enquire now"}
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>

@@ -33,6 +33,12 @@ const sections = [
       { name: "Capability Statement", desc: "Full company capability statement.", href: "/capability-statement" },
     ],
   },
+  {
+    title: "Sincro / Alternator",
+    items: [
+      { name: "DC Alternators — Sincro Manual", desc: "DC alternator installation, operation and maintenance manual. PDF download.", href: "/documents/DC-ALTERNATORS-SINCRO-MANUAL.pdf" },
+    ],
+  },
 ]
 
 export default function DocumentsPage() {

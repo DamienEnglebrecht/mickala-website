@@ -1,31 +1,213 @@
-import { SiteHeader } from "@/components/site-header"
-import { Hero } from "@/components/hero"
-import { Stats } from "@/components/stats"
-import { Products } from "@/components/products"
-import { About } from "@/components/about"
-import { OtherProducts } from "@/components/other-products"
-import { WhyMickala } from "@/components/why-mickala"
-import { Support } from "@/components/support"
-import { Clients } from "@/components/clients"
-import { ContactCta } from "@/components/contact-cta"
-import { SiteFooter } from "@/components/site-footer"
+import Image from "next/image"
+import Link from "next/link"
 
-export default function Page() {
+const products = [
+  { name: "Single Axle", href: "/lighting-towers/single-axle", image: "/product-single-axle.jpg", desc: "Compact, towable. Fast deployment for smaller sites." },
+  { name: "Dual Axle", href: "/lighting-towers/dual-axle", image: "/product-dual-axle.webp", desc: "Heavy-duty stability. Maximum coverage." },
+  { name: "Sled Mount", href: "/lighting-towers/sled-mount", image: "/product-sled-mount.webp", desc: "Skid-mounted. Crane and forklift deployable." },
+  { name: "Long Range", href: "/lighting-towers/long-range", image: "/product-long-range.webp", desc: "Extended mast. Long-throw optics." },
+]
+
+const otherProducts = [
+  { name: "Fuel Trailers", href: "/fuel-trailers", image: "/product-fuel-trailer.png", desc: "Self-bunded. 1,100 to 2,000 L capacity." },
+  { name: "Fuel Tanks", href: "/fuel-tanks", image: "/fuel-tank-1.jpg", desc: "Compliant storage for site refuelling." },
+  { name: "Custom Fabrication", href: "/custom-fabrication", image: "/product-custom-fabrication.webp", desc: "In-house design and manufacture." },
+]
+
+export default function HomePage() {
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <Hero />
-        <Stats />
-        <Products />
-        <About />
-        <OtherProducts />
-        <WhyMickala />
-        <Support />
-        <Clients />
-        <ContactCta />
-      </main>
-      <SiteFooter />
-    </>
+    <div className="bg-black text-white">
+      {/* ===== NAV ===== */}
+      <div className="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6 h-12 flex items-center justify-between">
+          <Link href="/" className="text-sm font-semibold tracking-tight">Mickala</Link>
+          <nav className="hidden md:flex items-center gap-8">
+            <div className="relative group">
+              <Link href="/lighting-towers/single-axle" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Lighting Towers</Link>
+              <div className="absolute top-full left-0 mt-2 w-44 bg-black/95 backdrop-blur-md border border-white/[0.06] rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
+                <Link href="/lighting-towers/single-axle" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Single Axle</Link>
+                <Link href="/lighting-towers/dual-axle" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Dual Axle</Link>
+                <Link href="/lighting-towers/sled-mount" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Sled Mount</Link>
+                <Link href="/lighting-towers/long-range" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Long Range</Link>
+              </div>
+            </div>
+            <div className="relative group">
+              <Link href="/production-quality" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">LED Lighting</Link>
+              <div className="absolute top-full left-0 mt-2 w-44 bg-black/95 backdrop-blur-md border border-white/[0.06] rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
+                <Link href="/led-lighting/orca" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Orca Series</Link>
+                <Link href="/led-lighting/barracuda" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Barracuda Series</Link>
+                <Link href="/led-lighting/snapper" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Snapper Series</Link>
+                <Link href="/led-lighting/piranha" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Piranha Series</Link>
+                <Link href="/led-lighting/dark-licht" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Dark Licht</Link>
+              </div>
+            </div>
+            <Link href="/fuel-trailers" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Fuel Trailers</Link>
+            <Link href="/our-story" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">About</Link>
+            <Link href="/gallery" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Gallery</Link>
+          </nav>
+          <a href="tel:1300642525" className="text-[11px] text-white/70 hover:text-white transition-colors tracking-wide uppercase shrink-0">1300 642 525</a>
+        </div>
+      </div>
+
+      {/* ===== HERO ===== */}
+      <section className="relative h-screen min-h-[600px]">
+        <Image src="/hero-towers.webp" alt="" fill className="object-cover" priority />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 max-w-[1200px] mx-auto px-6 pb-20 sm:pb-28">
+          <p className="text-xs text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Australian-Owned OEM Since 2007</p>
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-4">LED Lighting Towers</h1>
+          <p className="text-base sm:text-lg text-white/60 max-w-lg mb-8">Extra-low-voltage lighting towers designed and manufactured in Australia. Trusted by 200+ mine sites.</p>
+          <div className="flex items-center gap-4">
+            <Link href="/lighting-towers/single-axle" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Explore Products</Link>
+            <a href="tel:1300642525" className="inline-flex items-center px-6 py-3 border border-white/20 hover:border-white/40 transition-colors text-sm font-semibold rounded-full">Call 1300 642 525</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== STATS ===== */}
+      <section className="border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/[0.06]">
+            {[
+              { label: "Established", value: "2007" },
+              { label: "Towers Manufactured", value: "2,000+" },
+              { label: "Mine Sites Served", value: "200+" },
+              { label: "In-House Design", value: "100%" },
+            ].map((stat) => (
+              <div key={stat.label} className="py-8 sm:py-10 px-6 text-center">
+                <p className="text-2xl sm:text-3xl font-bold mb-1 whitespace-nowrap">{stat.value}</p>
+                <p className="text-[11px] text-white/40 font-medium tracking-[0.08em] uppercase whitespace-nowrap">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== LIGHTING TOWERS ===== */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Products</p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-10">A tower for every site.</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {products.map((p) => (
+              <Link key={p.name} href={p.href} className="group relative aspect-[4/5] overflow-hidden bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-colors">
+                <Image src={p.image} alt="" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black via-black/80 to-transparent">
+                  <p className="text-sm font-semibold mb-1">{p.name}</p>
+                  <p className="text-xs text-white/50">{p.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link href="/lighting-towers/single-axle" className="inline-flex items-center text-sm text-white/50 hover:text-white transition-colors">View all specifications →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== LED LIGHTING ===== */}
+      <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="relative aspect-square">
+              <Image src="/led-light-hero.jpg" alt="" fill className="object-cover rounded-lg" />
+            </div>
+            <div>
+              <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">LED Lighting</p>
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">For the world&apos;s toughest conditions.</h2>
+              <p className="text-sm text-white/50 leading-relaxed mb-6">Orca, Barracuda, Snapper, Piranha, and Dark Licht — a full range of industrial LED lighting engineered for mining, construction, and infrastructure.</p>
+              <Link href="/production-quality" className="inline-flex items-center text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold">Explore the range →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== OTHER PRODUCTS ===== */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Beyond Lighting</p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-10">Same engineering. Wider capability.</h2>
+          <div className="grid md:grid-cols-3 gap-3">
+            {otherProducts.map((p) => (
+              <Link key={p.name} href={p.href} className="group relative aspect-[4/3] overflow-hidden bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] transition-colors">
+                <Image src={p.image} alt="" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="text-sm font-semibold mb-1">{p.name}</p>
+                  <p className="text-xs text-white/50">{p.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CLIENTS ===== */}
+      <section className="py-16 sm:py-20 bg-white/[0.02] border-t border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-white/30 font-medium tracking-[0.15em] uppercase text-center mb-8">Trusted by</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+            {["/anglo-american.png", "/bhp.png", "/glencore.png", "/whitehaven.png", "/yancoal.png", "/golding.png", "/bloomfield.png", "/terracom.png"].map((logo) => (
+              <div key={logo} className="relative h-10 w-28 opacity-60 hover:opacity-100 transition-opacity">
+                <Image src={logo} alt="" fill className="object-contain brightness-0 invert" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ABOUT ===== */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div>
+              <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">About</p>
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">Innovation through continuous improvement.</h2>
+            </div>
+            <div className="space-y-4 text-sm text-white/50 leading-relaxed">
+              <p>Founded in 2007, Mickala is an Australian-owned OEM manufacturer of extra-low-voltage LED lighting towers. We design and manufacture 100% of our assets in-house — giving us total control over quality, IP, and reliability.</p>
+              <p>Today, our towers are deployed across 200+ mine sites in Australia and beyond, supported 24/7 by factory-trained technicians.</p>
+              <Link href="/our-story" className="inline-flex items-center text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold mt-2">Read our story →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CTA ===== */}
+      <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Get in touch</p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">Need lighting for your site?</h2>
+          <p className="text-sm text-white/50 mb-8 max-w-md mx-auto">Talk to our team about lighting towers, LED lighting, fuel trailers, or custom fabrication.</p>
+          <div className="flex items-center justify-center gap-6">
+            <a href="tel:1300642525" className="text-sm text-white/70 hover:text-white transition-colors">1300 642 525</a>
+            <span className="text-white/[0.06]">/</span>
+            <Link href="/lighting-towers/single-axle" className="text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold">Browse Products →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FOOTER ===== */}
+      <footer className="border-t border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6 py-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <p className="text-sm font-semibold tracking-tight">Mickala Group</p>
+            <nav className="flex flex-wrap gap-x-6 gap-y-2">
+              <Link href="/lighting-towers/single-axle" className="text-[11px] text-white/30 hover:text-white transition-colors">Lighting Towers</Link>
+              <Link href="/production-quality" className="text-[11px] text-white/30 hover:text-white transition-colors">LED Lighting</Link>
+              <Link href="/fuel-trailers" className="text-[11px] text-white/30 hover:text-white transition-colors">Fuel Trailers</Link>
+              <Link href="/custom-fabrication" className="text-[11px] text-white/30 hover:text-white transition-colors">Custom Fabrication</Link>
+              <Link href="/our-story" className="text-[11px] text-white/30 hover:text-white transition-colors">About</Link>
+              <Link href="/gallery" className="text-[11px] text-white/30 hover:text-white transition-colors">Gallery</Link>
+            </nav>
+          </div>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-6 border-t border-white/[0.06]">
+            <p className="text-[11px] text-white/20">ABN 92 180 218 353</p>
+            <p className="text-[11px] text-white/20">21 Caterpillar Drive, Paget QLD 4740</p>
+            <p className="text-[11px] text-white/20">1300 642 525</p>
+          </div>
+        </div>
+      </footer>
+    </div>
   )
 }

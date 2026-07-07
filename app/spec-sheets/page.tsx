@@ -26,12 +26,6 @@ const specSheets = [
   // Long Range
   { title: "MLR 4800-LED Long Range", description: "4800-LED long range lighting tower — extended runtime and coverage for large-scale operations", file: "/spec-sheets/long-range-4800-led.pdf", lightSim: "/spec-sheets/long-range-4800-led-lightsim.pdf", category: "long-range", image: "/product-images/doc_8391d0d6a389_mlr-4800-led-sled-mounted-tower.png" },
   { title: "MLR 7200-LED Long Range", description: "7200-LED long range lighting tower — maximum coverage for the largest mining and industrial sites", file: "/spec-sheets/long-range-7200-led.pdf", lightSim: "/spec-sheets/long-range-7200-led-lightsim.pdf", category: "long-range", image: "/product-images/doc_b1045367b1fd_mlr-7200-led-sled-mounted-tower.png" },
-
-  // Fuel Trailers
-  { title: "Fuel Trailers", description: "Bulk fuel storage and dispensing trailers for remote mining and industrial operations", file: "/spec-sheets/fuel-trailers.pdf", category: "fuel-trailers" },
-
-  // Generators
-  { title: "Generators", description: "Industrial diesel generators — reliable prime and standby power for mining and construction", file: "/spec-sheets/generators.pdf", category: "generators" },
 ]
 
 const categories = [
@@ -39,8 +33,6 @@ const categories = [
   { id: "dual-axle", label: "Dual Axle" },
   { id: "sled-mount", label: "Sled Mount" },
   { id: "long-range", label: "Long Range" },
-  { id: "fuel-trailers", label: "Fuel Trailers" },
-  { id: "generators", label: "Generators" },
 ]
 
 function SpecSheetsContent() {
@@ -119,14 +111,24 @@ function SpecSheetsContent() {
                 </div>
               </div>
               <div className="flex items-center gap-2 shrink-0">
-                <a
-                  href={sheet.file}
-                  download
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-1.5 text-xs font-semibold text-destructive transition-colors hover:bg-destructive/20"
-                >
-                  <Download className="h-4 w-4" />
-                  Spec Sheet
-                </a>
+                {sheet.file.endsWith('.pdf') ? (
+                  <a
+                    href={sheet.file}
+                    download
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-1.5 text-xs font-semibold text-destructive transition-colors hover:bg-destructive/20"
+                  >
+                    <Download className="h-4 w-4" />
+                    Spec Sheet
+                  </a>
+                ) : (
+                  <a
+                    href={sheet.file}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Interactive
+                  </a>
+                )}
                 {sheet.lightSim && (
                   <a
                     href={sheet.lightSim}

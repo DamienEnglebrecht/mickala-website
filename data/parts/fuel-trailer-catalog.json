@@ -1,0 +1,1535 @@
+{
+  "parts": [
+    {
+      "partNo": "B00040",
+      "name": "BATTERY, HOLD DOWN BRACKET",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 13,
+      "image": "/parts-manuals/fuel-trailer-parts/B00040 - BATTERY, HOLD DOWN BRACKET.png"
+    },
+    {
+      "partNo": "B20001D",
+      "name": "CHASSIS, FUEL TRAILER (DUAL AXLE)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/B20001D - CHASSIS, FUEL TRAILER (DUAL AXLE).png"
+    },
+    {
+      "partNo": "B20001S",
+      "name": "CHASSIS, FUEL TRAILER (SINGLE AXLE)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 11,
+      "image": "/parts-manuals/fuel-trailer-parts/B20001S - CHASSIS, FUEL TRAILER (SINGLE AXLE).png"
+    },
+    {
+      "partNo": "B20002",
+      "name": "DOOR, REAR OF FUEL TRAILER",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/B20002 - DOOR, REAR OF FUEL TRAILER.png"
+    },
+    {
+      "partNo": "B20003",
+      "name": "DOOR, TOP OF FUEL TRAILER",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/B20003 - DOOR, TOP OF FUEL TRAILER.png"
+    },
+    {
+      "partNo": "B20004D",
+      "name": "DRAWBAR (DUAL AXLE FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/B20004D - DRAWBAR (DUAL AXLE FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20004S",
+      "name": "DRAWBAR (SINGLE AXLE FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 18,
+      "image": "/parts-manuals/fuel-trailer-parts/B20004S - DRAWBAR (SINGLE AXLE FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20005",
+      "name": "LONG BOX (FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/B20005 - LONG BOX (FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20006",
+      "name": "BRACKET, REFUELING GUN HANGER (FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/B20006 - BRACKET, REFUELING GUN HANGER (FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20009",
+      "name": "COMPONENT MOUNTING PLATE (FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/B20009 - COMPONENT MOUNTING PLATE (FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20010",
+      "name": "FRONT SHIELD (FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/B20010 - FRONT SHIELD (FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20011",
+      "name": "SHIELD, GUARD (DUAL AXLE FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/B20011 - SHIELD, GUARD (DUAL AXLE FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20012",
+      "name": "SHIELD, GUARD (SINGLE AXLE FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 11,
+      "image": "/parts-manuals/fuel-trailer-parts/B20012 - SHIELD, GUARD (SINGLE AXLE FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20013",
+      "name": "BRACKET, SOLAR PANEL (SINGLE AXLE FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 12,
+      "image": "/parts-manuals/fuel-trailer-parts/B20013 - BRACKET, SOLAR PANEL (SINGLE AXLE FUEL TRAILER).png"
+    },
+    {
+      "partNo": "B20014",
+      "name": "OIL INLET PIPE (FUEL TRAILER)",
+      "category": "fabrication",
+      "categoryLabel": "FABRICATION",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/B20014 - OIL INLET PIPE (FUEL TRAILER).png"
+    },
+    {
+      "partNo": "M00017",
+      "name": "DOOR, RUBBER",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 13,
+      "image": "/parts-manuals/fuel-trailer-parts/M00017 - DOOR, RUBBER.png"
+    },
+    {
+      "partNo": "M00025",
+      "name": "DOOR, GAS STAY",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 13,
+      "image": "/parts-manuals/fuel-trailer-parts/M00025 - DOOR, GAS STAY.png"
+    },
+    {
+      "partNo": "M00026C",
+      "name": "AXLE, ASSY 63MM SQUARE 3T ELECTRIC DRUM BRAKES",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00026C - AXLE, ASSY 63MM SQUARE 3T ELECTRIC DRUM BRAKES.png"
+    },
+    {
+      "partNo": "M00027P",
+      "name": "WHEEL, HUB ASSY (2.5T RATED) ELECTRIC",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00027P - WHEEL, HUB ASSY (2.5T RATED) ELECTRIC.png"
+    },
+    {
+      "partNo": "M00028P",
+      "name": "WHEEL, BEARING KIT (2.5T PARALLEL)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00028P - WHEEL, BEARING KIT (2.5T PARALLEL).png"
+    },
+    {
+      "partNo": "M00030E",
+      "name": "BRAKE, SHOE (SET) (3T ELECTRIC PARALLEL BEARING)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00030E - BRAKE, SHOE (SET) (3T ELECTRIC PARALLEL BEARING).png"
+    },
+    {
+      "partNo": "M00031W",
+      "name": "WHEEL, RIM 6 STUD W/TYRE ASSY (WHITE)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00031W - WHEEL, RIM 6 STUD W/TYRE ASSY (WHITE).png"
+    },
+    {
+      "partNo": "M00032",
+      "name": "RIM, 6 STUD/RIM, 6 STUD",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00032 - RIM, 6 STUD/RIM, 6 STUD.png"
+    },
+    {
+      "partNo": "M00033",
+      "name": "TYRE, A/T 235/85R16",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00033 - TYRE, A/T 235/85R16.png"
+    },
+    {
+      "partNo": "M00034",
+      "name": "INDICATOR, WHEEL NUT (19MM)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00034 - INDICATOR, WHEEL NUT (19MM).png"
+    },
+    {
+      "partNo": "M00035",
+      "name": "WHEEL, STUD",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00035 - WHEEL, STUD.png"
+    },
+    {
+      "partNo": "M00036",
+      "name": "SUSPENSION, SPRING PACK 3.5T (DUAL AXLE INC SPRING, U BOLT, FISH PLATE)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 15,
+      "image": "/parts-manuals/fuel-trailer-parts/M00036 - SUSPENSION, SPRING PACK 3.5T (DUAL AXLE INC SPRING, U BOLT, FISH PLATE).png"
+    },
+    {
+      "partNo": "M00037",
+      "name": "SUSPENSION, SPRING PACK SET 9 LEAF 3.5T (SINGLE INC SPRING, U BOLT, FISH PLATE)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 16,
+      "image": "/parts-manuals/fuel-trailer-parts/M00037 - SUSPENSION, SPRING PACK SET 9 LEAF 3.5T (SINGLE INC SPRING, U BOLT, FISH PLATE).png"
+    },
+    {
+      "partNo": "M00040",
+      "name": "HANDLE, FLUSH MOUNT T/LOCK",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00040 - HANDLE, FLUSH MOUNT T/LOCK.png"
+    },
+    {
+      "partNo": "M00041",
+      "name": "MUDFLAP, MICKALA/MUDFLAP, MICKALA",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00041 - MUDFLAP, MICKALA/MUDFLAP, MICKALA.png"
+    },
+    {
+      "partNo": "M00042",
+      "name": "HINGE, DOOR LIFT OFF HINGE (LHS)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00042 - HINGE, DOOR LIFT OFF HINGE (LHS).png"
+    },
+    {
+      "partNo": "M00043",
+      "name": "HINGE, DOOR LIFT OFF HINGE (RHS)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00043 - HINGE, DOOR LIFT OFF HINGE (RHS).png"
+    },
+    {
+      "partNo": "M00045",
+      "name": "LATCH, ROOF LID LOCKING",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 11,
+      "image": "/parts-manuals/fuel-trailer-parts/M00045 - LATCH, ROOF LID LOCKING.png"
+    },
+    {
+      "partNo": "M00046",
+      "name": "JOCKEY WHEEL, U BOLT",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00046 - JOCKEY WHEEL, U BOLT.png"
+    },
+    {
+      "partNo": "M00047",
+      "name": "JOCKEY WHEEL, ASSY",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00047 - JOCKEY WHEEL, ASSY.png"
+    },
+    {
+      "partNo": "M00048B",
+      "name": "DRAWBAR, RING FEEDER HITCH (3T)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00048B - DRAWBAR, RING FEEDER HITCH (3T).png"
+    },
+    {
+      "partNo": "M00049",
+      "name": "HANDBRAKE, LEVER C/W MOUNTING PLATE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00049 - HANDBRAKE, LEVER C/W MOUNTING PLATE.png"
+    },
+    {
+      "partNo": "M00051",
+      "name": "HANDBRAKE, CABLE ADJUSTER",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00051 - HANDBRAKE, CABLE ADJUSTER.png"
+    },
+    {
+      "partNo": "M00052",
+      "name": "CABLE, HANDBRAKE 4MM",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00052 - CABLE, HANDBRAKE 4MM.png"
+    },
+    {
+      "partNo": "M00053",
+      "name": "HANDBRAKE, GUIDE ROLLER",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/M00053 - HANDBRAKE, GUIDE ROLLER.png"
+    },
+    {
+      "partNo": "M00055",
+      "name": "WHEEL CHOCK",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/M00055 - WHEEL CHOCK.png"
+    },
+    {
+      "partNo": "M00056",
+      "name": "BUND, ENGINE 2Inch PLUG",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M00056 - BUND, ENGINE 2Inch PLUG.png"
+    },
+    {
+      "partNo": "M00061",
+      "name": "HOOK, TOW CHAIN 3.15 TONNE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00061 - HOOK, TOW CHAIN 3.15 TONNE.png"
+    },
+    {
+      "partNo": "M00061A",
+      "name": "TOW, CHAIN DRAWBAR",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00061A - TOW, CHAIN DRAWBAR.png"
+    },
+    {
+      "partNo": "M00101",
+      "name": "FITTING, FUEL FITTING BOTTOM ADAPTER (1Inch-1/2Inch)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00101 - FITTING, FUEL FITTING BOTTOM ADAPTER (1Inch-1/2Inch).png"
+    },
+    {
+      "partNo": "M00102",
+      "name": "FUEL TANK BREATHER",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00102 - FUEL TANK BREATHER.png"
+    },
+    {
+      "partNo": "M00103",
+      "name": "FITTING, FILLER POINT FITTING",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M00103 - FITTING, FILLER POINT FITTING.png"
+    },
+    {
+      "partNo": "M00104",
+      "name": "FITTING, BREATHER BOTTOM NIPPLE (2Inch-1Inch)",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00104 - FITTING, BREATHER BOTTOM NIPPLE (2Inch-1Inch).png"
+    },
+    {
+      "partNo": "M00105",
+      "name": "FITTING, BREATHER TOP NIPPLE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00105 - FITTING, BREATHER TOP NIPPLE.png"
+    },
+    {
+      "partNo": "M00106",
+      "name": "FITTING, BREATHER EXTENSION",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/M00106 - FITTING, BREATHER EXTENSION.png"
+    },
+    {
+      "partNo": "M00184",
+      "name": "CAP, FUEL TANK 2Inch",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M00184 - CAP, FUEL TANK 2Inch.png"
+    },
+    {
+      "partNo": "M00190B",
+      "name": "BRAKE AWAY SWITCH SUIT ELECTRIC DRUM",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/M00190B - BRAKE AWAY SWITCH SUIT ELECTRIC DRUM.png"
+    },
+    {
+      "partNo": "M20001",
+      "name": "DOOR, GAS STAY SLOW 535-220-300N",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M20001 - DOOR, GAS STAY SLOW 535-220-300N.png"
+    },
+    {
+      "partNo": "M20002",
+      "name": "FITTING, 2\"NPT MALE TO FEMALE 90 DEGREE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 12,
+      "image": "/parts-manuals/fuel-trailer-parts/M20002 - FITTING, 2\"NPT MALE TO FEMALE 90 DEGREE.png"
+    },
+    {
+      "partNo": "M20003",
+      "name": "MANHOLE COVER OF OIL TANK TRUCK，EN",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M20003 - MANHOLE COVER OF OIL TANK TRUCK，EN.png"
+    },
+    {
+      "partNo": "M20006",
+      "name": "STORAGE REEL AND 1 \"15M OIL FILLING PIPE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 13,
+      "image": "/parts-manuals/fuel-trailer-parts/M20006 - STORAGE REEL AND 1 \"15M OIL FILLING PIPE.png"
+    },
+    {
+      "partNo": "M20010",
+      "name": "FILTER, DIESEL ,1 INCH 100L/MIN ASSY",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20010 - FILTER, DIESEL ,1 INCH 100L/MIN ASSY.png"
+    },
+    {
+      "partNo": "M20011",
+      "name": "FILTER, RETURN (HEAD) 100L/MIN",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20011 - FILTER, RETURN (HEAD) 100L/MIN.png"
+    },
+    {
+      "partNo": "M20012",
+      "name": "SELF SEALING REFUELING GUN，1 Inch",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 13,
+      "image": "/parts-manuals/fuel-trailer-parts/M20012 - SELF SEALING REFUELING GUN，1 Inch.png"
+    },
+    {
+      "partNo": "M20013",
+      "name": "REFUELING GUN HANGER",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20013 - REFUELING GUN HANGER.png"
+    },
+    {
+      "partNo": "M20014",
+      "name": "FITTING, 1 inch PUSH ON FITTING 90 DEGREE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20014 - FITTING, 1 inch PUSH ON FITTING 90 DEGREE.png"
+    },
+    {
+      "partNo": "M20018",
+      "name": "MOVABLE FITTING, 1 inch MALE TO FEMALE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20018 - MOVABLE FITTING, 1 inch MALE TO FEMALE.png"
+    },
+    {
+      "partNo": "M20019",
+      "name": "FITTING, 1 inch MALE TO MALE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20019 - FITTING, 1 inch MALE TO MALE.png"
+    },
+    {
+      "partNo": "M20020",
+      "name": "DOOR HANDLE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M20020 - DOOR HANDLE.png"
+    },
+    {
+      "partNo": "M20021",
+      "name": "AUTOMATIC SHUTOFF VALVE FILLER",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M20021 - AUTOMATIC SHUTOFF VALVE FILLER.png"
+    },
+    {
+      "partNo": "M20022",
+      "name": "JET LEVEL SENSOR",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M20022 - JET LEVEL SENSOR.png"
+    },
+    {
+      "partNo": "M20023",
+      "name": "RUBBER PIPE, 1 Inch",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20023 - RUBBER PIPE, 1 Inch.png"
+    },
+    {
+      "partNo": "M20024",
+      "name": "12V DIESEL DRUM PUMP, AUTO NOZZLE, 85L/MIN",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20024 - 12V DIESEL DRUM PUMP, AUTO NOZZLE, 85L/MIN.png"
+    },
+    {
+      "partNo": "M20025",
+      "name": "MECHANICAL LEVEL GAUGE L=765mm",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M20025 - MECHANICAL LEVEL GAUGE L=765mm.png"
+    },
+    {
+      "partNo": "M20026",
+      "name": "FITTING, 1 Inch EXTERNAL THREAD PUSH ON FITTING",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20026 - FITTING, 1 Inch EXTERNAL THREAD PUSH ON FITTING.png"
+    },
+    {
+      "partNo": "M20027",
+      "name": "FITTING, 1 Inch MALE TO FEMALE 90 DEGREE",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20027 - FITTING, 1 Inch MALE TO FEMALE 90 DEGREE.png"
+    },
+    {
+      "partNo": "M20028",
+      "name": "FITTING, 1 inch  MALE TO MALE 250mm",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20028 - FITTING, 1 inch  MALE TO MALE 250mm.png"
+    },
+    {
+      "partNo": "M20029",
+      "name": "U-SHAPED RUBBER",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/M20029 - U-SHAPED RUBBER.png"
+    },
+    {
+      "partNo": "M20030",
+      "name": "SOLAR PANEL BRACKET, GAS STAY SLOW 490-150-400N",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 12,
+      "image": "/parts-manuals/fuel-trailer-parts/M20030 - SOLAR PANEL BRACKET, GAS STAY SLOW 490-150-400N.png"
+    },
+    {
+      "partNo": "M20031",
+      "name": "HINGE, SOLAR PANEL BRACKET",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 11,
+      "image": "/parts-manuals/fuel-trailer-parts/M20031 - HINGE, SOLAR PANEL BRACKET.png"
+    },
+    {
+      "partNo": "M20033",
+      "name": "ELECTRONIC TURBINE FLOWMETER，1 Inch, 100L/MIN",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/M20033 - ELECTRONIC TURBINE FLOWMETER，1 Inch, 100L/MIN.png"
+    },
+    {
+      "partNo": "M20034",
+      "name": "RUBBER PAD",
+      "category": "mechanical",
+      "categoryLabel": "MECHANICAL",
+      "page": 12,
+      "image": "/parts-manuals/fuel-trailer-parts/M20034 - RUBBER PAD.png"
+    },
+    {
+      "partNo": "E00034A",
+      "name": "BATTERY, 150",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 13,
+      "image": "/parts-manuals/fuel-trailer-parts/E00034A - BATTERY, 150.png"
+    },
+    {
+      "partNo": "E00036",
+      "name": "SWITCH, EMERGENCY STOP",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E00036 - SWITCH, EMERGENCY STOP.png"
+    },
+    {
+      "partNo": "E00036B",
+      "name": "SWITCH, EMERGENCY STOP BOX",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E00036B - SWITCH, EMERGENCY STOP BOX.png"
+    },
+    {
+      "partNo": "E00048",
+      "name": "LIGHT, LED TAIL INDICATOR",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/E00048 - LIGHT, LED TAIL INDICATOR.png"
+    },
+    {
+      "partNo": "E00049",
+      "name": "SOCKET, (LARGE) 7 PIN TRAILER",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/E00049 - SOCKET, (LARGE) 7 PIN TRAILER.png"
+    },
+    {
+      "partNo": "E00052",
+      "name": "LIGHT, NUMBER PLATE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/E00052 - LIGHT, NUMBER PLATE.png"
+    },
+    {
+      "partNo": "E00064F",
+      "name": "PLUG, AMPHENOL 2 PIN FEMALE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/E00064F - PLUG, AMPHENOL 2 PIN FEMALE.png"
+    },
+    {
+      "partNo": "E00064M",
+      "name": "PLUG, AMPHENOL 2 PIN MALE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00064M - PLUG, AMPHENOL 2 PIN MALE.png"
+    },
+    {
+      "partNo": "E00065F",
+      "name": "PLUG, AMPHENOL 2 PIN FEMALE INSERT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00065F - PLUG, AMPHENOL 2 PIN FEMALE INSERT.png"
+    },
+    {
+      "partNo": "E00065M",
+      "name": "PLUG, AMPHENOL 2 PIN MALE INSERT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00065M - PLUG, AMPHENOL 2 PIN MALE INSERT.png"
+    },
+    {
+      "partNo": "E00066F",
+      "name": "PLUG, AMPHENOL 3 PIN FEMALE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00066F - PLUG, AMPHENOL 3 PIN FEMALE.png"
+    },
+    {
+      "partNo": "E00066M",
+      "name": "PLUG, AMPHENOL 3 PIN MALE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00066M - PLUG, AMPHENOL 3 PIN MALE.png"
+    },
+    {
+      "partNo": "E00067F",
+      "name": "PLUG, AMPHENOL 3 PIN FEMALE INSERT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00067F - PLUG, AMPHENOL 3 PIN FEMALE INSERT.png"
+    },
+    {
+      "partNo": "E00067M",
+      "name": "PLUG, AMPHENOL 3 PIN MALE INSERT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00067M - PLUG, AMPHENOL 3 PIN MALE INSERT.png"
+    },
+    {
+      "partNo": "E00068F",
+      "name": "PLUG, AMPHENOL 4 PIN FEMALE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00068F - PLUG, AMPHENOL 4 PIN FEMALE.png"
+    },
+    {
+      "partNo": "E00068M",
+      "name": "PLUG, AMPHENOL 4 PIN MALE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00068M - PLUG, AMPHENOL 4 PIN MALE.png"
+    },
+    {
+      "partNo": "E00069F",
+      "name": "PLUG, AMPHENOL 4 PIN FEMALE INSERT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00069F - PLUG, AMPHENOL 4 PIN FEMALE INSERT.png"
+    },
+    {
+      "partNo": "E00069M",
+      "name": "PLUG, AMPHENOL 4 PIN MALE INSERT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00069M - PLUG, AMPHENOL 4 PIN MALE INSERT.png"
+    },
+    {
+      "partNo": "E00074F",
+      "name": "PIN, AMPHENOL PLUG FEMALE - SIZE 16",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00074F - PIN, AMPHENOL PLUG FEMALE - SIZE 16.png"
+    },
+    {
+      "partNo": "E00074M",
+      "name": "PIN, AMPHENOL PLUG MALE - SIZE 16",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00074M - PIN, AMPHENOL PLUG MALE - SIZE 16.png"
+    },
+    {
+      "partNo": "E00083",
+      "name": "COUPLING, 20MM STRAIGHT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/E00083 - COUPLING, 20MM STRAIGHT.png"
+    },
+    {
+      "partNo": "E00085",
+      "name": "PLUG, 12V 7 PIN LARGE ROUND",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00085 - PLUG, 12V 7 PIN LARGE ROUND.png"
+    },
+    {
+      "partNo": "E00086F",
+      "name": "PLUG, 12V 7 PIN SMALL FLAT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00086F - PLUG, 12V 7 PIN SMALL FLAT.png"
+    },
+    {
+      "partNo": "E00086R",
+      "name": "PLUG, 12V 7 PIN SMALL ROUND",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00086R - PLUG, 12V 7 PIN SMALL ROUND.png"
+    },
+    {
+      "partNo": "E00087A",
+      "name": "GLAND,M20*1.5 WATER PROOF",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/E00087A - GLAND,M20*1.5 WATER PROOF.png"
+    },
+    {
+      "partNo": "E00087B",
+      "name": "GLAND,M20*1.5 HEAVY DUTY WATER PROOF",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E00087B - GLAND,M20*1.5 HEAVY DUTY WATER PROOF.png"
+    },
+    {
+      "partNo": "E00089",
+      "name": "GLAND, M20 -RL21 X 90 DEGREE PVC FITTING",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/E00089 - GLAND, M20 -RL21 X 90 DEGREE PVC FITTING.png"
+    },
+    {
+      "partNo": "E00094",
+      "name": "BRACKET, AMPHENOL PLUG 10MM",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 17,
+      "image": "/parts-manuals/fuel-trailer-parts/E00094 - BRACKET, AMPHENOL PLUG 10MM.png"
+    },
+    {
+      "partNo": "E00106",
+      "name": "RAIL, DIN",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E00106 - RAIL, DIN.png"
+    },
+    {
+      "partNo": "E00218",
+      "name": "TERMINAL, BATTERY (-) (INCLUDES RUBBER COVER)",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E00218 - TERMINAL, BATTERY (-) (INCLUDES RUBBER COVER).png"
+    },
+    {
+      "partNo": "E00219",
+      "name": "TERMINAL, BATTERY (+) (INCLUDES RUBBER COVER)",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E00219 - TERMINAL, BATTERY (+) (INCLUDES RUBBER COVER).png"
+    },
+    {
+      "partNo": "E00241",
+      "name": "CONDUIT, 13MM BLACK HEAVY WALL",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00241 - CONDUIT, 13MM BLACK HEAVY WALL.png"
+    },
+    {
+      "partNo": "E00243",
+      "name": "CONDUIT, 21MM BLACK HEAVY WALL",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00243 - CONDUIT, 21MM BLACK HEAVY WALL.png"
+    },
+    {
+      "partNo": "E00244",
+      "name": "GLAND, M20 - RL21 PVC FITTING",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 14,
+      "image": "/parts-manuals/fuel-trailer-parts/E00244 - GLAND, M20 - RL21 PVC FITTING.png"
+    },
+    {
+      "partNo": "E00248",
+      "name": "T PIECE, 13MM X 13MM X 13MM PVC FITTING",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E00248 - T PIECE, 13MM X 13MM X 13MM PVC FITTING.png"
+    },
+    {
+      "partNo": "E00250",
+      "name": "CABLE TRAY, CONTROL PANEL PVC",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E00250 - CABLE TRAY, CONTROL PANEL PVC.png"
+    },
+    {
+      "partNo": "E00261",
+      "name": "ELECTRIC BRAKE TRAILER MOUNT CONTROLLER (ETB)",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E00261 - ELECTRIC BRAKE TRAILER MOUNT CONTROLLER (ETB).png"
+    },
+    {
+      "partNo": "E00266F",
+      "name": "HARNESS, TRAILER PLUG (VEHICLE TO A FRAME) - FLAT PLUG",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00266F - HARNESS, TRAILER PLUG (VEHICLE TO A FRAME) - FLAT PLUG.png"
+    },
+    {
+      "partNo": "E00266R",
+      "name": "HARNESS, TRAILER PLUG (VEHICLE TO A FRAME) - ROUND PLUG",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E00266R - HARNESS, TRAILER PLUG (VEHICLE TO A FRAME) - ROUND PLUG.png"
+    },
+    {
+      "partNo": "E00282",
+      "name": "GLAND, RL13-M16-A STRAIGHT PVC FITTING",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E00282 - GLAND, RL13-M16-A STRAIGHT PVC FITTING.png"
+    },
+    {
+      "partNo": "E00424",
+      "name": "Y PIECE, 21MM X 13MM X 13MM PVC FITTING",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E00424 - Y PIECE, 21MM X 13MM X 13MM PVC FITTING.png"
+    },
+    {
+      "partNo": "E20001D",
+      "name": "HARNESS,ELECTRIC BRAKE DUAL AXLE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E20001D - HARNESS,ELECTRIC BRAKE DUAL AXLE.png"
+    },
+    {
+      "partNo": "E20001S",
+      "name": "HARNESS,ELECTRIC BRAKE SINGLE AXLE",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 20,
+      "image": "/parts-manuals/fuel-trailer-parts/E20001S - HARNESS,ELECTRIC BRAKE SINGLE AXLE.png"
+    },
+    {
+      "partNo": "E20005",
+      "name": "SOLAR PANEL 12V 200W",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 9,
+      "image": "/parts-manuals/fuel-trailer-parts/E20005 - SOLAR PANEL 12V 200W.png"
+    },
+    {
+      "partNo": "E20006",
+      "name": "SOLAR PANEL CONTROLLER",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E20006 - SOLAR PANEL CONTROLLER.png"
+    },
+    {
+      "partNo": "E20008",
+      "name": "HARNESS, TAIL LIGHT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E20008 - HARNESS, TAIL LIGHT.png"
+    },
+    {
+      "partNo": "E20009",
+      "name": "HARNESS, CONTROL PANEL TO SOLAR PANEL",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E20009 - HARNESS, CONTROL PANEL TO SOLAR PANEL.png"
+    },
+    {
+      "partNo": "E20010",
+      "name": "HARNESS, CONTROL PANEL TO OIL PUMP",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E20010 - HARNESS, CONTROL PANEL TO OIL PUMP.png"
+    },
+    {
+      "partNo": "E20011",
+      "name": "HARNESS, CONTROL PANEL TO REFUELING GUN",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E20011 - HARNESS, CONTROL PANEL TO REFUELING GUN.png"
+    },
+    {
+      "partNo": "E20012",
+      "name": "HARNESS, POWER(+)",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E20012 - HARNESS, POWER(+).png"
+    },
+    {
+      "partNo": "E20013",
+      "name": "HARNESS, POWER(-)",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 19,
+      "image": "/parts-manuals/fuel-trailer-parts/E20013 - HARNESS, POWER(-).png"
+    },
+    {
+      "partNo": "E20014",
+      "name": "DC12V CHARGER",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E20014 - DC12V CHARGER.png"
+    },
+    {
+      "partNo": "E20015",
+      "name": "BATTERY FUSE 40A",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E20015 - BATTERY FUSE 40A.png"
+    },
+    {
+      "partNo": "E20016",
+      "name": "PLUG-IN FUSE HOLDER 40A",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/E20016 - PLUG-IN FUSE HOLDER 40A.png"
+    },
+    {
+      "partNo": "E20017",
+      "name": "MCB, SINGLE POLE 32A (DC)",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E20017 - MCB, SINGLE POLE 32A (DC).png"
+    },
+    {
+      "partNo": "E20018",
+      "name": "MCB, DOUBLE POLE 10A (DC)",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E20018 - MCB, DOUBLE POLE 10A (DC).png"
+    },
+    {
+      "partNo": "E20019",
+      "name": "CAR MOUNTED RELAT",
+      "category": "electrical",
+      "categoryLabel": "ELECTRICAL",
+      "page": 21,
+      "image": "/parts-manuals/fuel-trailer-parts/E20019 - CAR MOUNTED RELAT.png"
+    },
+    {
+      "partNo": "H00105",
+      "name": "FITTING,9/16Inch JIC CAP",
+      "category": "hydraulics",
+      "categoryLabel": "HYDRAULIC",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/H00105 - FITTING,9/16Inch JIC CAP.png"
+    },
+    {
+      "partNo": "H00107",
+      "name": "FITTING, 9/16Inch JIC 90 DEG X R1/2 MALE",
+      "category": "hydraulics",
+      "categoryLabel": "HYDRAULIC",
+      "page": 10,
+      "image": "/parts-manuals/fuel-trailer-parts/H00107 - FITTING, 9/16Inch JIC 90 DEG X R1/2 MALE.png"
+    },
+    {
+      "partNo": "O00009",
+      "name": "STICKER, MLT LOGO",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00009 - STICKER, MLT LOGO.png"
+    },
+    {
+      "partNo": "O00018",
+      "name": "STICKER, WEIGHT 2560KG",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00018 - STICKER, WEIGHT 2560KG.png"
+    },
+    {
+      "partNo": "O00021",
+      "name": "BUILD PLATE",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00021 - BUILD PLATE.png"
+    },
+    {
+      "partNo": "O00023",
+      "name": "HOLDER, DOCUMENT",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00023 - HOLDER, DOCUMENT.png"
+    },
+    {
+      "partNo": "O00028",
+      "name": "P CLAMP, 13MM (MOUNT HOLE 6.4MM)",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00028 - P CLAMP, 13MM (MOUNT HOLE 6.4MM).png"
+    },
+    {
+      "partNo": "O00030",
+      "name": "P CLAMP, 21MM (MOUNT HOLE 6.4MM)",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00030 - P CLAMP, 21MM (MOUNT HOLE 6.4MM).png"
+    },
+    {
+      "partNo": "O00032A",
+      "name": "EXTINGUISHER, FIRE 9KG DCP",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00032A - EXTINGUISHER, FIRE 9KG DCP.png"
+    },
+    {
+      "partNo": "O00032B",
+      "name": "EXTINGUISHER, FIRE PROTECTOR BAG 9KG",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00032B - EXTINGUISHER, FIRE PROTECTOR BAG 9KG.png"
+    },
+    {
+      "partNo": "O00033A",
+      "name": "EXTINGUSIHER, BRACKET FIRE 9KG",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00033A - EXTINGUSIHER, BRACKET FIRE 9KG.png"
+    },
+    {
+      "partNo": "O00040",
+      "name": "STAUFF, CLAMP 22MM (SINGLE)",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00040 - STAUFF, CLAMP 22MM (SINGLE).png"
+    },
+    {
+      "partNo": "O00043",
+      "name": "REFLECTIVE HIGH VIS TAP(ROLL 45M X 50MM)",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00043 - REFLECTIVE HIGH VIS TAP(ROLL 45M X 50MM).png"
+    },
+    {
+      "partNo": "O00050",
+      "name": "WASHER, SPRING SS M5",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00050 - WASHER, SPRING SS M5.png"
+    },
+    {
+      "partNo": "O00055",
+      "name": "WASHER, SPRING M6",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00055 - WASHER, SPRING M6.png"
+    },
+    {
+      "partNo": "O00056",
+      "name": "WASHER, FLAT M6",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00056 - WASHER, FLAT M6.png"
+    },
+    {
+      "partNo": "O00057",
+      "name": "NUT, NYLOC M6",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00057 - NUT, NYLOC M6.png"
+    },
+    {
+      "partNo": "O00059",
+      "name": "BOLT, BUTTON HEAD M8X20",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00059 - BOLT, BUTTON HEAD M8X20.png"
+    },
+    {
+      "partNo": "O00061",
+      "name": "BOLT, HEX M8X20",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00061 - BOLT, HEX M8X20.png"
+    },
+    {
+      "partNo": "O00066",
+      "name": "WASHER, FLAT SS M8",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00066 - WASHER, FLAT SS M8.png"
+    },
+    {
+      "partNo": "O00067",
+      "name": "NUT, NYLOC SS M8",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00067 - NUT, NYLOC SS M8.png"
+    },
+    {
+      "partNo": "O00068",
+      "name": "WASHER, SPRING SS M8",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00068 - WASHER, SPRING SS M8.png"
+    },
+    {
+      "partNo": "O00071",
+      "name": "ROD, THREADED M8X250MM",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00071 - ROD, THREADED M8X250MM.png"
+    },
+    {
+      "partNo": "O00078",
+      "name": "WASHER, FLAT M10",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00078 - WASHER, FLAT M10.png"
+    },
+    {
+      "partNo": "O00079",
+      "name": "WASHER, SPRING M10",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00079 - WASHER, SPRING M10.png"
+    },
+    {
+      "partNo": "O00080",
+      "name": "NUT, NYLOC M10",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00080 - NUT, NYLOC M10.png"
+    },
+    {
+      "partNo": "O00089",
+      "name": "BOLT, HEX M16X50",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00089 - BOLT, HEX M16X50.png"
+    },
+    {
+      "partNo": "O00094",
+      "name": "WASHER, FLAT M16",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00094 - WASHER, FLAT M16.png"
+    },
+    {
+      "partNo": "O00095",
+      "name": "NUT, NYLOC M16",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00095 - NUT, NYLOC M16.png"
+    },
+    {
+      "partNo": "O00115",
+      "name": "TERMINAL, INSULATED CONNECTOR ROUND YELLOW OT5.5-10",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00115 - TERMINAL, INSULATED CONNECTOR ROUND YELLOW OT5.5-10.png"
+    },
+    {
+      "partNo": "O00122-R",
+      "name": "TERMINAL, BOOT LACE RED DOUBLE E4012",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00122-R - TERMINAL, BOOT LACE RED DOUBLE E4012.png"
+    },
+    {
+      "partNo": "O00135",
+      "name": "POPRIVET,M4.2",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00135 - POPRIVET,M4.2.png"
+    },
+    {
+      "partNo": "O00136",
+      "name": "POPRIVET,M6.5",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00136 - POPRIVET,M6.5.png"
+    },
+    {
+      "partNo": "O00151",
+      "name": "STICKER, FIRE EXTINGUISHER",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00151 - STICKER, FIRE EXTINGUISHER.png"
+    },
+    {
+      "partNo": "O00152",
+      "name": "STICKER, IN CASE OF FIRE",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00152 - STICKER, IN CASE OF FIRE.png"
+    },
+    {
+      "partNo": "O00154",
+      "name": "STICKER, TOW POINT",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00154 - STICKER, TOW POINT.png"
+    },
+    {
+      "partNo": "O00155",
+      "name": "STICKER, TIE DOWN POINT",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00155 - STICKER, TIE DOWN POINT.png"
+    },
+    {
+      "partNo": "O00161",
+      "name": "NUT, 5/8 NYLOC UNC",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00161 - NUT, 5/8 NYLOC UNC.png"
+    },
+    {
+      "partNo": "O00162",
+      "name": "FLAT WASHER, HARDENED 5/8- 3MM THICK",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00162 - FLAT WASHER, HARDENED 5/8- 3MM THICK.png"
+    },
+    {
+      "partNo": "O00175",
+      "name": "BOLT,CROSS BUTTON HEAD M4X12",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00175 - BOLT,CROSS BUTTON HEAD M4X12.png"
+    },
+    {
+      "partNo": "O00176",
+      "name": "WASHER, FLAT M4",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00176 - WASHER, FLAT M4.png"
+    },
+    {
+      "partNo": "O00177",
+      "name": "WASHER, SPRING M4",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00177 - WASHER, SPRING M4.png"
+    },
+    {
+      "partNo": "O00182",
+      "name": "BOLT, HEX M16X65",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00182 - BOLT, HEX M16X65.png"
+    },
+    {
+      "partNo": "O00189",
+      "name": "CABLE NUTS",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00189 - CABLE NUTS.png"
+    },
+    {
+      "partNo": "O00201",
+      "name": "WASHER, FLAT M5",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00201 - WASHER, FLAT M5.png"
+    },
+    {
+      "partNo": "O00202",
+      "name": "BOLT, BUTTON HEAD SS M6X15",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00202 - BOLT, BUTTON HEAD SS M6X15.png"
+    },
+    {
+      "partNo": "O00203",
+      "name": "WASHER, FLAT, M8 ENLARGE",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O00203 - WASHER, FLAT, M8 ENLARGE.png"
+    },
+    {
+      "partNo": "O20001",
+      "name": "WELDING HINGES",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O20001 - WELDING HINGES.png"
+    },
+    {
+      "partNo": "O20002",
+      "name": "REINFORCING CLAMP 32-35mm",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O20002 - REINFORCING CLAMP 32-35mm.png"
+    },
+    {
+      "partNo": "O20003",
+      "name": "BOLT, BUTTON HEAD M5X10",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O20003 - BOLT, BUTTON HEAD M5X10.png"
+    },
+    {
+      "partNo": "O20004",
+      "name": "BOLT, BUTTON HEAD SS M6X20",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O20004 - BOLT, BUTTON HEAD SS M6X20.png"
+    },
+    {
+      "partNo": "O20005",
+      "name": "BOLT, HEX M8X60",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O20005 - BOLT, HEX M8X60.png"
+    },
+    {
+      "partNo": "O20006",
+      "name": "BOLT, HEX M10X45",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O20006 - BOLT, HEX M10X45.png"
+    },
+    {
+      "partNo": "O20007",
+      "name": "WASHER, SPRING M16",
+      "category": "other",
+      "categoryLabel": "MISCELLANEOUS",
+      "page": null,
+      "image": "/parts-manuals/fuel-trailer-parts/O20007 - WASHER, SPRING M16.png"
+    }
+  ],
+  "categories": [
+    {
+      "id": "fabrication",
+      "label": "Fabricated Parts",
+      "count": 15
+    },
+    {
+      "id": "mechanical",
+      "label": "Mechanical Parts",
+      "count": 62
+    },
+    {
+      "id": "electrical",
+      "label": "Electrical Parts",
+      "count": 57
+    },
+    {
+      "id": "hydraulics",
+      "label": "Hydraulics Parts",
+      "count": 2
+    },
+    {
+      "id": "other",
+      "label": "Other Parts",
+      "count": 52
+    }
+  ]
+}
