@@ -64,7 +64,7 @@ const categories: Record<string, CategoryData> = {
   "dual-axle": {
     title: "Dual Axle",
     description: "Heavy-duty stability for large coverage areas. Built for the toughest mining and construction environments.",
-    heroImage: "/product-dual-axle.png",
+    heroImage: "/dual-axle-hero.jpg",
     statLine: "3 models · 2560W – 3840W · Heavy-duty stability",
     models: [
       { name: "MLT 2560-LED", led: "2560W", desc: "Dual axle stability with high-output LED array for demanding conditions.", image: "/product-images/doc_caaa568cee08_mlt-2560-led-dual-axle-tower.png", slug: "dual-axle-2560-led", specSheet: "/spec-sheets/dual-axle-2560-led.pdf", lightSim: "/spec-sheets/dual-axle-2560-led-lightsim.pdf" },
