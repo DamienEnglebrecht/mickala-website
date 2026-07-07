@@ -19,9 +19,9 @@ const pillars = [
   {
     icon: BadgeCheck,
     title: "Warranty",
-    headline: "3-year / 60,000 hrs",
+    headline: "3-year / 60000 hrs",
     description:
-      "Every LED is covered by our 3-year warranty and rated for up to 60,000 hours. Cover extends further when our factory staff maintain your assets.",
+      "Every LED is covered by our 3-year warranty and rated for up to 60000 hours. Cover extends further when our factory staff maintain your assets.",
   },
 ]
 

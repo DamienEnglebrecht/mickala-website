@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const stats = [
   { label: "Founded", value: "2007" },
-  { label: "Towers Manufactured", value: "2,000+" },
+  { label: "Towers Manufactured", value: "2000+" },
   { label: "Mine Sites Served", value: "200+" },
   { label: "In-House Design", value: "100%" },
 ]
@@ -153,7 +153,7 @@ export default function OurStoryPage() {
                 site productivity upon mobilisation.
               </p>
               <p>
-                With over 2,000 towers manufactured and deployed across 200+ mine
+                With over 2000 towers manufactured and deployed across 200+ mine
                 sites, Mickala has become a trusted partner to major mining
                 operations across Australia.
               </p>

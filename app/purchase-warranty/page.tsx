@@ -79,8 +79,8 @@ export default function PurchaseWarrantyPage() {
 
           <div className="border-t pt-3">
             <h3 className="text-xs font-bold mb-2">Warranty</h3>
-            <p className="text-[10px] mb-2">Mickala warrants the lighting tower for a period of <strong>12 months or 1,500 hours</strong> (whichever occurs first) from date of delivery, subject to the terms and conditions overleaf.</p>
-            <p className="text-[10px]">Extended warranty to <strong>36 months or 6,000 hours</strong> available with Mickala Service Agreement (MSA).</p>
+            <p className="text-[10px] mb-2">Mickala warrants the lighting tower for a period of <strong>12 months or 1500 hours</strong> (whichever occurs first) from date of delivery, subject to the terms and conditions overleaf.</p>
+            <p className="text-[10px]">Extended warranty to <strong>36 months or 6000 hours</strong> available with Mickala Service Agreement (MSA).</p>
           </div>
         </div>
 
@@ -89,7 +89,7 @@ export default function PurchaseWarrantyPage() {
           <h2 className="text-sm font-bold text-primary mb-3">Warranty Terms &amp; Conditions</h2>
 
           <div className="text-[10px] space-y-3">
-            <div><h3 className="font-bold text-[11px]">1. Definitions</h3><p className="mt-0.5">"Client" means the purchaser named on the delivery docket. "Mickala" means Mickala Group Pty Ltd. "Equipment" means the lighting tower described on the delivery docket. "Warranty Period" means 12 months or 1,500 hours from delivery date, whichever occurs first.</p></div>
+            <div><h3 className="font-bold text-[11px]">1. Definitions</h3><p className="mt-0.5">"Client" means the purchaser named on the delivery docket. "Mickala" means Mickala Group Pty Ltd. "Equipment" means the lighting tower described on the delivery docket. "Warranty Period" means 12 months or 1500 hours from delivery date, whichever occurs first.</p></div>
 
             <div><h3 className="font-bold text-[11px]">2. Scope of Warranty</h3>
             <p className="mt-0.5">2.1 Mickala warrants that the Equipment will be free from defects in materials and workmanship under normal use and service for the Warranty Period.</p>

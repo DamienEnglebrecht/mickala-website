@@ -44,7 +44,7 @@ export function Products() {
         <SectionHeading
           eyebrow="Our Industrial Products"
           title="A Lighting Tower For Every Site"
-          description="Every Mickala tower is designed and manufactured in-house, giving us total control over quality, IP and reliability — proven across more than 1,000 units in the field."
+          description="Every Mickala tower is designed and manufactured in-house, giving us total control over quality, IP and reliability — proven across more than 1000 units in the field."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

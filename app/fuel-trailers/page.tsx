@@ -5,7 +5,7 @@ import { BuildYourOwn } from "@/components/build-your-own"
 const models = ["MFT1100", "MFT2000"]
 
 const techSpecs = [
-  { label: "Capacity", MFT1100: "1,100 L", MFT2000: "2,000 L" },
+  { label: "Capacity", MFT1100: "1100 L", MFT2000: "2000 L" },
   { label: "Containment", MFT1100: "110 % tank in tank", MFT2000: "110 % tank in tank" },
   { label: "Pump", MFT1100: "12 V electric", MFT2000: "12 V electric" },
   { label: "Hose", MFT1100: "15 m retractable", MFT2000: "15 m retractable" },
@@ -75,7 +75,7 @@ export default function FuelTrailersPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/[0.06]">
             {[
               { label: "Models", value: "MFT1100, MFT2000" },
-              { label: "Capacity Range", value: "1,100 – 2,000 L" },
+              { label: "Capacity Range", value: "1100 – 2000 L" },
               { label: "Containment", value: "110 % tank in tank" },
               { label: "Warranty", value: "12 months" },
             ].map((stat) => (

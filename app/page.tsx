@@ -9,7 +9,7 @@ const products = [
 ]
 
 const otherProducts = [
-  { name: "Fuel Trailers", href: "/fuel-trailers", image: "/product-fuel-trailer.png", desc: "Self-bunded. 1,100 to 2,000 L capacity." },
+  { name: "Fuel Trailers", href: "/fuel-trailers", image: "/product-fuel-trailer.png", desc: "Self-bunded. 1100 to 2000 L capacity." },
   { name: "Fuel Tanks", href: "/fuel-tanks", image: "/fuel-tank-1.jpg", desc: "Compliant storage for site refuelling." },
   { name: "Custom Fabrication", href: "/custom-fabrication", image: "/product-custom-fabrication.webp", desc: "In-house design and manufacture." },
 ]
@@ -70,7 +70,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/[0.06]">
             {[
               { label: "Established", value: "2007" },
-              { label: "Towers Manufactured", value: "2,000+" },
+              { label: "Towers Manufactured", value: "2000+" },
               { label: "Mine Sites Served", value: "200+" },
               { label: "In-House Design", value: "100%" },
             ].map((stat) => (

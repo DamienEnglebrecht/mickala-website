@@ -32,8 +32,8 @@ const models = [
     { name: "Labour", desc: "Labour (per hour)" },
   ]},
   { category: "Other", items: [
-    { name: "Fuel Trailer Single Axle 1,200 Litre", desc: "Single axle fuel trailer" },
-    { name: "Fuel Trailer Dual Axle 2,000 Litre", desc: "Dual axle fuel trailer" },
+    { name: "Fuel Trailer Single Axle 1200 Litre", desc: "Single axle fuel trailer" },
+    { name: "Fuel Trailer Dual Axle 2000 Litre", desc: "Dual axle fuel trailer" },
     { name: "Generators", desc: "Industrial diesel generators" },
   ]},
 ]
@@ -75,7 +75,7 @@ const hireClarifications = [
 
 const purchaseClarifications = [
   "The pricing provided is based on the quantities outlined in the quotation. Should these quantities change, our pricing may vary.",
-  "Service kits to be purchased through Mickala for the duration of the warranty period (12 months or 1,500 hours). Mickala offers extended warranty if Mickala Service Agreement (MSA) is applied. Extended warranty period would be 36 months or 6,000 hours with MSA.",
+  "Service kits to be purchased through Mickala for the duration of the warranty period (12 months or 1500 hours). Mickala offers extended warranty if Mickala Service Agreement (MSA) is applied. Extended warranty period would be 36 months or 6000 hours with MSA.",
   "The pricing provided is based on the specifications supplied. Should the specifications change, our pricing may vary.",
   "Mickala provides full OEM support of Mickala LED Lighting Towers. Mickala will provide factory trained technician for any technical support required.",
   "Areas of responsibility (Service, Repair and Maintenance) are in accordance with Mickala Lighting Tower standard conditions. Please contact our office if you wish to obtain a copy.",

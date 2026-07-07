@@ -197,7 +197,7 @@ export default function CapabilityStatement() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: TrendingUp, title: "Cost Effective", desc: "Australian designed and engineered for the harshest Australian operating conditions. 100% supply chain control means lower costs passed to you." },
-              { icon: Shield, title: "Quality Guaranteed", desc: "12 months or 1,500 hours warranty. Extended warranty available with Mickala Service Agreements (MSA)." },
+              { icon: Shield, title: "Quality Guaranteed", desc: "12 months or 1500 hours warranty. Extended warranty available with Mickala Service Agreements (MSA)." },
               { icon: Zap, title: "Latest Technology", desc: "Industry leaders in design improvements. We supply tomorrow's technology today." },
               { icon: Hammer, title: "Built for Mining", desc: "Industry knowledge guarantees our towers are built tough to mine specifications with a lifespan of 10–15 years." },
               { icon: Clock, title: "24/7 Breakdown Support", desc: "Factory trained OEM technicians on call to ensure little or no disruption to your operations." },

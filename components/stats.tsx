@@ -1,6 +1,6 @@
 const stats = [
   { value: "2007", label: "Australian-owned since" },
-  { value: "1,000+", label: "Towers manufactured" },
+  { value: "1000+", label: "Towers manufactured" },
   { value: "200+", label: "Mine sites served" },
   { value: "100%", label: "Designed & built in-house" },
 ]

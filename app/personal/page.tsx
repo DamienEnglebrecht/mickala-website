@@ -198,7 +198,7 @@ export default function PersonalPage() {
             { label: "Documents Filed", value: "140+" },
             { label: "Legal Reps (Costs Target)", value: "Hirst & Hackett" },
             { label: "Worth of Calderbank Gap", value: "$2.25M" },
-            { label: "Days Since Nov 2022", value: "1,335" },
+            { label: "Days Since Nov 2022", value: "1335" },
           ].map(s => (
             <div key={s.label} className="bg-white rounded-xl p-4 border border-gray-100">
               <div className="text-lg font-bold text-gray-900">{s.value}</div>

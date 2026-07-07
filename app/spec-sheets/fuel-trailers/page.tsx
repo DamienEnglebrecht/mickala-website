@@ -2,13 +2,13 @@ import Image from "next/image"
 import Link from "next/link"
 
 const models = [
-  { id: "MFT1100", capacity: "1,100 L" },
-  { id: "MFT2000", capacity: "2,000 L" },
+  { id: "MFT1100", capacity: "1100 L" },
+  { id: "MFT2000", capacity: "2000 L" },
 ]
 
 const specs: Record<string, { label: string; value: string }[]> = {
   MFT1100: [
-    { label: "Capacity", value: "1,100 L" },
+    { label: "Capacity", value: "1100 L" },
     { label: "Containment", value: "110 % (tank in tank)" },
     { label: "Axle", value: "3 T electric brake" },
     { label: "Tyres", value: "235 × 85 × 16 AT" },
@@ -18,7 +18,7 @@ const specs: Record<string, { label: string; value: string }[]> = {
     { label: "Batteries", value: "2 × N150 + solar" },
   ],
   MFT2000: [
-    { label: "Capacity", value: "2,000 L" },
+    { label: "Capacity", value: "2000 L" },
     { label: "Containment", value: "110 % (tank in tank)" },
     { label: "Axle", value: "3 T electric brake" },
     { label: "Tyres", value: "235 × 85 × 16 AT" },
@@ -30,7 +30,7 @@ const specs: Record<string, { label: string; value: string }[]> = {
 }
 
 const comparisonRows = [
-  { feature: "Capacity", MFT1100: "1,100 L", MFT2000: "2,000 L" },
+  { feature: "Capacity", MFT1100: "1100 L", MFT2000: "2000 L" },
   { feature: "Containment", MFT1100: "110 %", MFT2000: "110 %" },
   { feature: "Pump", MFT1100: "12 V electric", MFT2000: "12 V electric" },
   { feature: "Hose Reel", MFT1100: "15 m", MFT2000: "15 m" },
@@ -109,7 +109,7 @@ export default function FuelTrailersSpec() {
               Overview
             </p>
             <p className="text-sm sm:text-base text-[#888888] leading-relaxed">
-              Mickala self-bunded fuel trailers carry 1,100 to 2,000 litres of diesel with full spill containment.
+              Mickala self-bunded fuel trailers carry 1100 to 2000 litres of diesel with full spill containment.
               Tank-in-tank design, integrated 12 V pump systems, and rugged running gear built for Australian mine sites.
             </p>
           </div>
