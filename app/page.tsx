@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const products = [
-  { name: "Single Axle", href: "/lighting-towers/single-axle", image: "/product-single-axle.png", desc: "Compact, towable. Fast deployment for smaller sites." },
+  { name: "Single Axle", href: "/lighting-towers/single-axle", image: "/product-single-axle.webp", desc: "Compact, towable. Fast deployment for smaller sites." },
   { name: "Dual Axle", href: "/lighting-towers/dual-axle", image: "/product-dual-axle.webp", desc: "Heavy-duty stability. Maximum coverage." },
   { name: "Sled Mount", href: "/lighting-towers/sled-mount", image: "/product-sled-mount.webp", desc: "Skid-mounted. Crane and forklift deployable." },
   { name: "Long Range", href: "/lighting-towers/long-range", image: "/product-long-range.webp", desc: "Extended mast. Long-throw optics." },
