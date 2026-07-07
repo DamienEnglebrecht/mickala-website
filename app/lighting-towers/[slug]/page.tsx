@@ -97,7 +97,7 @@ const categories: Record<string, CategoryData> = {
   "sled-mount": {
     title: "Sled Mount",
     description: "Skid-mounted for crane and forklift relocation around fixed sites. No wheels, no fuss — just dependable illumination.",
-    heroImage: "/product-sled-mount.png",
+    heroImage: "/sled-mount-hero.jpg",
     statLine: "3 models · 2560W – 3840W · Skid-mounted",
     models: [
       { name: "MLS 2560-LED", led: "2560W", desc: "Entry-level sled mount. Compact skid design for crane and forklift deployment.", image: "/product-images/doc_9ba284db2a30_mls-2560-led-sled-mounted-tower.png", slug: "sled-mount-2560-led", specSheet: "/spec-sheets/sled-mount-2560-led.pdf", lightSim: "/spec-sheets/sled-mount-2560-led-lightsim.pdf" },
