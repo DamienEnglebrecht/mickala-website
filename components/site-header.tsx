@@ -19,7 +19,10 @@ const navLinks = [
       { label: "Piranha Series", href: "/led-lighting/piranha" },
       { label: "Dark Licht Series", href: "/led-lighting/dark-licht" },
     ] },
-  { label: "Fuel Trailers", href: "/fuel-trailers" },
+  { label: "Fuel Storage", href: "/fuel-trailers", sub: [
+    { label: "Fuel Trailers", href: "/fuel-trailers" },
+    { label: "Fuel Tanks", href: "/fuel-tanks" },
+  ] },
   { label: "Custom Fab", href: "/custom-fabrication" },
   { label: "About", href: "/our-story" },
   { label: "Contact", href: "#contact" },

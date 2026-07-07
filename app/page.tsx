@@ -41,7 +41,13 @@ export default function HomePage() {
                 <Link href="/led-lighting/dark-licht" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Dark Licht</Link>
               </div>
             </div>
-            <Link href="/fuel-trailers" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Fuel Trailers</Link>
+            <div className="relative group">
+              <Link href="/fuel-trailers" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Fuel Storage</Link>
+              <div className="absolute top-full left-0 mt-2 w-44 bg-black/95 backdrop-blur-md border border-white/[0.06] rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
+                <Link href="/fuel-trailers" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Fuel Trailers</Link>
+                <Link href="/fuel-tanks" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Fuel Tanks</Link>
+              </div>
+            </div>
             <Link href="/our-story" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">About</Link>
             <Link href="/gallery" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Gallery</Link>
           </nav>
