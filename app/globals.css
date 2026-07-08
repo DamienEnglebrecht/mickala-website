@@ -140,6 +140,12 @@
 
 /* ===== PRINT STYLES ===== */
 @media print {
+  /* Page setup */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+
   /* Universal resets */
   * {
     background: transparent !important;
@@ -168,13 +174,15 @@
     line-height: 1.4 !important;
     color: #000 !important;
     background: #fff !important;
-    margin: 0.5in !important;
+    margin: 0 !important;
     padding: 0 !important;
+    width: 100% !important;
   }
 
-  h1 { font-size: 18pt !important; margin-top: 0 !important; }
-  h2 { font-size: 14pt !important; }
-  h3 { font-size: 12pt !important; }
+  h1 { font-size: 18pt !important; margin-top: 0 !important; page-break-after: avoid !important; }
+  h2 { font-size: 14pt !important; page-break-after: avoid !important; }
+  h3 { font-size: 12pt !important; page-break-after: avoid !important; }
+  h4 { page-break-after: avoid !important; }
 
   /* Tables */
   table {
@@ -200,11 +208,11 @@
     content: none !important;
   }
 
-  /* Page breaks */
-  .page-break, section {
+  /* Page breaks - avoid breaking inside sections */
+  .page-break {
     page-break-after: always;
   }
-  .page-break-avoid {
+  .page-break-avoid, section, .print-break-avoid {
     page-break-inside: avoid;
   }
 
@@ -226,10 +234,38 @@
   input, textarea, select {
     border: 1px solid #999 !important;
     color: black !important;
+    background: white !important;
   }
 
   /* Red accents become black */
   [class*="text-[#DC2626]"], [class*="text-red"], [class*="bg-red"] {
     color: black !important;
+  }
+
+  /* Ensure content fills page width */
+  .max-w-3xl, .max-w-4xl, .max-w-5xl, .max-w-6xl, .max-w-7xl {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0.5cm !important;
+  }
+
+  /* No overflow clipping in print */
+  .overflow-x-auto, .overflow-auto {
+    overflow: visible !important;
+  }
+
+  /* Grids should stack or fill width */
+  .grid {
+    display: block !important;
+  }
+  .grid > * {
+    display: block !important;
+    margin-bottom: 4pt !important;
+  }
+  /* Keep 2-column grids as side-by-side */
+  .grid.grid-cols-2 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8pt !important;
   }
 }
