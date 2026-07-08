@@ -45,7 +45,7 @@ export default function OurStoryPage() {
               href="/fuel-trailers"
               className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
             >
-              Fuel Trailers
+              Fuel Storage
             </Link>
             <Link
               href="/our-story"
@@ -137,25 +137,16 @@ export default function OurStoryPage() {
                 Founded in 2007 by Damien Englebrecht.
               </h2>
               <p>
-                Mickala started with nothing — on a dairy farm, with a simple idea
-                and a relentless work ethic. What began as a small operation grew
-                into something far bigger than anyone imagined.
+                Mickala started with nothing — from a dairy farm to the back shed into the powerhouse it is today. A simple idea and a relentless work ethic supported by an amazing team across the world. What began as a small operation grew into something far bigger than anyone imagined.
               </p>
               <p>
-                Today, Mickala is an Australian-owned OEM manufacturer of
-                extra-low-voltage LED lighting towers. We design and manufacture
-                100% of our assets in-house — giving us total control over quality,
-                intellectual property, and reliability from end to end.
+                Today, Mickala is an Australian-owned OEM manufacturer of extra-low-voltage LED lighting towers supplying the globe. We design and manufacture 100% of our assets in-house — giving us total control over quality, intellectual property, and reliability from end to end.
               </p>
               <p>
-                Every tower is thoroughly inspected by our factory-trained
-                technicians, ensuring seamless integration and zero disruption to
-                site productivity upon mobilisation.
+                Every tower is thoroughly inspected by our factory-trained technicians, ensuring seamless integration and zero disruption to site productivity upon mobilisation.
               </p>
               <p>
-                With over 2000 towers manufactured and deployed across 200+ mine
-                sites, Mickala has become a trusted partner to major mining
-                operations across Australia.
+                With over 2000 towers manufactured and deployed across 200+ mine sites, Mickala has become a trusted partner to major mining operations across Australia.
               </p>
               <p className="text-white/70 font-semibold pt-4">
                 &ldquo;Innovation through continuous improvement&rdquo; — our philosophy drives
