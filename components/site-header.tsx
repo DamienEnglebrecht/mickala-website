@@ -7,6 +7,7 @@ import { Menu, X, ChevronDown } from "lucide-react"
 
 const navLinks = [
   { label: "Lighting Towers", href: "/lighting-towers/single-axle", sub: [
+    { label: "All Products", href: "/products" },
     { label: "Single Axle", href: "/lighting-towers/single-axle" },
     { label: "Dual Axle", href: "/lighting-towers/dual-axle" },
     { label: "Sled Mount", href: "/lighting-towers/sled-mount" },
