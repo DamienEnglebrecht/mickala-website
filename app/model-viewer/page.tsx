@@ -14,55 +14,90 @@ export default function ModelViewerPage() {
     const container = containerRef.current
     if (!container) return
 
+    // Scene
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color(0x0a0a0a)
+    scene.background = new THREE.Color(0x1a1a1a)
 
-    const camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 0.1, 50000)
-    camera.position.set(12000, 6000, 12000)
+    // Camera
+    const camera = new THREE.PerspectiveCamera(25, container.clientWidth / container.clientHeight, 1, 100000)
+    camera.position.set(8000, 4000, 8000)
 
+    // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true })
     renderer.setSize(container.clientWidth, container.clientHeight)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.toneMapping = THREE.ACESFilmicToneMapping
-    renderer.toneMappingExposure = 1.5
+    renderer.toneMappingExposure = 1.0
     container.appendChild(renderer.domElement)
 
+    // Controls
     const controls = new OrbitControls(camera, renderer.domElement)
-    controls.target.set(0, 500, 0)
+    controls.target.set(0, 200, 0)
     controls.enableDamping = true
-    controls.dampingFactor = 0.05
-    controls.minDistance = 1000
-    controls.maxDistance = 50000
+    controls.dampingFactor = 0.1
+    controls.minDistance = 500
+    controls.maxDistance = 30000
     controls.update()
 
-    // Lights
-    const ambient = new THREE.AmbientLight(0x404040, 0.8)
+    // Lighting
+    const ambient = new THREE.AmbientLight(0xffffff, 0.6)
     scene.add(ambient)
-    const key = new THREE.DirectionalLight(0xffffff, 3)
-    key.position.set(5000, 8000, 5000)
-    scene.add(key)
-    const fill = new THREE.DirectionalLight(0x8888ff, 0.8)
-    fill.position.set(-3000, 2000, -3000)
-    scene.add(fill)
-    const rim = new THREE.DirectionalLight(0xffffff, 1.5)
-    rim.position.set(-2000, 1000, 5000)
-    scene.add(rim)
 
+    const key = new THREE.DirectionalLight(0xffffff, 2.5)
+    key.position.set(3000, 5000, 3000)
+    scene.add(key)
+
+    const fill = new THREE.DirectionalLight(0x8888ff, 0.5)
+    fill.position.set(-2000, 1000, -2000)
+    scene.add(fill)
+
+    const back = new THREE.DirectionalLight(0xffffff, 0.8)
+    back.position.set(0, 1000, -4000)
+    scene.add(back)
+
+    const top = new THREE.DirectionalLight(0xffffff, 0.3)
+    top.position.set(0, 5000, 0)
+    scene.add(top)
+
+    // Load model
     const loader = new GLTFLoader()
-    loader.load("/mlt1000-web.glb", (gltf) => {
+    loader.load("/mlt1000-web.glb", (gltf: any) => {
       const model = gltf.scene
-      model.traverse((child) => {
+      model.traverse((child: any) => {
         if (child instanceof THREE.Mesh) {
           child.material = new THREE.MeshStandardMaterial({
-            color: 0x444444,
-            roughness: 0.6,
-            metalness: 0.3,
+            color: 0xaaaaaa,
+            roughness: 0.5,
+            metalness: 0.1,
+            side: THREE.DoubleSide,
+            envMapIntensity: 1.0,
           })
+          child.castShadow = false
+          child.receiveShadow = false
         }
       })
       scene.add(model)
+
+      // Auto-fit camera to model
+      const box = new THREE.Box3().setFromObject(model)
+      const size = box.getSize(new THREE.Vector3())
+      const center = box.getCenter(new THREE.Vector3())
+      const maxDim = Math.max(size.x, size.y, size.z)
+      controls.target.copy(center)
+      const dist = maxDim * 1.5
+      camera.position.set(dist * 0.7, dist * 0.4, dist * 0.7)
+      camera.near = dist * 0.01
+      camera.far = dist * 10
+      camera.updateProjectionMatrix()
+      controls.update()
+      
+      // Add subtle grid
+      const gridHelper = new THREE.GridHelper(maxDim * 2, 20, 0x444444, 0x333333)
+      gridHelper.position.y = box.min.y - 50
+      scene.add(gridHelper)
     })
 
+    // Animation loop
     let anim: number
     const animate = () => {
       anim = requestAnimationFrame(animate)
@@ -71,7 +106,9 @@ export default function ModelViewerPage() {
     }
     animate()
 
+    // Resize handler
     const resize = () => {
+      if (!container) return
       camera.aspect = container.clientWidth / container.clientHeight
       camera.updateProjectionMatrix()
       renderer.setSize(container.clientWidth, container.clientHeight)
@@ -81,7 +118,9 @@ export default function ModelViewerPage() {
     return () => {
       cancelAnimationFrame(anim)
       window.removeEventListener("resize", resize)
-      container.removeChild(renderer.domElement)
+      if (container.contains(renderer.domElement)) {
+        container.removeChild(renderer.domElement)
+      }
       renderer.dispose()
     }
   }, [])
