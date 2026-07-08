@@ -208,7 +208,7 @@ export default function StandardTermsPage() {
           <div className="flex items-start gap-4">
             <Image src="/logo-mickala.png" alt="Mickala" width={72} height={72} className="h-16 w-auto" />
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-gray-900">Mickala Standard Terms &amp; Conditions</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Mickala Standard Terms and Conditions</h1>
               <p className="text-sm text-gray-500 mt-1">For the hire of lighting towers, plant and equipment</p>
               <p className="text-[10px] text-gray-400 mt-2">Document ref: MM-LE-TP-001 | Version 1.0 | Effective July 2026</p>
             </div>
