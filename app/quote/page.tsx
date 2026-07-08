@@ -6,7 +6,7 @@ import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 
 const productOptions = [
-  { category: "Lighting Towers", items: ["Single Axle", "Dual Axle", "Sled Mount", "Long Range"] },
+  { category: "Lighting Towers", items: ["Single Axle", "Dual Axle", "Sled Mount", "Long Range", "Stainless Steel Option (316L Stainless)", "Colour Switching Light technology", "Glare free Light technology (Patented)"] },
   { category: "LED Lighting", items: ["Orca Series", "Barracuda Series", "Snapper Series", "Piranha Series", "Dark Licht"] },
   { category: "Fuel Storage", items: ["Fuel Trailers", "Fuel Tanks"] },
   { category: "Other", items: ["Custom Fabrication", "Parts & Service", "Other"] },
