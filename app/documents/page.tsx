@@ -9,7 +9,7 @@ const sections = [
   {
     title: "Quoting & Sales",
     items: [
-      { name: "Create Quote", desc: "Build, print and save professional quotes.", href: "/create-quote" },
+      { name: "Create Quote", desc: "Build, print and save professional quotes.", href: "/quote" },
       { name: "Credit Application", desc: "Credit account application — 8 step online form.", href: "/credit-application" },
       { name: "Hire Schedule", desc: "Equipment hire agreement — 4 step online form.", href: "/hire-schedule" },
     ],
