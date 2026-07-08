@@ -137,3 +137,99 @@
     font-family: var(--font-heading);
   }
 }
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  /* Universal resets */
+  * {
+    background: transparent !important;
+    background-color: white !important;
+    color: black !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Hide navigation, sticky elements, buttons, modals */
+  header, footer, nav,
+  .fixed, .sticky,
+  button, .btn, [role="button"],
+  .no-print, .hidden\:print,
+  iframe, video, .print\:hidden {
+    display: none !important;
+  }
+
+  /* Force show print-only elements */
+  .print\:block { display: block !important; }
+  .print\:inline { display: inline !important; }
+
+  /* Typography */
+  body {
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    background: #fff !important;
+    margin: 0.5in !important;
+    padding: 0 !important;
+  }
+
+  h1 { font-size: 18pt !important; margin-top: 0 !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 12pt !important; }
+
+  /* Tables */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+  }
+  th, td {
+    border: 1px solid #ccc !important;
+    padding: 4pt 6pt !important;
+    font-size: 9pt !important;
+  }
+  th {
+    background-color: #f5f5f5 !important;
+    font-weight: bold !important;
+  }
+  tr {
+    page-break-inside: avoid !important;
+  }
+
+  /* Links - show URL */
+  a[href]:after {
+    content: none !important;
+  }
+
+  /* Page breaks */
+  .page-break, section {
+    page-break-after: always;
+  }
+  .page-break-avoid {
+    page-break-inside: avoid;
+  }
+
+  /* Images */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Specific overrides for dark-themed pages */
+  .bg-black, [class*="bg-black"], [class*="bg-neutral"], [class*="bg-gray"] {
+    background-color: white !important;
+  }
+  .text-white, [class*="text-white"], [class*="text-neutral"] {
+    color: black !important;
+  }
+
+  /* Inputs and forms */
+  input, textarea, select {
+    border: 1px solid #999 !important;
+    color: black !important;
+  }
+
+  /* Red accents become black */
+  [class*="text-[#DC2626]"], [class*="text-red"], [class*="bg-red"] {
+    color: black !important;
+  }
+}
