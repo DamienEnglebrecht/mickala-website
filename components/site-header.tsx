@@ -26,6 +26,11 @@ const navLinks = [
     { label: "Fuel Tanks", href: "/fuel-tanks" },
   ] },
   { label: "Custom Fab", href: "/custom-fabrication" },
+  { label: "Parts", href: "/parts", sub: [
+    { label: "Parts & Spares", href: "/parts" },
+    { label: "Parts Manuals", href: "/parts-manuals" },
+    { label: "Operation & Maintenance", href: "/parts-manuals/operation-maintenance" },
+  ] },
   { label: "About", href: "/our-story" },
   { label: "Contact", href: "#contact" },
 ]
