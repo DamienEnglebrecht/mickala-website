@@ -33,7 +33,7 @@ export default function ProductsPage() {
 
       {/* ===== HERO ===== */}
       <section className="relative h-[50vh] min-h-[400px]">
-        <Image src="/hero-towers.webp" alt="" fill className="object-cover" priority />
+        <Image src="/products-hero.jpg" alt="" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         <div className="absolute bottom-0 inset-x-0 max-w-[1200px] mx-auto px-6 pb-16">
           <p className="text-xs text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Products</p>
