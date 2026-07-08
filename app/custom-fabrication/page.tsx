@@ -109,6 +109,29 @@ export default function CustomFabricationPage() {
         </div>
       </section>
 
+      {/* ===== OUR FACTORY ===== */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">
+            Our Workshop
+          </p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-10">
+            Our Factory.
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-3">
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image src="/custom-fab-factory-1.jpg" alt="" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image src="/custom-fab-factory-2.jpg" alt="" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image src="/custom-fab-factory-3.jpg" alt="" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ===== CTA ===== */}
       <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-white/[0.06]">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
