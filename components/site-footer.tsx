@@ -130,7 +130,7 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} Mickala Group. All rights reserved.</p>
-          <p>Industrial LED Lighting Tower Manufacturing &amp; Maintenance</p>
+          <p>Low Voltage LED Lighting Towers</p>
         </div>
       </div>
     </footer>

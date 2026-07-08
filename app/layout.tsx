@@ -19,7 +19,7 @@ const archivo = Archivo({
 })
 
 export const metadata: Metadata = {
-  title: 'Mickala Group | Industrial LED Lighting Tower Manufacturing & Maintenance',
+  title: 'Mickala Group | Low Voltage LED Lighting Towers',
   description:
     'Australian-owned OEM manufacturer of extra-low-voltage LED lighting towers for mining, construction and industrial operations. Design, manufacture, maintenance and 24/7/365 support.',
   generator: 'v0.app',
