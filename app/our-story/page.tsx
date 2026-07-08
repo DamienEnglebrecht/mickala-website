@@ -75,7 +75,7 @@ export default function OurStoryPage() {
           src="/our-story-hero.webp"
           alt=""
           fill
-          className="object-cover"
+          className="object-scale-down"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
