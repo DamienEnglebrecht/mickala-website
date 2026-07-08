@@ -29,7 +29,7 @@ export default function HomePage() {
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-4">LED Lighting Towers</h1>
           <p className="text-base sm:text-lg text-white/60 max-w-lg mb-8">Extra-low-voltage lighting towers designed and manufactured in Australia. Trusted by 200+ mine sites.</p>
           <div className="flex items-center gap-4">
-            <Link href="/lighting-towers/single-axle" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Explore Products</Link>
+            <Link href="/products" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Explore Products</Link>
             <a href="tel:1300642525" className="inline-flex items-center px-6 py-3 border border-white/20 hover:border-white/40 transition-colors text-sm font-semibold rounded-full">Call 1300 642 525</a>
           </div>
         </div>
