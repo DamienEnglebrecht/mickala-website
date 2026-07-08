@@ -131,7 +131,7 @@ export default function OurStoryPage() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <div className="space-y-4 text-sm text-white/50 leading-relaxed">
               <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-6">
-                How it began
+                Humble Beginnings
               </p>
               <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] text-white mb-6">
                 Founded in 2007 by Damien Englebrecht.
