@@ -24,9 +24,16 @@ export default function OurStoryPage() {
     <div className="bg-black text-white">
       {/* ===== STICKY NAV ===== */}
       <div className="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6 h-10 flex items-center justify-between">
-          <Link href="/" className="text-sm font-semibold tracking-tight">
-            Mickala
+        <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/logo-mickala.png"
+              alt="Mickala Group"
+              width={80}
+              height={66}
+              className="h-[50px] w-auto"
+              priority
+            />
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             <Link
