@@ -59,12 +59,28 @@ export default function CapabilityStatement() {
       <style>{`
         @media print {
           @page { margin: 1.5cm; size: A4; }
+          body { background: white !important; font-size: 10pt; line-height: 1.35; color: #000 !important; }
+          * { background: transparent !important; background-color: white !important; color: black !important; text-shadow: none !important; box-shadow: none !important; }
           .no-print, nav, button, .fixed, .sticky, iframe, video { display: none !important; }
+          img { max-width: 100% !important; page-break-inside: avoid; display: block !important; }
           .print-section { page-break-inside: avoid; }
-          h1, h2, h3 { page-break-after: avoid; }
-          img { max-width: 100% !important; page-break-inside: avoid; }
-          table { page-break-inside: auto; }
+          h1 { font-size: 22pt !important; margin-top: 0; page-break-after: avoid; }
+          h2 { font-size: 14pt !important; page-break-after: avoid; }
+          h3 { font-size: 11pt !important; page-break-after: avoid; }
+          table { width: 100% !important; border-collapse: collapse !important; font-size: 8pt !important; }
+          th { background-color: #222 !important; color: white !important; padding: 4pt 6pt !important; text-align: left !important; border: 1px solid #ccc !important; }
+          td { padding: 3pt 6pt !important; border: 1px solid #ccc !important; }
           tr { page-break-inside: avoid; }
+          .max-w-6xl, .max-w-4xl { max-width: 100% !important; margin: 0 !important; padding: 0.5cm 0 !important; }
+          .card-icon { display: none !important; }
+          [class*="rounded-"] { border-radius: 0 !important; }
+          [class*="shadow"] { box-shadow: none !important; }
+          .cover-bg, .cover-gradient { display: none !important; }
+          [class*="bg-gradient"] { background: none !important; background-color: white !important; }
+          .grid { display: block !important; }
+          .grid > * { display: block !important; margin-bottom: 6pt !important; }
+          .md\\:grid-cols-2 { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10pt !important; }
+          .md\\:grid-cols-2 > * { margin-bottom: 0 !important; }
         }
       `}</style>
 
