@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { SiteHeader } from "@/components/site-header"
 
 const stats = [
   { label: "Founded", value: "2007" },
@@ -22,59 +23,7 @@ const values = [
 export default function OurStoryPage() {
   return (
     <div className="bg-black text-white">
-      {/* ===== STICKY NAV ===== */}
-      <div className="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center shrink-0">
-            <Image
-              src="/logo-mickala.png"
-              alt="Mickala Group"
-              width={80}
-              height={66}
-              className="h-[50px] w-auto"
-              priority
-            />
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link
-              href="/spec-sheets"
-              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
-            >
-              Lighting Towers
-            </Link>
-            <Link
-              href="/production-quality"
-              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
-            >
-              LED Lighting
-            </Link>
-            <Link
-              href="/fuel-trailers"
-              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
-            >
-              Fuel Storage
-            </Link>
-            <Link
-              href="/our-story"
-              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
-            >
-              About
-            </Link>
-            <Link
-              href="/gallery"
-              className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase"
-            >
-              Gallery
-            </Link>
-          </nav>
-          <a
-            href="tel:1300642525"
-            className="text-[11px] text-white/70 hover:text-white transition-colors tracking-wide uppercase shrink-0"
-          >
-            1300 642 525
-          </a>
-        </div>
-      </div>
+      <SiteHeader />
 
       {/* ===== HERO ===== */}
       <section className="relative h-screen min-h-[600px]">

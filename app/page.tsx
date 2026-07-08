@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { SiteHeader } from "@/components/site-header"
 
 const products = [
   { name: "Single Axle", href: "/lighting-towers/single-axle", image: "/product-single-axle.webp", desc: "Compact, towable. Fast deployment for smaller sites." },
@@ -17,52 +18,7 @@ const otherProducts = [
 export default function HomePage() {
   return (
     <div className="bg-black text-white">
-      {/* ===== NAV ===== */}
-      <div className="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center shrink-0">
-            <Image
-              src="/logo-mickala.png"
-              alt="Mickala Group"
-              width={80}
-              height={66}
-              className="h-[50px] w-auto"
-              priority
-            />
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <div className="relative group">
-              <Link href="/lighting-towers/single-axle" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Lighting Towers</Link>
-              <div className="absolute top-full left-0 mt-2 w-44 bg-black/95 backdrop-blur-md border border-white/[0.06] rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
-                <Link href="/lighting-towers/single-axle" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Single Axle</Link>
-                <Link href="/lighting-towers/dual-axle" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Dual Axle</Link>
-                <Link href="/lighting-towers/sled-mount" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Sled Mount</Link>
-                <Link href="/lighting-towers/long-range" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Long Range</Link>
-              </div>
-            </div>
-            <div className="relative group">
-              <Link href="/production-quality" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">LED Lighting</Link>
-              <div className="absolute top-full left-0 mt-2 w-44 bg-black/95 backdrop-blur-md border border-white/[0.06] rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
-                <Link href="/led-lighting/orca" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Orca Series</Link>
-                <Link href="/led-lighting/barracuda" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Barracuda Series</Link>
-                <Link href="/led-lighting/snapper" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Snapper Series</Link>
-                <Link href="/led-lighting/piranha" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Piranha Series</Link>
-                <Link href="/led-lighting/dark-licht" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Dark Licht</Link>
-              </div>
-            </div>
-            <div className="relative group">
-              <Link href="/fuel-trailers" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Fuel Storage</Link>
-              <div className="absolute top-full left-0 mt-2 w-44 bg-black/95 backdrop-blur-md border border-white/[0.06] rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
-                <Link href="/fuel-trailers" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Fuel Trailers</Link>
-                <Link href="/fuel-tanks" className="block px-4 py-2 text-[11px] text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors tracking-wide uppercase">Fuel Tanks</Link>
-              </div>
-            </div>
-            <Link href="/our-story" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">About</Link>
-            <Link href="/gallery" className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">Gallery</Link>
-          </nav>
-          <a href="tel:1300642525" className="text-[11px] text-white/70 hover:text-white transition-colors tracking-wide uppercase shrink-0">1300 642 525</a>
-        </div>
-      </div>
+      <SiteHeader />
 
       {/* ===== HERO ===== */}
       <section className="relative h-screen min-h-[600px]">

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { BuildYourOwn } from "@/components/build-your-own"
+import { SiteHeader } from "@/components/site-header"
 
 const models = ["MFT1100", "MFT2000"]
 
@@ -33,31 +34,7 @@ const standardFeatures = [
 export default function FuelTrailersPage() {
   return (
     <div className="bg-black text-white">
-      {/* ===== STICKY NAV ===== */}
-      <div className="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center shrink-0">
-            <Image
-              src="/logo-mickala.png"
-              alt="Mickala Group"
-              width={80}
-              height={66}
-              className="h-[50px] w-auto"
-              priority
-            />
-          </Link>
-          <nav className="hidden sm:flex items-center gap-6">
-            {["Overview", "Specs", "Features", "Build", "Gallery"].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">
-                {item}
-              </a>
-            ))}
-          </nav>
-          <a href="tel:1300642525" className="text-[11px] text-white/70 hover:text-white transition-colors tracking-wide uppercase">
-            1300 642 525
-          </a>
-        </div>
-      </div>
+      <SiteHeader />
 
       {/* ===== HERO ===== */}
       <section id="overview" className="relative h-screen min-h-[600px]">
