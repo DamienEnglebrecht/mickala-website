@@ -105,6 +105,15 @@ export default function CustomFabricationPage() {
             <div className="aspect-[4/3] relative overflow-hidden">
               <Image src="/custom-fabrication-hero.jpg" alt="" fill className="object-cover hover:scale-105 transition-transform duration-700" />
             </div>
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image src="/custom-fab-cap-1.jpg" alt="" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image src="/custom-fab-cap-2.jpg" alt="" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image src="/custom-fab-cap-3.jpg" alt="" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
           </div>
         </div>
       </section>
