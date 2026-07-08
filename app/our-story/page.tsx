@@ -133,11 +133,8 @@ export default function OurStoryPage() {
               <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-6">
                 Humble Beginnings
               </p>
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] text-white mb-6">
-                Founded in 2007 by Damien Englebrecht.
-              </h2>
               <p>
-                Mickala started with nothing — from a dairy farm to the back shed into the powerhouse it is today. A simple idea and a relentless work ethic supported by an amazing team across the world. What began as a small operation grew into something far bigger than anyone imagined.
+                Mickala started with nothing —Founded in 2007 by Damien Englebrecht. From a dairy farm to the back shed into the powerhouse it is today. A simple idea and a relentless work ethic supported by an amazing team across the world. What began as a small operation grew into something far bigger than anyone imagined.
               </p>
               <p>
                 Today, Mickala is an Australian-owned OEM manufacturer of extra-low-voltage LED lighting towers supplying the globe. We design and manufacture 100% of our assets in-house — giving us total control over quality, intellectual property, and reliability from end to end.
@@ -147,10 +144,6 @@ export default function OurStoryPage() {
               </p>
               <p>
                 With over 2000 towers manufactured and deployed across 200+ mine sites, Mickala has become a trusted partner to major mining operations across Australia.
-              </p>
-              <p className="text-white/70 font-semibold pt-4">
-                &ldquo;Innovation through continuous improvement&rdquo; — our philosophy drives
-                everything we do.
               </p>
             </div>
             <div className="relative aspect-[3/4] lg:aspect-auto lg:h-[550px] overflow-hidden border border-white/[0.06]">
