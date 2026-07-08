@@ -94,11 +94,13 @@ export default function ModelViewerPage() {
           const model = gltf.scene
           model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
+              const hasVertexColors = child.geometry.attributes.color !== undefined
               const mat = new THREE.MeshStandardMaterial({
-                color: new THREE.Color(0x999999),
-                roughness: 0.35,
-                metalness: 0.6,
-                envMapIntensity: 1.5,
+                color: hasVertexColors ? 0xffffff : new THREE.Color(0x999999),
+                vertexColors: hasVertexColors,
+                roughness: 0.4,
+                metalness: 0.5,
+                envMapIntensity: 1.2,
                 side: THREE.DoubleSide,
               })
               child.material = mat
