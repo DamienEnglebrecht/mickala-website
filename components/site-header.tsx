@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
 
 const navLinks = [
-  { label: "Products", href: "/lighting-towers/single-axle", sub: [
+  { label: "Lighting Towers", href: "/lighting-towers/single-axle", sub: [
     { label: "Single Axle", href: "/lighting-towers/single-axle" },
     { label: "Dual Axle", href: "/lighting-towers/dual-axle" },
     { label: "Sled Mount", href: "/lighting-towers/sled-mount" },
