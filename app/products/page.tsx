@@ -10,10 +10,10 @@ const products = [
   { name: "Long Range", category: "Lighting Towers", href: "/lighting-towers/long-range", image: "/product-long-range.webp", desc: "Extended mast. Long-throw optics." },
 
   // LED Lighting
-  { name: "Orca Series", category: "LED Lighting", href: "/led-lighting/orca", image: "/orca-light.jpg", desc: "High-performance floodlighting. 300W – 800W." },
-  { name: "Barracuda Series", category: "LED Lighting", href: "/led-lighting/barracuda", image: "/barracuda-light.jpg", desc: "Industrial linear lighting. 120W – 320W." },
-  { name: "Snapper Series", category: "LED Lighting", href: "/led-lighting/snapper", image: "/snapper-light.jpg", desc: "Versatile area lighting. 170W – 1,200W." },
-  { name: "Piranha Series", category: "LED Lighting", href: "/led-lighting/piranha", image: "/piranha-light.jpg", desc: "Compact hazardous area. 55W – 70W." },
+  { name: "DCB95 (Orca)", category: "LED Lighting", href: "/led-lighting/orca", image: "/orca-light.jpg", desc: "High-performance floodlighting. 300W – 800W." },
+  { name: "DCB48/66 (Barracuda)", category: "LED Lighting", href: "/led-lighting/barracuda", image: "/barracuda-light.jpg", desc: "Industrial linear lighting. 120W – 320W." },
+  { name: "DCB24 (Snapper)", category: "LED Lighting", href: "/led-lighting/snapper", image: "/snapper-light.jpg", desc: "Versatile area lighting. 170W – 1,200W." },
+  { name: "DCB9 (Piranha)", category: "LED Lighting", href: "/led-lighting/piranha", image: "/piranha-light.jpg", desc: "Compact hazardous area. 55W – 70W." },
   { name: "Dark Licht", category: "LED Lighting", href: "/led-lighting/dark-licht", image: "/dark-licht.jpg", desc: "German-engineered. 320W – 1,800W." },
 
   // Fuel Storage

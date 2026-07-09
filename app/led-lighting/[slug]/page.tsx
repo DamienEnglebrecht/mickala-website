@@ -6,16 +6,16 @@ import { notFound } from "next/navigation"
 const products = [
   {
     slug: "orca",
-    title: "Orca",
+    title: "DCB95 (Orca)",
     subtitle: "High-Power LED Floodlight",
     description: "High-performance industrial LED floodlight engineered for the world's toughest mine sites and infrastructure projects.",
     heroImage: "/orca-light.jpg",
     statLine: "300W – 800W · 46200 – 111300 lm · IP67",
     models: [
-      { name: "Orca 300", label: "300W", image: "/orca-light.jpg" },
-      { name: "Orca 450", label: "450W", image: "/orca-light.jpg" },
-      { name: "Orca 600", label: "600W", image: "/orca-light.jpg" },
-      { name: "Orca 800", label: "800W", image: "/orca-light.jpg" },
+      { name: "DCB95 300 (Orca)", label: "300W", image: "/orca-light.jpg" },
+      { name: "DCB95 450 (Orca)", label: "450W", image: "/orca-light.jpg" },
+      { name: "DCB95 600 (Orca)", label: "600W", image: "/orca-light.jpg" },
+      { name: "DCB95 800 (Orca)", label: "800W", image: "/orca-light.jpg" },
     ],
     specs: [
       ["Power Range", "300W | 450W | 600W | 800W"],
@@ -39,15 +39,15 @@ const products = [
   },
   {
     slug: "barracuda",
-    title: "Barracuda",
+    title: "DCB48/66 (Barracuda)",
     subtitle: "Medium-Power LED Floodlight",
     description: "Versatile medium-power LED floodlight for construction, mining, and general industrial area lighting.",
     heroImage: "/barracuda-light.jpg",
     statLine: "120W – 320W · 19650 – 42000 lm · IP67",
     models: [
-      { name: "Barracuda 120", label: "120W", image: "/barracuda-light.jpg" },
-      { name: "Barracuda 200", label: "200W", image: "/barracuda-light.jpg" },
-      { name: "Barracuda 320", label: "320W", image: "/barracuda-light.jpg" },
+      { name: "DCB48/66 120 (Barracuda)", label: "120W", image: "/barracuda-light.jpg" },
+      { name: "DCB48/66 200 (Barracuda)", label: "200W", image: "/barracuda-light.jpg" },
+      { name: "DCB48/66 320 (Barracuda)", label: "320W", image: "/barracuda-light.jpg" },
     ],
     specs: [
       ["Power Range", "120W | 200W | 320W"],
@@ -70,16 +70,16 @@ const products = [
   },
   {
     slug: "snapper",
-    title: "Snapper",
+    title: "DCB24 (Snapper)",
     subtitle: "Modular Multi-Head LED Light",
     description: "Modular multi-head LED lighting system for large area illumination — up to 12 heads per fixture.",
     heroImage: "/snapper-light.jpg",
     statLine: "170W – 1200W · 19500 – 168000 lm · IP66",
     models: [
-      { name: "Snapper 2-head", label: "170W", image: "/snapper-light.jpg" },
-      { name: "Snapper 4-head", label: "400W", image: "/snapper-light.jpg" },
-      { name: "Snapper 8-head", label: "800W", image: "/snapper-light.jpg" },
-      { name: "Snapper 12-head", label: "1200W", image: "/snapper-light.jpg" },
+      { name: "DCB24 2-head (Snapper)", label: "170W", image: "/snapper-light.jpg" },
+      { name: "DCB24 4-head (Snapper)", label: "400W", image: "/snapper-light.jpg" },
+      { name: "DCB24 8-head (Snapper)", label: "800W", image: "/snapper-light.jpg" },
+      { name: "DCB24 12-head (Snapper)", label: "1200W", image: "/snapper-light.jpg" },
     ],
     specs: [
       ["Power Range", "170W – 1200W (multi-head config)"],
@@ -101,14 +101,14 @@ const products = [
   },
   {
     slug: "piranha",
-    title: "Piranha",
+    title: "DCB9 (Piranha)",
     subtitle: "Compact High-Output LED Light",
     description: "Compact high-output LED light for off-road vehicles, mining equipment, and confined spaces.",
     heroImage: "/piranha-light.jpg",
     statLine: "55W – 70W · 6100 – 8400 lm · IP69K",
     models: [
-      { name: "Piranha 55", label: "55W", image: "/piranha-light.jpg" },
-      { name: "Piranha 70", label: "70W", image: "/piranha-light.jpg" },
+      { name: "DCB9 55 (Piranha)", label: "55W", image: "/piranha-light.jpg" },
+      { name: "DCB9 70 (Piranha)", label: "70W", image: "/piranha-light.jpg" },
     ],
     specs: [
       ["Power Range", "55W | 70W"],

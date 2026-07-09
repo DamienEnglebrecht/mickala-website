@@ -8,7 +8,7 @@ const brands = [
     image: "/dcbright-hero.webp",
     products: [
       {
-        name: "Orca",
+        name: "DCB95 (Orca)",
         subtitle: "High-Power LED Floodlight",
         image: "/orca-light.webp",
         specs: [
@@ -25,7 +25,7 @@ const brands = [
         ],
       },
       {
-        name: "Barracuda",
+        name: "DCB48/66 (Barracuda)",
         subtitle: "Medium-Power LED Floodlight",
         image: "/barracuda-light.webp",
         specs: [
@@ -42,7 +42,7 @@ const brands = [
         ],
       },
       {
-        name: "Snapper",
+        name: "DCB24 (Snapper)",
         subtitle: "Modular Multi-Head LED Light",
         image: "/snapper-light.webp",
         specs: [
@@ -59,7 +59,7 @@ const brands = [
         ],
       },
       {
-        name: "Piranha",
+        name: "DCB9 (Piranha)",
         subtitle: "Compact High-Output LED Light",
         image: "/piranha-light.webp",
         specs: [

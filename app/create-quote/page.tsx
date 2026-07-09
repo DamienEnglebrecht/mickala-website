@@ -98,11 +98,14 @@ export default function QuotePage() {
   const [hireFrom, setHireFrom] = useState("")
   const [hireTo, setHireTo] = useState("")
   const [paymentTerms, setPaymentTerms] = useState("Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")
+  const [customTerms, setCustomTerms] = useState("")
+  const [useCustomTerms, setUseCustomTerms] = useState(false)
   const [preparedBy, setPreparedBy] = useState("")
   const [showDetails, setShowDetails] = useState(false)
   const [specModel, setSpecModel] = useState<string | null>(null)
   const [quoteType, setQuoteType] = useState("Purchase Quote")
   const [status, setStatus] = useState("New")
+  const [focusedPrice, setFocusedPrice] = useState<number | null>(null)
 
   useEffect(() => {
     const saved = localStorage.getItem("mickala_quote_counter")
@@ -151,6 +154,8 @@ export default function QuotePage() {
     setCustomerContact("")
     setRows([{ id: 1, desc: "", qty: 1, price: 0 }])
     setPaymentTerms("Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")
+    setCustomTerms("")
+    setUseCustomTerms(false)
   }
 
   const subtotal = rows.reduce((s, r) => s + r.qty * Number(r.price), 0)
@@ -158,7 +163,11 @@ export default function QuotePage() {
   return (
     <div className="min-h-screen bg-gray-50 print:bg-white print:p-0">
       <style>{`
-        @media print{@page{margin:12mm 8mm}body{min-width:auto!important}}
+        @media print{@page{margin:12mm 8mm}body{min-width:auto!important}
+          .quote-content table, .quote-content tr, .quote-content td, .quote-content th,
+          .quote-content input, .quote-content select, .quote-content textarea { border: none !important; }
+          .quote-content td, .quote-content th { padding: 2px 4px !important; }
+        }
         .quote-content * { font-optical-sizing: auto !important; font-variation-settings: 'slnt' 0 !important; }
         .quote-content { font-optical-sizing: auto; }
         .quote-content input, .quote-content textarea, .quote-content select, .quote-content td { font-size: 9px !important; }
@@ -235,23 +244,38 @@ export default function QuotePage() {
             <tr><td className="font-semibold py-1 pr-4">Date</td><td>{date}</td></tr>
             {quoteType === "Hire Quote" && (
               <>
-                <tr><td className="font-semibold py-1 pr-4">Hire Period From</td><td><input type="date" value={hireFrom} onChange={e => setHireFrom(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary" /></td></tr>
-                <tr><td className="font-semibold py-1 pr-4">Hire Period To</td><td><input type="date" value={hireTo} onChange={e => setHireTo(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary" /></td></tr>
+                <tr><td className="font-semibold py-1 pr-4">Hire Period From</td><td><input type="date" value={hireFrom} onChange={e => setHireFrom(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
+                <tr><td className="font-semibold py-1 pr-4">Hire Period To</td><td><input type="date" value={hireTo} onChange={e => setHireTo(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
               </>
             )}
             <tr><td className="font-semibold py-1 pr-4">Prepared For</td>
-              <td><input type="text" value={customer} onChange={e => setCustomer(e.target.value)} placeholder="Customer name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary" /></td></tr>
+              <td><input type="text" value={customer} onChange={e => setCustomer(e.target.value)} placeholder="Customer name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
             <tr><td className="font-semibold py-1 pr-4">Customer Contact</td>
-              <td><input type="text" value={customerContact} onChange={e => setCustomerContact(e.target.value)} placeholder="Contact name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary" /></td></tr>
+              <td><input type="text" value={customerContact} onChange={e => setCustomerContact(e.target.value)} placeholder="Contact name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
             <tr><td className="font-semibold py-1 pr-4">Valid Until</td><td>{new Date(Date.now() + 30*86400000).toLocaleDateString("en-AU", {day:"numeric", month:"long", year:"numeric"})}</td></tr>
             <tr><td className="font-semibold py-1 pr-4">Payment Terms</td>
-              <td><input type="text" value={paymentTerms} onChange={e => setPaymentTerms(e.target.value)} list="payment-terms-list" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary" />
-                <datalist id="payment-terms-list">
-                  <option value="Payment 100% Prior To Delivery" />
-                  <option value="30 Days from Invoice" />
-                  <option value="7 Days" />
-                  <option value="Cash Sale" />
-                </datalist>
+              <td>
+                {useCustomTerms ? (
+                  <input type="text" value={customTerms} onChange={e => { setCustomTerms(e.target.value); setPaymentTerms(e.target.value) }} placeholder="Type custom payment terms..." className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" />
+                ) : (
+                  <select value={paymentTerms} onChange={e => {
+                    if (e.target.value === "Custom...") {
+                      setUseCustomTerms(true)
+                      setPaymentTerms("")
+                    } else {
+                      setPaymentTerms(e.target.value)
+                    }
+                  }} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary cursor-pointer print:border-none">
+                    <option value="Payment 100% Prior To Delivery">Payment 100% Prior To Delivery</option>
+                    <option value="30 Days from Invoice Date">30 Days from Invoice Date</option>
+                    <option value="7 Days">7 Days</option>
+                    <option value="Cash Sale">Cash Sale</option>
+                    <option value="Custom...">Custom...</option>
+                  </select>
+                )}
+                {useCustomTerms && (
+                  <button onClick={() => { setUseCustomTerms(false); setPaymentTerms("Payment 100% Prior To Delivery") }} className="text-xs text-primary hover:underline mt-1">← Back to presets</button>
+                )}
               </td></tr>
             <tr><td className="font-semibold py-1 pr-4">Delivery</td><td>FOB Paget QLD Depot</td></tr>
           </tbody>
@@ -278,7 +302,7 @@ export default function QuotePage() {
                 <td className="p-1.5 text-gray-400">{i + 1}</td>
                 <td className="p-1.5">
                   <div className="flex gap-1">
-                    <input type="text" value={r.desc} onChange={e => updateRow(r.id, "desc", e.target.value)} placeholder="Select or type..." list={"models-" + r.id} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-xs focus:outline-none focus:border-primary" />
+                    <input type="text" value={r.desc} onChange={e => updateRow(r.id, "desc", e.target.value)} placeholder="Select or type..." list={"models-" + r.id} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-xs focus:outline-none focus:border-primary print:border-none" />
                     <datalist id={"models-" + r.id}>
                       {allItems.map(m => (
                         <option key={m.name} value={m.name} />
@@ -286,11 +310,16 @@ export default function QuotePage() {
                     </datalist>
                   </div>
                 </td>
-                <td className="p-1.5 text-left"><input type="number" value={r.qty} onChange={e => updateRow(r.id, "qty", parseInt(e.target.value) || 0)} className="w-16 text-left border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary" /></td>
+                <td className="p-1.5 text-left"><input type="number" value={r.qty} onChange={e => updateRow(r.id, "qty", parseInt(e.target.value) || 0)} className="w-16 text-left border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary print:border-none" /></td>
                 <td className="p-1.5 text-left">
                   <div className="flex items-center gap-0.5">
                     <span className="text-gray-400">$</span>
-                    <input type="text" inputMode="decimal" value={r.price === 0 ? '' : String(r.price)} onChange={e => { const v = e.target.value.replace(/[^0-9.]/g, ''); updateRow(r.id, "price", v === '' ? 0 : parseFloat(v) || 0); }} className="w-20 text-left border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary" />
+                    <input type="text" inputMode="decimal"
+                      value={focusedPrice === r.id ? (r.price === 0 ? '' : String(r.price)) : (r.price === 0 ? '' : r.price.toFixed(2))}
+                      onChange={e => { const v = e.target.value.replace(/[^0-9.]/g, ''); updateRow(r.id, "price", v === '' ? 0 : parseFloat(v) || 0); }}
+                      onFocus={() => setFocusedPrice(r.id)}
+                      onBlur={() => setFocusedPrice(null)}
+                      className="w-20 text-left border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary print:border-none" />
                   </div>
                 </td>
                 <td className="p-1.5 text-left font-medium">${(r.qty * Number(r.price)).toFixed(2)}</td>

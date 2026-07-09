@@ -2,6 +2,7 @@
 import { useState, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { ArrowLeft, ChevronRight, ChevronLeft, Check } from "lucide-react"
 
 type FormData = {
@@ -49,7 +50,9 @@ export default function CreditAppPage() {
   const [form, setForm] = useState<FormData>(initialForm)
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [printingFull, setPrintingFull] = useState(false)
   const formRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
   const update = (field: keyof FormData, value: any) => setForm(f => ({ ...f, [field]: value }))
 
@@ -110,8 +113,14 @@ export default function CreditAppPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-3xl mx-auto p-4 sm:p-8">
-        <Link href="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-4"><ArrowLeft className="mr-1 h-4 w-4" /> Back</Link>
+      <style>{`
+        @media print { @page { margin: 12mm 8mm; } }
+        .page-break { page-break-before: always; }
+      `}</style>
+
+      {/* ===== MAIN FORM (hidden when printing full) ===== */}
+      <div className={`max-w-3xl mx-auto p-4 sm:p-8 ${printingFull ? 'hidden' : ''}`}>
+        <Link href="/" onClick={(e) => { e.preventDefault(); router.back() }} className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-4"><ArrowLeft className="mr-1 h-4 w-4" /> Back</Link>
 
         <div className="bg-white rounded-2xl border shadow-sm p-6 sm:p-8">
           {/* Header */}
@@ -425,6 +434,48 @@ export default function CreditAppPage() {
           </div>
         </div>
       </div>
+
+      {/* ===== FULL PRINT VIEW ===== */}
+      {printingFull && (
+        <div className="max-w-5xl mx-auto p-4 sm:p-8">
+          <div className="text-center mb-8">
+            <Image src="/logo-mickala.png" alt="Mickala Group" width={60} height={60} className="mx-auto mb-2" />
+            <h1 className="text-2xl font-bold text-primary">Credit Application</h1>
+            <p className="text-xs text-gray-500">Mickala Group — ABN 92 180 218 353</p>
+          </div>
+          <table className="w-full text-xs mb-4"><tbody>
+            <tr><td className="font-semibold py-1 pr-4 w-40">Entity Type</td><td>{form.entityType}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Trading Name</td><td>{form.tradingName}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">ABN</td><td>{form.abn}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">ACN</td><td>{form.acn}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Address</td><td>{form.registeredAddress}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Phone</td><td>{form.phone}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Email</td><td>{form.email}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Website</td><td>{form.website}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Business Type</td><td>{form.businessType}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Years Established</td><td>{form.yearsEstablished}</td></tr>
+          </tbody></table>
+          <div className="page-break"></div>
+          <hr className="border-gray-300 mb-4" />
+          <h2 className="text-sm font-bold mb-3">Banking & Credit</h2>
+          <table className="w-full text-xs mb-4"><tbody>
+            <tr><td className="font-semibold py-1 pr-4 w-40">Bank</td><td>{form.bankName} BSB {form.bankBsb} Acc {form.bankAccount}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Account Name</td><td>{form.bankAccountName}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Credit Amount</td><td>{form.creditAmount}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Credit Terms</td><td>{form.creditTerms}</td></tr>
+          </tbody></table>
+          <div className="page-break"></div>
+          <hr className="border-gray-300 mb-4" />
+          <h2 className="text-sm font-bold mb-3">Declaration & Signature</h2>
+          <table className="w-full text-xs mb-4"><tbody>
+            <tr><td className="font-semibold py-1 pr-4 w-40">Signatory Name</td><td>{form.signatoryName}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Title</td><td>{form.signatoryTitle}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Date</td><td>{form.signatoryDate}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Agreed to Terms</td><td>{form.agreedToTerms ? "Yes" : "No"}</td></tr>
+          </tbody></table>
+          <p className="text-center text-xs text-gray-400 mt-8">Mickala Group | 1300 642 525 | accounts@mickala.com.au | www.mickalagroup.com.au</p>
+        </div>
+      )}
     </div>
   )
 }

@@ -15,10 +15,10 @@ const navLinks = [
   ] },
   { label: "LED Lighting", href: "/production-quality",
     sub: [
-      { label: "Orca Series", href: "/led-lighting/orca" },
-      { label: "Barracuda Series", href: "/led-lighting/barracuda" },
-      { label: "Snapper Series", href: "/led-lighting/snapper" },
-      { label: "Piranha Series", href: "/led-lighting/piranha" },
+      { label: "DCB95 (Orca)", href: "/led-lighting/orca" },
+      { label: "DCB48/66 (Barracuda)", href: "/led-lighting/barracuda" },
+      { label: "DCB24 (Snapper)", href: "/led-lighting/snapper" },
+      { label: "DCB9 (Piranha)", href: "/led-lighting/piranha" },
       { label: "Dark Licht Series", href: "/led-lighting/dark-licht" },
     ] },
   { label: "Fuel Storage", href: "/fuel-trailers", sub: [

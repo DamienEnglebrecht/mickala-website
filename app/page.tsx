@@ -86,7 +86,7 @@ export default function HomePage() {
             <div>
               <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">LED Lighting</p>
               <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">For the world&apos;s toughest conditions.</h2>
-              <p className="text-sm text-white/50 leading-relaxed mb-6">Orca, Barracuda, Snapper, Piranha, and Dark Licht — a full range of industrial LED lighting engineered for mining, construction, and infrastructure.</p>
+              <p className="text-sm text-white/50 leading-relaxed mb-6">DCB95 (Orca), DCB48/66 (Barracuda), DCB24 (Snapper), DCB9 (Piranha), and Dark Licht — a full range of industrial LED lighting engineered for mining, construction, and infrastructure.</p>
               <Link href="/production-quality" className="inline-flex items-center text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold">Explore the range →</Link>
             </div>
           </div>
