@@ -118,6 +118,32 @@ export default function CustomFabricationPage() {
         </div>
       </section>
 
+      {/* ===== ROBOTIC WELDING VIDEO ===== */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">
+            Robotic Welding
+          </p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-6">
+            Precision automated<br />welding in action.
+          </h2>
+          <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-lg">
+            Consistent, high-strength welds — every joint, every time.
+          </p>
+          <div className="relative aspect-video bg-white/[0.02] rounded-2xl overflow-hidden border border-white/[0.06]">
+            <video
+              className="w-full h-full object-cover"
+              controls
+              playsInline
+              preload="metadata"
+            >
+              <source src="/robot-welding.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* ===== OUR FACTORY ===== */}
       <section className="py-20 sm:py-28">
         <div className="max-w-[1200px] mx-auto px-6">
