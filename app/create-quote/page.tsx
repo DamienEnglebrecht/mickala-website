@@ -106,6 +106,9 @@ export default function QuotePage() {
   const [quoteType, setQuoteType] = useState("Purchase Quote")
   const [status, setStatus] = useState("New")
   const [focusedPrice, setFocusedPrice] = useState<number | null>(null)
+  const [showLoadPanel, setShowLoadPanel] = useState(false)
+  const [savedQuotes, setSavedQuotes] = useState<any[]>([])
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     const saved = localStorage.getItem("mickala_quote_counter")
@@ -156,6 +159,35 @@ export default function QuotePage() {
     setPaymentTerms("Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")
     setCustomTerms("")
     setUseCustomTerms(false)
+    setPreparedBy("")
+    setStatus("New")
+    setQuoteType("Purchase Quote")
+  }
+
+  const loadQuotes = async () => {
+    try {
+      const res = await fetch("/api/quotes?limit=100")
+      const data = await res.json()
+      if (Array.isArray(data)) {
+        setSavedQuotes(data)
+        setShowLoadPanel(true)
+        setSearchTerm("")
+      }
+    } catch (_) { /* silently fail */ }
+  }
+
+  const applyQuote = (q: any) => {
+    setQuoteNum(q.id)
+    setCustomer(q.customer || "")
+    setCustomerContact(q.customer_contact || "")
+    setDate(q.date || "")
+    setQuoteType(q.quote_type || "Purchase Quote")
+    setPreparedBy(q.prepared_by || "")
+    setStatus(q.status || "New")
+    if (q.items && Array.isArray(q.items)) {
+      setRows(q.items.map((item: any, i: number) => ({ id: i + 1, desc: item.desc || "", qty: item.qty || 1, price: item.price || 0 })))
+    }
+    setShowLoadPanel(false)
   }
 
   const subtotal = rows.reduce((s, r) => s + r.qty * Number(r.price), 0)
@@ -179,6 +211,7 @@ export default function QuotePage() {
         <div className="flex gap-3 mb-6 print:hidden">
           <button onClick={handlePrint} className="rounded-full bg-primary text-white px-6 py-2.5 text-sm font-semibold hover:bg-primary/90 transition-colors">Print / Save PDF</button>
           <button onClick={newQuote} className="rounded-full bg-green-600 text-white px-6 py-2.5 text-sm font-semibold hover:bg-green-700 transition-colors">+ New Quote</button>
+          <button onClick={loadQuotes} className="rounded-full bg-blue-600 text-white px-6 py-2.5 text-sm font-semibold hover:bg-blue-700 transition-colors">📂 Load Quote</button>
           <button onClick={() => setShowDetails(!showDetails)} className="rounded-full border border-border px-6 py-2.5 text-sm font-semibold hover:bg-accent transition-colors">
             {showDetails ? "Simple View" : "Full Details"}
           </button>
@@ -442,6 +475,68 @@ export default function QuotePage() {
         <hr className="border-primary mb-4" />
         <p className="text-center text-xs text-gray-400">Mickala Group | 1300 642 525 | management@mickala.com.au | www.mickalagroup.com.au</p>
       </div>
+
+      {/* ===== LOAD QUOTE PANEL ===== */}
+      {showLoadPanel && (
+        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 backdrop-blur-sm pt-12">
+          <div className="bg-white rounded-2xl p-6 max-w-3xl w-full mx-4 shadow-2xl max-h-[80vh] flex flex-col">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-bold">Load Existing Quote</h2>
+              <button onClick={() => setShowLoadPanel(false)} className="text-gray-400 hover:text-gray-700 text-xl font-bold">&times;</button>
+            </div>
+            <input
+              type="text"
+              placeholder="Search by quote number, customer name, or contact..."
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 mb-4"
+              autoFocus
+            />
+            <div className="flex-1 overflow-y-auto space-y-2">
+              {savedQuotes
+                .filter((q: any) =>
+                  !searchTerm ||
+                  String(q.id).includes(searchTerm) ||
+                  (q.customer || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  (q.customer_contact || "").toLowerCase().includes(searchTerm.toLowerCase())
+                )
+                .sort((a: any, b: any) => b.id - a.id)
+                .map((q: any) => (
+                  <div
+                    key={q.id}
+                    onClick={() => applyQuote(q)}
+                    className="flex items-center justify-between p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-primary hover:bg-red-50 transition-all"
+                  >
+                    <div>
+                      <span className="font-semibold text-sm">#{q.id}</span>
+                      <span className="text-sm text-gray-500 ml-3">{q.customer || "No customer"}</span>
+                      {(q.customer_contact) && <span className="text-xs text-gray-400 ml-2">— {q.customer_contact}</span>}
+                    </div>
+                    <div className="flex items-center gap-3 text-xs text-gray-400">
+                      <span className={`px-2 py-0.5 rounded-full font-medium ${
+                        q.status === "Won" ? "bg-green-100 text-green-700" :
+                        q.status === "Lost" ? "bg-red-100 text-red-700" :
+                        q.status === "Sent" ? "bg-blue-100 text-blue-700" :
+                        q.status === "Following Up" ? "bg-amber-100 text-amber-700" :
+                        "bg-gray-100 text-gray-600"
+                      }`}>{q.status || "New"}</span>
+                      <span>{q.date || ""}</span>
+                      <span className="font-medium text-gray-700">${(q.total || 0).toFixed(2)}</span>
+                    </div>
+                  </div>
+                ))}
+              {savedQuotes.filter((q: any) =>
+                !searchTerm ||
+                String(q.id).includes(searchTerm) ||
+                (q.customer || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+                (q.customer_contact || "").toLowerCase().includes(searchTerm.toLowerCase())
+              ).length === 0 && (
+                <p className="text-center text-gray-400 py-8 text-sm">No quotes found</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
