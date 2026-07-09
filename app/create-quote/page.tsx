@@ -251,15 +251,15 @@ export default function QuotePage() {
         <hr className="border-primary mb-6" />
 
         {/* PRICING TABLE */}
-        <h2 className="text-sm font-bold text-primary uppercase tracking-wider mb-3">Quoted Items</h2>
+        <h2 className="text-sm font-bold text-primary uppercase tracking-wider mb-3 text-center">Quoted Items</h2>
         <table className="w-full text-xs mb-6 border-collapse">
           <thead>
             <tr className="bg-gray-900 text-white">
               <th className="text-left p-2 font-semibold w-8">#</th>
               <th className="text-left p-2 font-semibold">Description</th>
-              <th className="text-right p-2 font-semibold w-20">Qty</th>
-              <th className="text-right p-2 font-semibold w-28">Unit Price</th>
-              <th className="text-right p-2 font-semibold w-28">Total</th>
+              <th className="text-center p-2 font-semibold w-20">Qty</th>
+              <th className="text-center p-2 font-semibold w-28">Unit Price</th>
+              <th className="text-center p-2 font-semibold w-28">Total</th>
               <th className="w-8 p-2 print:hidden"></th>
             </tr>
           </thead>
@@ -277,9 +277,14 @@ export default function QuotePage() {
                     </datalist>
                   </div>
                 </td>
-                <td className="p-1.5"><input type="number" value={r.qty} onChange={e => updateRow(r.id, "qty", parseInt(e.target.value) || 0)} className="w-16 text-right border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary" /></td>
-                <td className="p-1.5"><input type="number" value={r.price} onChange={e => updateRow(r.id, "price", parseFloat(e.target.value) || 0)} className="w-24 text-right border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary" /></td>
-                <td className="p-1.5 text-right font-medium">${(r.qty * Number(r.price)).toLocaleString()}</td>
+                <td className="p-1.5 text-center"><input type="number" value={r.qty} onChange={e => updateRow(r.id, "qty", parseInt(e.target.value) || 0)} className="w-16 text-center border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary" /></td>
+                <td className="p-1.5 text-center">
+                  <div className="flex items-center justify-center gap-0.5">
+                    <span className="text-xs text-gray-400">$</span>
+                    <input type="number" step="0.01" value={r.price} onChange={e => updateRow(r.id, "price", parseFloat(e.target.value) || 0)} className="w-20 text-center border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 text-xs focus:outline-none focus:border-primary" />
+                  </div>
+                </td>
+                <td className="p-1.5 text-center font-medium">${(r.qty * Number(r.price)).toFixed(2)}</td>
                 <td className="p-1.5 print:hidden">
                   <button onClick={() => removeRow(r.id)} className="text-red-500 hover:text-red-700 text-xs">&times;</button>
                 </td>
@@ -289,7 +294,7 @@ export default function QuotePage() {
           <tfoot>
             <tr className="bg-gray-50">
               <td colSpan={4} className="p-2 text-right font-bold">Subtotal (ex GST)</td>
-              <td className="p-2 text-right font-bold">${subtotal.toLocaleString()}</td>
+              <td className="p-2 text-center font-bold">${subtotal.toFixed(2)}</td>
               <td className="print:hidden"></td>
             </tr>
           </tfoot>
