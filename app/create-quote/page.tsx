@@ -161,6 +161,8 @@ export default function QuotePage() {
         @media print{@page{margin:12mm 8mm}body{min-width:auto!important}}
         .quote-content * { font-optical-sizing: auto !important; font-variation-settings: 'slnt' 0 !important; }
         .quote-content { font-optical-sizing: auto; }
+        .quote-content input, .quote-content textarea, .quote-content select, .quote-content td { font-size: 9px !important; }
+        .quote-content th { font-size: 9px !important; }
       `}</style>
       <div className="quote-content max-w-5xl mx-auto p-4 sm:p-8 print:max-w-full print:mx-0 print:px-4 print:py-2">
 
@@ -243,7 +245,14 @@ export default function QuotePage() {
               <td><input type="text" value={customerContact} onChange={e => setCustomerContact(e.target.value)} placeholder="Contact name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary" /></td></tr>
             <tr><td className="font-semibold py-1 pr-4">Valid Until</td><td>{new Date(Date.now() + 30*86400000).toLocaleDateString("en-AU", {day:"numeric", month:"long", year:"numeric"})}</td></tr>
             <tr><td className="font-semibold py-1 pr-4">Payment Terms</td>
-              <td><input type="text" value={paymentTerms} onChange={e => setPaymentTerms(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary" /></td></tr>
+              <td><input type="text" value={paymentTerms} onChange={e => setPaymentTerms(e.target.value)} list="payment-terms-list" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary" />
+                <datalist id="payment-terms-list">
+                  <option value="Payment 100% Prior To Delivery" />
+                  <option value="30 Days from Invoice" />
+                  <option value="7 Days" />
+                  <option value="Cash Sale" />
+                </datalist>
+              </td></tr>
             <tr><td className="font-semibold py-1 pr-4">Delivery</td><td>FOB Paget QLD Depot</td></tr>
           </tbody>
         </table>
@@ -277,14 +286,14 @@ export default function QuotePage() {
                     </datalist>
                   </div>
                 </td>
-                <td className="p-1.5 text-center"><input type="number" value={r.qty} onChange={e => updateRow(r.id, "qty", parseInt(e.target.value) || 0)} className="w-16 text-center border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary" /></td>
-                <td className="p-1.5 text-center">
-                  <div className="flex items-center justify-center gap-0.5">
-                    <span className="text-xs text-gray-400">$</span>
-                    <input type="number" step="0.01" value={r.price} onChange={e => updateRow(r.id, "price", parseFloat(e.target.value) || 0)} className="w-20 text-center border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 text-xs focus:outline-none focus:border-primary" />
+                <td className="p-1.5 text-left"><input type="number" value={r.qty} onChange={e => updateRow(r.id, "qty", parseInt(e.target.value) || 0)} className="w-16 text-left border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary" /></td>
+                <td className="p-1.5 text-left">
+                  <div className="flex items-center gap-0.5">
+                    <span className="text-gray-400">$</span>
+                    <input type="text" inputMode="decimal" value={r.price === 0 ? '' : String(r.price)} onChange={e => { const v = e.target.value.replace(/[^0-9.]/g, ''); updateRow(r.id, "price", v === '' ? 0 : parseFloat(v) || 0); }} className="w-20 text-left border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary" />
                   </div>
                 </td>
-                <td className="p-1.5 text-center font-medium">${(r.qty * Number(r.price)).toFixed(2)}</td>
+                <td className="p-1.5 text-left font-medium">${(r.qty * Number(r.price)).toFixed(2)}</td>
                 <td className="p-1.5 print:hidden">
                   <button onClick={() => removeRow(r.id)} className="text-red-500 hover:text-red-700 text-xs">&times;</button>
                 </td>
@@ -293,8 +302,8 @@ export default function QuotePage() {
           </tbody>
           <tfoot>
             <tr className="bg-gray-50">
-              <td colSpan={4} className="p-2 text-right font-bold">Subtotal (ex GST)</td>
-              <td className="p-2 text-center font-bold">${subtotal.toFixed(2)}</td>
+              <td colSpan={4} className="p-2 text-left font-bold">Subtotal (ex GST)</td>
+              <td className="p-2 text-left font-bold">${subtotal.toFixed(2)}</td>
               <td className="print:hidden"></td>
             </tr>
           </tfoot>
