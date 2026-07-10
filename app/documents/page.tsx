@@ -44,11 +44,13 @@ const sections = [
 export default function DocumentsPage() {
   const [visitor, setVisitor] = useState("")
   const [showPrompt, setShowPrompt] = useState(false)
+  const [blocked, setBlocked] = useState(true)
 
   useEffect(() => {
     const saved = localStorage.getItem("mickala_visitor")
     if (saved) {
       setVisitor(saved)
+      setBlocked(false)
       // Track this visit
       fetch("/api/track", {
         method: "POST",
@@ -57,6 +59,7 @@ export default function DocumentsPage() {
       }).catch(() => {})
     } else {
       setShowPrompt(true)
+      setBlocked(true)
     }
   }, [])
 
@@ -65,6 +68,7 @@ export default function DocumentsPage() {
     if (name) {
       localStorage.setItem("mickala_visitor", name)
       setShowPrompt(false)
+      setBlocked(false)
       // Track this visit with name
       fetch("/api/track", {
         method: "POST",
@@ -74,18 +78,25 @@ export default function DocumentsPage() {
     }
   }
 
+  const changeVisitor = () => {
+    localStorage.removeItem("mickala_visitor")
+    setVisitor("")
+    setBlocked(true)
+    setShowPrompt(true)
+  }
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Name Prompt Modal */}
+      {/* Name Prompt Modal — BLOCKING: must enter name to proceed */}
       {showPrompt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl">
             <div className="text-center mb-6">
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-red-50 mx-auto mb-4">
                 <User className="h-6 w-6 text-red-600" />
               </span>
               <h2 className="text-lg font-bold text-gray-900">Welcome to Mickala Documents</h2>
-              <p className="text-sm text-gray-500 mt-1">Enter your name to continue</p>
+              <p className="text-sm text-gray-500 mt-1">Enter your name to access company documents</p>
             </div>
             <input
               type="text"
@@ -107,6 +118,8 @@ export default function DocumentsPage() {
         </div>
       )}
 
+      {/* ===== PAGE CONTENT — HIDDEN UNLESS NAME IS ENTERED ===== */}
+      {!blocked && (
       <div className="max-w-5xl mx-auto p-4 sm:p-8">
         {/* Visitor badge */}
         {visitor && (
@@ -114,7 +127,7 @@ export default function DocumentsPage() {
             <User className="h-3 w-3" />
             <span>{visitor}</span>
             <button
-              onClick={() => { localStorage.removeItem("mickala_visitor"); setVisitor(""); setShowPrompt(true) }}
+              onClick={changeVisitor}
               className="underline hover:text-red-600 ml-2"
             >
               Change
@@ -167,6 +180,7 @@ export default function DocumentsPage() {
           Mickala Group &middot; 21 Caterpillar Drive, Paget QLD 4740 &middot; 1300 642 525
         </div>
       </div>
+      )}
     </div>
   )
 }
