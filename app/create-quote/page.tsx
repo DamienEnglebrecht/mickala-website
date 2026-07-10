@@ -109,6 +109,7 @@ export default function QuotePage() {
   const [showLoadPanel, setShowLoadPanel] = useState(false)
   const [savedQuotes, setSavedQuotes] = useState<any[]>([])
   const [searchTerm, setSearchTerm] = useState("")
+  const [delivery, setDelivery] = useState("FOB Paget QLD Depot")
 
   useEffect(() => {
     const saved = localStorage.getItem("mickala_quote_counter")
@@ -133,7 +134,7 @@ export default function QuotePage() {
       await fetch('/api/save-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, items, total: subtotal, prepared_by: preparedBy, status }),
+        body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, items, total: subtotal, prepared_by: preparedBy, status, delivery }),
       })
     } catch (_) { /* silently fail */ }
     setTimeout(() => window.print(), 200)
@@ -162,6 +163,7 @@ export default function QuotePage() {
     setPreparedBy("")
     setStatus("New")
     setQuoteType("Purchase Quote")
+    setDelivery("FOB Paget QLD Depot")
   }
 
   const loadQuotes = async () => {
@@ -184,6 +186,7 @@ export default function QuotePage() {
     setQuoteType(q.quote_type || "Purchase Quote")
     setPreparedBy(q.prepared_by || "")
     setStatus(q.status || "New")
+    setDelivery(q.delivery || "FOB Paget QLD Depot")
     if (q.items && Array.isArray(q.items)) {
       setRows(q.items.map((item: any, i: number) => ({ id: i + 1, desc: item.desc || "", qty: item.qty || 1, price: item.price || 0 })))
     }
@@ -310,7 +313,22 @@ export default function QuotePage() {
                   <button onClick={() => { setUseCustomTerms(false); setPaymentTerms("Payment 100% Prior To Delivery") }} className="text-xs text-primary hover:underline mt-1">← Back to presets</button>
                 )}
               </td></tr>
-            <tr><td className="font-semibold py-1 pr-4">Delivery</td><td>FOB Paget QLD Depot</td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Delivery</td>
+              <td>
+                <select value={delivery} onChange={e => setDelivery(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary cursor-pointer print:border-none">
+                  <option value="FOB Paget QLD Depot">FOB Paget QLD Depot</option>
+                  <option value="Delivered — Site (Quoted Separately)">Delivered — Site (Quoted Separately)</option>
+                  <option value="Ex-Works — China">Ex-Works — China</option>
+                  <option value="FOB Shanghai">FOB Shanghai</option>
+                  <option value="CIF — Australian Port">CIF — Australian Port</option>
+                  <option value="DDP — Customer Site">DDP — Customer Site</option>
+                  <option value="Customer Pick Up">Customer Pick Up</option>
+                  <option value="Custom...">Custom...</option>
+                </select>
+                {delivery === "Custom..." && (
+                  <input type="text" value="" onChange={e => setDelivery(e.target.value)} placeholder="Type delivery terms..." className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none mt-1" autoFocus />
+                )}
+              </td></tr>
           </tbody>
         </table>
 
