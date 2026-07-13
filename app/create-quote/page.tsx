@@ -106,6 +106,7 @@ export default function QuotePage() {
   const [quoteType, setQuoteType] = useState("Purchase Quote")
   const [status, setStatus] = useState("New")
   const [focusedPrice, setFocusedPrice] = useState<number | null>(null)
+  const [displayPrice, setDisplayPrice] = useState<Record<number, string>>({})
   const [showLoadPanel, setShowLoadPanel] = useState(false)
   const [savedQuotes, setSavedQuotes] = useState<any[]>([])
   const [searchTerm, setSearchTerm] = useState("")
@@ -361,19 +362,28 @@ export default function QuotePage() {
                     </datalist>
                   </div>
                 </td>
-                <td className="p-1.5 text-left"><input type="number" value={r.qty} onChange={e => updateRow(r.id, "qty", parseInt(e.target.value) || 0)} className="w-16 text-left border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary print:border-none" /></td>
-                <td className="p-1.5 text-left">
-                  <div className="flex items-center gap-0.5">
+                <td className="p-1.5 text-center"><input type="number" value={r.qty} onChange={e => updateRow(r.id, "qty", parseInt(e.target.value) || 0)} className="w-16 text-center border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary print:border-none" /></td>
+                <td className="p-1.5 text-center">
+                  <div className="flex items-center justify-center gap-0.5">
                     <span className="text-gray-400">$</span>
                     <input type="text" inputMode="decimal"
-                      value={focusedPrice === r.id ? (r.price === 0 ? '' : String(r.price)) : (r.price === 0 ? '' : r.price.toFixed(2))}
-                      onChange={e => { const v = e.target.value.replace(/[^0-9.]/g, ''); updateRow(r.id, "price", v === '' ? 0 : parseFloat(v) || 0); }}
-                      onFocus={() => setFocusedPrice(r.id)}
-                      onBlur={() => setFocusedPrice(null)}
-                      className="w-20 text-left border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary print:border-none" />
+                      value={focusedPrice === r.id ? displayPrice[r.id] ?? (r.price === 0 ? '' : String(r.price)) : (r.price === 0 ? '' : r.price.toFixed(2))}
+                      onChange={e => {
+                        // Allow commas and periods, convert commas to periods
+                        let v = e.target.value.replace(/[^0-9.,]/g, '').replace(/,/g, '.');
+                        // Only keep first decimal point
+                        const dot = v.indexOf('.');
+                        if (dot >= 0) v = v.slice(0, dot + 1) + v.slice(dot + 1).replace(/\./g, '');
+                        // Store raw display value so cursor doesn't jump
+                        setDisplayPrice(prev => ({...prev, [r.id]: v}));
+                        updateRow(r.id, "price", v === '' ? 0 : parseFloat(v) || 0);
+                      }}
+                      onFocus={() => { setFocusedPrice(r.id); }}
+                      onBlur={() => { setFocusedPrice(null); setDisplayPrice(prev => { const n = {...prev}; delete n[r.id]; return n; }); }}
+                      className="w-20 text-center border-b border-dashed border-gray-300 bg-transparent px-1 py-0.5 focus:outline-none focus:border-primary print:border-none" />
                   </div>
                 </td>
-                <td className="p-1.5 text-left font-medium">${(r.qty * Number(r.price)).toFixed(2)}</td>
+                <td className="p-1.5 text-center font-medium">${(r.qty * Number(r.price)).toFixed(2)}</td>
                 <td className="p-1.5 print:hidden">
                   <button onClick={() => removeRow(r.id)} className="text-red-500 hover:text-red-700 text-xs">&times;</button>
                 </td>
@@ -383,7 +393,7 @@ export default function QuotePage() {
           <tfoot>
             <tr className="bg-gray-50">
               <td colSpan={4} className="p-2 text-left font-bold">Subtotal (ex GST)</td>
-              <td className="p-2 text-left font-bold">${subtotal.toFixed(2)}</td>
+              <td className="p-2 text-center font-bold">${subtotal.toFixed(2)}</td>
               <td className="print:hidden"></td>
             </tr>
           </tfoot>
