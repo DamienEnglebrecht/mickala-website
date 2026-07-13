@@ -111,9 +111,10 @@ export default function AdminPage() {
         <h2 className="font-semibold text-gray-900 mb-4">Documents</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { name: "Quote Register", href: "/quote-register", desc: "View and manage all quotes" },
-            { name: "Operations Forms", href: "/operations", desc: "Field forms and checklists" },
+            { name: "Quote Register", href: "/quoting/register", desc: "View and manage all quotes" },
             { name: "Create Quote", href: "/quote", desc: "Build and print professional quotes" },
+            { name: "EHS Hire Schedule", href: "/hire-schedule", desc: "Equipment hire schedule forms" },
+            { name: "Operations Forms", href: "/operations", desc: "Field forms and checklists" },
             { name: "Parts Store", href: "/parts", desc: "Browse and order parts" },
             { name: "Spec Sheets", href: "/spec-sheets", desc: "Product specification sheets" },
             { name: "Parts Manuals", href: "/parts-manuals", desc: "Interactive parts catalogs" },
