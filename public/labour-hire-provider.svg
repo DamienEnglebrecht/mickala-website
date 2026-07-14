@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="240" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a365d"/>
+      <stop offset="100%" style="stop-color:#153e75"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e2e8f0"/>
+      <stop offset="100%" style="stop-color:#cbd5e0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Shadow -->
+  <ellipse cx="122" cy="292" rx="80" ry="6" fill="rgba(0,0,0,0.08)"/>
+  
+  <!-- Outer ring -->
+  <circle cx="120" cy="140" r="115" fill="none" stroke="url(#bg)" stroke-width="8"/>
+  
+  <!-- Inner circle -->
+  <circle cx="120" cy="140" r="108" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Icon - person / worker silhouette -->
+  <circle cx="120" cy="95" r="20" fill="#1a365d" opacity="0.1"/>
+  <circle cx="120" cy="90" r="14" fill="none" stroke="#1a365d" stroke-width="2.5"/>
+  <path d="M98 140 Q100 115 120 112 Q140 115 142 140" fill="none" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Heading -->
+  <text x="120" y="170" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1a202c" letter-spacing="3">LICENSED</text>
+  
+  <!-- Divider -->
+  <line x1="60" y1="180" x2="180" y2="180" stroke="#cbd5e0" stroke-width="1"/>
+  
+  <!-- Main text -->
+  <text x="120" y="202" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1a365d" letter-spacing="1">LABOUR HIRE</text>
+  <text x="120" y="220" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1a365d" letter-spacing="1">PROVIDER</text>
+  
+  <!-- QLD Gov text -->
+  <text x="120" y="248" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="8" font-weight="400" fill="#718096" letter-spacing="1.5">QUEENSLAND GOVERNMENT</text>
+  
+  <!-- License number placeholder -->
+  <text x="120" y="263" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="6" font-weight="400" fill="#a0aec0" letter-spacing="0.5">LHL-XXXXX-XX</text>
+</svg>
