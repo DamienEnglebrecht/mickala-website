@@ -1,5 +1,6 @@
 import Image from "next/image"
 
+// Accreditation badges displayed below client logos
 const clients = [
   { name: "Anglo American", image: "/anglo.webp" },
   { name: "Bengalla", image: "/bengalla.webp" },
