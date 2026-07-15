@@ -2,26 +2,27 @@
 
 import { useState } from "react"
 import { SiteHeader } from "@/components/site-header"
-import { MapPin, Truck, Crosshair, Sparkles, ChevronRight, RefreshCw, Hash } from "lucide-react"
+import { MapPin, Truck, Crosshair, Sparkles, RefreshCw, Hash, Fuel, Wrench, Zap, Clock } from "lucide-react"
 
 type AssessmentMode = "area" | "fleet"
 
-type TowerRec = {
-  name: string
-  units: number
-  coverage: number
-  price: string
-  totalCost: number
+// Savings data from validated product documentation (MLT2560-LED vs 12kW metal halide)
+const savingsPerTower = {
+  mlt2560: {
+    fuel: { label: "Fuel", saved: 22064, icon: "Fuel", detail: "3.1L/hr saved — Mickala LED uses 0.8L/hr vs 3.9L/hr metal halide" },
+    servicing: { label: "Refuelling & Service", saved: 12600, icon: "Wrench", detail: "7x fewer service truck visits — refuelled once per month vs 8 times" },
+    labour: { label: "Service Labour", saved: 7560, icon: "Clock", detail: "Reduced labour hours — 500hr service intervals vs 250hr industry standard" },
+    parts: { label: "Bulbs & Ballasts", saved: 19800, icon: "Zap", detail: "Zero bulb or ballast replacements — LED rated 50,000 hours" },
+    totalPerTower: 62024,
+  },
+  mlt1920: {
+    fuel: { label: "Fuel", saved: 16370, icon: "Fuel", detail: "2.3L/hr saved — Mickala LED uses 0.7L/hr vs 3.0L/hr metal halide" },
+    servicing: { label: "Refuelling & Service", saved: 11100, icon: "Wrench", detail: "5x fewer service truck visits — fuelled 17 times/yr vs 91 times" },
+    labour: { label: "Service Labour", saved: 6660, icon: "Clock", detail: "Reduced labour hours — 500hr service intervals vs 250hr industry standard" },
+    parts: { label: "Bulbs & Ballasts", saved: 7080, icon: "Zap", detail: "Zero bulb or ballast replacements — LED rated 50,000 hours" },
+    totalPerTower: 41210,
+  },
 }
-
-const towerData = [
-  { name: "MLT 1280-4LED Single Axle", coverage: 3, price: 38500 },
-  { name: "MLT 1280-6LED Single Axle", coverage: 4, price: 39500 },
-  { name: "MLT 1920-LED Single Axle", coverage: 5, price: 52500 },
-  { name: "MLT 2560-LED Dual Axle", coverage: 8, price: 62500 },
-  { name: "MLT 2560 Sled Mount", coverage: 10, price: 58000 },
-  { name: "MLT 7200 Sled Long Range", coverage: 18, price: 89500 },
-]
 
 // Mining equipment → lighting requirements (real industry ratios)
 // Based on: MDG15 lighting standards, haul road illumination requirements
@@ -61,6 +62,19 @@ const knownAreas: Record<string, number> = {
   "middlemount": 35,
 }
 
+const savingsIcons: Record<string, any> = {
+  "Fuel": Fuel,
+  "Wrench": Wrench,
+  "Clock": Clock,
+  "Zap": Zap,
+}
+
+function formatCurrency(n: number): string {
+  if (n >= 1000000) return "$" + (n / 1000000).toFixed(1) + "M"
+  if (n >= 1000) return "$" + (n / 1000).toFixed(n % 1000 === 0 ? 0 : 1) + "K"
+  return "$" + n.toLocaleString()
+}
+
 export default function SiteAssessmentPage() {
   const [mode, setMode] = useState<AssessmentMode>("fleet")
   const [input, setInput] = useState("")
@@ -76,76 +90,87 @@ export default function SiteAssessmentPage() {
   // Area mode input
   const [areaHa, setAreaHa] = useState(30)
 
+  const towerMix = (totalUnits: number) => {
+    // Approx mix: 20% sled long range (MLT7200), 40% dual axle (MLT2560), 25% sled mount, 15% single (MLT1920)
+    const sledLR = Math.round(totalUnits * 0.2)
+    const dualAxle = Math.round(totalUnits * 0.4)
+    const sledMount = Math.round(totalUnits * 0.25)
+    const singleAxle = totalUnits - sledLR - dualAxle - sledMount
+    return { sledLR, dualAxle, sledMount, singleAxle }
+  }
+
+  const calculateSavings = (totalUnits: number) => {
+    const mix = towerMix(totalUnits)
+    // Assume MLT2560 and MLT1920 for savings calcs — sled LR uses same engine as dual axle
+    const largeCount = mix.sledLR + mix.dualAxle + mix.sledMount  // ~85% use 0.8L/hr engine
+    const smallCount = mix.singleAxle  // ~15% use 0.7L/hr engine
+    
+    const fuel = Math.round(largeCount * savingsPerTower.mlt2560.fuel.saved + smallCount * savingsPerTower.mlt1920.fuel.saved)
+    const servicing = Math.round(largeCount * savingsPerTower.mlt2560.servicing.saved + smallCount * savingsPerTower.mlt1920.servicing.saved)
+    const labour = Math.round(largeCount * savingsPerTower.mlt2560.labour.saved + smallCount * savingsPerTower.mlt1920.labour.saved)
+    const parts = Math.round(largeCount * savingsPerTower.mlt2560.parts.saved + smallCount * savingsPerTower.mlt1920.parts.saved)
+    const totalAnnual = fuel + servicing + labour + parts
+    
+    return { fuel, servicing, labour, parts, totalAnnual, mix }
+  }
+
   const calculateFleet = (fleets: number, trks: number, dzrs: number, dps: number, siteName: string) => {
     const recs: any[] = []
     let totalUnits = 0
-    let totalCost = 0
 
     // Dig fleets
     if (fleets > 0) {
       const u = Math.ceil(fleets * fleetLightingRules.digFleet.towersPerFleet)
-      const t = towerData.find(t => t.name.includes("7200"))!
       totalUnits += u
-      totalCost += u * t.price
-      recs.push({ category: "Dig Fleet Zone", units: u, towerType: t.name, unitPrice: t.price, total: u * t.price, notes: `${fleets} dig fleets — excavation, dump area, haul road entry` })
+      recs.push({ category: "Dig Fleet Zone", units: u, towerType: "MLT 7200 Sled Long Range", notes: `${fleets} dig fleets — excavation, dump area, haul road entry` })
     }
 
     // Trucks
     if (trks > 0) {
       const u = Math.ceil((trks / 10) * fleetLightingRules.trucks.towersPer10Trucks)
-      const t = towerData.find(t => t.name.includes("2560-LED"))!
       totalUnits += u
-      totalCost += u * t.price
-      recs.push({ category: "Haul Road", units: u, towerType: t.name, unitPrice: t.price, total: u * t.price, notes: `${trks} trucks — haul road illumination per MDG15` })
+      recs.push({ category: "Haul Road", units: u, towerType: "MLT 2560-LED Dual Axle", notes: `${trks} trucks — haul road illumination per MDG15` })
     }
 
     // Dozers
     if (dzrs > 0) {
       const u = Math.ceil(dzrs * fleetLightingRules.dozers.towersPerDozer)
-      const t = towerData.find(t => t.name.includes("Sled Mount") && t.name.includes("2560"))!
       totalUnits += u
-      totalCost += u * t.price
-      recs.push({ category: "Dozer Zone", units: u, towerType: t.name, unitPrice: t.price, total: u * t.price, notes: `${dzrs} dozers — push, cut, stockpile lighting` })
+      recs.push({ category: "Dozer Zone", units: u, towerType: "MLT 2560 Sled Mount", notes: `${dzrs} dozers — push, cut, stockpile lighting` })
     }
 
     // Dumps / tip heads
     if (dps > 0) {
       const u = Math.ceil(dps * fleetLightingRules.dumps.towersPerDump)
-      const t = towerData.find(t => t.name.includes("7200"))!
       totalUnits += u
-      totalCost += u * t.price
-      recs.push({ category: "Tip Head / Dump", units: u, towerType: t.name, unitPrice: t.price, total: u * t.price, notes: `${dps} dump points — tip head illumination` })
+      recs.push({ category: "Tip Head / Dump", units: u, towerType: "MLT 7200 Sled Long Range", notes: `${dps} dump points — tip head illumination` })
     }
 
     // ROM pad, workshops, site infrastructure
     const romUnits = fleets * fleetLightingRules.romPad.towersPerPad
     if (romUnits > 0) {
-      const t = towerData.find(t => t.name.includes("2560-LED"))!
       totalUnits += romUnits
-      totalCost += romUnits * t.price
-      recs.push({ category: "ROM Pad & Infrastructure", units: romUnits, towerType: t.name, unitPrice: t.price, total: romUnits * t.price, notes: `ROM pad, workshop, and admin area lighting` })
+      recs.push({ category: "ROM Pad & Infrastructure", units: romUnits, towerType: "MLT 2560-LED Dual Axle", notes: "ROM pad, workshop, and admin area lighting" })
     }
 
-    return { recs, totalUnits, totalCost, siteName }
+    const savings = calculateSavings(totalUnits)
+    return { recs, totalUnits, ...savings, siteName }
   }
 
   const calculateArea = (area: number, siteName: string) => {
-    const recommendations = towerData
-      .map(t => ({ ...t, units: Math.max(1, Math.ceil(area / t.coverage)) }))
-      .sort((a, b) => a.units * a.price - b.units * b.price)
-      .slice(0, 3)
+    const towerTypes = [
+      { name: "MLT 7200 Sled Long Range", coverage: 18 },
+      { name: "MLT 2560-LED Dual Axle", coverage: 8 },
+      { name: "MLT 1920-LED Single Axle", coverage: 5 },
+    ]
+    const best = towerTypes.reduce((a, b) => Math.ceil(area / a.coverage) * a.coverage < Math.ceil(area / b.coverage) * b.coverage ? a : b)
+    const units = Math.max(1, Math.ceil(area / best.coverage))
+    const savings = calculateSavings(units)
 
     return {
-      recommendations: recommendations.map(r => ({
-        category: "Area Coverage",
-        units: r.units,
-        towerType: r.name,
-        unitPrice: r.price,
-        total: r.units * r.price,
-        notes: `${r.coverage} ha per tower`
-      })),
-      totalUnits: recommendations[0].units,
-      totalCost: recommendations[0].units * recommendations[0].price,
+      recommendations: [{ category: "Area Coverage", units, towerType: best.name, notes: `${area} ha · ${best.coverage} ha per tower` }],
+      totalUnits: units,
+      ...savings,
       siteName,
       areaHa: area,
     }
@@ -204,8 +229,11 @@ export default function SiteAssessmentPage() {
           </div>
           <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase">AI Site Assessment</p>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.05] mb-4">How many towers do you need?</h1>
-        <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-2xl">Two ways to calculate. Enter a mine name or choose your method below.</p>
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.05] mb-4">How much could you save?</h1>
+        <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-2xl">
+          Enter a mine name or your fleet size — we'll calculate the towers you need and the annual savings 
+          vs conventional metal halide lighting. Based on validated product data and real mining ratios.
+        </p>
 
         {/* Mode Toggle */}
         <div className="flex gap-2 mb-8">
@@ -323,50 +351,98 @@ export default function SiteAssessmentPage() {
               )}
 
               {/* Tower recommendations */}
-              <div className="space-y-3">
+              <div className="space-y-3 mb-6">
+                <p className="text-[10px] text-white/40 tracking-wide uppercase font-semibold mb-3">Recommended Configuration</p>
                 {result.recs.map((rec: any, i: number) => (
                   <div key={i} className={`border rounded-sm p-4 ${i === 0 ? 'border-[#DC2626]/30 bg-[#DC2626]/5' : 'border-white/[0.06]'}`}>
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-start justify-between">
                       <div>
-                        {i === 0 && <p className="text-[10px] text-[#DC2626] font-semibold tracking-wide uppercase mb-1">Recommended</p>}
+                        {i === 0 && <p className="text-[10px] text-[#DC2626] font-semibold tracking-wide uppercase mb-1">Primary Zone</p>}
                         <p className="text-sm font-semibold">{rec.towerType}</p>
                         <p className="text-xs text-white/50">{rec.units} units · {rec.category}</p>
                       </div>
-                      <div className="text-right">
-                        <p className="text-sm font-bold">${rec.total.toLocaleString()}</p>
-                        <p className="text-[10px] text-white/40">${rec.unitPrice.toLocaleString()} ea</p>
-                      </div>
+                      <p className="text-[11px] text-white/40 text-right">{rec.notes}</p>
                     </div>
-                    <p className="text-[11px] text-white/40">{rec.notes}</p>
                   </div>
                 ))}
               </div>
 
-              {/* Total */}
-              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
-                <div>
-                  <p className="text-xs text-white/40">Total</p>
-                  <p className="text-lg font-bold">{result.totalUnits} towers</p>
+              {/* Total towers */}
+              <div className="mt-4 pt-4 border-t border-white/[0.06] flex items-center justify-between mb-6">
+                <p className="text-xs text-white/40">Total Towers Recommended</p>
+                <p className="text-2xl font-bold">{result.totalUnits} towers</p>
+              </div>
+
+              {/* Savings Breakdown */}
+              <div className="border border-emerald-900/30 bg-emerald-950/10 rounded-sm p-5">
+                <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="h-4 w-4 text-emerald-400" />
+                  <p className="text-xs text-emerald-400 font-semibold tracking-wide uppercase">Annual Savings vs Metal Halide</p>
                 </div>
-                <p className="text-2xl font-bold text-[#DC2626]">${result.totalCost.toLocaleString()}</p>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                  {[
+                    { key: "fuel", label: "Fuel", value: result.fuel },
+                    { key: "servicing", label: "Refuelling & Service", value: result.servicing },
+                    { key: "labour", label: "Service Labour", value: result.labour },
+                    { key: "parts", label: "Bulbs & Ballasts", value: result.parts },
+                  ].map((item) => (
+                    <div key={item.key} className="text-center p-3 border border-emerald-900/20 rounded-sm">
+                      <p className="text-sm sm:text-lg font-bold text-emerald-400">{formatCurrency(item.value)}</p>
+                      <p className="text-[9px] text-emerald-400/60 mt-0.5">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-3 border-t border-emerald-900/20 flex items-center justify-between">
+                  <p className="text-xs text-emerald-400/60">Total estimated annual savings</p>
+                  <p className="text-xl sm:text-2xl font-bold text-emerald-400">{formatCurrency(result.totalAnnual)}<span className="text-sm text-emerald-400/60"> /yr</span></p>
+                </div>
               </div>
             </div>
 
             {/* CTA */}
             <div className="flex items-center gap-3">
-              <a href="/quote" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Get Formal Quote</a>
-              <a href="/tco-calculator" className="inline-flex items-center px-6 py-3 border border-white/20 hover:border-white/40 transition-colors text-sm font-semibold rounded-full">Calculate ROI</a>
+              <a href="/quote" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Get a Quote</a>
+              <a href="/tco-calculator" className="inline-flex items-center px-6 py-3 border border-white/20 hover:border-white/40 transition-colors text-sm font-semibold rounded-full">Calculate Total ROI</a>
               <a href="tel:1300642525" className="text-xs text-white/40 hover:text-white ml-auto">1300 642 525</a>
+            </div>
+
+            {/* Savings detail breakdown */}
+            <div className="mt-2 p-4 border border-white/[0.06] rounded-sm">
+              <p className="text-[10px] text-white/40 tracking-wide uppercase font-semibold mb-3">How the savings add up (per tower, per year)</p>
+              <div className="grid sm:grid-cols-2 gap-4 text-[11px] text-white/40">
+                <div>
+                  <p className="text-white/60 font-semibold mb-1">⚡ Fuel — Up to $22,064 saved</p>
+                  <p>Mickala LED uses <strong className="text-white/50">0.7–0.8 L/hr</strong> vs 3.0–3.9 L/hr for metal halide. That's <strong className="text-white/50">3x less fuel</strong> per tower.</p>
+                </div>
+                <div>
+                  <p className="text-white/60 font-semibold mb-1">🔧 Service visits — Up to $12,600 saved</p>
+                  <p>Refuelled <strong className="text-white/50">once per month</strong> vs 8 times for metal halide. 7x fewer service truck call-outs.</p>
+                </div>
+                <div>
+                  <p className="text-white/60 font-semibold mb-1">⏱️ Labour — Up to $7,560 saved</p>
+                  <p>500-hour service intervals vs 250-hour industry standard. Less time on maintenance, more time producing.</p>
+                </div>
+                <div>
+                  <p className="text-white/60 font-semibold mb-1">💡 Parts — Up to $19,800 saved</p>
+                  <p>No bulbs, no ballasts, no high-voltage sparky needed. LED rated <strong className="text-white/50">50,000 hours</strong> — no replacements.</p>
+                </div>
+                <div className="sm:col-span-2">
+                  <p className="text-white/60 font-semibold mb-1">🛠️ Not quantified (additional savings)</p>
+                  <p className="text-white/30">Modular design — full engine/generator module changeout in ~3 hours. No high-voltage electrician required onsite. Reduced carbon emissions. Extended oil change intervals with triple oil capacity.</p>
+                </div>
+              </div>
             </div>
           </div>
         )}
 
         {/* Info box */}
         <div className="mt-10 p-4 border border-white/[0.06] text-xs text-white/30 leading-relaxed">
-          <p className="font-semibold text-white/50 mb-1">How it works</p>
-          <p><strong className="text-white/40">Fleet-based:</strong> Based on MDG15 lighting standards and real mining ratios. Each dig fleet needs ~4 towers for excavation zone lighting. Haul roads need towers every ~50m for active truck routes. Dozer pushes and dump points are calculated separately.</p>
-          <p className="mt-2"><strong className="text-white/40">Area-based:</strong> Uses each tower's coverage area (3-18 ha depending on model) to calculate units needed. Best for flat sites, construction, and infrastructure.</p>
-          <p className="mt-2 text-white/20">These are estimates. Final configuration depends on site layout, bench heights, and specific MDG15 compliance requirements.</p>
+          <p className="font-semibold text-white/50 mb-1">How this works</p>
+          <p><strong className="text-white/40">Fleet-based:</strong> Uses real mining equipment ratios calibrated from operational mine sites. Each dig fleet, truck count, dozer and dump point is converted to lighting requirements per MDG15 standards.</p>
+          <p className="mt-2"><strong className="text-white/40">Savings data:</strong> Based on validated product comparison data (Mickala MLT2560-LED vs Allight MS12K-10 metal halide). Fuel at $1.50/L, service truck at $150/hr, labour at $90/hr. Savings will vary with site conditions and current equipment.</p>
+          <p className="mt-2 text-white/20">These are estimates. Final configuration depends on site layout, bench heights, and specific MDG15 compliance requirements. Contact us for a detailed site-specific assessment.</p>
         </div>
       </div>
     </div>
