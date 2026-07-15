@@ -26,16 +26,12 @@ const towerData = [
 // Mining equipment → lighting requirements (real industry ratios)
 // Based on: MDG15 lighting standards, haul road illumination requirements
 const fleetLightingRules = {
-  // A dig fleet needs comprehensive pit lighting — shovel, dump area, access ramps, highwall
-  digFleet: { towersPerFleet: 10, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
-  // Active dump trucks on haul roads — every 150-200m for safe night operations
-  trucks: { towersPer10Trucks: 6, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "Haul road illumination — every 200m per MDG15 standards" },
-  // Dozers need coverage for dump construction, ROM push, stockpile management
-  dozers: { towersPerDozer: 2, towerType: "MLT 2560 Sled Mount", coverage: 10, notes: "Dozer push zone, ROM pad, and stockpile lighting" },
-  // Dumps / tip heads — larger coverage for safe backing and dumping
-  dumps: { towersPerDump: 6, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Tip head — illumination for reversing, dumping, and dozer activity" },
-  // ROM / run-of-mine pad
-  romPad: { towersPerPad: 4, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "ROM pad, crusher feed, and stockpile lighting" },
+  // Calibrated from Peak Downs (6 dig fleets = 125 towers, ~21 per fleet)
+  digFleet: { towersPerFleet: 9, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
+  trucks: { towersPer10Trucks: 5, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "Haul road illumination per MDG15 standards" },
+  dozers: { towersPerDozer: 3, towerType: "MLT 2560 Sled Mount", coverage: 10, notes: "Dozer push zone, ROM pad, and stockpile lighting" },
+  dumps: { towersPerDump: 5, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Tip head — illumination for reversing, dumping, and dozer activity" },
+  romPad: { towersPerPad: 2, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "ROM pad, crusher feed, and stockpile lighting" },
 }
 
 // Known mine sites with typical fleet counts
@@ -117,6 +113,15 @@ export default function SiteAssessmentPage() {
       totalUnits += u
       totalCost += u * t.price
       recs.push({ category: "Tip Head / Dump", units: u, towerType: t.name, unitPrice: t.price, total: u * t.price, notes: `${dps} dump points — tip head illumination` })
+    }
+
+    // ROM pad, workshops, site infrastructure
+    const romUnits = fleets * fleetLightingRules.romPad.towersPerPad
+    if (romUnits > 0) {
+      const t = towerData.find(t => t.name.includes("2560-LED"))!
+      totalUnits += romUnits
+      totalCost += romUnits * t.price
+      recs.push({ category: "ROM Pad & Infrastructure", units: romUnits, towerType: t.name, unitPrice: t.price, total: romUnits * t.price, notes: `ROM pad, workshop, and admin area lighting` })
     }
 
     return { recs, totalUnits, totalCost, siteName }
