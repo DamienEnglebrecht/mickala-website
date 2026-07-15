@@ -32,8 +32,8 @@ export default function HomePage() {
           <p className="text-base sm:text-lg text-white/60 max-w-lg mb-8">Extra-low-voltage lighting towers designed and manufactured in Australia. Trusted by 200+ mine sites.</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/products" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Explore Products</Link>
-            <Link href="/tower-selector" className="inline-flex items-center px-6 py-3 border border-[#DC2626]/50 hover:border-[#DC2626] transition-colors text-sm font-semibold rounded-full text-[#DC2626]">AI Tower Selector →</Link>
-            <a href="tel:1300642525" className="inline-flex items-center px-6 py-3 border border-white/20 hover:border-white/40 transition-colors text-sm font-semibold rounded-full">Call 1300 642 525</a>
+            <Link href="/site-assessment" className="inline-flex items-center px-6 py-3 border border-[#DC2626]/50 hover:border-[#DC2626] transition-colors text-sm font-semibold rounded-full text-[#DC2626]">AI Site Assessment →</Link>
+            <Link href="/tco-calculator" className="inline-flex items-center px-6 py-3 border border-white/20 hover:border-white/40 transition-colors text-sm font-semibold rounded-full">TCO Calculator</Link>
           </div>
         </div>
       </section>
