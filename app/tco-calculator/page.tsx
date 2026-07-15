@@ -1,81 +1,134 @@
+"use client"
+
+import { useState } from "react"
 import { SiteHeader } from "@/components/site-header"
+import { Calculator, TrendingDown, DollarSign } from "lucide-react"
 
 export default function TCOCalculatorPage() {
+  const [towers, setTowers] = useState(20)
+  const [hours, setHours] = useState(20)
+  const [rate, setRate] = useState<"specialist" | "electrician">("electrician")
+  const [interval, setInterval] = useState<250 | 500>(500)
+
+  // Calculations
+  const servicesPerYear = (hours * 365) / interval
+  const specialistCost = servicesPerYear * 2 * 200 * towers
+  const elvCost = servicesPerYear * 1 * 100 * towers
+  const serviceLabourSaved = specialistCost - elvCost
+  const partsSaved = towers * 600
+  const totalSaved = serviceLabourSaved + partsSaved
+  const fiveYearSaved = totalSaved * 5
+
   return (
     <div className="bg-black text-white min-h-screen">
       <SiteHeader />
-      <div className="max-w-[800px] mx-auto px-6 pt-32 pb-20">
-        <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">AI Tool</p>
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.05] mb-4">TCO / ROI Calculator</h1>
-        <p className="text-sm text-white/50 leading-relaxed mb-6">See the real cost difference. Mickala&apos;s ELV 24VDC towers can be serviced by any auto electrician — competitors require specialist technicians at $200+/hr.</p>
-
-        <TCOForm />
-      </div>
-    </div>
-  )
-}
-
-function TCOForm() {
-  return (
-    <div className="space-y-6">
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className="text-[11px] text-white/40 tracking-wide uppercase mb-2 block">Number of Towers</label>
-          <input type="number" defaultValue={20} className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-[#DC2626]" />
-        </div>
-        <div>
-          <label className="text-[11px] text-white/40 tracking-wide uppercase mb-2 block">Hours per Day</label>
-          <input type="number" defaultValue={20} className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-[#DC2626]" />
-        </div>
-        <div>
-          <label className="text-[11px] text-white/40 tracking-wide uppercase mb-2 block">Service Interval (hours)</label>
-          <select className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-[#DC2626]">
-            <option value="250">250 hrs (competitor standard)</option>
-            <option value="500">500 hrs (Mickala standard)</option>
-          </select>
-        </div>
-        <div>
-          <label className="text-[11px] text-white/40 tracking-wide uppercase mb-2 block">Technician Rate</label>
-          <select className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-[#DC2626]">
-            <option value="200">$200/hr — Competitor (specialist)</option>
-            <option value="100">$100/hr — Auto electrician (ELV)</option>
-          </select>
-        </div>
-      </div>
-
-      {/* Results */}
-      <div className="border border-white/[0.06] p-6 space-y-4 mt-8">
-        <p className="text-xs text-white/40 tracking-[0.15em] uppercase">Estimated Annual Savings</p>
-        <div className="grid sm:grid-cols-3 gap-4 divide-x divide-white/[0.06]">
-          <div className="text-center">
-            <p className="text-3xl font-bold text-[#DC2626]">$38,400</p>
-            <p className="text-[11px] text-white/40 mt-1">Service Labour</p>
+      <div className="max-w-[900px] mx-auto px-6 pt-32 pb-20">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-8 h-8 rounded-full bg-[#DC2626]/20 flex items-center justify-center">
+            <Calculator className="h-4 w-4 text-[#DC2626]" />
           </div>
-          <div className="text-center">
-            <p className="text-3xl font-bold text-[#DC2626]">$12,000</p>
-            <p className="text-[11px] text-white/40 mt-1">Parts & Consumables</p>
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase">ROI Calculator</p>
+        </div>
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.05] mb-4">Total Cost of Ownership</h1>
+        <p className="text-sm text-white/50 leading-relaxed mb-10 max-w-xl">See the real cost difference. Mickala&apos;s ELV 24VDC towers can be serviced by any auto electrician — competitors require specialist technicians at $200+/hr.</p>
+
+        <div className="grid lg:grid-cols-2 gap-8 mb-10">
+          {/* Controls */}
+          <div className="space-y-6">
+            <div>
+              <label className="text-[11px] text-white/40 tracking-wide uppercase mb-3 block">Number of Towers</label>
+              <input type="range" min={1} max={100} value={towers} onChange={(e) => setTowers(parseInt(e.target.value))} className="w-full accent-[#DC2626]" />
+              <div className="flex justify-between text-xs text-white/30 mt-1">
+                <span>1</span>
+                <span className="text-white font-semibold">{towers}</span>
+                <span>100</span>
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[11px] text-white/40 tracking-wide uppercase mb-3 block">Operating Hours per Day</label>
+              <input type="range" min={8} max={24} value={hours} onChange={(e) => setHours(parseInt(e.target.value))} className="w-full accent-[#DC2626]" />
+              <div className="flex justify-between text-xs text-white/30 mt-1">
+                <span>8</span>
+                <span className="text-white font-semibold">{hours}h</span>
+                <span>24</span>
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[11px] text-white/40 tracking-wide uppercase mb-3 block">Service Interval</label>
+              <div className="flex gap-2">
+                <button onClick={() => setInterval(250)} className={`flex-1 py-3 text-xs border rounded-sm transition-colors ${
+                  interval === 250 ? "border-[#DC2626] bg-[#DC2626]/10 text-[#DC2626]" : "border-white/[0.1] text-white/50 hover:border-white/30"
+                }`}>250 hrs (Competitor standard)</button>
+                <button onClick={() => setInterval(500)} className={`flex-1 py-3 text-xs border rounded-sm transition-colors ${
+                  interval === 500 ? "border-[#DC2626] bg-[#DC2626]/10 text-[#DC2626]" : "border-white/[0.1] text-white/50 hover:border-white/30"
+                }`}>500 hrs (Mickala ELV)</button>
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[11px] text-white/40 tracking-wide uppercase mb-3 block">Service Technician Type</label>
+              <div className="flex gap-2">
+                <button onClick={() => setRate("specialist")} className={`flex-1 py-3 text-xs border rounded-sm transition-colors ${
+                  rate === "specialist" ? "border-[#DC2626] bg-[#DC2626]/10 text-[#DC2626]" : "border-white/[0.1] text-white/50 hover:border-white/30"
+                }`}>Specialist $200/hr (Competitor)</button>
+                <button onClick={() => setRate("electrician")} className={`flex-1 py-3 text-xs border rounded-sm transition-colors ${
+                  rate === "electrician" ? "border-[#DC2626] bg-[#DC2626]/10 text-[#DC2626]" : "border-white/[0.1] text-white/50 hover:border-white/30"
+                }`}>Auto Electrician $100/hr (Mickala ELV)</button>
+              </div>
+            </div>
           </div>
-          <div className="text-center">
-            <p className="text-3xl font-bold text-[#DC2626]">$50,400</p>
-            <p className="text-[11px] text-white/40 mt-1">Total Annual Savings</p>
+
+          {/* Results */}
+          <div className="border border-white/[0.06] rounded-sm p-6 flex flex-col justify-center">
+            <p className="text-[11px] text-white/40 tracking-[0.15em] uppercase mb-6">Estimated Annual Savings</p>
+            
+            <div className="space-y-4 mb-6">
+              <div className="flex items-center justify-between py-3 border-b border-white/[0.06]">
+                <span className="text-sm text-white/60">Service Labour</span>
+                <span className="text-lg font-bold text-[#DC2626]">${serviceLabourSaved.toLocaleString()}</span>
+              </div>
+              <div className="flex items-center justify-between py-3 border-b border-white/[0.06]">
+                <span className="text-sm text-white/60">Parts & Consumables</span>
+                <span className="text-lg font-bold text-[#DC2626]">${partsSaved.toLocaleString()}</span>
+              </div>
+              <div className="flex items-center justify-between py-3">
+                <span className="text-sm font-semibold">Total Annual</span>
+                <span className="text-2xl font-bold text-[#DC2626]">${totalSaved.toLocaleString()}</span>
+              </div>
+            </div>
+
+            <div className="bg-white/[0.03] rounded-sm p-4 text-center">
+              <p className="text-xs text-white/40">Over 5 years with <span className="text-white font-semibold">{towers} towers</span></p>
+              <p className="text-3xl font-bold text-[#DC2626] mt-1">${fiveYearSaved.toLocaleString()}</p>
+              <p className="text-[11px] text-white/30 mt-1">saved with Mickala ELV 24VDC</p>
+            </div>
+
+            <div className="mt-6 flex gap-2">
+              <a href="/quote" className="flex-1 text-center py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-xs font-semibold rounded-sm">Get a Quote</a>
+              <a href="tel:1300642525" className="flex-1 text-center py-3 border border-white/20 hover:border-white/40 transition-colors text-xs font-semibold rounded-sm">1300 642 525</a>
+            </div>
           </div>
         </div>
-        <p className="text-xs text-white/30 text-center">Over 5 years: <span className="text-white/60 font-semibold">$252,000 saved</span> with Mickala ELV 24VDC towers.</p>
-      </div>
 
-      <div className="pt-4 border-t border-white/[0.06]">
-        <h3 className="text-sm font-semibold mb-4">Get the full breakdown</h3>
-        <div className="grid sm:grid-cols-2 gap-4">
-          <input type="text" placeholder="Your Name" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
-          <input type="email" placeholder="Email Address" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
-          <input type="tel" placeholder="Phone" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
-          <input type="text" placeholder="Company Name" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
+        {/* Why it matters */}
+        <div className="border-t border-white/[0.06] pt-10">
+          <p className="text-[11px] text-[#DC2626] tracking-[0.15em] uppercase mb-4">Why ELV 24VDC?</p>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { label: "Any Auto Electrician", desc: "No specialist technician required. Standard automotive electrical knowledge is all that's needed for servicing." },
+              { label: "500hr Service Interval", desc: "Extended service intervals mean fewer maintenance days and more uptime on site." },
+              { label: "Fewer Parts, Lower Cost", desc: "Simpler electrical system means fewer components that can fail. Less inventory to carry." },
+            ].map((item) => (
+              <div key={item.label} className="p-4 border border-white/[0.06]">
+                <p className="text-sm font-semibold mb-1">{item.label}</p>
+                <p className="text-xs text-white/50 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      <button className="w-full py-4 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-sm">
-        Send Me the Full Report
-      </button>
     </div>
   )
 }

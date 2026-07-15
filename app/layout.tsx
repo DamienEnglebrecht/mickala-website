@@ -4,6 +4,7 @@ import { Archivo, Inter } from 'next/font/google'
 import { PageTracker } from '@/components/page-tracker'
 import { PwaRegister } from '@/components/pwa-register'
 import { SiteFooter } from '@/components/site-footer'
+import { AIChat } from '@/components/ai-chat'
 import './globals.css'
 
 const inter = Inter({
@@ -56,6 +57,7 @@ export default function RootLayout({
         <PwaRegister />
         {children}
         <SiteFooter />
+        <AIChat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
