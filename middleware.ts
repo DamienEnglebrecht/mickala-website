@@ -4,6 +4,15 @@ import { NextResponse, type NextRequest } from "next/server"
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
+  // Redirects for legacy URLs
+  const { pathname } = request.nextUrl
+  if (pathname === "/about" || pathname === "/about/") {
+    return NextResponse.redirect(new URL("/our-story", request.url))
+  }
+  if (pathname === "/contact" || pathname === "/contact/") {
+    return NextResponse.redirect(new URL("/contact-us", request.url))
+  }
+
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
