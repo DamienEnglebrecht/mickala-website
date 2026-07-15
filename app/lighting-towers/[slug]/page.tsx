@@ -11,6 +11,7 @@ type ModelData = {
   desc: string
   image: string
   slug: string
+  priceFrom?: string
   specSheet?: string
   lightSim?: string
 }
@@ -34,10 +35,10 @@ const categories: Record<string, CategoryData> = {
     heroImage: "/single-axle-hero.jpg",
     statLine: "4 models · 1200W – 2560W · Rapid deployment",
     models: [
-      { name: "MLT 1280-4LED", led: "1200W", desc: "Entry-level single axle. Compact and lightweight for fast-moving worksites.", image: "/product-images/doc_f9ffe13e2ce8_mlt-1280-4led-single-axle-tower.png", slug: "single-axle-1280-4led", specSheet: "/spec-sheets/single-axle-1280-4led.pdf", lightSim: "/spec-sheets/single-axle-1280-4led-lightsim.pdf" },
-      { name: "MLT 1280-6LED", led: "1200W", desc: "Higher output with 6-LED array for medium-sized work areas.", image: "/product-images/doc_675019b64b3f_mlt-1280-6led-single-axle-tower.png", slug: "single-axle-1280-6led", specSheet: "/spec-sheets/single-axle-1280-6led.pdf", lightSim: "/spec-sheets/single-axle-1280-6led-lightsim.pdf" },
-      { name: "MLT 1920-LED", led: "1920W", desc: "Maximum illumination for large-scale operations on a single axle.", image: "/product-images/doc_9db394285565_mlt-1920-led-single-axle-tower.png", slug: "single-axle-1920-led", specSheet: "/spec-sheets/single-axle-1920-led.pdf", lightSim: "/spec-sheets/single-axle-1920-led-lightsim.pdf" },
-      { name: "MLT 2560-LED", led: "2560W", desc: "Extreme output for the largest work sites. Single axle, maximum coverage.", image: "/product-images/doc_ca1d46669f30_mlt-2560-led-single-axle-tower.png", slug: "single-axle-2560-led", specSheet: "/spec-sheets/single-axle-2560-led.pdf", lightSim: "/spec-sheets/single-axle-2560-led-lightsim.pdf" },
+      { name: "MLT 1280-4LED", led: "1200W", desc: "Entry-level single axle. Compact and lightweight for fast-moving worksites.", image: "/product-images/doc_f9ffe13e2ce8_mlt-1280-4led-single-axle-tower.png", slug: "single-axle-1280-4led", priceFrom: "$38,500", specSheet: "/spec-sheets/single-axle-1280-4led.pdf", lightSim: "/spec-sheets/single-axle-1280-4led-lightsim.pdf" },
+      { name: "MLT 1280-6LED", led: "1200W", desc: "Higher output with 6-LED array for medium-sized work areas.", image: "/product-images/doc_675019b64b3f_mlt-1280-6led-single-axle-tower.png", slug: "single-axle-1280-6led", priceFrom: "$39,500", specSheet: "/spec-sheets/single-axle-1280-6led.pdf", lightSim: "/spec-sheets/single-axle-1280-6led-lightsim.pdf" },
+      { name: "MLT 1920-LED", led: "1920W", desc: "Maximum illumination for large-scale operations on a single axle.", image: "/product-images/doc_9db394285565_mlt-1920-led-single-axle-tower.png", slug: "single-axle-1920-led", priceFrom: "$52,500", specSheet: "/spec-sheets/single-axle-1920-led.pdf", lightSim: "/spec-sheets/single-axle-1920-led-lightsim.pdf" },
+      { name: "MLT 2560-LED", led: "2560W", desc: "Extreme output for the largest work sites. Single axle, maximum coverage.", image: "/product-images/doc_ca1d46669f30_mlt-2560-led-single-axle-tower.png", slug: "single-axle-2560-led", priceFrom: "$62,500", specSheet: "/spec-sheets/single-axle-2560-led.pdf", lightSim: "/spec-sheets/single-axle-2560-led-lightsim.pdf" },
     ],
     specs: [
       ["Wattage", "1200W – 2560W"],
@@ -301,16 +302,23 @@ export default async function LightingTowerPage(props: { params: Promise<{ slug:
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
+      {/* ===== ENQUIRY FORM ===== */}
       <section className="py-20 sm:py-28">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Get in touch</p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">Need a lighting tower?</h2>
-          <p className="text-sm text-white/50 mb-8 max-w-md mx-auto">Talk to our team about purchase, hire, or custom configurations.</p>
-          <div className="flex items-center justify-center gap-6">
-            <a href="tel:1300642525" className="text-sm text-white/70 hover:text-white transition-colors">1300 642 525</a>
-            <span className="text-white/[0.06]">/</span>
-            <Link href="/quote" className="text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold">Request a Quote →</Link>
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4 text-center">Get a Quote</p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4 text-center">Need a {cat.title.toLowerCase()} tower?</h2>
+          <p className="text-sm text-white/50 text-center max-w-md mx-auto mb-10">Tell us what you need and we&apos;ll get back to you within 24 hours.</p>
+          <div className="max-w-lg mx-auto space-y-4">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <input type="text" placeholder="Your Name *" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
+              <input type="email" placeholder="Email *" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
+            </div>
+            <input type="text" placeholder="Company / Site Name" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
+            <textarea placeholder="Tell us about your requirements — number of towers, site conditions, duration..." className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626] h-24 resize-none" />
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-white/30">We&apos;ll respond within 24 hours</p>
+              <Link href="/quote" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Submit Enquiry</Link>
+            </div>
           </div>
         </div>
       </section>

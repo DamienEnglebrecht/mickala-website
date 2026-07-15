@@ -10,6 +10,7 @@ type ModelType = {
   desc: string
   image: string
   slug: string
+  priceFrom?: string
   specSheet?: string
   lightSim?: string
 }
@@ -30,6 +31,7 @@ export function ModelCards({ models }: { models: ModelType[] }) {
             <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none">
               <p className="text-sm font-semibold mb-1">{m.name}</p>
               <p className="text-xs text-white/50">{m.desc}</p>
+              {m.priceFrom && <p className="text-[11px] text-[#DC2626] mt-1">From {m.priceFrom}</p>}
             </div>
           </button>
         ))}
@@ -52,7 +54,8 @@ export function ModelCards({ models }: { models: ModelType[] }) {
             {/* Info */}
             <div className="p-6">
               <p className="text-lg font-bold mb-1">{selected.name}</p>
-              <p className="text-sm text-white/50 mb-4">{selected.desc}</p>
+              <p className="text-sm text-white/50 mb-2">{selected.desc}</p>
+              {selected.priceFrom && <p className="text-[11px] text-[#DC2626] mb-4">Purchase from {selected.priceFrom} · Hire available</p>}
 
               <div className="flex items-center gap-3">
                 {selected.specSheet && (

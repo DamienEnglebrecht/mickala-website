@@ -15,6 +15,8 @@ const otherProducts = [
   { name: "Custom Fabrication", href: "/custom-fabrication", image: "/product-custom-fabrication.webp", desc: "In-house design and manufacture." },
 ]
 
+const clients = ["/anglo-american.png", "/bhp.png", "/glencore.png", "/whitehaven.png", "/yancoal.png", "/golding.png", "/bloomfield.png", "/terracom.png"]
+
 export default function HomePage() {
   return (
     <div className="bg-black text-white">
@@ -28,10 +30,26 @@ export default function HomePage() {
           <p className="text-xs text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Australian-Owned OEM Since 2007</p>
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-4">LED Lighting Towers</h1>
           <p className="text-base sm:text-lg text-white/60 max-w-lg mb-8">Extra-low-voltage lighting towers designed and manufactured in Australia. Trusted by 200+ mine sites.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <Link href="/products" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Explore Products</Link>
+            <Link href="/tower-selector" className="inline-flex items-center px-6 py-3 border border-[#DC2626]/50 hover:border-[#DC2626] transition-colors text-sm font-semibold rounded-full text-[#DC2626]">AI Tower Selector →</Link>
             <a href="tel:1300642525" className="inline-flex items-center px-6 py-3 border border-white/20 hover:border-white/40 transition-colors text-sm font-semibold rounded-full">Call 1300 642 525</a>
           </div>
+        </div>
+      </section>
+
+      {/* ===== TRUST BAR - Client Logos (above fold) ===== */}
+      <section className="border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6 py-10">
+          <p className="text-[11px] text-white/30 font-medium tracking-[0.15em] uppercase text-center mb-6">Trusted by Australia&apos;s largest mining operations</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+            {clients.map((logo) => (
+              <div key={logo} className="relative h-8 w-24 opacity-50 hover:opacity-100 transition-opacity">
+                <Image src={logo} alt="" fill className="object-contain brightness-0 invert" />
+              </div>
+            ))}
+          </div>
+          <p className="text-[11px] text-white/20 text-center mt-6">21 Caterpillar Drive, Paget QLD 4740 · ABN 92 180 218 353 · ISO 9001 Certified</p>
         </div>
       </section>
 
@@ -76,8 +94,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== LED LIGHTING ===== */}
+      {/* ===== AI TOOLS PROMO ===== */}
       <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4 text-center">Tools</p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4 text-center">Find the right tower in seconds.</h2>
+          <p className="text-sm text-white/50 text-center max-w-lg mx-auto mb-10">Tell us your site requirements and our AI recommends the exact tower, coverage plan and estimated cost.</p>
+          <div className="grid sm:grid-cols-2 max-w-2xl mx-auto gap-3">
+            <Link href="/tower-selector" className="group p-6 border border-white/[0.06] hover:border-[#DC2626]/50 transition-colors text-center">
+              <p className="text-sm font-semibold mb-1">AI Tower Selector</p>
+              <p className="text-xs text-white/50">Lighting requirements → tower recommendation</p>
+            </Link>
+            <Link href="/tco-calculator" className="group p-6 border border-white/[0.06] hover:border-[#DC2626]/50 transition-colors text-center">
+              <p className="text-sm font-semibold mb-1">TCO / ROI Calculator</p>
+              <p className="text-xs text-white/50">Compare ELV 24VDC vs competitors</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== LED LIGHTING ===== */}
+      <section className="py-20 sm:py-28">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="relative aspect-square">
@@ -89,6 +126,28 @@ export default function HomePage() {
               <p className="text-sm text-white/50 leading-relaxed mb-6">DCB95 (Orca), DCB48/66 (Barracuda), DCB24 (Snapper), DCB9 (Piranha), and Dark Licht — a full range of industrial LED lighting engineered for mining, construction, and infrastructure.</p>
               <Link href="/production-quality" className="inline-flex items-center text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold">Explore the range →</Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CASE STUDIES ===== */}
+      <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-b border-white/[0.06]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Case Studies</p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">Proven in the field.</h2>
+          <p className="text-sm text-white/50 leading-relaxed mb-10 max-w-lg">2000+ towers deployed across 200+ mine sites. Here&apos;s what that looks like in practice.</p>
+          <div className="grid sm:grid-cols-3 gap-3">
+            {[
+              { title: "BMA Peak Downs", desc: "95 towers on a single site. ELV 24VDC reliability in one of Australia's largest open-cut coal mines.", stat: "95 towers · 0 downtime incidents" },
+              { title: "Glencore Hail Creek", desc: "42 towers covering 30+ hectares of active mining operations. TCO reduced 35% vs 240V alternatives.", stat: "42 towers · 35% TCO reduction" },
+              { title: "MacKellar Carmichael", desc: "30 towers deployed for a greenfield mine build. Logistics, staging, and site-wide coverage managed end-to-end.", stat: "30 towers · Greenfield deployment" },
+            ].map((cs) => (
+              <div key={cs.title} className="p-6 border border-white/[0.06] hover:border-white/[0.15] transition-colors">
+                <p className="text-sm font-semibold mb-2">{cs.title}</p>
+                <p className="text-xs text-white/50 leading-relaxed mb-4">{cs.desc}</p>
+                <p className="text-[11px] text-[#DC2626] tracking-wide">{cs.stat}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -113,22 +172,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== CLIENTS ===== */}
-      <section className="py-16 sm:py-20 bg-white/[0.02] border-t border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-[11px] text-white/30 font-medium tracking-[0.15em] uppercase text-center mb-8">Trusted by</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-            {["/anglo-american.png", "/bhp.png", "/glencore.png", "/whitehaven.png", "/yancoal.png", "/golding.png", "/bloomfield.png", "/terracom.png"].map((logo) => (
-              <div key={logo} className="relative h-10 w-28 opacity-60 hover:opacity-100 transition-opacity">
-                <Image src={logo} alt="" fill className="object-contain brightness-0 invert" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ===== ABOUT ===== */}
-      <section className="py-20 sm:py-28">
+      <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-white/[0.06]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <div>
@@ -145,7 +190,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-white/[0.06]">
+      <section className="py-20 sm:py-28">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Get in touch</p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">Need lighting for your site?</h2>
@@ -153,7 +198,7 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-6">
             <a href="tel:1300642525" className="text-sm text-white/70 hover:text-white transition-colors">1300 642 525</a>
             <span className="text-white/[0.06]">/</span>
-            <Link href="/lighting-towers/single-axle" className="text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold">Browse Products →</Link>
+            <Link href="/quote" className="text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold">Request a Quote →</Link>
           </div>
         </div>
       </section>
