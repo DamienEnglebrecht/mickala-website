@@ -109,6 +109,14 @@ export default function HomePage() {
               <p className="text-sm font-semibold mb-1">TCO / ROI Calculator</p>
               <p className="text-xs text-white/50">Compare ELV 24VDC vs competitors</p>
             </Link>
+            <Link href="/spec-sheet-generator" className="group p-6 border border-white/[0.06] hover:border-[#DC2626]/50 transition-colors text-center">
+              <p className="text-sm font-semibold mb-1">Spec Sheet Generator</p>
+              <p className="text-xs text-white/50">Build &amp; print a spec sheet for any model</p>
+            </Link>
+            <Link href="/troubleshooter" className="group p-6 border border-white/[0.06] hover:border-[#DC2626]/50 transition-colors text-center">
+              <p className="text-sm font-semibold mb-1">AI Troubleshooter</p>
+              <p className="text-xs text-white/50">Guided diagnosis for tower issues</p>
+            </Link>
           </div>
         </div>
       </section>
