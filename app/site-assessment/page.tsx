@@ -26,16 +26,16 @@ const towerData = [
 // Mining equipment → lighting requirements (real industry ratios)
 // Based on: MDG15 lighting standards, haul road illumination requirements
 const fleetLightingRules = {
-  // A dig fleet (excavator + dump trucks) needs perimeter + work area lighting
-  digFleet: { towersPerFleet: 4, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Covers excavation zone, dump area, and haul road entry" },
-  // Active dump trucks on haul roads — need road lighting every 50m on night shifts
-  trucks: { towersPer10Trucks: 3, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "Haul road illumination per MDG15" },
-  // Dozers need area lighting for dump construction, stockpile management
-  dozers: { towersPerDozer: 1.5, towerType: "MLT 2560 Sled Mount", coverage: 10, notes: "Dozer push/cut area and dump point lighting" },
-  // Dumps / tip heads need dedicated lighting
-  dumps: { towersPerDump: 3, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Tip head illumination for safe dumping at night" },
+  // A dig fleet needs comprehensive pit lighting — shovel, dump area, access ramps, highwall
+  digFleet: { towersPerFleet: 10, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
+  // Active dump trucks on haul roads — every 150-200m for safe night operations
+  trucks: { towersPer10Trucks: 6, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "Haul road illumination — every 200m per MDG15 standards" },
+  // Dozers need coverage for dump construction, ROM push, stockpile management
+  dozers: { towersPerDozer: 2, towerType: "MLT 2560 Sled Mount", coverage: 10, notes: "Dozer push zone, ROM pad, and stockpile lighting" },
+  // Dumps / tip heads — larger coverage for safe backing and dumping
+  dumps: { towersPerDump: 6, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Tip head — illumination for reversing, dumping, and dozer activity" },
   // ROM / run-of-mine pad
-  romPad: { towersPerPad: 2, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "ROM pad, crusher feed, and stockpile lighting" },
+  romPad: { towersPerPad: 4, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "ROM pad, crusher feed, and stockpile lighting" },
 }
 
 // Known mine sites with typical fleet counts
@@ -45,19 +45,22 @@ const knownFleets: Record<string, any> = {
   "saraji": { digFleets: 4, trucks: 28, dozers: 5, dumps: 2, name: "Saraji Mine — BMA", coord: [-22.3100, 148.0500] },
   "hail creek": { digFleets: 3, trucks: 20, dozers: 4, dumps: 2, name: "Hail Creek Mine — Glencore", coord: [-21.4833, 148.0333] },
   "clermont": { digFleets: 3, trucks: 18, dozers: 4, dumps: 2, name: "Clermont Mine — Glencore", coord: [-22.7000, 147.6300] },
+  "curragh": { digFleets: 6, trucks: 50, dozers: 12, dumps: 4, name: "Curragh Mine — Coronado Global", coord: [-23.5000, 148.8000] },
   "daunia": { digFleets: 2, trucks: 14, dozers: 3, dumps: 1, name: "Daunia Mine — Whitehaven", coord: [-21.8700, 148.1400] },
   "bengalla": { digFleets: 2, trucks: 15, dozers: 3, dumps: 2, name: "Bengalla Mine — New Hope", coord: [-32.1483, 150.9289] },
   "carmichael": { digFleets: 3, trucks: 22, dozers: 5, dumps: 2, name: "Carmichael Mine — Bravus", coord: [-22.0800, 147.8500] },
   "caval ridge": { digFleets: 3, trucks: 20, dozers: 4, dumps: 2, name: "Caval Ridge Mine — BMA", coord: [-22.2500, 148.1000] },
   "poitrel": { digFleets: 2, trucks: 12, dozers: 3, dumps: 1, name: "Poitrel Mine — Stanmore", coord: [-21.8900, 148.0700] },
+  "blackwater": { digFleets: 4, trucks: 30, dozers: 8, dumps: 3, name: "Blackwater Mine — BMA", coord: [-23.7500, 148.8000] },
 }
 
 // Approximate areas for known mine sites (for area-based calc)
 const knownAreas: Record<string, number> = {
   "peak downs": 95, "goonyella": 75, "saraji": 60, "hail creek": 42,
-  "clermont": 37, "daunia": 26, "bengalla": 30, "carmichael": 30,
-  "caval ridge": 35, "poitrel": 30, "four mile": 23, "ensham": 18,
-  "yarrabee": 15, "new acland": 12, "hvo": 20, "mt carbine": 10,
+  "clermont": 37, "curragh": 80, "daunia": 26, "bengalla": 30,
+  "carmichael": 30, "caval ridge": 35, "poitrel": 30, "four mile": 23,
+  "ensham": 18, "yarrabee": 15, "new acland": 12, "hvo": 20,
+  "mt carbine": 10, "blackwater": 85,
 }
 
 export default function SiteAssessmentPage() {
