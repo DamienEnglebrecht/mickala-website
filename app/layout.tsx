@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Archivo, Inter } from 'next/font/google'
 import { PageTracker } from '@/components/page-tracker'
 import { PwaRegister } from '@/components/pwa-register'
+import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
 
 const inter = Inter({
@@ -54,6 +55,7 @@ export default function RootLayout({
         <PageTracker />
         <PwaRegister />
         {children}
+        <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

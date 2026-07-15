@@ -191,16 +191,6 @@ export default function CustomFabricationPage() {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="border-t border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6 py-6">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-            <p className="text-[11px] text-white/30">Mickala Group · ABN 92 180 218 353</p>
-            <p className="text-[11px] text-white/30">21 Caterpillar Drive, Paget QLD 4740</p>
-            <p className="text-[11px] text-white/30">In-House Manufacturing</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

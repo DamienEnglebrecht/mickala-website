@@ -190,62 +190,6 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="border-t border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6 py-8">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-            <p className="text-sm font-semibold tracking-tight">Mickala Group</p>
-            <nav className="flex flex-wrap gap-x-6 gap-y-2">
-              <Link
-                href="/spec-sheets"
-                className="text-[11px] text-white/30 hover:text-white transition-colors"
-              >
-                Lighting Towers
-              </Link>
-              <Link
-                href="/production-quality"
-                className="text-[11px] text-white/30 hover:text-white transition-colors"
-              >
-                LED Lighting
-              </Link>
-              <Link
-                href="/fuel-trailers"
-                className="text-[11px] text-white/30 hover:text-white transition-colors"
-              >
-                Fuel Trailers
-              </Link>
-              <Link
-                href="/custom-fabrication"
-                className="text-[11px] text-white/30 hover:text-white transition-colors"
-              >
-                Custom Fabrication
-              </Link>
-              <Link
-                href="/our-story"
-                className="text-[11px] text-white/30 hover:text-white transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/gallery"
-                className="text-[11px] text-white/30 hover:text-white transition-colors"
-              >
-                Gallery
-              </Link>
-            </nav>
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-6 border-t border-white/[0.06]">
-            <p className="text-[11px] text-white/20">ABN 92 180 218 353</p>
-            <p className="text-[11px] text-white/20">
-              ISO 9001 Certified
-            </p>
-            <p className="text-[11px] text-white/20">
-              21 Caterpillar Drive, Paget QLD 4740
-            </p>
-            <p className="text-[11px] text-white/20">1300 642 525</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

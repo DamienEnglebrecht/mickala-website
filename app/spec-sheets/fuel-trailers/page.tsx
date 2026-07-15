@@ -235,16 +235,6 @@ export default function FuelTrailersSpec() {
         </div>
       </section>
 
-      {/* ==================== FOOTER ==================== */}
-      <footer className="border-t border-[#2A2A2A]">
-        <div className="max-w-[1200px] mx-auto px-6 py-6">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[#555555]">
-            <p>Mickala Group · ABN 92 180 218 353</p>
-            <p>21 Caterpillar Drive, Paget QLD 4740</p>
-            <p>Document: SS-FT-001 · © 2026</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

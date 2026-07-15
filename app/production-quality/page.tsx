@@ -286,17 +286,6 @@ export default function ProductionQualityPage() {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="border-t border-white/[0.06] py-8">
-        <div className="mx-auto max-w-[1200px] px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-white/30">
-            Mickala Group
-          </p>
-          <p className="text-[11px] text-white/30">
-            &copy; {new Date().getFullYear()} Mickala Group. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }

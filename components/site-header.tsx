@@ -32,7 +32,7 @@ const navLinks = [
     { label: "Operation & Maintenance", href: "/parts-manuals/operation-maintenance" },
   ] },
   { label: "About", href: "/our-story" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact-us" },
 ]
 
 export function SiteHeader() {

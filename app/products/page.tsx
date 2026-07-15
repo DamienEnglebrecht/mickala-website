@@ -78,12 +78,6 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="border-t border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6 py-6">
-          <p className="text-[11px] text-white/30 text-center">Mickala Group · ABN 92 180 218 353</p>
-        </div>
-      </footer>
     </div>
   )
 }
