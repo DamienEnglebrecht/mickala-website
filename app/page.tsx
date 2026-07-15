@@ -15,7 +15,7 @@ const otherProducts = [
   { name: "Custom Fabrication", href: "/custom-fabrication", image: "/product-custom-fabrication.webp", desc: "In-house design and manufacture." },
 ]
 
-const clients = ["/anglo-american.png", "/bhp.png", "/glencore.png", "/whitehaven.png", "/yancoal.png", "/golding.png", "/bloomfield.png", "/terracom.png"]
+const clients = ["/client-anglo-american.png", "/client-bhp.png", "/client-glencore.png", "/client-whitehaven.png", "/client-yancoal.png", "/client-golding.png", "/client-bloomfield.png", "/client-terracom.png"]
 
 export default function HomePage() {
   return (
@@ -44,8 +44,8 @@ export default function HomePage() {
           <p className="text-[11px] text-white/30 font-medium tracking-[0.15em] uppercase text-center mb-6">Trusted by Australia&apos;s largest mining operations</p>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
             {clients.map((logo) => (
-              <div key={logo} className="relative h-8 w-24 opacity-50 hover:opacity-100 transition-opacity">
-                <Image src={logo} alt="" fill className="object-contain brightness-0 invert" />
+              <div key={logo} className="relative h-10 w-28 opacity-60 hover:opacity-100 transition-opacity">
+                <Image src={logo} alt="" fill className="object-contain" />
               </div>
             ))}
           </div>
