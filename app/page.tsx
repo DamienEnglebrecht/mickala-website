@@ -42,9 +42,9 @@ export default function HomePage() {
       <section className="border-b border-white/[0.06]">
         <div className="max-w-[1200px] mx-auto px-6 py-10">
           <p className="text-[11px] text-white/30 font-medium tracking-[0.15em] uppercase text-center mb-6">Trusted by Australia&apos;s largest mining operations</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
             {clients.map((logo) => (
-              <div key={logo} className="relative h-10 w-28 opacity-60 hover:opacity-100 transition-opacity">
+              <div key={logo} className="relative h-14 w-full opacity-70 hover:opacity-100 transition-opacity">
                 <Image src={logo} alt="" fill className="object-contain" />
               </div>
             ))}
