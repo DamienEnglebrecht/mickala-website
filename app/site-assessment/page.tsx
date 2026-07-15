@@ -42,6 +42,7 @@ const knownFleets: Record<string, any> = {
   "hail creek": { digFleets: 3, trucks: 20, dozers: 4, dumps: 2, name: "Hail Creek Mine — Glencore", coord: [-21.4833, 148.0333] },
   "clermont": { digFleets: 3, trucks: 18, dozers: 4, dumps: 2, name: "Clermont Mine — Glencore", coord: [-22.7000, 147.6300] },
   "curragh": { digFleets: 6, trucks: 50, dozers: 12, dumps: 4, name: "Curragh Mine — Coronado Global", coord: [-23.5000, 148.8000] },
+  "middlemount": { digFleets: 3, trucks: 46, dozers: 6, dumps: 2, name: "Middlemount Coal — Peabody/Yancoal", coord: [-22.8200, 148.6900] },
   "daunia": { digFleets: 2, trucks: 14, dozers: 3, dumps: 1, name: "Daunia Mine — Whitehaven", coord: [-21.8700, 148.1400] },
   "bengalla": { digFleets: 2, trucks: 15, dozers: 3, dumps: 2, name: "Bengalla Mine — New Hope", coord: [-32.1483, 150.9289] },
   "carmichael": { digFleets: 3, trucks: 22, dozers: 5, dumps: 2, name: "Carmichael Mine — Bravus", coord: [-22.0800, 147.8500] },
@@ -57,6 +58,7 @@ const knownAreas: Record<string, number> = {
   "carmichael": 30, "caval ridge": 35, "poitrel": 30, "four mile": 23,
   "ensham": 18, "yarrabee": 15, "new acland": 12, "hvo": 20,
   "mt carbine": 10, "blackwater": 85,
+  "middlemount": 35,
 }
 
 export default function SiteAssessmentPage() {
@@ -238,7 +240,7 @@ export default function SiteAssessmentPage() {
 
         {/* Quick links */}
         <div className="flex flex-wrap gap-2 mb-8">
-          {["Peak Downs", "Hail Creek", "Bengalla", "Carmichael", "Caval Ridge"].map((ex) => (
+          {["Peak Downs", "Middlemount", "Hail Creek", "Bengalla", "Caval Ridge"].map((ex) => (
             <button key={ex} onClick={() => { setInput(ex); setTimeout(assessSite, 100) }}
               className="px-3 py-1.5 text-[11px] border border-white/[0.1] hover:border-[#DC2626]/50 transition-colors rounded-sm text-white/40 hover:text-white">
               {ex}
