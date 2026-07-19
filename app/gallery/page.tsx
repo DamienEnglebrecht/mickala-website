@@ -6,9 +6,11 @@ import { X } from "lucide-react"
 import { useState } from "react"
 import { SiteHeader } from "@/components/site-header"
 
-const images = Array.from({ length: 70 }, (_, i) => ({
-  id: i + 1,
-  src: `/site-images/mickala-${i + 1}.jpg`,
+const allImages = [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,34,35,36,37,38,40,41,42,43,44,45,46,47,48,49,50,51,53,54,55,56,57,58,59,60,61,64,65,66,67,68,69,70]
+
+const images = allImages.map((id) => ({
+  id,
+  src: `/site-images/mickala-${id}.jpg`,
 }))
 
 export default function GalleryPage() {
@@ -100,7 +102,7 @@ export default function GalleryPage() {
             />
           </div>
           <div className="absolute bottom-6 text-white/50 text-[11px] tracking-wide uppercase">
-            {selected} / {images.length}
+            {images.findIndex(i => i.id === selected) + 1} / {images.length}
           </div>
         </div>
       )}
