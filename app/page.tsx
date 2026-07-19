@@ -89,7 +89,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <Link href="/lighting-towers/single-axle" className="inline-flex items-center text-sm text-white/50 hover:text-white transition-colors">View all specifications →</Link>
+            <Link href="/spec-sheets" className="inline-flex items-center text-sm text-white/50 hover:text-white transition-colors">View all specifications →</Link>
           </div>
         </div>
       </section>
