@@ -135,7 +135,7 @@ export default function QuotePage() {
       await fetch('/api/save-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, items, total: subtotal, prepared_by: preparedBy, status, delivery }),
+        body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, hire_from: hireFrom, hire_to: hireTo, payment_terms: paymentTerms, items, total: subtotal, prepared_by: preparedBy, status, delivery }),
       })
     } catch (_) { /* silently fail */ }
     setTimeout(() => window.print(), 200)
@@ -184,7 +184,10 @@ export default function QuotePage() {
     setCustomer(q.customer || "")
     setCustomerContact(q.customer_contact || "")
     setDate(q.date || "")
+    setHireFrom(q.hire_from || "")
+    setHireTo(q.hire_to || "")
     setQuoteType(q.quote_type || "Purchase Quote")
+    setPaymentTerms(q.payment_terms || "Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")
     setPreparedBy(q.prepared_by || "")
     setStatus(q.status || "New")
     setDelivery(q.delivery || "FOB Paget QLD Depot")
@@ -262,7 +265,18 @@ export default function QuotePage() {
           <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Status:</span>
           <select
             value={status}
-            onChange={e => setStatus(e.target.value)}
+            onChange={async e => {
+              const newStatus = e.target.value
+              setStatus(newStatus)
+              // Also persist to database
+              try {
+                await fetch('/api/save-quote', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, hire_from: hireFrom, hire_to: hireTo, payment_terms: paymentTerms, items: rows.map(r => ({ desc: r.desc, qty: r.qty, price: r.price })), total: subtotal, prepared_by: preparedBy, status: newStatus, delivery }),
+                })
+              } catch (_) { /* silently fail */ }
+            }}
             className="text-xs border border-gray-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:border-primary"
           >
             <option value="New">🆕 New</option>

@@ -5,7 +5,7 @@ const SUPABASE_URL = "https://fntqwckvrdbemjadcpcz.supabase.co"
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { id, customer, date, quote_type, prepared_by, items, total, status, customer_contact } = body
+    const { id, customer, date, quote_type, prepared_by, items, total, status, customer_contact, hire_from, hire_to, payment_terms, delivery } = body
 
     if (!id) {
       return NextResponse.json({ error: "Missing quote id" }, { status: 400 })
@@ -21,6 +21,10 @@ export async function POST(req: NextRequest) {
       total: total || 0,
       status: status || "New",
       customer_contact: customer_contact || "",
+      hire_from: hire_from || "",
+      hire_to: hire_to || "",
+      payment_terms: payment_terms || "",
+      delivery: delivery || "",
     }
 
     const serviceKey = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || ""
