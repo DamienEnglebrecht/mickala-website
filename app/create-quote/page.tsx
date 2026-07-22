@@ -341,23 +341,23 @@ export default function QuotePage() {
         {/* META TABLE */}
         <table className="w-full text-xs mb-6">
           <tbody>
-            <tr><td className="font-semibold py-1 pr-4 w-40">Quote Reference</td><td>MMMQ{new Date().getFullYear()}-<input type="number" value={quoteNum} onChange={e => setQuoteNum(Number(e.target.value))} className="border-b border-dashed border-gray-300 bg-transparent w-20 px-1 py-0.5 text-sm font-semibold text-primary focus:outline-none focus:border-primary print:border-none inline" style={{width:"3rem"}} /></td></tr>
-            <tr><td className="font-semibold py-1 pr-4">Date</td><td>{date}</td></tr>
+            <tr><td className="font-semibold py-1 pr-4 w-40">Quote Reference</td><td className="text-left">MMMQ{new Date().getFullYear()}-<input type="number" value={quoteNum} onChange={e => setQuoteNum(Number(e.target.value))} className="border-b border-dashed border-gray-300 bg-transparent w-20 px-1 py-0.5 text-sm font-semibold text-primary focus:outline-none focus:border-primary print:border-none inline" style={{width:"3rem"}} /></td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Date</td><td className="text-left">{date}</td></tr>
             {quoteType === "Hire Quote" && (
               <>
-                <tr><td className="font-semibold py-1 pr-4">Hire Period From</td><td><input type="date" value={hireFrom} onChange={e => setHireFrom(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
-                <tr><td className="font-semibold py-1 pr-4">Hire Period To</td><td><input type="date" value={hireTo} onChange={e => setHireTo(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
+                <tr><td className="font-semibold py-1 pr-4">Hire Period From</td><td className="text-left"><input type="date" value={hireFrom} onChange={e => setHireFrom(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
+                <tr><td className="font-semibold py-1 pr-4">Hire Period To</td><td className="text-left"><input type="date" value={hireTo} onChange={e => setHireTo(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
               </>
             )}
             <tr><td className="font-semibold py-1 pr-4">Prepared For</td>
-              <td><input type="text" value={customer} onChange={e => setCustomer(e.target.value)} placeholder="Customer name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
+              <td className="text-left"><input type="text" value={customer} onChange={e => setCustomer(e.target.value)} placeholder="Customer name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none text-left" /></td></tr>
             <tr><td className="font-semibold py-1 pr-4">Customer Contact</td>
-              <td><input type="text" value={customerContact} onChange={e => setCustomerContact(e.target.value)} placeholder="Contact name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" /></td></tr>
-            <tr><td className="font-semibold py-1 pr-4">Valid Until</td><td>{new Date(Date.now() + 30*86400000).toLocaleDateString("en-AU", {day:"numeric", month:"long", year:"numeric"})}</td></tr>
+              <td className="text-left"><input type="text" value={customerContact} onChange={e => setCustomerContact(e.target.value)} placeholder="Contact name" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none text-left" /></td></tr>
+            <tr><td className="font-semibold py-1 pr-4">Valid Until</td><td className="text-left">{new Date(Date.now() + 30*86400000).toLocaleDateString("en-AU", {day:"numeric", month:"long", year:"numeric"})}</td></tr>
             <tr><td className="font-semibold py-1 pr-4">Payment Terms</td>
-              <td>
+              <td className="text-left">
                 {useCustomTerms ? (
-                  <input type="text" value={customTerms} onChange={e => { setCustomTerms(e.target.value); setPaymentTerms(e.target.value) }} placeholder="Type custom payment terms..." className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none" />
+                  <input type="text" value={customTerms} onChange={e => { setCustomTerms(e.target.value); setPaymentTerms(e.target.value) }} placeholder="Type custom payment terms..." className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none text-left" />
                 ) : (
                   <select value={paymentTerms} onChange={e => {
                     if (e.target.value === "Custom...") {
@@ -366,7 +366,7 @@ export default function QuotePage() {
                     } else {
                       setPaymentTerms(e.target.value)
                     }
-                  }} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary cursor-pointer print:border-none">
+                  }} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary cursor-pointer print:border-none text-left">
                     <option value="Payment 100% Prior To Delivery">Payment 100% Prior To Delivery</option>
                     <option value="30 Days from Invoice Date">30 Days from Invoice Date</option>
                     <option value="7 Days">7 Days</option>
@@ -379,8 +379,8 @@ export default function QuotePage() {
                 )}
               </td></tr>
             <tr><td className="font-semibold py-1 pr-4">Delivery</td>
-              <td>
-                <select value={delivery} onChange={e => setDelivery(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary cursor-pointer print:border-none">
+              <td className="text-left">
+                <select value={delivery} onChange={e => setDelivery(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary cursor-pointer print:border-none text-left">
                   <option value="FOB Paget QLD Depot">FOB Paget QLD Depot</option>
                   <option value="Delivered — Site (Quoted Separately)">Delivered — Site (Quoted Separately)</option>
                   <option value="Ex-Works — China">Ex-Works — China</option>
@@ -391,7 +391,7 @@ export default function QuotePage() {
                   <option value="Custom...">Custom...</option>
                 </select>
                 {delivery === "Custom..." && (
-                  <input type="text" value="" onChange={e => setDelivery(e.target.value)} placeholder="Type delivery terms..." className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none mt-1" autoFocus />
+                  <input type="text" value="" onChange={e => setDelivery(e.target.value)} placeholder="Type delivery terms..." className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 text-sm focus:outline-none focus:border-primary print:border-none mt-1 text-left" autoFocus />
                 )}
               </td></tr>
           </tbody>
