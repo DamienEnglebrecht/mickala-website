@@ -59,12 +59,16 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  // Protect parts development section
+  // Protect parts development section — except public documents
+  const publicPartsPaths = ["/parts-manuals/operation-maintenance"]
   const partsPaths = ["/parts", "/parts-manuals", "/cart", "/checkout"]
   const isPartsPath = partsPaths.some(
     (p) => request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith(p + "/")
   )
-  if (isPartsPath && !request.cookies.has("mickala_parts_access")) {
+  const isPublicPartsPath = publicPartsPaths.some(
+    (p) => request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith(p + "/")
+  )
+  if (isPartsPath && !isPublicPartsPath && !request.cookies.has("mickala_parts_access")) {
     const url = request.nextUrl.clone()
     url.pathname = "/parts-access"
     url.searchParams.set("redirect", request.nextUrl.pathname)
