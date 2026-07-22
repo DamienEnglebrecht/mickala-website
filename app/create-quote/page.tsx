@@ -200,10 +200,30 @@ export default function QuotePage() {
     setDelivery(q.delivery || "FOB Paget QLD Depot")
     // Extract items and metadata from the items JSONB field
     if (q.items) {
-      // Check if items has _meta (our new format) or is a plain array (old format)
-      const itemsData = typeof q.items === 'object' && q.items._meta ? q.items : { line_items: Array.isArray(q.items) ? q.items : [], _meta: {} }
+      let itemsData: any = q.items
+      // Normalize: support multiple storage formats that may exist in the DB
+      if (Array.isArray(itemsData)) {
+        // Format 1: Plain array (oldest format)
+        itemsData = { line_items: itemsData, _meta: {} }
+      } else if (typeof itemsData === 'object' && !itemsData.line_items && !itemsData._meta) {
+        // Format 2: Object without line_items/_meta — unlikely but handle gracefully
+        itemsData = { line_items: [itemsData], _meta: {} }
+      }
+      // Format 3: { line_items: [...], _meta: {...} } — correct format, use as-is
+
+      // Handle legacy double-wrapped data (buggy save API used to wrap items again):
+      // If line_items is an object with its own line_items, it was double-wrapped
+      if (typeof itemsData.line_items === 'object' && !Array.isArray(itemsData.line_items) && itemsData.line_items?.line_items) {
+        // Extract from double-wrapped: { line_items: { line_items: [...], _meta: {...} }, _meta: {} }
+        const inner = itemsData.line_items
+        itemsData = {
+          line_items: inner.line_items || [],
+          _meta: inner._meta || itemsData._meta || {}
+        }
+      }
+
       const meta = itemsData._meta || {}
-      const lineItems = itemsData.line_items || (Array.isArray(q.items) ? q.items : [])
+      const lineItems = Array.isArray(itemsData.line_items) ? itemsData.line_items : (Array.isArray(q.items) ? q.items : [])
       setHireFrom(meta.hire_from || "")
       setHireTo(meta.hire_to || "")
       setPaymentTerms(meta.payment_terms || "Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")

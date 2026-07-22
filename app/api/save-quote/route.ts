@@ -5,22 +5,19 @@ const SUPABASE_URL = "https://fntqwckvrdbemjadcpcz.supabase.co"
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { id, customer, date, quote_type, prepared_by, items, total, status, customer_contact, hire_from, hire_to, payment_terms, delivery } = body
+    const { id, customer, date, quote_type, prepared_by, items, total, status, customer_contact } = body
 
     if (!id) {
       return NextResponse.json({ error: "Missing quote id" }, { status: 400 })
     }
 
-    // Store extra metadata inside the items JSONB column since
-    // the database table doesn't have columns for hire_from/hire_to/payment_terms
-    const itemsPayload = {
-      line_items: items || [],
-      _meta: {
-        hire_from: hire_from || "",
-        hire_to: hire_to || "",
-        payment_terms: payment_terms || "",
-        delivery: delivery || "",
-      }
+    // The frontend now sends items as { line_items: [...], _meta: { hire_from, hire_to, payment_terms, delivery } }
+    // in the 'items' field. We pass it through as-is to the JSONB column.
+    // We also support a flat array (old format) by wrapping it.
+    let itemsPayload = items
+    if (Array.isArray(items)) {
+      // Old format: plain array of line items — wrap it
+      itemsPayload = { line_items: items, _meta: { hire_from: "", hire_to: "", payment_terms: "", delivery: "" } }
     }
 
     const payload: Record<string, any> = {
