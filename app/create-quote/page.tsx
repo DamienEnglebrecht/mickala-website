@@ -242,16 +242,7 @@ export default function QuotePage() {
 
   return (
     <div className="min-h-screen bg-gray-50 print:bg-white print:p-0">
-      <style>{`
-        @media print{@page{margin:12mm 8mm}body{min-width:auto!important}
-          .quote-content table, .quote-content tr, .quote-content td, .quote-content th,
-          .quote-content input, .quote-content select, .quote-content textarea { border: none !important; }
-          .quote-content td, .quote-content th { padding: 2px 4px !important; }
-        }
-        .quote-content * { font-optical-sizing: auto !important; font-variation-settings: 'slnt' 0 !important; }
-        .quote-content { font-optical-sizing: auto; }
-        .quote-content input, .quote-content textarea, .quote-content select, .quote-content td { font-size: 9px !important; }
-        .quote-content th { font-size: 9px !important; }
+      <style>{`\n        @media print{@page{margin:12mm 8mm}body{min-width:auto!important}\n          .quote-content table, .quote-content tr, .quote-content td, .quote-content th,\n          .quote-content input, .quote-content select, .quote-content textarea { border: none !important; }\n          .quote-content td, .quote-content th { padding: 2px 4px !important; }\n        }\n        .quote-content * { font-optical-sizing: auto !important; font-variation-settings: 'slnt' 0 !important; }\n        .quote-content { font-optical-sizing: auto; }\n        .quote-content input, .quote-content textarea, .quote-content select, .quote-content td { font-size: 9px !important; }\n        .quote-content th { font-size: 9px !important; }\n        /* Fix select alignment with input fields in meta table */\n        .quote-content table.w-full.text-xs select {\n          appearance: none !important;\n          -webkit-appearance: none !important;\n          -moz-appearance: none !important;\n          line-height: 12.8571px !important;\n          background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath fill='%23666' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E\");\n          background-repeat: no-repeat;\n          background-position: right 4px center;\n          padding-right: 16px !important;\n        }
       `}</style>
       <div className="quote-content max-w-5xl mx-auto p-4 sm:p-8 print:max-w-full print:mx-0 print:px-4 print:py-2">
 
