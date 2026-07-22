@@ -11,20 +11,28 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing quote id" }, { status: 400 })
     }
 
+    // Store extra metadata inside the items JSONB column since
+    // the database table doesn't have columns for hire_from/hire_to/payment_terms
+    const itemsPayload = {
+      line_items: items || [],
+      _meta: {
+        hire_from: hire_from || "",
+        hire_to: hire_to || "",
+        payment_terms: payment_terms || "",
+        delivery: delivery || "",
+      }
+    }
+
     const payload: Record<string, any> = {
       id,
       customer: customer || "",
       date: date || "",
       quote_type: quote_type || "",
       prepared_by: prepared_by || "",
-      items: items || [],
+      items: itemsPayload,
       total: total || 0,
       status: status || "New",
       customer_contact: customer_contact || "",
-      hire_from: hire_from || "",
-      hire_to: hire_to || "",
-      payment_terms: payment_terms || "",
-      delivery: delivery || "",
     }
 
     const serviceKey = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || ""

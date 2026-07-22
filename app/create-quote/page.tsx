@@ -131,11 +131,19 @@ export default function QuotePage() {
     document.title = `Mickala LED Lighting Tower Quote #${quoteNum}`
     // Save quote to database
     try {
-      const items = rows.map(r => ({ desc: r.desc, qty: r.qty, price: r.price }))
+      const items = {
+        line_items: rows.map(r => ({ desc: r.desc, qty: r.qty, price: r.price })),
+        _meta: {
+          hire_from: hireFrom,
+          hire_to: hireTo,
+          payment_terms: paymentTerms,
+          delivery: delivery,
+        }
+      }
       await fetch('/api/save-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, hire_from: hireFrom, hire_to: hireTo, payment_terms: paymentTerms, items, total: subtotal, prepared_by: preparedBy, status, delivery }),
+        body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, items, total: subtotal, prepared_by: preparedBy, status, delivery }),
       })
     } catch (_) { /* silently fail */ }
     setTimeout(() => window.print(), 200)
@@ -158,6 +166,8 @@ export default function QuotePage() {
     setCustomer("")
     setCustomerContact("")
     setRows([{ id: 1, desc: "", qty: 1, price: 0 }])
+    setHireFrom("")
+    setHireTo("")
     setPaymentTerms("Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")
     setCustomTerms("")
     setUseCustomTerms(false)
@@ -184,15 +194,26 @@ export default function QuotePage() {
     setCustomer(q.customer || "")
     setCustomerContact(q.customer_contact || "")
     setDate(q.date || "")
-    setHireFrom(q.hire_from || "")
-    setHireTo(q.hire_to || "")
     setQuoteType(q.quote_type || "Purchase Quote")
-    setPaymentTerms(q.payment_terms || "Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")
     setPreparedBy(q.prepared_by || "")
     setStatus(q.status || "New")
     setDelivery(q.delivery || "FOB Paget QLD Depot")
-    if (q.items && Array.isArray(q.items)) {
-      setRows(q.items.map((item: any, i: number) => ({ id: i + 1, desc: item.desc || "", qty: item.qty || 1, price: item.price || 0 })))
+    // Extract items and metadata from the items JSONB field
+    if (q.items) {
+      // Check if items has _meta (our new format) or is a plain array (old format)
+      const itemsData = typeof q.items === 'object' && q.items._meta ? q.items : { line_items: Array.isArray(q.items) ? q.items : [], _meta: {} }
+      const meta = itemsData._meta || {}
+      const lineItems = itemsData.line_items || (Array.isArray(q.items) ? q.items : [])
+      setHireFrom(meta.hire_from || "")
+      setHireTo(meta.hire_to || "")
+      setPaymentTerms(meta.payment_terms || "Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")
+      setDelivery(meta.delivery || q.delivery || "FOB Paget QLD Depot")
+      setRows(lineItems.map((item: any, i: number) => ({ id: i + 1, desc: item.desc || "", qty: item.qty || 1, price: item.price || 0 })))
+    } else {
+      setHireFrom("")
+      setHireTo("")
+      setPaymentTerms("Payment: 100% prior to delivery / 30 days from invoice (subject to approved credit terms).")
+      setRows([{ id: 1, desc: "", qty: 1, price: 0 }])
     }
     setShowLoadPanel(false)
   }
@@ -270,10 +291,19 @@ export default function QuotePage() {
               setStatus(newStatus)
               // Also persist to database
               try {
+                const itemsPayload = {
+                  line_items: rows.map(r => ({ desc: r.desc, qty: r.qty, price: r.price })),
+                  _meta: {
+                    hire_from: hireFrom,
+                    hire_to: hireTo,
+                    payment_terms: paymentTerms,
+                    delivery: delivery,
+                  }
+                }
                 await fetch('/api/save-quote', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, hire_from: hireFrom, hire_to: hireTo, payment_terms: paymentTerms, items: rows.map(r => ({ desc: r.desc, qty: r.qty, price: r.price })), total: subtotal, prepared_by: preparedBy, status: newStatus, delivery }),
+                  body: JSON.stringify({ id: quoteNum, customer, customer_contact: customerContact, date, quote_type: quoteType, items: itemsPayload, total: subtotal, prepared_by: preparedBy, status: newStatus, delivery }),
                 })
               } catch (_) { /* silently fail */ }
             }}
