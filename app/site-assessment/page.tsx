@@ -34,7 +34,7 @@ const brightnessMultiplier = 1.5 // 50% brighter
 // Calibrated from Peak Downs: 6 dig fleets = 125 total towers → ~21 per dig fleet
 // Middlemount (3 fleets) should come in around 40-50 total
 const fleetLightingRules = {
-  digFleet: { towersPerFleet: 15, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
+  digFleet: { towersPerFleet: 12, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
   dozers: { towersPerDozer: 1, notes: "Dozer push zone — additional lighting where dig fleet towers don't reach" },
   dumps: { towersPerDump: 0.5, notes: "Tip head — additional lights for reversing and dumping" },
   romPad: { towersPerPad: 1, notes: "ROM pad, crusher feed, and stockpile lighting" },
