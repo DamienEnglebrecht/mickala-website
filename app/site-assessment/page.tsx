@@ -31,12 +31,13 @@ const breakdownCostSavedPerTowerPerYear = (breakdownsCompetitor - breakdownsMick
 const brightnessMultiplier = 1.5 // 50% brighter
 
 // Mining equipment → lighting requirements (real industry ratios)
+// Calibrated from Peak Downs: 6 dig fleets = 125 total towers → ~21 per dig fleet
+// Middlemount (3 fleets) should come in around 40-50 total
 const fleetLightingRules = {
-  digFleet: { towersPerFleet: 9, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
-  trucks: { towersPer10Trucks: 5, notes: "Haul road illumination per MDG15 standards" },
-  dozers: { towersPerDozer: 3, notes: "Dozer push zone, ROM pad, and stockpile lighting" },
-  dumps: { towersPerDump: 5, notes: "Tip head — illumination for reversing, dumping, and dozer activity" },
-  romPad: { towersPerPad: 2, notes: "ROM pad, crusher feed, and stockpile lighting" },
+  digFleet: { towersPerFleet: 15, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
+  dozers: { towersPerDozer: 1, notes: "Dozer push zone — additional lighting where dig fleet towers don't reach" },
+  dumps: { towersPerDump: 0.5, notes: "Tip head — additional lights for reversing and dumping" },
+  romPad: { towersPerPad: 1, notes: "ROM pad, crusher feed, and stockpile lighting" },
 }
 
 const knownFleets: Record<string, any> = {
@@ -100,11 +101,9 @@ export default function SiteAssessmentPage() {
     const recs: any[] = []
     let totalUnits = 0
 
-    // Combine Dig Fleet Zone + Haul Road into "Dig Fleet"
-    if (fleets > 0 || trks > 0) {
-      let u = 0
-      if (fleets > 0) u += Math.ceil(fleets * fleetLightingRules.digFleet.towersPerFleet)
-      if (trks > 0) u += Math.ceil((trks / 10) * fleetLightingRules.trucks.towersPer10Trucks)
+    // Dig Fleet is the primary driver — covers pit, haul road, and dump area
+    if (fleets > 0) {
+      const u = Math.ceil(fleets * fleetLightingRules.digFleet.towersPerFleet)
       totalUnits += u
       recs.push({ category: "Dig Fleet", units: u, notes: `${fleets} dig fleets, ${trks} trucks — excavation, haul road, dump area` })
     }
