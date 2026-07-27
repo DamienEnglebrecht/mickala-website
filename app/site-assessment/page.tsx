@@ -52,6 +52,7 @@ const knownFleets: Record<string, any> = {
   "bengalla": { digFleets: 2, trucks: 15, dozers: 3, dumps: 2, name: "Bengalla Mine — New Hope", coord: [-32.1483, 150.9289] },
   "carmichael": { digFleets: 3, trucks: 22, dozers: 5, dumps: 2, name: "Carmichael Mine — Bravus", coord: [-22.0800, 147.8500] },
   "caval ridge": { digFleets: 3, trucks: 20, dozers: 4, dumps: 2, name: "Caval Ridge Mine — BMA", coord: [-22.2500, 148.1000] },
+  "warkworth": { digFleets: 2, trucks: 15, dozers: 3, dumps: 2, name: "Warkworth Mine — Yancoal", coord: [-32.6100, 151.0200] },
   "poitrel": { digFleets: 2, trucks: 12, dozers: 3, dumps: 1, name: "Poitrel Mine — Stanmore", coord: [-21.8900, 148.0700] },
   "blackwater": { digFleets: 4, trucks: 30, dozers: 8, dumps: 3, name: "Blackwater Mine — BMA", coord: [-23.7500, 148.8000] },
 }
@@ -63,6 +64,7 @@ const knownAreas: Record<string, number> = {
   "ensham": 18, "yarrabee": 15, "new acland": 12, "hvo": 20,
   "mt carbine": 10, "blackwater": 85,
   "middlemount": 35,
+  "warkworth": 28,
 }
 
 function formatCurrency(n: number): string {
@@ -236,7 +238,7 @@ export default function SiteAssessmentPage() {
 
         {/* Quick links */}
         <div className="flex flex-wrap gap-2 mb-8">
-          {["Peak Downs", "Middlemount", "Hail Creek", "Bengalla", "Caval Ridge"].map((ex) => (
+          {["Middlemount", "Warkworth", "Caval Ridge", "Curragh"].map((ex) => (
             <button key={ex} onClick={() => { setInput(ex); setTimeout(assessSite, 100) }}
               className="px-3 py-1.5 text-[11px] border border-white/[0.1] hover:border-[#DC2626]/50 transition-colors rounded-sm text-white/40 hover:text-white">
               {ex}
