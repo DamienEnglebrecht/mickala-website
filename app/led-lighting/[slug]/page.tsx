@@ -239,6 +239,21 @@ export default async function LEDProductPage(props: { params: Promise<{ slug: st
         </div>
       </section>
 
+      {/* ===== DOWNLOAD SPEC SHEET ===== */}
+      {product.specSheet && (
+        <section className="py-10 border-y border-white/[0.06] bg-white/[0.02]">
+          <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between gap-6">
+            <div>
+              <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-1">Download</p>
+              <p className="text-sm text-white/70">Full technical specification sheet</p>
+            </div>
+            <a href={product.specSheet} target="_blank" className="shrink-0 px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-xs font-semibold rounded-sm uppercase tracking-wider">
+              Download PDF →
+            </a>
+          </div>
+        </section>
+      )}
+
       {/* ===== SPECS ===== */}
       <section id="specs" className="py-20 sm:py-28 bg-white/[0.02] border-t border-b border-white/[0.06]">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -277,20 +292,6 @@ export default async function LEDProductPage(props: { params: Promise<{ slug: st
           </div>
         </div>
       </section>
-
-      {/* ===== DOWNLOAD SPEC SHEET ===== */}
-      {product.specSheet && (
-        <section className="py-16 border-t border-white/[0.06]">
-          <div className="max-w-[1200px] mx-auto px-6 text-center">
-            <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Download</p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05] mb-4">Specification Sheet</h2>
-            <p className="text-sm text-white/50 mb-8 max-w-md mx-auto">Download the full technical specification sheet for this product.</p>
-            <a href={product.specSheet} target="_blank" className="inline-flex items-center gap-2 px-8 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-xs font-semibold rounded-sm uppercase tracking-wider">
-              Download PDF →
-            </a>
-          </div>
-        </section>
-      )}
 
       {/* ===== CTA ===== */}
       <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-white/[0.06]">
