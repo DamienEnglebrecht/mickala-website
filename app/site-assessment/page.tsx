@@ -100,16 +100,13 @@ export default function SiteAssessmentPage() {
     const recs: any[] = []
     let totalUnits = 0
 
-    if (fleets > 0) {
-      const u = Math.ceil(fleets * fleetLightingRules.digFleet.towersPerFleet)
+    // Combine Dig Fleet Zone + Haul Road into "Dig Fleet"
+    if (fleets > 0 || trks > 0) {
+      let u = 0
+      if (fleets > 0) u += Math.ceil(fleets * fleetLightingRules.digFleet.towersPerFleet)
+      if (trks > 0) u += Math.ceil((trks / 10) * fleetLightingRules.trucks.towersPer10Trucks)
       totalUnits += u
-      recs.push({ category: "Dig Fleet Zone", units: u, notes: `${fleets} dig fleets — excavation, dump area, haul road entry` })
-    }
-
-    if (trks > 0) {
-      const u = Math.ceil((trks / 10) * fleetLightingRules.trucks.towersPer10Trucks)
-      totalUnits += u
-      recs.push({ category: "Haul Road", units: u, notes: `${trks} trucks — haul road illumination per MDG15` })
+      recs.push({ category: "Dig Fleet", units: u, notes: `${fleets} dig fleets, ${trks} trucks — excavation, haul road, dump area` })
     }
 
     if (dzrs > 0) {
@@ -395,7 +392,7 @@ export default function SiteAssessmentPage() {
                 </div>
                 <div>
                   <p className="text-white/60 font-semibold mb-1">🔧 Fewer Service Visits</p>
-                  <p>Mickala: <strong className="text-white/50">9 visits/month</strong> vs competitors: 12-18 visits/month. Better design means less frequent refuelling and servicing.</p>
+                  <p>Mickala: <strong className="text-white/50">9 Services per annum</strong> vs competitors: 12-18 Services per annum. Specifically designed for mining industry means less frequent refuelling and servicing.</p>
                 </div>
                 <div>
                   <p className="text-white/60 font-semibold mb-1">💥 10x More Reliable</p>
