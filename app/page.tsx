@@ -160,6 +160,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== NEW RELEASE — SS316 STAINLESS STEEL ===== */}
+      <section className="py-20 sm:py-28 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/new-release-ss316.jpg" alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        </div>
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+          <div className="max-w-lg">
+            <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">New Release</p>
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">
+              NOBODY ELSE BUILDS LIGHT TOWERS LIKE THIS. LITERALLY NOBODY.
+            </h2>
+            <p className="text-base text-white/70 leading-relaxed mb-6">
+              316 Marine Grade Stainless Steel across the entire Mickala range. Painted steel ended here.
+            </p>
+            <Link href="/products" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">
+              Explore the Range →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ===== OTHER PRODUCTS ===== */}
       <section className="py-20 sm:py-28">
         <div className="max-w-[1200px] mx-auto px-6">
