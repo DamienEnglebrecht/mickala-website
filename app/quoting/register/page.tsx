@@ -65,15 +65,21 @@ export default function TenderQuoteRegister() {
     } catch (_) {}
   }
 
-  const formatItems = (items: QuoteItem[]): string => {
-    if (!items || items.length === 0) return "—"
+  const formatItems = (items: any): string => {
+    if (!items) return "—"
+    // Handle object format {_meta: ..., line_items: [...]}
+    if (!Array.isArray(items)) {
+      const lineItems = items.line_items || items.items || []
+      return formatItems(lineItems)
+    }
+    if (items.length === 0) return "—"
     if (items.length === 1) {
       const i = items[0]
       return `${i.qty} x ${i.desc}`
     }
     // Group same items
     const descCount: Record<string, { qty: number; desc: string }> = {}
-    items.forEach(i => {
+    items.forEach((i: any) => {
       const key = i.desc
       if (descCount[key]) descCount[key].qty += i.qty
       else descCount[key] = { qty: i.qty, desc: i.desc }

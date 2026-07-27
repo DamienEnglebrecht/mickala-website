@@ -30,11 +30,12 @@ export async function POST(req: Request) {
     })
 
     if (!res.ok) {
-      const text = await res.text()
-      return NextResponse.json({ error: text }, { status: 500 })
+      // Silently ignore — tracking is non-critical
+      return NextResponse.json({ ok: true })
     }
     return NextResponse.json({ ok: true })
   } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500 })
+    // Silently ignore — tracking is non-critical
+    return NextResponse.json({ ok: true })
   }
 }
