@@ -10,14 +10,7 @@ export default function TCOCalculatorPage() {
   const [rate, setRate] = useState<"specialist" | "electrician">("electrician")
   const [interval, setInterval] = useState<250 | 500>(500)
 
-  // Calculations
-  const servicesPerYear = (hours * 365) / interval
-  const specialistCost = servicesPerYear * 2 * 200 * towers
-  const elvCost = servicesPerYear * 1 * 100 * towers
-  const serviceLabourSaved = specialistCost - elvCost
-  const partsSaved = towers * 600
-  const totalSaved = serviceLabourSaved + partsSaved
-  const fiveYearSaved = totalSaved * 5
+  // Calculations placeholder (no proprietary data displayed)
 
   return (
     <div className="bg-black text-white min-h-screen">
@@ -82,29 +75,10 @@ export default function TCOCalculatorPage() {
 
           {/* Results */}
           <div className="border border-white/[0.06] rounded-sm p-6 flex flex-col justify-center">
-            <p className="text-[11px] text-white/40 tracking-[0.15em] uppercase mb-6">Estimated Annual Savings</p>
-            
-            <div className="space-y-4 mb-6">
-              <div className="flex items-center justify-between py-3 border-b border-white/[0.06]">
-                <span className="text-sm text-white/60">Service Labour</span>
-                <span className="text-lg font-bold text-[#DC2626]">${serviceLabourSaved.toLocaleString()}</span>
-              </div>
-              <div className="flex items-center justify-between py-3 border-b border-white/[0.06]">
-                <span className="text-sm text-white/60">Parts & Consumables</span>
-                <span className="text-lg font-bold text-[#DC2626]">${partsSaved.toLocaleString()}</span>
-              </div>
-              <div className="flex items-center justify-between py-3">
-                <span className="text-sm font-semibold">Total Annual</span>
-                <span className="text-2xl font-bold text-[#DC2626]">${totalSaved.toLocaleString()}</span>
-              </div>
-            </div>
-
-            <div className="bg-white/[0.03] rounded-sm p-4 text-center">
-              <p className="text-xs text-white/40">Over 5 years with <span className="text-white font-semibold">{towers} towers</span></p>
-              <p className="text-3xl font-bold text-[#DC2626] mt-1">${fiveYearSaved.toLocaleString()}</p>
-              <p className="text-[11px] text-white/30 mt-1">saved with Mickala ELV 24VDC</p>
-            </div>
-
+            <p className="text-[11px] text-white/40 tracking-[0.15em] uppercase mb-4">Estimated Savings</p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Contact our team for a personalised cost comparison tailored to your fleet size and operating conditions.
+            </p>
             <div className="mt-6 flex gap-2">
               <a href="/quote" className="flex-1 text-center py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-xs font-semibold rounded-sm">Get a Quote</a>
               <a href="tel:1300642525" className="flex-1 text-center py-3 border border-white/20 hover:border-white/40 transition-colors text-xs font-semibold rounded-sm">1300 642 525</a>

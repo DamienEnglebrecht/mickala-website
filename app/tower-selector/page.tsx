@@ -10,9 +10,7 @@ type Message = {
 }
 
 type TowerRec = {
-  name: string
-  match: string
-  units: number
+  message: string
   specs: string[]
 }
 
@@ -50,34 +48,24 @@ export default function TowerSelectorPage() {
   const generateRecommendation = (f: typeof form) => {
     setThinking(true)
     setTimeout(() => {
-      let tower, match, units
-      const area = parseInt(f.area) || 20
-      
-      if (f.environment?.includes("Dusty") || f.terrain?.includes("Pit")) {
-        tower = "MLT 2560-LED Sled Mount"
-        match = "94%"
-        units = Math.ceil(area / 8)
-      } else if (f.terrain?.includes("Road") || area <= 10) {
-        tower = "MLT 1280-6LED Single Axle"
-        match = "91%"
-        units = Math.ceil(area / 4)
-      } else if (area > 20 || f.hours?.includes("24")) {
-        tower = "MLT 2560-LED Dual Axle"
-        match = "96%"
-        units = Math.ceil(area / 10)
-      } else {
-        tower = "MLT 1920-LED Dual Axle"
-        match = "88%"
-        units = Math.ceil(area / 6)
-      }
+      const genericSpecs = ["ELV 24VDC — any auto electrician can service", "GPS monitoring available", "MDG15/41 compliant", "3-stage e-coat paint system", "24/7/365 support nationwide"]
 
       setRecommendation({
-        name: tower,
-        match,
-        units,
-        specs: ["ELV 24VDC — any auto electrician can service", "GPS monitoring available", "MDG15/41 compliant", "3-stage e-coat paint system", "24/7/365 support nationwide"]
+        message: "Based on your requirements, the AI recommends a mix of Mickala lighting towers to suit your site conditions. Total Mickala towers recommended vs competition.",
+        specs: genericSpecs
       })
-      setMessages(prev => [...prev, { role: "assistant", content: `Based on your requirements, I recommend **${tower}**. I'd suggest ${units} units to cover ${f.area || "your"} site. This is a ${match} match.\n\nKey advantages:\n• ELV 24VDC — any auto electrician can service\n• GPS monitoring available\n• MDG15/41 compliant\n• 3-stage e-coat paint system\n• 24/7/365 support nationwide\n\nWould you like a detailed quote or to speak with our team?` }])
+      setMessages(prev => [...prev, { role: "assistant", content: `Thanks for the details. The AI has analysed your site requirements against our full product range.
+
+**Total Mickala towers recommended** vs competition.
+
+Key advantages of the recommended solution:
+• ELV 24VDC — any auto electrician can service
+• GPS monitoring available
+• MDG15/41 compliant
+• 3-stage e-coat paint system
+• 24/7/365 support nationwide
+
+Would you like a detailed quote or to speak with our team?` }])
       setThinking(false)
     }, 1500)
   }
@@ -169,24 +157,17 @@ export default function TowerSelectorPage() {
               <Sparkles className="h-4 w-4 text-[#DC2626]" />
               <p className="text-xs text-[#DC2626] font-semibold tracking-wide uppercase">Recommended Solution</p>
             </div>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div>
-                <p className="text-2xl font-bold mb-1">{recommendation.name}</p>
-                <p className="text-sm text-white/50 mb-2">{recommendation.units} units recommended · {recommendation.match} match</p>
-                <p className="text-xs text-[#DC2626]">Purchase from $62,500 · Hire available</p>
-              </div>
-              <div className="space-y-1.5">
-                {recommendation.specs.map((s, i) => (
-                  <div key={i} className="flex items-start gap-2 text-xs text-white/50">
-                    <ChevronRight className="h-3 w-3 text-[#DC2626] mt-0.5 shrink-0" />
-                    {s}
-                  </div>
-                ))}
-              </div>
+            <p className="text-sm text-white/80 mb-4">{recommendation.message}</p>
+            <div className="space-y-1.5 mb-6">
+              {recommendation.specs.map((s, i) => (
+                <div key={i} className="flex items-start gap-2 text-xs text-white/50">
+                  <ChevronRight className="h-3 w-3 text-[#DC2626] mt-0.5 shrink-0" />
+                  {s}
+                </div>
+              ))}
             </div>
-            <div className="flex items-center gap-3 mt-6 pt-4 border-t border-white/[0.06]">
+            <div className="flex items-center gap-3 pt-4 border-t border-white/[0.06]">
               <a href="/quote" className="inline-flex items-center px-5 py-2.5 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-xs font-semibold rounded-full">Get a Quote</a>
-              <a href="/lighting-towers/single-axle" className="inline-flex items-center px-5 py-2.5 border border-white/20 hover:border-white/40 transition-colors text-xs font-semibold rounded-full">View Spec Sheet</a>
               <a href="tel:1300642525" className="text-xs text-white/40 hover:text-white ml-auto">1300 642 525</a>
             </div>
           </div>
