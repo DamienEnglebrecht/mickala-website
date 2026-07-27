@@ -36,6 +36,7 @@ const products = [
       "IK10 impact rating — vandal-resistant",
       "Applications: Mining, heavy industrial, ports, infrastructure",
     ],
+    specSheet: "/spec-sheets/led-lighting/orca.pdf",
   },
   {
     slug: "barracuda",
@@ -67,6 +68,7 @@ const products = [
       "IK10 impact rating",
       "Applications: Construction, mining, general industrial",
     ],
+    specSheet: "/spec-sheets/led-lighting/barracuda.pdf",
   },
   {
     slug: "snapper",
@@ -98,6 +100,7 @@ const products = [
       "Multiple beam angle configurations",
       "Ideal for stadiums, large areas, high-bay, and mining",
     ],
+    specSheet: "/spec-sheets/led-lighting/snapper.pdf",
   },
   {
     slug: "piranha",
@@ -128,6 +131,7 @@ const products = [
       "Marine-grade aluminium with stainless steel hardware",
       "Applications: Off-road vehicles, mining equipment, confined spaces",
     ],
+    specSheet: "/spec-sheets/led-lighting/piranha.pdf",
   },
   {
     slug: "dark-licht",
@@ -160,6 +164,7 @@ const products = [
       "Powder-coated aluminium housing",
       "Applications: Architecture, industrial, high-bay lighting",
     ],
+    specSheet: "/spec-sheets/led-lighting/dark-licht.pdf",
   },
 ]
 
@@ -272,6 +277,20 @@ export default async function LEDProductPage(props: { params: Promise<{ slug: st
           </div>
         </div>
       </section>
+
+      {/* ===== DOWNLOAD SPEC SHEET ===== */}
+      {product.specSheet && (
+        <section className="py-16 border-t border-white/[0.06]">
+          <div className="max-w-[1200px] mx-auto px-6 text-center">
+            <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Download</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.05] mb-4">Specification Sheet</h2>
+            <p className="text-sm text-white/50 mb-8 max-w-md mx-auto">Download the full technical specification sheet for this product.</p>
+            <a href={product.specSheet} target="_blank" className="inline-flex items-center gap-2 px-8 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-xs font-semibold rounded-sm uppercase tracking-wider">
+              Download PDF →
+            </a>
+          </div>
+        </section>
+      )}
 
       {/* ===== CTA ===== */}
       <section className="py-20 sm:py-28 bg-white/[0.02] border-t border-white/[0.06]">
