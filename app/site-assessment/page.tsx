@@ -32,11 +32,11 @@ const brightnessMultiplier = 1.5 // 50% brighter
 
 // Mining equipment → lighting requirements (real industry ratios)
 const fleetLightingRules = {
-  digFleet: { towersPerFleet: 9, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
-  trucks: { towersPer10Trucks: 5, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "Haul road illumination per MDG15 standards" },
-  dozers: { towersPerDozer: 3, towerType: "MLT 2560 Sled Mount", coverage: 10, notes: "Dozer push zone, ROM pad, and stockpile lighting" },
-  dumps: { towersPerDump: 5, towerType: "MLT 7200 Sled Long Range", coverage: 18, notes: "Tip head — illumination for reversing, dumping, and dozer activity" },
-  romPad: { towersPerPad: 2, towerType: "MLT 2560-LED Dual Axle", coverage: 8, notes: "ROM pad, crusher feed, and stockpile lighting" },
+  digFleet: { towersPerFleet: 9, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
+  trucks: { towersPer10Trucks: 5, notes: "Haul road illumination per MDG15 standards" },
+  dozers: { towersPerDozer: 3, notes: "Dozer push zone, ROM pad, and stockpile lighting" },
+  dumps: { towersPerDump: 5, notes: "Tip head — illumination for reversing, dumping, and dozer activity" },
+  romPad: { towersPerPad: 2, notes: "ROM pad, crusher feed, and stockpile lighting" },
 }
 
 const knownFleets: Record<string, any> = {
@@ -103,31 +103,31 @@ export default function SiteAssessmentPage() {
     if (fleets > 0) {
       const u = Math.ceil(fleets * fleetLightingRules.digFleet.towersPerFleet)
       totalUnits += u
-      recs.push({ category: "Dig Fleet Zone", units: u, towerType: "MLT 7200 Sled Long Range", notes: `${fleets} dig fleets — excavation, dump area, haul road entry` })
+      recs.push({ category: "Dig Fleet Zone", units: u, notes: `${fleets} dig fleets — excavation, dump area, haul road entry` })
     }
 
     if (trks > 0) {
       const u = Math.ceil((trks / 10) * fleetLightingRules.trucks.towersPer10Trucks)
       totalUnits += u
-      recs.push({ category: "Haul Road", units: u, towerType: "MLT 2560-LED Dual Axle", notes: `${trks} trucks — haul road illumination per MDG15` })
+      recs.push({ category: "Haul Road", units: u, notes: `${trks} trucks — haul road illumination per MDG15` })
     }
 
     if (dzrs > 0) {
       const u = Math.ceil(dzrs * fleetLightingRules.dozers.towersPerDozer)
       totalUnits += u
-      recs.push({ category: "Dozer Zone", units: u, towerType: "MLT 2560 Sled Mount", notes: `${dzrs} dozers — push, cut, stockpile lighting` })
+      recs.push({ category: "Dozer Zone", units: u, notes: `${dzrs} dozers — push, cut, stockpile lighting` })
     }
 
     if (dps > 0) {
       const u = Math.ceil(dps * fleetLightingRules.dumps.towersPerDump)
       totalUnits += u
-      recs.push({ category: "Tip Head / Dump", units: u, towerType: "MLT 7200 Sled Long Range", notes: `${dps} dump points — tip head illumination` })
+      recs.push({ category: "Tip Head / Dump", units: u, notes: `${dps} dump points — tip head illumination` })
     }
 
     const romUnits = fleets * fleetLightingRules.romPad.towersPerPad
     if (romUnits > 0) {
       totalUnits += romUnits
-      recs.push({ category: "ROM Pad & Infrastructure", units: romUnits, towerType: "MLT 2560-LED Dual Axle", notes: "ROM pad, workshop, and admin area lighting" })
+      recs.push({ category: "ROM Pad & Infrastructure", units: romUnits, notes: "ROM pad, workshop, and admin area lighting" })
     }
 
     const savings = calculateSavings(totalUnits)
@@ -135,17 +135,13 @@ export default function SiteAssessmentPage() {
   }
 
   const calculateArea = (area: number, siteName: string) => {
-    const towerTypes = [
-      { name: "MLT 7200 Sled Long Range", coverage: 18 },
-      { name: "MLT 2560-LED Dual Axle", coverage: 8 },
-      { name: "MLT 1920-LED Single Axle", coverage: 5 },
-    ]
-    const best = towerTypes.reduce((a, b) => Math.ceil(area / a.coverage) * a.coverage < Math.ceil(area / b.coverage) * b.coverage ? a : b)
-    const units = Math.max(1, Math.ceil(area / best.coverage))
+    // Generic coverage estimate: ~10 ha per tower as a rough benchmark
+    const coveragePerTower = 10
+    const units = Math.max(1, Math.ceil(area / coveragePerTower))
     const savings = calculateSavings(units)
 
     return {
-      recommendations: [{ category: "Area Coverage", units, towerType: best.name, notes: `${area} ha · ${best.coverage} ha per tower` }],
+      recommendations: [{ category: "Area Coverage", units, notes: `${area} ha site · ~${coveragePerTower} ha per tower (estimate)` }],
       totalUnits: units,
       ...savings,
       siteName,
@@ -333,8 +329,8 @@ export default function SiteAssessmentPage() {
                     <div className="flex items-start justify-between">
                       <div>
                         {i === 0 && <p className="text-[10px] text-[#DC2626] font-semibold tracking-wide uppercase mb-1">Primary Zone</p>}
-                        <p className="text-sm font-semibold">{rec.towerType}</p>
-                        <p className="text-xs text-white/50">{rec.units} units · {rec.category}</p>
+                        <p className="text-sm font-semibold">{rec.category}</p>
+                        <p className="text-xs text-white/50">{rec.units} tower{rec.units !== 1 ? 's' : ''} required</p>
                       </div>
                       <p className="text-[11px] text-white/40 text-right">{rec.notes}</p>
                     </div>
@@ -421,9 +417,7 @@ export default function SiteAssessmentPage() {
         {/* Info box */}
         <div className="mt-10 p-4 border border-white/[0.06] text-xs text-white/30 leading-relaxed">
           <p className="font-semibold text-white/50 mb-1">How this works</p>
-          <p><strong className="text-white/40">Fleet-based:</strong> Uses real mining equipment ratios calibrated from operational mine sites per MDG15 standards.</p>
-          <p className="mt-2"><strong className="text-white/40">Savings data:</strong> Comparison based on Mickala field data. Fuel savings: 0.8 L/hr vs 1.5 L/hr competitor (0.7 L/hr difference × 13 hrs/night × 365 days × $1.50/L = ~$4,970/tower/yr). Service comparison: 9 visits/month Mickala vs 15 competitor at 1.5 hrs × $150/hr. Reliability: 10x fewer breakdowns based on field performance. Light output: 50% brighter based on comparative lux measurements.</p>
-          <p className="mt-2 text-white/20">These are estimates. Final configuration and savings depend on site layout, bench heights, shift patterns, and specific MDG15 compliance requirements. Contact us for a detailed site-specific assessment.</p>
+          <p>Fleet-based assessment uses operational mining equipment ratios to estimate lighting tower requirements per site zone. Contact us for a detailed site-specific assessment.</p>
         </div>
       </div>
     </div>
