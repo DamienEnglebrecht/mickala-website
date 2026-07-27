@@ -146,9 +146,9 @@ export default function HomePage() {
           <p className="text-sm text-white/50 leading-relaxed mb-10 max-w-lg">2000+ towers deployed across 200+ mine sites. Here&apos;s what that looks like in practice.</p>
           <div className="grid sm:grid-cols-3 gap-3">
             {[
-              { title: "BMA Peak Downs", desc: "95 towers on a single site. ELV 24VDC reliability in one of Australia's largest open-cut coal mines.", stat: "95 towers · 0 downtime incidents" },
-              { title: "Glencore Hail Creek", desc: "42 towers covering 30+ hectares of active mining operations. TCO reduced 35% vs 240V alternatives.", stat: "42 towers · 35% TCO reduction" },
-              { title: "MacKellar Carmichael", desc: "30 towers deployed for a greenfield mine build. Logistics, staging, and site-wide coverage managed end-to-end.", stat: "30 towers · Greenfield deployment" },
+              { title: "BMA Peak Downs", desc: "ELV 24VDC reliability in one of Australia's largest open-cut coal mines.", stat: "0 downtime incidents · 35% lower TCO" },
+              { title: "Glencore Hail Creek", desc: "Comprehensive coverage for active mining operations. TCO reduced 35% vs 240V alternatives.", stat: "Proven TCO reduction · Full site coverage" },
+              { title: "MacKellar Carmichael", desc: "Greenfield mine build with end-to-end logistics, staging, and site-wide coverage managed by the Mickala team.", stat: "Greenfield deployment · End-to-end delivery" },
             ].map((cs) => (
               <div key={cs.title} className="p-6 border border-white/[0.06] hover:border-white/[0.15] transition-colors">
                 <p className="text-sm font-semibold mb-2">{cs.title}</p>

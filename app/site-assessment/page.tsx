@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { SiteHeader } from "@/components/site-header"
-import { MapPin, Truck, Crosshair, Sparkles, RefreshCw, Hash, Fuel, Wrench, Zap, Clock, AlertTriangle } from "lucide-react"
+import { MapPin, Truck, Sparkles, RefreshCw, Hash, Fuel, Wrench, Zap, Clock, AlertTriangle } from "lucide-react"
 
 type AssessmentMode = "area" | "fleet"
 
@@ -30,41 +30,12 @@ const breakdownCostSavedPerTowerPerYear = (breakdownsCompetitor - breakdownsMick
 // Light output: 50% brighter → 33% fewer towers
 const brightnessMultiplier = 1.5 // 50% brighter
 
-// Mining equipment → lighting requirements (real industry ratios)
-// Calibrated from Peak Downs: 6 dig fleets = 125 total towers → ~21 per dig fleet
-// Middlemount (3 fleets) should come in around 40-50 total
+// Fleet-to-tower ratios for manual input — users enter their own numbers
 const fleetLightingRules = {
   digFleet: { towersPerFleet: 12, notes: "Pit zone — shovel, dump area, access ramps, and bench lighting" },
   dozers: { towersPerDozer: 1, notes: "Dozer push zone — additional lighting where dig fleet towers don't reach" },
   dumps: { towersPerDump: 0.5, notes: "Tip head — additional lights for reversing and dumping" },
   romPad: { towersPerPad: 1, notes: "ROM pad, crusher feed, and stockpile lighting" },
-}
-
-const knownFleets: Record<string, any> = {
-  "peak downs": { digFleets: 6, trucks: 40, dozers: 8, dumps: 3, name: "Peak Downs Mine — BMA", coord: [-22.1683, 148.0937] },
-  "goonyella": { digFleets: 5, trucks: 35, dozers: 6, dumps: 3, name: "Goonyella Riverside — BMA", coord: [-21.7400, 147.9700] },
-  "saraji": { digFleets: 4, trucks: 28, dozers: 5, dumps: 2, name: "Saraji Mine — BMA", coord: [-22.3100, 148.0500] },
-  "hail creek": { digFleets: 3, trucks: 20, dozers: 4, dumps: 2, name: "Hail Creek Mine — Glencore", coord: [-21.4833, 148.0333] },
-  "clermont": { digFleets: 3, trucks: 18, dozers: 4, dumps: 2, name: "Clermont Mine — Glencore", coord: [-22.7000, 147.6300] },
-  "curragh": { digFleets: 6, trucks: 50, dozers: 12, dumps: 4, name: "Curragh Mine — Coronado Global", coord: [-23.5000, 148.8000] },
-  "middlemount": { digFleets: 3, trucks: 46, dozers: 6, dumps: 2, name: "Middlemount Coal — Peabody/Yancoal", coord: [-22.8200, 148.6900] },
-  "daunia": { digFleets: 2, trucks: 14, dozers: 3, dumps: 1, name: "Daunia Mine — Whitehaven", coord: [-21.8700, 148.1400] },
-  "bengalla": { digFleets: 2, trucks: 15, dozers: 3, dumps: 2, name: "Bengalla Mine — New Hope", coord: [-32.1483, 150.9289] },
-  "carmichael": { digFleets: 3, trucks: 22, dozers: 5, dumps: 2, name: "Carmichael Mine — Bravus", coord: [-22.0800, 147.8500] },
-  "caval ridge": { digFleets: 3, trucks: 20, dozers: 4, dumps: 2, name: "Caval Ridge Mine — BMA", coord: [-22.2500, 148.1000] },
-  "warkworth": { digFleets: 2, trucks: 15, dozers: 3, dumps: 2, name: "Warkworth Mine — Yancoal", coord: [-32.6100, 151.0200] },
-  "poitrel": { digFleets: 2, trucks: 12, dozers: 3, dumps: 1, name: "Poitrel Mine — Stanmore", coord: [-21.8900, 148.0700] },
-  "blackwater": { digFleets: 4, trucks: 30, dozers: 8, dumps: 3, name: "Blackwater Mine — BMA", coord: [-23.7500, 148.8000] },
-}
-
-const knownAreas: Record<string, number> = {
-  "peak downs": 95, "goonyella": 75, "saraji": 60, "hail creek": 42,
-  "clermont": 37, "curragh": 80, "daunia": 26, "bengalla": 30,
-  "carmichael": 30, "caval ridge": 35, "poitrel": 30, "four mile": 23,
-  "ensham": 18, "yarrabee": 15, "new acland": 12, "hvo": 20,
-  "mt carbine": 10, "blackwater": 85,
-  "middlemount": 35,
-  "warkworth": 28,
 }
 
 function formatCurrency(n: number): string {
@@ -75,7 +46,6 @@ function formatCurrency(n: number): string {
 
 export default function SiteAssessmentPage() {
   const [mode, setMode] = useState<AssessmentMode>("fleet")
-  const [input, setInput] = useState("")
   const [assessing, setAssessing] = useState(false)
   const [result, setResult] = useState<any>(null)
 
@@ -152,36 +122,10 @@ export default function SiteAssessmentPage() {
     setResult(null)
 
     setTimeout(() => {
-      const lower = input.toLowerCase()
-
-      let matchedSite: string | null = null
-      for (const [key] of Object.entries(knownFleets)) {
-        if (lower.includes(key)) { matchedSite = key; break }
-      }
-      if (!matchedSite) {
-        for (const [key] of Object.entries(knownAreas)) {
-          if (lower.includes(key)) { matchedSite = key; break }
-        }
-      }
-
-      const siteName = matchedSite 
-        ? (knownFleets[matchedSite]?.name || matchedSite.charAt(0).toUpperCase() + matchedSite.slice(1))
-        : (lower.includes("pilbara") ? "Pilbara Mine Site" : "Your Site")
-
-      if (mode === "fleet" && matchedSite && knownFleets[matchedSite]) {
-        const f = knownFleets[matchedSite]
-        setDigFleets(f.digFleets)
-        setTrucks(f.trucks)
-        setDozers(f.dozers)
-        setDumps(f.dumps)
-        setResult(calculateFleet(f.digFleets, f.trucks, f.dozers, f.dumps, siteName))
-      } else if (mode === "fleet") {
-        setResult(calculateFleet(digFleets, trucks, dozers, dumps, siteName))
-      } else if (matchedSite && knownAreas[matchedSite]) {
-        setAreaHa(knownAreas[matchedSite])
-        setResult(calculateArea(knownAreas[matchedSite], siteName))
+      if (mode === "fleet") {
+        setResult(calculateFleet(digFleets, trucks, dozers, dumps, "Your Site"))
       } else {
-        setResult(calculateArea(areaHa, siteName))
+        setResult(calculateArea(areaHa, "Your Site"))
       }
 
       setAssessing(false)
@@ -201,7 +145,7 @@ export default function SiteAssessmentPage() {
         </div>
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.05] mb-4">How much could you save?</h1>
         <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-2xl">
-          Enter a mine name or your fleet size — we'll calculate the towers you need and compare the annual 
+          Enter your fleet size below — we'll calculate the towers you need and compare the annual 
           operating cost against standard LED lighting towers.
         </p>
 
@@ -221,32 +165,7 @@ export default function SiteAssessmentPage() {
           </button>
         </div>
 
-        {/* Quick mine search */}
-        <div className="flex items-center gap-2 border border-white/[0.1] rounded-sm px-4 py-3 focus-within:border-[#DC2626] transition-colors mb-4">
-          <Crosshair className="h-4 w-4 text-white/30 shrink-0" />
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && assessSite()}
-            placeholder={mode === "fleet" ? 'Try: "Peak Downs" (auto-fills fleet numbers) or set manually below' : 'Try: "Peak Downs", "30 ha Pilbara", or set area below'}
-            className="flex-1 bg-transparent text-sm text-white/80 placeholder:text-white/20 outline-none"
-          />
-          <button onClick={assessSite} disabled={assessing} className="px-5 py-2 bg-[#DC2626] hover:bg-[#B91C1C] disabled:opacity-50 transition-colors text-xs font-semibold rounded-sm">
-            {assessing ? "Calculating..." : "Calculate"}
-          </button>
-        </div>
-
-        {/* Quick links */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {["Middlemount", "Warkworth", "Caval Ridge", "Curragh"].map((ex) => (
-            <button key={ex} onClick={() => { setInput(ex); setTimeout(assessSite, 100) }}
-              className="px-3 py-1.5 text-[11px] border border-white/[0.1] hover:border-[#DC2626]/50 transition-colors rounded-sm text-white/40 hover:text-white">
-              {ex}
-            </button>
-          ))}
-        </div>
-
-        {/* Manual Inputs */}
+        {/* Manual Fleet Inputs */}
         {mode === "fleet" && (
           <div className="grid sm:grid-cols-4 gap-4 mb-8">
             <div>
