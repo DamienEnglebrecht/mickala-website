@@ -68,7 +68,7 @@ export default function GalleryPage() {
               >
                 <Image
                   src={img.src}
-                  alt={`Mickala image ${img.id}`}
+                  alt={`Mickala Gallery Image ${img.id} - Products, Projects and Site Installations`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
@@ -94,7 +94,7 @@ export default function GalleryPage() {
           <div className="relative w-full h-full max-w-5xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
             <Image
               src={`/site-images/mickala-${selected}.jpg`}
-              alt={`Mickala image ${selected}`}
+              alt={`Mickala Gallery Image ${selected} - Products, Projects and Site Installations`}
               fill
               className="object-contain"
               sizes="100vw"
