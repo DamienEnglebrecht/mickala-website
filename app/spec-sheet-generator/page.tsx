@@ -133,7 +133,6 @@ const optionsConfig = [
   { id: "remote", label: "Remote Control Operation", category: "controls" },
   { id: "wiggins", label: "Wiggins Fuel Fill Point", category: "fuel" },
   { id: "extrafilter", label: "External Oil Filter Cartridge (1000hr service)", category: "maintenance" },
-  { id: "extracable", label: "Extra Light Cable (50m)", category: "cabling" },
   { id: "paintcustom", label: "Custom Paint Colour", category: "cosmetic" },
   { id: "cctv", label: "CCTV Ready Package", category: "monitoring" },
 ]
