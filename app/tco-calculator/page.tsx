@@ -6,7 +6,7 @@ import { Calculator, TrendingDown, DollarSign } from "lucide-react"
 
 export default function TCOCalculatorPage() {
   const [towers, setTowers] = useState(20)
-  const [hours, setHours] = useState(20)
+  const [hours, setHours] = useState(13)
   const [rate, setRate] = useState<"mickala" | "competitor">("mickala")
   const [interval, setInterval] = useState<250 | 500>(500)
 
