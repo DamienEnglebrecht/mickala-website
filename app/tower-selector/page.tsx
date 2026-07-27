@@ -10,7 +10,8 @@ type Message = {
 }
 
 type TowerRec = {
-  message: string
+  mickalaTowers: number
+  competitionTowers: number
   specs: string[]
 }
 
@@ -48,17 +49,47 @@ export default function TowerSelectorPage() {
   const generateRecommendation = (f: typeof form) => {
     setThinking(true)
     setTimeout(() => {
+      // Calculate area-based tower count
+      let mickalaTowers = 0
+      const area = f.area.toLowerCase()
+
+      if (area.includes("up to 5") || area.includes("< 5") || area.startsWith("1-")) {
+        mickalaTowers = 4
+      } else if (area.includes("5-10")) {
+        mickalaTowers = 6
+      } else if (area.includes("10-20")) {
+        mickalaTowers = 8
+      } else if (area.includes("20-30")) {
+        mickalaTowers = 12
+      } else if (area.includes("30-50")) {
+        mickalaTowers = 18
+      } else {
+        mickalaTowers = 30 // 50+ ha
+      }
+
+      // Adjust for 24/7 operation — increase by ~30%
+      if (f.hours.includes("24")) {
+        mickalaTowers = Math.round(mickalaTowers * 1.3)
+      }
+
+      // Competition needs ~30% more towers (shorter mast, lower output)
+      const competitionTowers = Math.round(mickalaTowers * 1.3)
+
       const genericSpecs = ["ELV 24VDC — any auto electrician can service", "GPS monitoring available", "MDG15/41 compliant", "3-stage e-coat paint system", "24/7/365 support nationwide"]
 
       setRecommendation({
-        message: "Based on your requirements, the AI recommends a mix of Mickala lighting towers to suit your site conditions. Total Mickala towers recommended vs competition.",
+        mickalaTowers,
+        competitionTowers,
         specs: genericSpecs
       })
-      setMessages(prev => [...prev, { role: "assistant", content: `Thanks for the details. The AI has analysed your site requirements against our full product range.
+      setMessages(prev => [...prev, { role: "assistant", content: `Based on your site requirements, here's the tower comparison.
 
-**Total Mickala towers recommended** vs competition.
+**Total Mickala towers recommended:** ${mickalaTowers}
+**Competition equivalent:** ${competitionTowers} towers
 
-Key advantages of the recommended solution:
+Mickala's higher mast height and wider coverage area means fewer towers are needed to achieve the same illumination — typically 30% fewer than conventional alternatives.
+
+| Key advantages of the recommended solution:
 • ELV 24VDC — any auto electrician can service
 • GPS monitoring available
 • MDG15/41 compliant
@@ -78,7 +109,7 @@ Would you like a detailed quote or to speak with our team?` }])
     setTimeout(() => {
       setMessages(prev => [...prev, { 
         role: "assistant", 
-        content: "Thanks for your question. Based on what you've described, I'd recommend looking at our MLT 2560-LED range. These are our most popular units for large-scale mine site operations.\n\nWould you like me to:\n1. Send you a detailed spec sheet\n2. Connect you with our sales team\n3. Generate a formal quote" 
+        content: "Thanks for your question. Based on what you've described, Mickala has a range of lighting towers suitable for large-scale mine site operations.\n\nWould you like me to:\n1. Send you a detailed spec sheet\n2. Connect you with our sales team\n3. Generate a formal quote" 
       }])
       setThinking(false)
     }, 1000)
@@ -157,7 +188,9 @@ Would you like a detailed quote or to speak with our team?` }])
               <Sparkles className="h-4 w-4 text-[#DC2626]" />
               <p className="text-xs text-[#DC2626] font-semibold tracking-wide uppercase">Recommended Solution</p>
             </div>
-            <p className="text-sm text-white/80 mb-4">{recommendation.message}</p>
+            <p className="text-sm text-white/80 mb-4">
+              <span className="text-[#DC2626] font-semibold">{recommendation.mickalaTowers}</span> Mickala towers recommended vs <span className="text-white/40 font-semibold">{recommendation.competitionTowers}</span> competition equivalent
+            </p>
             <div className="space-y-1.5 mb-6">
               {recommendation.specs.map((s, i) => (
                 <div key={i} className="flex items-start gap-2 text-xs text-white/50">
