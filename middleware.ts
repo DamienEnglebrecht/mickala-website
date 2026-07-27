@@ -60,7 +60,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // Protect parts development section — except public documents
-  const publicPartsPaths = ["/parts-manuals/operation-maintenance"]
+  const publicPartsPaths: string[] = []
   const partsPaths = ["/parts", "/parts-manuals", "/cart", "/checkout"]
   const isPartsPath = partsPaths.some(
     (p) => request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith(p + "/")
