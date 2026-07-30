@@ -215,7 +215,7 @@ Would you like a detailed quote or to speak with our team?` }])
             placeholder="Ask about a specific site requirement..."
             className="flex-1 bg-transparent text-sm text-white/80 placeholder:text-white/20 outline-none"
           />
-          <button onClick={handleSendMessage} className="text-white/30 hover:text-white transition-colors">
+          <button onClick={handleSendMessage} className="text-[#DC2626] hover:text-[#B91C1C] transition-colors" aria-label="Send">
             <Send className="h-4 w-4" />
           </button>
         </div>
