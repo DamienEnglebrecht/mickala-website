@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { SiteHeader } from "@/components/site-header"
-import { MapPin, Truck, Sparkles, RefreshCw, Hash, Fuel, Wrench, Zap, Clock, AlertTriangle } from "lucide-react"
+import { MapPin, Truck, Sparkles, RefreshCw, Hash, Fuel, Wrench, Zap, Clock, AlertTriangle, Crosshair } from "lucide-react"
 
 type AssessmentMode = "area" | "fleet"
 
@@ -55,6 +55,8 @@ export default function SiteAssessmentPage() {
   const [dumps, setDumps] = useState(2)
 
   const [areaHa, setAreaHa] = useState(30)
+
+  const [siteName, setSiteName] = useState("")
 
   const calculateSavings = (totalUnits: number) => {
     // With 50% brighter lights, they need 33% fewer Mickala towers vs competitor
@@ -109,7 +111,7 @@ export default function SiteAssessmentPage() {
     const savings = calculateSavings(units)
 
     return {
-      recommendations: [{ category: "Area Coverage", units, notes: `${area} ha site · ~${coveragePerTower} ha per tower (estimate)` }],
+      recs: [{ category: "Area Coverage", units, notes: `${area} ha site · ~${coveragePerTower} ha per tower (estimate)` }],
       totalUnits: units,
       ...savings,
       siteName,
@@ -122,10 +124,11 @@ export default function SiteAssessmentPage() {
     setResult(null)
 
     setTimeout(() => {
+      const activeSiteName = siteName.trim() || "Your Site"
       if (mode === "fleet") {
-        setResult(calculateFleet(digFleets, trucks, dozers, dumps, "Your Site"))
+        setResult(calculateFleet(digFleets, trucks, dozers, dumps, activeSiteName))
       } else {
-        setResult(calculateArea(areaHa, "Your Site"))
+        setResult(calculateArea(areaHa, activeSiteName))
       }
 
       setAssessing(false)
@@ -145,7 +148,7 @@ export default function SiteAssessmentPage() {
         </div>
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.05] mb-4">How much could you save?</h1>
         <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-2xl">
-          Enter your fleet size below — we'll calculate the towers you need and compare the annual 
+          Name your site and enter your fleet size below — we'll calculate the towers you need and compare the annual 
           operating cost against standard LED lighting towers.
         </p>
 
@@ -163,6 +166,17 @@ export default function SiteAssessmentPage() {
             <MapPin className="h-4 w-4" />
             By Site Area
           </button>
+        </div>
+
+        {/* Site Name */}
+        <div className="mb-8">
+          <label className="text-[10px] text-white/40 tracking-wide uppercase mb-2 block">Mine Site Name</label>
+          <div className="flex items-center gap-2 border border-white/[0.1] rounded-sm bg-white/[0.04] px-4 focus-within:border-[#DC2626] transition-colors max-w-xs">
+            <Crosshair className="h-4 w-4 text-[#DC2626]" />
+            <input type="text" value={siteName} onChange={e => setSiteName(e.target.value)} placeholder="e.g. Peak Downs"
+              className="w-full bg-transparent py-3 text-sm focus:outline-none placeholder:text-white/25" />
+          </div>
+          <p className="text-[9px] text-white/20 mt-1">Just a label for your results — doesn't affect the calculation</p>
         </div>
 
         {/* Manual Fleet Inputs */}
