@@ -171,12 +171,17 @@ export default function SiteAssessmentPage() {
         {/* Site Name */}
         <div className="mb-8">
           <label className="text-[10px] text-white/40 tracking-wide uppercase mb-2 block">Mine Site Name</label>
-          <div className="flex items-center gap-2 border border-white/[0.1] rounded-sm bg-white/[0.04] px-4 focus-within:border-[#DC2626] transition-colors max-w-xs">
+          <div className="flex items-center gap-2 border border-white/[0.1] rounded-sm bg-white/[0.04] px-4 focus-within:border-[#DC2626] transition-colors">
             <Crosshair className="h-4 w-4 text-[#DC2626]" />
-            <input type="text" value={siteName} onChange={e => setSiteName(e.target.value)} placeholder="e.g. Peak Downs"
+            <input type="text" value={siteName} onChange={e => setSiteName(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && assessSite()}
+              placeholder="e.g. Peak Downs"
               className="w-full bg-transparent py-3 text-sm focus:outline-none placeholder:text-white/25" />
+            <button onClick={assessSite} disabled={assessing} className="px-5 py-2 bg-[#DC2626] hover:bg-[#B91C1C] disabled:opacity-50 transition-colors text-xs font-semibold rounded-sm shrink-0">
+              {assessing ? "Calculating..." : "Calculate"}
+            </button>
           </div>
-          <p className="text-[9px] text-white/20 mt-1">Just a label for your results — doesn't affect the calculation</p>
+          <p className="text-[9px] text-white/20 mt-1">Name your site as a label for the results — enter your fleet size or area below to run the calculation</p>
         </div>
 
         {/* Manual Fleet Inputs */}
