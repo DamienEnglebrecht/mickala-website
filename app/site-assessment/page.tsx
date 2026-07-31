@@ -209,6 +209,7 @@ export default function SiteAssessmentPage() {
           email: leadEmail.trim(),
           phone: leadPhone.trim(),
           company: leadCompany.trim(),
+          businessType: leadBusiness,
           assessment: {
             siteName: result?.input?.siteName || "",
             digFleets: result?.input?.digFleets ?? 0,
