@@ -692,44 +692,38 @@ export default function OperationMaintenancePage() {
           <h2 className="font-heading text-xl font-bold text-gray-900 mb-4">Engine Tune Specifications</h2>
 
           <div className="grid sm:grid-cols-2 gap-5">
-            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-gray-900 text-white px-4 py-2.5">
-                <h3 className="text-sm font-bold">MLT3200-LED Skid</h3>
-                <p className="text-[10px] text-gray-400">Sincro Generator</p>
+            {[
+              { name: "MLT1280-4LED Single Axle", rpm: 1500 },
+              { name: "MLT1280-6LED Single Axle", rpm: 1550 },
+              { name: "MLT1920-LED Single Axle", rpm: 1550 },
+              { name: "MLT2560-LED Single Axle", rpm: 1650 },
+              { name: "MLT2560-LED Dual Axle Trailer", rpm: 1650 },
+              { name: "MLT3200-LED Dual Axle", rpm: 1650 },
+              { name: "MLT3840-LED Dual Axle", rpm: 1650 },
+              { name: "MLS2560-LED Sled Mount", rpm: 1650 },
+              { name: "MLS3200-LED Sled Mount", rpm: 1650 },
+              { name: "MLS3840-LED Sled Mount", rpm: 1750 },
+              { name: "MLR4800-LED Long Range", rpm: 1500 },
+              { name: "MLR7200-LED Long Range", rpm: 1500 },
+            ].map((m) => (
+              <div key={m.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                <div className="bg-gray-900 text-white px-4 py-2.5">
+                  <h3 className="text-sm font-bold">{m.name}</h3>
+                  <p className="text-[10px] text-gray-400">Sincro Generator</p>
+                </div>
+                <div className="p-4 space-y-2.5">
+                  {[
+                    ["Engine RPM (Loaded)", `${m.rpm} RPM`],
+                    ["Generator Voltage (±0.5v)", "27.6 V"],
+                  ].map(([label, val]) => (
+                    <div key={label} className="flex justify-between text-sm">
+                      <span className="text-gray-600">{label}</span>
+                      <span className="font-mono font-semibold text-gray-900">{val}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="p-4 space-y-2.5">
-                {[
-                  ["Engine RPM (Unloaded)", "2480"],
-                  ["Engine RPM (Loaded)", "2260"],
-                  ["Generator Voltage (Unloaded)", "34.6 V"],
-                  ["Generator Voltage (Loaded)", "26.1 V"],
-                ].map(([label, val]) => (
-                  <div key={label} className="flex justify-between text-sm">
-                    <span className="text-gray-600">{label}</span>
-                    <span className="font-mono font-semibold text-gray-900">{val}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-gray-900 text-white px-4 py-2.5">
-                <h3 className="text-sm font-bold">MLT2560-LED Dual Axle Trailer</h3>
-                <p className="text-[10px] text-gray-400">Sincro Generator</p>
-              </div>
-              <div className="p-4 space-y-2.5">
-                {[
-                  ["Engine RPM (Unloaded)", "2450"],
-                  ["Engine RPM (Loaded)", "2260"],
-                  ["Generator Voltage (Unloaded)", "34.3 V"],
-                  ["Generator Voltage (Loaded)", "27.6 V"],
-                ].map(([label, val]) => (
-                  <div key={label} className="flex justify-between text-sm">
-                    <span className="text-gray-600">{label}</span>
-                    <span className="font-mono font-semibold text-gray-900">{val}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
