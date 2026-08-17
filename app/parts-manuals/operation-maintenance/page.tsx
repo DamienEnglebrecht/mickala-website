@@ -662,7 +662,7 @@ export default function OperationMaintenancePage() {
               { name: "External Oil Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-external-oil.jpg", alt: "External oil filter location diagram" },
               { name: "Fuel Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-fuel.jpg", alt: "Fuel filter location diagram" },
               { name: "Air Filter", interval: "Changed every 500 hours", image: null, alt: "" },
-              { name: "Hydraulic Return Filter", interval: "Changed every 2000 hours", image: null, alt: "" },
+              { name: "Hydraulic Return Filter", interval: "Changed every 2000 hours", image: "/parts-manuals/images/filter-hydraulic-return.jpg", alt: "Hydraulic return filter location diagram" },
               { name: "Oil Filter", interval: "Changed every 500 hours", image: null, alt: "" },
             ].map((f, i) => (
               <div key={f.name} className="flex flex-col gap-3 bg-white border border-gray-200 rounded-lg p-3.5">
