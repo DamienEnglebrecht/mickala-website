@@ -659,20 +659,29 @@ export default function OperationMaintenancePage() {
           <h3 className="font-semibold text-gray-800 text-sm mt-6 mb-3">Filter Locations</h3>
           <div className="grid sm:grid-cols-2 gap-3">
             {[
-              ["External Oil Filter", "Changed every 500 hours"],
-              ["Fuel Filter", "Changed every 500 hours"],
-              ["Air Filter", "Changed every 500 hours"],
-              ["Hydraulic Return Filter", "Changed every 2000 hours"],
-              ["Oil Filter", "Changed every 500 hours"],
-            ].map(([name, interval]) => (
-              <div key={name} className="flex items-start gap-3 bg-white border border-gray-200 rounded-lg p-3.5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
-                  {name === "External Oil Filter" ? "1" : name === "Fuel Filter" ? "2" : name === "Air Filter" ? "3" : name === "Hydraulic Return Filter" ? "4" : "5"}
-                </span>
-                <div>
-                  <p className="font-semibold text-sm text-gray-800">{name}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">{interval}</p>
+              { name: "External Oil Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-external-oil.jpg", alt: "External oil filter location diagram" },
+              { name: "Fuel Filter", interval: "Changed every 500 hours", image: null, alt: "" },
+              { name: "Air Filter", interval: "Changed every 500 hours", image: null, alt: "" },
+              { name: "Hydraulic Return Filter", interval: "Changed every 2000 hours", image: null, alt: "" },
+              { name: "Oil Filter", interval: "Changed every 500 hours", image: null, alt: "" },
+            ].map((f, i) => (
+              <div key={f.name} className="flex flex-col gap-3 bg-white border border-gray-200 rounded-lg p-3.5">
+                <div className="flex items-start gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-sm text-gray-800">{f.name}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{f.interval}</p>
+                  </div>
                 </div>
+                {f.image && (
+                  <img
+                    src={f.image}
+                    alt={f.alt}
+                    className="w-full h-auto rounded-lg border border-gray-200"
+                  />
+                )}
               </div>
             ))}
           </div>
