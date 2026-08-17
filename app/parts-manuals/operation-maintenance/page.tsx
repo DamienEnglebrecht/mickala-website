@@ -663,7 +663,7 @@ export default function OperationMaintenancePage() {
               { name: "Fuel Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-fuel.jpg", alt: "Fuel filter location diagram" },
               { name: "Air Filter", interval: "Changed every 500 hours", image: null, alt: "" },
               { name: "Hydraulic Return Filter", interval: "Changed every 2000 hours", image: "/parts-manuals/images/filter-hydraulic-return.jpg", alt: "Hydraulic return filter location diagram" },
-              { name: "Oil Filter", interval: "Changed every 500 hours", image: null, alt: "" },
+              { name: "Oil Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-oil.jpg", alt: "Oil filter location diagram" },
             ].map((f, i) => (
               <div key={f.name} className="flex flex-col gap-3 bg-white border border-gray-200 rounded-lg p-3.5">
                 <div className="flex items-start gap-3">
