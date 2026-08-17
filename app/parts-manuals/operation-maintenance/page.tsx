@@ -738,6 +738,13 @@ export default function OperationMaintenancePage() {
               </div>
             </div>
           </div>
+          <div className="flex justify-center mt-5">
+            <img
+              src="/parts-manuals/images/engine-rpm-adjustment.jpg"
+              alt="Engine RPM adjustment location diagram"
+              className="max-w-full h-auto rounded-xl border border-gray-200 shadow-sm"
+            />
+          </div>
         </section>
 
         <section id="hydraulic-relief" className="mb-14">
