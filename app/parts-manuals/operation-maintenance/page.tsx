@@ -660,7 +660,7 @@ export default function OperationMaintenancePage() {
           <div className="grid sm:grid-cols-2 gap-3">
             {[
               { name: "External Oil Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-external-oil.jpg", alt: "External oil filter location diagram" },
-              { name: "Fuel Filter", interval: "Changed every 500 hours", image: null, alt: "" },
+              { name: "Fuel Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-fuel.jpg", alt: "Fuel filter location diagram" },
               { name: "Air Filter", interval: "Changed every 500 hours", image: null, alt: "" },
               { name: "Hydraulic Return Filter", interval: "Changed every 2000 hours", image: null, alt: "" },
               { name: "Oil Filter", interval: "Changed every 500 hours", image: null, alt: "" },
