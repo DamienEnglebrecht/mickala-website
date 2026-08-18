@@ -772,7 +772,7 @@ export default function OperationMaintenancePage() {
             </div>
           </div>
 
-          <h3 className="font-semibold text-gray-800 text-sm mt-5 mb-3">Grease Points</h3>
+          <h2 className="font-heading text-xl font-bold text-gray-900 mt-6 mb-4">Grease Points</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             <div className="bg-white border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-gray-800">Hydraulic Gearbox Grease Points</p>
