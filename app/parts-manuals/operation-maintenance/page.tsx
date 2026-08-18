@@ -67,8 +67,8 @@ export default function OperationMaintenancePage() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* ===== TITLE / COVER ===== */}
-        <div className="text-center mb-12 sm:mb-16">
+        {/* ===== TITLE / COVER (HOME PAGE — PAGE 1) ===== */}
+        <div className="text-center mb-12 sm:mb-16 print-break-after print:min-h-[92vh] print:flex print:flex-col print:justify-center min-h-[60vh]">
           <div className="flex justify-center mb-6">
             <Image
               src="/logo-mickala.png"
@@ -104,8 +104,8 @@ export default function OperationMaintenancePage() {
           </div>
         </div>
 
-        {/* ===== TABLE OF CONTENTS ===== */}
-        <div className="mb-12 border border-gray-200 rounded-xl overflow-hidden print:border-none">
+        {/* ===== TABLE OF CONTENTS (PAGE 2) ===== */}
+        <div className="mb-12 border border-gray-200 rounded-xl overflow-hidden print:border-none print-break-after print:min-h-[92vh] print:flex print:flex-col print:justify-center">
           <button
             onClick={() => setTocOpen(!tocOpen)}
             className="w-full flex items-center justify-between px-5 py-3.5 bg-gray-50 hover:bg-gray-100 transition-colors print:hidden"
@@ -1303,6 +1303,15 @@ export default function OperationMaintenancePage() {
             font-size: 10pt;
             line-height: 1.4;
           }
+          /* Full-height cover + TOC centered on their own pages */
+          .print-break-after {
+            page-break-after: always;
+            break-after: page;
+          }
+          .print-break-before {
+            page-break-before: always;
+            break-before: page;
+          }
           .print\\:hidden {
             display: none !important;
           }
@@ -1317,6 +1326,12 @@ export default function OperationMaintenancePage() {
           }
           h1, h2, h3, h4 {
             page-break-after: avoid;
+          }
+          /* Prevent awkward splits inside cards, tables, and media */
+          .grid > div,
+          .space-y-2 > div,
+          img {
+            page-break-inside: avoid;
           }
           a {
             color: black !important;
