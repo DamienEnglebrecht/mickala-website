@@ -766,9 +766,8 @@ export default function OperationMaintenancePage() {
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Pressure Test Port</p>
                   <div className="h-8 border-b border-dashed border-gray-300" />
                 </div>
-                <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Cross Over Relief Pressure</p>
-                  <div className="h-8 border-b border-dashed border-gray-300" />
+                <div className="bg-white border border-gray-200 rounded-lg p-4">
+                  <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
                   <p className="text-xs text-gray-500 mt-1">Gearbox Grease Relief</p>
                 </div>
               </div>
