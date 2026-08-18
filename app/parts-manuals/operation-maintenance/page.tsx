@@ -534,7 +534,7 @@ export default function OperationMaintenancePage() {
               />
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-5">
+            <div className="bg-white border border-gray-200 rounded-lg p-5 print:break-before-page">
               <h3 className="font-semibold text-gray-800 text-sm mb-3">To Start With Auto Timer Mode</h3>
               <p className="text-xs text-gray-500 mb-3 italic">Note: Ensure both Battery and Starter Isolators are turned on</p>
               <ol className="space-y-2">
@@ -687,10 +687,10 @@ export default function OperationMaintenancePage() {
               { name: "MLR4800-LED Long Range", rpm: 1500 },
               { name: "MLR7200-LED Long Range", rpm: 1500 },
             ].map((m) => (
-              <div key={m.name} className="grid grid-cols-[1fr_auto_auto] items-center gap-x-3 gap-y-0 bg-white border border-gray-200 rounded-lg px-3 py-1.5">
-                <span className="text-sm font-semibold text-gray-900 leading-tight">{m.name}</span>
-                <span className="font-mono text-sm font-semibold text-gray-900 whitespace-nowrap">{m.rpm} RPM</span>
-                <span className="font-mono text-xs text-gray-500 whitespace-nowrap">27.6V</span>
+              <div key={m.name} className="grid grid-cols-[1fr_auto_auto] items-center gap-x-3 gap-y-0 bg-white border border-gray-200 rounded-md px-2 py-1">
+                <span className="text-[13px] font-semibold text-gray-900 leading-tight truncate">{m.name}</span>
+                <span className="font-mono text-[13px] font-semibold text-gray-900 whitespace-nowrap">{m.rpm} RPM</span>
+                <span className="font-mono text-[11px] text-gray-500 whitespace-nowrap">27.6V</span>
               </div>
             ))}
           </div>
@@ -741,7 +741,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src="/parts-manuals/images/cross-over-relief.jpg"
                     alt="Cross over relief pressure valve diagram"
-                    className="w-full h-auto rounded-lg border border-gray-200 mt-3"
+                    className="doc-sm-img max-w-[190px] h-auto rounded-lg border border-gray-200 mt-3"
                   />
                 </div>
               </div>
@@ -753,7 +753,7 @@ export default function OperationMaintenancePage() {
           </div>
 
           <h2 className="font-heading text-xl font-bold text-gray-900 mt-6 mb-4">Grease Points</h2>
-          <div className="grid sm:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 gap-2">
             {[
               { name: "Hydraulic Gearbox Grease Points", image: "/parts-manuals/images/gearbox-grease-points.jpg", alt: "Hydraulic gearbox grease points diagram", note: "Caution — Excessive grease will pop front seal out" },
               { name: "Mast Lift Cylinder Grease Point", image: "/parts-manuals/images/grease-pulley-sheave.jpg", alt: "Mast lift cylinder grease point diagram" },
@@ -763,7 +763,7 @@ export default function OperationMaintenancePage() {
               { name: "Mast Cylinder Grease Point", image: "/parts-manuals/images/grease-mast-pulley.jpg", alt: "Mast cylinder grease point diagram" },
               { name: "Stabiliser Grease Point", image: "/parts-manuals/images/grease-hydraulic.jpg", alt: "Stabiliser grease point diagram" },
             ].map((g, i) => (
-              <div key={g.name} className="flex flex-col gap-2 bg-white border border-gray-200 rounded-lg p-3">
+              <div key={g.name} className="flex flex-col gap-2 bg-white border border-gray-200 rounded-lg p-2">
                 <div className="flex items-start gap-2.5">
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
                     {i + 1}
@@ -781,7 +781,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={g.image}
                     alt={g.alt}
-                    className="doc-sm-img w-full h-36 object-contain rounded-lg border border-gray-200"
+                    className="doc-sm-img w-full h-28 object-contain rounded-lg border border-gray-200"
                   />
                 )}
               </div>
@@ -1293,9 +1293,8 @@ export default function OperationMaintenancePage() {
           .print\\:border-none {
             border: none !important;
           }
-          section {
-            page-break-inside: avoid;
-          }
+          /* Sections flow naturally across page breaks so content packs tight;
+             card/image/heading guards below prevent awkward mid-element splits */
           h1, h2, h3, h4 {
             page-break-after: avoid;
           }
