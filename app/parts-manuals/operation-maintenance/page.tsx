@@ -696,64 +696,57 @@ export default function OperationMaintenancePage() {
           </div>
         </section>
 
-        {/* ===== RPM ADJUSTMENT + HYDRAULIC RELIEF (side-by-side, one page) ===== */}
+        {/* ===== ENGINE RPM ADJUSTMENT (full-width section) ===== */}
         <section id="rpm-adjustment" className="mb-14">
-          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-8">
-
-            {/* ---- Engine RPM Adjustment ---- */}
-            <div className="flex flex-col">
-              <h2 id="rpm-adjustment" className="font-heading text-xl font-bold text-gray-900 mb-4">Engine RPM Adjustment</h2>
-              <div className="bg-white border border-gray-200 rounded-lg p-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gray-100">
-                    <Settings className="h-4 w-4 text-gray-600" />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-800">Engine RPM Adjustment Bolt</p>
-                    <p className="text-xs text-gray-500 mt-1">Located on the engine governor. Refer to engine manual for adjustment procedure.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center mt-5">
-                <img
-                  src="/parts-manuals/images/engine-rpm-adjustment.jpg"
-                  alt="Engine RPM adjustment location diagram"
-                  className="doc-sm-img max-w-[190px] h-auto rounded-xl border border-gray-200 shadow-sm"
-                />
+          <h2 id="rpm-adjustment" className="font-heading text-xl font-bold text-gray-900 mb-4">Engine RPM Adjustment</h2>
+          <div className="bg-white border border-gray-200 rounded-lg p-5 max-w-xl">
+            <div className="flex items-center gap-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gray-100">
+                <Settings className="h-4 w-4 text-gray-600" />
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-gray-800">Engine RPM Adjustment Bolt</p>
+                <p className="text-xs text-gray-500 mt-1">Located on the engine governor. Refer to engine manual for adjustment procedure.</p>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center mt-5">
+            <img
+              src="/parts-manuals/images/engine-rpm-adjustment.jpg"
+              alt="Engine RPM adjustment location diagram"
+              className="doc-sm-img max-w-[220px] h-auto rounded-xl border border-gray-200 shadow-sm"
+            />
+          </div>
+        </section>
 
-            {/* ---- Hydraulic Relief Pressure ---- */}
-            <div className="flex flex-col">
-              <h2 id="hydraulic-relief" className="font-heading text-xl font-bold text-gray-900 mb-4">Hydraulic Relief Pressure</h2>
-              <div className="flex gap-3 justify-center mb-5">
-                <img
-                  src="/parts-manuals/images/hydraulic-relief.jpg"
-                  alt="Hydraulic relief pressure adjustment diagram"
-                  className="doc-sm-img max-w-[150px] h-auto rounded-xl border border-gray-200 shadow-sm"
-                />
-                <img
-                  src="/parts-manuals/images/cross-over-relief.jpg"
-                  alt="Cross over relief pressure valve diagram"
-                  className="doc-sm-img max-w-[150px] h-auto rounded-lg border border-gray-200"
-                />
+        {/* ===== HYDRAULIC RELIEF PRESSURE (full-width section) ===== */}
+        <section id="hydraulic-relief" className="mb-14">
+          <h2 id="hydraulic-relief" className="font-heading text-xl font-bold text-gray-900 mb-4">Hydraulic Relief Pressure</h2>
+          <div className="flex flex-wrap gap-5 justify-center mb-5">
+            <img
+              src="/parts-manuals/images/hydraulic-relief.jpg"
+              alt="Hydraulic relief pressure adjustment diagram"
+              className="doc-sm-img max-w-[220px] h-auto rounded-xl border border-gray-200 shadow-sm"
+            />
+            <img
+              src="/parts-manuals/images/cross-over-relief.jpg"
+              alt="Cross over relief pressure valve diagram"
+              className="doc-sm-img max-w-[220px] h-auto rounded-lg border border-gray-200"
+            />
+          </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-5 max-w-xl">
+            <div className="flex flex-col gap-4">
+              <div>
+                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Pressure Test Port</p>
+                <div className="h-8 border-b border-dashed border-gray-300" />
               </div>
-              <div className="bg-white border border-gray-200 rounded-lg p-5">
-                <div className="flex flex-col gap-4">
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Pressure Test Port</p>
-                    <div className="h-8 border-b border-dashed border-gray-300" />
-                  </div>
-                  <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
-                  <p className="text-xs text-gray-500">Gearbox Pressure Reducing Valve</p>
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Relief Adjustment</p>
-                    <p className="text-lg font-mono font-bold text-primary">180–190 Bar</p>
-                  </div>
-                </div>
+              <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
+              <p className="text-xs text-gray-500">Gearbox Pressure Reducing Valve</p>
+              <div>
+                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Relief Adjustment</p>
+                <p className="text-lg font-mono font-bold text-primary">180–190 Bar</p>
               </div>
             </div>
-
           </div>
         </section>
 
@@ -1304,9 +1297,9 @@ export default function OperationMaintenancePage() {
                  and .grid{display:block!important}, which blows up small diagrams and stacks
                  the filter/grease grids on print. These scoped overrides (later in source
                  order + !important) restore the on-screen sizing/layout for THIS manual. ==== */
-          /* Restore bounded size for small reference diagrams (~50mm) */
+          /* Restore bounded size for small reference diagrams */
           img.doc-sm-img {
-            max-width: 190px !important;
+            max-width: 220px !important;
           }
           /* Restore bounded size for large full-width figures (~160mm) */
           img[class*="max-w-[480px]"] {
@@ -1314,8 +1307,7 @@ export default function OperationMaintenancePage() {
           }
           /* Keep the card-tile grids side-by-side on print */
           #servicing .grid,
-          #grease-points .grid,
-          #rpm-adjustment .grid {
+          #grease-points .grid {
             display: grid !important;
           }
           #servicing .grid {
@@ -1327,10 +1319,7 @@ export default function OperationMaintenancePage() {
           #engine-tune .grid {
             grid-template-columns: repeat(2, 1fr) !important;
           }
-          #rpm-adjustment .grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-          #servicing .grid > *, #grease-points .grid > *, #engine-tune .grid > *, #rpm-adjustment .grid > * {
+          #servicing .grid > *, #grease-points .grid > *, #engine-tune .grid > * {
             display: block !important;
             margin-bottom: 0 !important;
           }
