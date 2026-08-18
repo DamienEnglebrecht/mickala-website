@@ -1296,6 +1296,33 @@ export default function OperationMaintenancePage() {
           .print\\:border-none {
             border: none !important;
           }
+          /* ==== FIX: site-global print CSS (globals.css) forces img{max-width:100%!important}
+                 and .grid{display:block!important}, which blows up small diagrams and stacks
+                 the filter/grease grids on print. These scoped overrides (later in source
+                 order + !important) restore the on-screen sizing/layout for THIS manual. ==== */
+          /* Restore bounded size for small reference diagrams (~50mm) */
+          img.doc-sm-img {
+            max-width: 190px !important;
+          }
+          /* Restore bounded size for large full-width figures (~160mm) */
+          img[class*="max-w-[480px]"] {
+            max-width: 480px !important;
+          }
+          /* Keep the card-tile grids side-by-side on print (filters 3-col, grease 2-col) */
+          #servicing .grid,
+          #grease-points .grid {
+            display: grid !important;
+          }
+          #servicing .grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+          #grease-points .grid, #engine-tune .grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          #servicing .grid > *, #grease-points .grid > *, #engine-tune .grid > * {
+            display: block !important;
+            margin-bottom: 0 !important;
+          }
           section {
             page-break-inside: avoid;
           }
