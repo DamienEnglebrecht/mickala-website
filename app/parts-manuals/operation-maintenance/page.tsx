@@ -660,7 +660,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={f.image}
                     alt={f.alt}
-                    className="w-full h-36 object-contain rounded-lg border border-gray-200"
+                    className="w-full h-28 object-contain rounded-lg border border-gray-200"
                   />
                 )}
               </div>
@@ -1293,8 +1293,9 @@ export default function OperationMaintenancePage() {
           .print\\:border-none {
             border: none !important;
           }
-          /* Sections flow naturally across page breaks so content packs tight;
-             card/image/heading guards below prevent awkward mid-element splits */
+          section {
+            page-break-inside: avoid;
+          }
           h1, h2, h3, h4 {
             page-break-after: avoid;
           }
