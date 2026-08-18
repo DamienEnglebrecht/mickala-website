@@ -69,35 +69,35 @@ export default function OperationMaintenancePage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* ===== TITLE / COVER (HOME PAGE — PAGE 1) ===== */}
         <div className="text-center mb-12 sm:mb-16 print-break-after print:min-h-[92vh] print:flex print:flex-col print:justify-center min-h-[60vh]">
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-10">
             <Image
               src="/logo-mickala.png"
               alt="Mickala Group"
-              width={72}
-              height={72}
-              className="h-16 w-auto"
+              width={180}
+              height={180}
+              className="h-32 w-auto"
               priority
             />
           </div>
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3">
+          <p className="text-sm font-semibold tracking-[0.3em] uppercase text-primary mb-5">
             Mickala Lighting Towers
           </p>
           <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
             Operation &amp; Maintenance Manual
           </h1>
-          <p className="font-heading text-xl sm:text-2xl font-semibold text-gray-700 mt-2">
+          <p className="font-heading text-xl sm:text-2xl font-semibold text-gray-700 mt-3">
             MLT LED Series
           </p>
-          <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm text-gray-500">
+          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
             <span>MM-OP-BI-001</span>
             <span className="hidden sm:inline text-gray-300">|</span>
             <span>Rev 1.4</span>
             <span className="hidden sm:inline text-gray-300">|</span>
             <span>18 August 2026</span>
           </div>
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
+          <div className="mt-7 flex flex-wrap justify-center gap-2.5">
             {["MLT1920-LED", "MLT2560-LED", "MLS2560-LED", "MLS3200-LED", "MLT3840-LED", "MLS3840-LED"].map(m => (
-              <span key={m} className="text-[11px] font-mono bg-gray-100 text-gray-700 px-2.5 py-1 rounded-md border border-gray-200">
+              <span key={m} className="text-[11px] font-mono bg-gray-100 text-gray-700 px-3 py-1.5 rounded-md border border-gray-200">
                 {m}
               </span>
             ))}
