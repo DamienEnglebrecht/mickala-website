@@ -872,6 +872,12 @@ export default function OperationMaintenancePage() {
             ))}
           </div>
 
+          <img
+            src="/parts-manuals/images/lifting-point.jpg"
+            alt="Lifting points and pintle hook diagram"
+            className="w-full h-auto max-w-lg rounded-lg border border-gray-200 mb-5"
+          />
+
           <h3 className="font-semibold text-gray-800 text-sm mb-3">Securing Positions</h3>
           <div className="space-y-2 mb-5">
             {[
