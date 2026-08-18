@@ -311,16 +311,6 @@ export default function OperationMaintenancePage() {
                 Please note that in dirty or dusty environments more attention must be paid to frequent servicing to keep the Lighting Tower running efficiently.
               </p>
             </div>
-
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-              <h3 className="font-semibold text-amber-800 text-sm mb-2">Spare Parts and Support</h3>
-              <p className="text-sm text-amber-700 leading-relaxed">
-                In all correspondence with Mickala Lighting Towers, always have the machine serial number available to allow our company to assist you promptly.
-              </p>
-              <p className="text-sm text-amber-700 leading-relaxed mt-2">
-                Always ensure that adjustments and repairs are done by personnel who are authorised to do the work and have been properly trained. Carrying out unauthorised works or modifying your Lighting Tower without Mickala's authority can void your warranty. Mickala Lighting Towers is able to supply all parts, labour and service items required for any of our Lighting Towers.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -334,27 +324,8 @@ export default function OperationMaintenancePage() {
           </div>
           <p className="text-xs text-gray-500 mb-4 italic">MLT3840-LED model displayed for illustration purposes</p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              "Light Head Assembly",
-              "Light Head Rotating Assembly",
-              "Mast Assembly",
-              "Engine / Generator Module",
-              "Spare Tyre (optional)",
-              "Control Panel (Electrical / Hydraulic)",
-              "Hydraulic Outrigger Assembly",
-              "Jockey Wheel",
-              "3t Tow Hitch",
-            ].map((component) => (
-              <div key={component} className="flex items-center gap-2.5 bg-gray-50 border border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-gray-700">
-                <span className="w-2 h-2 rounded-full bg-primary/50 shrink-0" />
-                {component}
-              </div>
-            ))}
-          </div>
-
           {/* Component diagram image */}
-          <div className="mt-8 flex justify-center">
+          <div className="mt-2 flex justify-center">
             <img
               src="/lighting-tower-components.jpg"
               alt="MLT LED Lighting Tower component diagram"
@@ -363,6 +334,16 @@ export default function OperationMaintenancePage() {
             />
           </div>
           <p className="text-[10px] text-gray-400 text-center mt-2">MLT LED Series component diagram &mdash; <em>MLT3840-LED model displayed for illustration purposes</em></p>
+
+          <div className="mt-8 bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <h3 className="font-semibold text-amber-800 text-sm mb-2">Spare Parts and Support</h3>
+            <p className="text-sm text-amber-700 leading-relaxed">
+              In all correspondence with Mickala Lighting Towers, always have the machine serial number available to allow our company to assist you promptly.
+            </p>
+            <p className="text-sm text-amber-700 leading-relaxed mt-2">
+              Always ensure that adjustments and repairs are done by personnel who are authorised to do the work and have been properly trained. Carrying out unauthorised works or modifying your Lighting Tower without Mickala's authority can void your warranty. Mickala Lighting Towers is able to supply all parts, labour and service items required for any of our Lighting Towers.
+            </p>
+          </div>
         </section>
 
         {/* ===== STANDARD INCLUSIONS ===== */}
