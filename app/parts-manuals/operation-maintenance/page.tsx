@@ -761,9 +761,16 @@ export default function OperationMaintenancePage() {
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-5">
             <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Pressure Test Port</p>
-                <div className="h-8 border-b border-dashed border-gray-300" />
+              <div className="flex flex-col gap-4">
+                <div>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Pressure Test Port</p>
+                  <div className="h-8 border-b border-dashed border-gray-300" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Cross Over Relief Pressure</p>
+                  <div className="h-8 border-b border-dashed border-gray-300" />
+                  <p className="text-xs text-gray-500 mt-1">Gearbox Grease Relief</p>
+                </div>
               </div>
               <div>
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Relief Adjustment</p>
@@ -786,20 +793,8 @@ export default function OperationMaintenancePage() {
               />
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
-              <p className="text-xs text-gray-500 mt-1">Gearbox Grease Relief</p>
-            </div>
-          </div>
-
-          <div className="mt-3 bg-white border border-gray-200 rounded-lg p-4">
-            <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gray-100">
-                <Settings className="h-4 w-4 text-gray-600" />
-              </span>
-              <div>
-                <p className="text-sm font-semibold text-gray-800">Wheel Bearings</p>
-                <p className="text-xs text-gray-500 mt-1">Grease at each service interval per the 500 Hour Service Report.</p>
-              </div>
+              <p className="text-sm font-semibold text-gray-800">Wheel Bearings</p>
+              <p className="text-xs text-gray-500 mt-1">Grease at each service interval per the 500 Hour Service Report.</p>
             </div>
           </div>
         </section>
