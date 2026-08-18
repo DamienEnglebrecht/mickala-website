@@ -782,12 +782,12 @@ export default function OperationMaintenancePage() {
           <div className="grid sm:grid-cols-2 gap-3">
             {[
               { name: "Hydraulic Gearbox Grease Points", image: "/parts-manuals/images/gearbox-grease-points.jpg", alt: "Hydraulic gearbox grease points diagram", note: "Caution — Excessive grease will pop front seal out" },
-              { name: "Pulley / Sheave Block Grease Point", image: "/parts-manuals/images/grease-pulley-sheave.jpg", alt: "Pulley sheave block grease point diagram" },
-              { name: "Mast Slide Roller Grease Point", image: "/parts-manuals/images/grease-mast-slide.jpg", alt: "Mast slide roller grease point diagram" },
-              { name: "Slew Bearing Grease Point", image: "/parts-manuals/images/grease-slew-bearing.jpg", alt: "Slew bearing grease point diagram" },
+              { name: "Mast Lift Cylinder Grease Point", image: "/parts-manuals/images/grease-pulley-sheave.jpg", alt: "Mast lift cylinder grease point diagram" },
+              { name: "Suspension Rocker Grease Point", image: "/parts-manuals/images/grease-mast-slide.jpg", alt: "Suspension rocker grease point diagram" },
+              { name: "Grease Cylinder Grease Point", image: "/parts-manuals/images/grease-slew-bearing.jpg", alt: "Grease cylinder grease point diagram" },
               { name: "Wheel Bearings", image: "/parts-manuals/images/grease-wheel-bearing.jpg", alt: "Wheel bearing grease point diagram" },
-              { name: "Mast Pulley System Grease Point", image: "/parts-manuals/images/grease-mast-pulley.jpg", alt: "Mast pulley system grease point diagram" },
-              { name: "Hydraulic System Grease Point", image: "/parts-manuals/images/grease-hydraulic.jpg", alt: "Hydraulic system grease point diagram" },
+              { name: "Mast Cylinder Grease Point", image: "/parts-manuals/images/grease-mast-pulley.jpg", alt: "Mast cylinder grease point diagram" },
+              { name: "Stabiliser Grease Point", image: "/parts-manuals/images/grease-hydraulic.jpg", alt: "Stabiliser grease point diagram" },
             ].map((g, i) => (
               <div key={g.name} className="flex flex-col gap-3 bg-white border border-gray-200 rounded-lg p-3.5">
                 <div className="flex items-start gap-3">
