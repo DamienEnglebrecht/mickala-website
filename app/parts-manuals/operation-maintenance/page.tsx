@@ -329,7 +329,7 @@ export default function OperationMaintenancePage() {
             <img
               src="/lighting-tower-components.jpg"
               alt="MLT LED Lighting Tower component diagram"
-              className="max-w-full h-auto rounded-xl border border-gray-200 shadow-sm"
+              className="max-w-[480px] mx-auto h-auto rounded-xl border border-gray-200 shadow-sm"
               style={{ maxHeight: 600 }}
             />
           </div>
@@ -529,7 +529,7 @@ export default function OperationMaintenancePage() {
               <img
                 src="/start-engine-manual.jpg"
                 alt="Manual start control panel diagram"
-                className="max-w-full h-auto rounded-xl border border-gray-200 shadow-sm"
+                className="max-w-[480px] mx-auto h-auto rounded-xl border border-gray-200 shadow-sm"
                 style={{ maxHeight: 400 }}
               />
             </div>
@@ -567,7 +567,7 @@ export default function OperationMaintenancePage() {
               <img
                 src="/start-engine-auto.jpg"
                 alt="Auto timer mode control panel diagram"
-                className="max-w-full h-auto rounded-xl border border-gray-200 shadow-sm"
+                className="max-w-[480px] mx-auto h-auto rounded-xl border border-gray-200 shadow-sm"
                 style={{ maxHeight: 380 }}
               />
             </div>
@@ -588,7 +588,7 @@ export default function OperationMaintenancePage() {
               <img
                 src="/shutdown-procedure.jpg"
                 alt="Shutdown procedure control panel diagram"
-                className="max-w-full h-auto rounded-xl border border-gray-200 shadow-sm"
+                className="max-w-[480px] mx-auto h-auto rounded-xl border border-gray-200 shadow-sm"
                 style={{ maxHeight: 380 }}
               />
             </div>
@@ -660,7 +660,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={f.image}
                     alt={f.alt}
-                    className="w-full h-28 object-contain rounded-lg border border-gray-200"
+                    className="w-full h-32 object-cover rounded-lg border border-gray-200"
                   />
                 )}
               </div>
@@ -751,8 +751,11 @@ export default function OperationMaintenancePage() {
               </div>
             </div>
           </div>
+        </section>
 
-          <h2 className="font-heading text-xl font-bold text-gray-900 mt-6 mb-4">Grease Points</h2>
+        {/* ===== GREASE POINTS (own section so it flows cleanly) ===== */}
+        <section id="grease-points" className="mb-14">
+          <h2 className="font-heading text-xl font-bold text-gray-900 mt-0 mb-4">Grease Points</h2>
           <div className="grid sm:grid-cols-2 gap-2">
             {[
               { name: "Hydraulic Gearbox Grease Points", image: "/parts-manuals/images/gearbox-grease-points.jpg", alt: "Hydraulic gearbox grease points diagram", note: "Caution — Excessive grease will pop front seal out" },
@@ -781,7 +784,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={g.image}
                     alt={g.alt}
-                    className="doc-sm-img max-w-[190px] h-auto mx-auto rounded-lg border border-gray-200"
+                    className="w-full h-32 object-cover rounded-lg border border-gray-200"
                   />
                 )}
               </div>
