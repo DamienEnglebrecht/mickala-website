@@ -56,8 +56,8 @@ export default function RootLayout({
         <PageTracker />
         <PwaRegister />
         {children}
-        <div className="print:hidden"><SiteFooter /></div>
-        <div className="print:hidden"><AIChatWrapper /></div>
+        <SiteFooter />
+        <AIChatWrapper />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

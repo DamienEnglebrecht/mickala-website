@@ -154,7 +154,7 @@ export default function OperationMaintenancePage() {
                       <input
                         type="text"
                         placeholder="Enter here..."
-                        className="w-full border-b border-dashed border-gray-300 bg-transparent px-1 py-1 text-sm focus:outline-none focus:border-primary owner-input"
+                        className="w-full border-b border-dashed border-gray-300 bg-transparent px-1 py-1 text-sm focus:outline-none focus:border-primary"
                       />
                     </div>
                   ))}
@@ -169,7 +169,7 @@ export default function OperationMaintenancePage() {
                       <input
                         type="text"
                         placeholder={label === "Delivery Date" ? "DD/MM/YYYY" : "As Per Compliance Documents"}
-                        className="w-full border-b border-dashed border-gray-300 bg-transparent px-1 py-1 text-sm focus:outline-none focus:border-primary owner-input"
+                        className="w-full border-b border-dashed border-gray-300 bg-transparent px-1 py-1 text-sm focus:outline-none focus:border-primary"
                       />
                     </div>
                   ))}
@@ -413,7 +413,7 @@ export default function OperationMaintenancePage() {
         </section>
 
         {/* ===== OPERATING INSTRUCTIONS ===== */}
-        <section id="operating-instructions" className="mb-14 doc-chapter-start">
+        <section id="operating-instructions" className="mb-14">
           <div className="flex items-center gap-3 mb-5">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
               <Settings className="h-4 w-4 text-primary" />
@@ -636,7 +636,7 @@ export default function OperationMaintenancePage() {
         </section>
 
         {/* ===== SERVICING ===== */}
-        <section id="servicing" className="mb-14 doc-chapter-start">
+        <section id="servicing" className="mb-14">
           <div className="flex items-center gap-3 mb-5">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
               <Settings className="h-4 w-4 text-primary" />
@@ -816,7 +816,7 @@ export default function OperationMaintenancePage() {
         </section>
 
         {/* ===== SAFETY ===== */}
-        <section id="safety-general" className="mb-14 doc-chapter-start">
+        <section id="safety-general" className="mb-14">
           <div className="flex items-center gap-3 mb-5">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100">
               <AlertTriangle className="h-4 w-4 text-red-600" />
@@ -1174,7 +1174,7 @@ export default function OperationMaintenancePage() {
         </section>
 
         {/* ===== FAULT DIAGNOSIS ===== */}
-        <section id="fault-diagnosis" className="mb-14 doc-chapter-start">
+        <section id="fault-diagnosis" className="mb-14">
           <div className="flex items-center gap-3 mb-5">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
               <AlertTriangle className="h-4 w-4 text-primary" />
@@ -1295,65 +1295,21 @@ export default function OperationMaintenancePage() {
       <style jsx global>{`
         @media print {
           @page {
-            size: A4;
-            margin: 2.2cm 1.6cm 2.4cm 1.6cm;
-            /* Running document header on every body page */
-            @top-center {
-              content: "Mickala Lighting Towers — Operation & Maintenance Manual  ·  MM-OP-BI-001  ·  Rev 1.4  ·  18 August 2026";
-              font-size: 7pt;
-              font-family: Helvetica, Arial, sans-serif;
-              letter-spacing: 0.04em;
-              color: #666;
-              width: 100%;
-              margin-bottom: 0.5cm;
-            }
-            /* Page number footer */
-            @bottom-center {
-              content: "Page " counter(page) " of " counter(pages);
-              font-size: 8pt;
-              font-family: Helvetica, Arial, sans-serif;
-              color: #444;
-            }
-            /* Confidentiality line footer */
-            @bottom-left {
-              content: "Doc MM-OP-BI-001  ·  Rev 1.4  ·  UNCONTROLLED IF PRINTED";
-              font-size: 6.5pt;
-              font-family: Helvetica, Arial, sans-serif;
-              letter-spacing: 0.03em;
-              color: #888;
-            }
-          }
-          /* Cover page is a clean title page — no running bands, no page number */
-          @page :first {
             margin: 1.5cm;
-            @top-center { content: none; }
-            @bottom-center { content: none; }
-            @bottom-left { content: none; }
-          }
-          * {
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
+            size: A4;
           }
           body {
             background: white !important;
             font-size: 10pt;
-            line-height: 1.45;
-            color: #1a1a1a;
-          }
-          html, body {
-            margin: 0;
-            padding: 0;
+            line-height: 1.4;
           }
           /* Full-height cover + TOC centered on their own pages */
           .print-break-after {
             page-break-after: always;
-            break-after: page;
           }
           .print-break-before {
             page-break-before: always;
-            break-before: page;
           }
-          /* Quiet the Tailwind print: variants already compiled */
           .print\\:hidden {
             display: none !important;
           }
@@ -1363,94 +1319,21 @@ export default function OperationMaintenancePage() {
           .print\\:border-none {
             border: none !important;
           }
-          /* Sections FLOW across pages (never force 23 atomic pages). Long chapters
-             break cleanly at block boundaries, but every card/image stays whole. */
           section {
-            page-break-inside: auto;
-            break-inside: auto;
-          }
-          section p,
-          section li,
-          section ol,
-          section ul {
             page-break-inside: avoid;
-            break-inside: avoid;
-          }
-          /* Chapter pages: the four major chapters start on a fresh page */
-          .doc-chapter-start {
-            page-break-before: always;
-            break-before: page;
-          }
-          /* No orphaned/widowed lines, no orphaned headings */
-          p, li {
-            orphans: 3;
-            widows: 3;
           }
           h1, h2, h3, h4 {
-            orphans: 3;
-            widows: 3;
             page-break-after: avoid;
-            break-after: avoid;
           }
-          /* Keep a heading glued to the content that follows it */
-          h2 + *, h3 + *, h4 + * {
-            page-break-before: avoid;
-            break-before: avoid;
-          }
-          /* Cards, callout boxes, tables-of-divs never split across pages */
+          /* Prevent awkward splits inside cards, tables, and media */
           .grid > div,
           .space-y-2 > div,
-          section#fault-diagnosis .overflow-hidden,
-          section#engine-tune .overflow-hidden,
-          div[class*="rounded-lg"] {
-            page-break-inside: avoid;
-            break-inside: avoid;
-          }
-          tr, th, td {
-            page-break-inside: avoid;
-            break-inside: avoid;
-          }
-          /* CAD diagrams — keep with figure, never overflow the printable area */
           img {
             page-break-inside: avoid;
-            break-inside: avoid;
-            max-width: 100% !important;
-            max-height: 20cm !important;
-            object-fit: contain;
           }
-          /* Owner & Equipment Details — hide values/placeholders, show clean write-in lines */
-          input.owner-input {
-            border: 0 !important;
-            border-bottom: 1px solid #999 !important;
-            color: transparent !important;
-            -webkit-text-fill-color: transparent !important;
-            min-height: 1.2em;
-            background: transparent !important;
-          }
-          input.owner-input::placeholder {
-            color: transparent !important;
-          }
-          /* Typography — battle the Tailwind text-sm/text-xs utilities so real print sizes win */
-          h1 { font-size: 22pt !important; line-height: 1.15; }
-          h2 { font-size: 14pt !important; line-height: 1.25; }
-          h3 { font-size: 11.5pt !important; }
-          h4 { font-size: 10.5pt !important; }
-          p, li { font-size: 10pt !important; line-height: 1.5; }
-          .text-xs { font-size: 8pt !important; }
-          /* Internal anchors & TOC — no underline; real outbound links keep underline */
-          a { color: inherit !important; text-decoration: none; }
-          a[href^="http"] { color: #333 !important; text-decoration: underline; }
-          a::after { content: none !important; }
-          /* Print the TOC with right-aligned section page numbers */
-          nav a[href^="#"] {
-            display: flex;
-            justify-content: space-between;
-            text-decoration: none !important;
-          }
-          nav a[href^="#"]::after {
-            content: target-counter(attr(href), page);
-            color: #444;
-            font-variant-numeric: tabular-nums;
+          a {
+            color: black !important;
+            text-decoration: underline;
           }
         }
       `}</style>
