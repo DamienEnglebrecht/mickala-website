@@ -726,11 +726,16 @@ export default function OperationMaintenancePage() {
             {/* ---- Hydraulic Relief Pressure ---- */}
             <div className="flex flex-col">
               <h2 id="hydraulic-relief" className="font-heading text-xl font-bold text-gray-900 mb-4">Hydraulic Relief Pressure</h2>
-              <div className="flex justify-center mb-5">
+              <div className="flex gap-3 justify-center mb-5">
                 <img
                   src="/parts-manuals/images/hydraulic-relief.jpg"
                   alt="Hydraulic relief pressure adjustment diagram"
-                  className="doc-sm-img max-w-[190px] h-auto rounded-xl border border-gray-200 shadow-sm"
+                  className="doc-sm-img max-w-[150px] h-auto rounded-xl border border-gray-200 shadow-sm"
+                />
+                <img
+                  src="/parts-manuals/images/cross-over-relief.jpg"
+                  alt="Cross over relief pressure valve diagram"
+                  className="doc-sm-img max-w-[150px] h-auto rounded-lg border border-gray-200"
                 />
               </div>
               <div className="bg-white border border-gray-200 rounded-lg p-5">
@@ -739,15 +744,8 @@ export default function OperationMaintenancePage() {
                     <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Pressure Test Port</p>
                     <div className="h-8 border-b border-dashed border-gray-300" />
                   </div>
-                  <div className="bg-white border border-gray-200 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
-                    <p className="text-xs text-gray-500 mt-1">Gearbox Pressure Reducing Valve</p>
-                    <img
-                      src="/parts-manuals/images/cross-over-relief.jpg"
-                      alt="Cross over relief pressure valve diagram"
-                      className="doc-sm-img max-w-[190px] h-auto rounded-lg border border-gray-200 mt-3"
-                    />
-                  </div>
+                  <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
+                  <p className="text-xs text-gray-500">Gearbox Pressure Reducing Valve</p>
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Relief Adjustment</p>
                     <p className="text-lg font-mono font-bold text-primary">180–190 Bar</p>
