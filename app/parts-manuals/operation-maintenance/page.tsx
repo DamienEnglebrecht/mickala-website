@@ -91,9 +91,9 @@ export default function OperationMaintenancePage() {
           <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm text-gray-500">
             <span>MM-OP-BI-001</span>
             <span className="hidden sm:inline text-gray-300">|</span>
-            <span>Rev 1.3</span>
+            <span>Rev 1.4</span>
             <span className="hidden sm:inline text-gray-300">|</span>
-            <span>25 November 2014</span>
+            <span>18 August 2026</span>
           </div>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             {["MLT1920-LED", "MLT2560-LED", "MLS2560-LED", "MLS3200-LED", "MLT3840-LED", "MLS3840-LED"].map(m => (
