@@ -769,6 +769,11 @@ export default function OperationMaintenancePage() {
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
                   <p className="text-xs text-gray-500 mt-1">Gearbox Grease Relief</p>
+                  <img
+                    src="/parts-manuals/images/cross-over-relief.jpg"
+                    alt="Cross over relief pressure valve diagram"
+                    className="w-full h-auto rounded-lg border border-gray-200 mt-3"
+                  />
                 </div>
               </div>
               <div>
