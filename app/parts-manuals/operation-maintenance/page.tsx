@@ -780,21 +780,38 @@ export default function OperationMaintenancePage() {
 
           <h2 className="font-heading text-xl font-bold text-gray-900 mt-6 mb-4">Grease Points</h2>
           <div className="grid sm:grid-cols-2 gap-3">
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-gray-800">Hydraulic Gearbox Grease Points</p>
-              <p className="text-xs text-amber-600 mt-1 flex items-center gap-1">
-                <AlertTriangle className="h-3 w-3" /> Caution — Excessive Grease will pop front seal out
-              </p>
-              <img
-                src="/parts-manuals/images/gearbox-grease-points.jpg"
-                alt="Hydraulic gearbox grease points diagram"
-                className="w-full h-auto rounded-lg border border-gray-200 mt-3"
-              />
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <p className="text-sm font-semibold text-gray-800">Wheel Bearings</p>
-              <p className="text-xs text-gray-500 mt-1">Grease at each service interval per the 500 Hour Service Report.</p>
-            </div>
+            {[
+              { name: "Hydraulic Gearbox Grease Points", image: "/parts-manuals/images/gearbox-grease-points.jpg", alt: "Hydraulic gearbox grease points diagram", note: "Caution — Excessive grease will pop front seal out" },
+              { name: "Pulley / Sheave Block Grease Point", image: "/parts-manuals/images/grease-pulley-sheave.jpg", alt: "Pulley sheave block grease point diagram" },
+              { name: "Mast Slide Roller Grease Point", image: "/parts-manuals/images/grease-mast-slide.jpg", alt: "Mast slide roller grease point diagram" },
+              { name: "Slew Bearing Grease Point", image: "/parts-manuals/images/grease-slew-bearing.jpg", alt: "Slew bearing grease point diagram" },
+              { name: "Wheel Bearings", image: "/parts-manuals/images/grease-wheel-bearing.jpg", alt: "Wheel bearing grease point diagram" },
+              { name: "Mast Pulley System Grease Point", image: "/parts-manuals/images/grease-mast-pulley.jpg", alt: "Mast pulley system grease point diagram" },
+              { name: "Hydraulic System Grease Point", image: "/parts-manuals/images/grease-hydraulic.jpg", alt: "Hydraulic system grease point diagram" },
+            ].map((g, i) => (
+              <div key={g.name} className="flex flex-col gap-3 bg-white border border-gray-200 rounded-lg p-3.5">
+                <div className="flex items-start gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-sm text-gray-800">{g.name}</p>
+                    {g.note && (
+                      <p className="text-xs text-amber-600 mt-1 flex items-center gap-1">
+                        <AlertTriangle className="h-3 w-3" /> {g.note}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                {g.image && (
+                  <img
+                    src={g.image}
+                    alt={g.alt}
+                    className="w-full h-auto rounded-lg border border-gray-200"
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </section>
 
