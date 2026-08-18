@@ -779,6 +779,11 @@ export default function OperationMaintenancePage() {
               <p className="text-xs text-amber-600 mt-1 flex items-center gap-1">
                 <AlertTriangle className="h-3 w-3" /> Caution — Excessive Grease will pop front seal out
               </p>
+              <img
+                src="/parts-manuals/images/gearbox-grease-points.jpg"
+                alt="Hydraulic gearbox grease points diagram"
+                className="w-full h-auto rounded-lg border border-gray-200 mt-3"
+              />
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-4">
               <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
