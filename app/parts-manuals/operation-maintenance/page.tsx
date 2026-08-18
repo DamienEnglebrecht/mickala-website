@@ -756,7 +756,7 @@ export default function OperationMaintenancePage() {
         {/* ===== GREASE POINTS (own section so it flows cleanly) ===== */}
         <section id="grease-points" className="mb-14">
           <h2 className="font-heading text-xl font-bold text-gray-900 mt-0 mb-4">Grease Points</h2>
-          <div className="grid sm:grid-cols-2 gap-2">
+          <div className="grid sm:grid-cols-3 gap-2">
             {[
               { name: "Hydraulic Gearbox Grease Points", image: "/parts-manuals/images/gearbox-grease-points.jpg", alt: "Hydraulic gearbox grease points diagram", note: "Caution — Excessive grease will pop front seal out" },
               { name: "Mast Lift Cylinder Grease Point", image: "/parts-manuals/images/grease-pulley-sheave.jpg", alt: "Mast lift cylinder grease point diagram" },
@@ -1316,7 +1316,10 @@ export default function OperationMaintenancePage() {
           #servicing .grid {
             grid-template-columns: repeat(3, 1fr) !important;
           }
-          #grease-points .grid, #engine-tune .grid {
+          #grease-points .grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+          #engine-tune .grid {
             grid-template-columns: repeat(2, 1fr) !important;
           }
           #servicing .grid > *, #grease-points .grid > *, #engine-tune .grid > * {
