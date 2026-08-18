@@ -697,7 +697,7 @@ export default function OperationMaintenancePage() {
         </section>
 
         {/* ===== ENGINE RPM ADJUSTMENT (full-width section) ===== */}
-        <section id="rpm-adjustment" className="mb-14">
+        <section id="rpm-adjustment" className="mb-10">
           <h2 id="rpm-adjustment" className="font-heading text-xl font-bold text-gray-900 mb-4">Engine RPM Adjustment</h2>
           <div className="bg-white border border-gray-200 rounded-lg p-5 max-w-xl">
             <div className="flex items-center gap-3">
@@ -714,7 +714,7 @@ export default function OperationMaintenancePage() {
             <img
               src="/parts-manuals/images/engine-rpm-adjustment.jpg"
               alt="Engine RPM adjustment location diagram"
-              className="doc-sm-img max-w-[220px] h-auto rounded-xl border border-gray-200 shadow-sm"
+              className="doc-sm-img max-w-[190px] h-auto rounded-xl border border-gray-200 shadow-sm"
             />
           </div>
         </section>
@@ -726,19 +726,19 @@ export default function OperationMaintenancePage() {
             <img
               src="/parts-manuals/images/hydraulic-relief.jpg"
               alt="Hydraulic relief pressure adjustment diagram"
-              className="doc-sm-img max-w-[220px] h-auto rounded-xl border border-gray-200 shadow-sm"
+              className="doc-sm-img max-w-[190px] h-auto rounded-xl border border-gray-200 shadow-sm"
             />
             <img
               src="/parts-manuals/images/cross-over-relief.jpg"
               alt="Cross over relief pressure valve diagram"
-              className="doc-sm-img max-w-[220px] h-auto rounded-lg border border-gray-200"
+              className="doc-sm-img max-w-[190px] h-auto rounded-lg border border-gray-200"
             />
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-5 max-w-xl">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               <div>
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Hydraulic Pressure Test Port</p>
-                <div className="h-8 border-b border-dashed border-gray-300" />
+                <div className="h-6 border-b border-dashed border-gray-300" />
               </div>
               <p className="text-sm font-semibold text-gray-800">Cross Over Relief Pressure</p>
               <p className="text-xs text-gray-500">Gearbox Pressure Reducing Valve</p>
@@ -1299,7 +1299,7 @@ export default function OperationMaintenancePage() {
                  order + !important) restore the on-screen sizing/layout for THIS manual. ==== */
           /* Restore bounded size for small reference diagrams */
           img.doc-sm-img {
-            max-width: 220px !important;
+            max-width: 190px !important;
           }
           /* Restore bounded size for large full-width figures (~160mm) */
           img[class*="max-w-[480px]"] {
