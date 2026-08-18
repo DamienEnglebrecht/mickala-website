@@ -660,7 +660,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={f.image}
                     alt={f.alt}
-                    className="w-full h-32 object-cover rounded-lg border border-gray-200"
+                    className="w-full h-auto object-contain rounded-lg border border-gray-200"
                   />
                 )}
               </div>
@@ -784,7 +784,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={g.image}
                     alt={g.alt}
-                    className="w-full h-32 object-cover rounded-lg border border-gray-200"
+                    className="w-full h-auto object-contain rounded-lg border border-gray-200"
                   />
                 )}
               </div>
