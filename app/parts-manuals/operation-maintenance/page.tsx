@@ -781,7 +781,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={g.image}
                     alt={g.alt}
-                    className="doc-sm-img w-full h-28 object-contain rounded-lg border border-gray-200"
+                    className="doc-sm-img max-w-[190px] h-auto mx-auto rounded-lg border border-gray-200"
                   />
                 )}
               </div>
@@ -1308,12 +1308,6 @@ export default function OperationMaintenancePage() {
           a {
             color: black !important;
             text-decoration: underline;
-          }
-          /* Small component diagrams print at ~50mm so sections fit fewer pages */
-          img.doc-sm-img {
-            width: 50mm !important;
-            max-width: 50mm !important;
-            height: auto !important;
           }
         }
       `}</style>
