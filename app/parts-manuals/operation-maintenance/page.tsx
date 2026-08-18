@@ -784,7 +784,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={g.image}
                     alt={g.alt}
-                    className="w-full h-auto object-contain rounded-lg border border-gray-200"
+                    className="w-full h-48 object-contain rounded-lg border border-gray-200"
                   />
                 )}
               </div>
