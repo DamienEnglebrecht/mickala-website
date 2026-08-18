@@ -717,10 +717,8 @@ export default function OperationMaintenancePage() {
               className="doc-sm-img max-w-[190px] h-auto rounded-xl border border-gray-200 shadow-sm"
             />
           </div>
-        </section>
 
-        <section id="hydraulic-relief" className="mb-14">
-          <h2 className="font-heading text-xl font-bold text-gray-900 mb-4">Hydraulic Relief Pressure</h2>
+        <h2 id="hydraulic-relief" className="font-heading text-xl font-bold text-gray-900 mt-10 mb-4">Hydraulic Relief Pressure</h2>
           <div className="flex justify-center mb-5">
             <img
               src="/parts-manuals/images/hydraulic-relief.jpg"
