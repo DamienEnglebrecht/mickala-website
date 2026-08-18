@@ -638,7 +638,7 @@ export default function OperationMaintenancePage() {
           </div>
 
           <h3 className="font-semibold text-gray-800 text-sm mt-6 mb-3">Filter Locations</h3>
-          <div className="grid sm:grid-cols-2 gap-3">
+          <div className="grid sm:grid-cols-3 gap-3">
             {[
               { name: "External Oil Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-external-oil.jpg", alt: "External oil filter location diagram" },
               { name: "Fuel Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-fuel.jpg", alt: "Fuel filter location diagram" },
@@ -646,21 +646,21 @@ export default function OperationMaintenancePage() {
               { name: "Hydraulic Return Filter", interval: "Changed every 2000 hours", image: "/parts-manuals/images/filter-hydraulic-return.jpg", alt: "Hydraulic return filter location diagram" },
               { name: "Oil Filter", interval: "Changed every 500 hours", image: "/parts-manuals/images/filter-oil.jpg", alt: "Oil filter location diagram" },
             ].map((f, i) => (
-              <div key={f.name} className="flex flex-col gap-3 bg-white border border-gray-200 rounded-lg p-3.5">
-                <div className="flex items-start gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
+              <div key={f.name} className="flex flex-col gap-2 bg-white border border-gray-200 rounded-lg p-3">
+                <div className="flex items-start gap-2.5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
                     {i + 1}
                   </span>
                   <div>
-                    <p className="font-semibold text-sm text-gray-800">{f.name}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{f.interval}</p>
+                    <p className="font-semibold text-sm text-gray-800 leading-tight">{f.name}</p>
+                    <p className="text-xs text-gray-500 mt-0.5 leading-tight">{f.interval}</p>
                   </div>
                 </div>
                 {f.image && (
                   <img
                     src={f.image}
                     alt={f.alt}
-                    className="w-full h-auto rounded-lg border border-gray-200"
+                    className="w-full h-36 object-contain rounded-lg border border-gray-200"
                   />
                 )}
               </div>
@@ -672,7 +672,7 @@ export default function OperationMaintenancePage() {
         <section id="engine-tune" className="mb-14">
           <h2 className="font-heading text-xl font-bold text-gray-900 mb-4">Engine Tune Specifications</h2>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
             {[
               { name: "MLT1280-4LED Single Axle", rpm: 1500 },
               { name: "MLT1280-6LED Single Axle", rpm: 1550 },
@@ -687,22 +687,10 @@ export default function OperationMaintenancePage() {
               { name: "MLR4800-LED Long Range", rpm: 1500 },
               { name: "MLR7200-LED Long Range", rpm: 1500 },
             ].map((m) => (
-              <div key={m.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-                <div className="bg-gray-900 text-white px-4 py-2.5">
-                  <h3 className="text-sm font-bold">{m.name}</h3>
-                  <p className="text-[10px] text-gray-400">Sincro Generator</p>
-                </div>
-                <div className="p-4 space-y-2.5">
-                  {[
-                    ["Engine RPM (Loaded)", `${m.rpm} RPM`],
-                    ["Generator Voltage (±0.5v)", "27.6 V"],
-                  ].map(([label, val]) => (
-                    <div key={label} className="flex justify-between text-sm">
-                      <span className="text-gray-600">{label}</span>
-                      <span className="font-mono font-semibold text-gray-900">{val}</span>
-                    </div>
-                  ))}
-                </div>
+              <div key={m.name} className="grid grid-cols-[1fr_auto_auto] items-center gap-x-3 gap-y-0 bg-white border border-gray-200 rounded-lg px-3 py-1.5">
+                <span className="text-sm font-semibold text-gray-900 leading-tight">{m.name}</span>
+                <span className="font-mono text-sm font-semibold text-gray-900 whitespace-nowrap">{m.rpm} RPM</span>
+                <span className="font-mono text-xs text-gray-500 whitespace-nowrap">27.6V</span>
               </div>
             ))}
           </div>
@@ -726,7 +714,7 @@ export default function OperationMaintenancePage() {
             <img
               src="/parts-manuals/images/engine-rpm-adjustment.jpg"
               alt="Engine RPM adjustment location diagram"
-              className="max-w-full h-auto rounded-xl border border-gray-200 shadow-sm"
+              className="doc-sm-img max-w-[190px] h-auto rounded-xl border border-gray-200 shadow-sm"
             />
           </div>
         </section>
@@ -737,7 +725,7 @@ export default function OperationMaintenancePage() {
             <img
               src="/parts-manuals/images/hydraulic-relief.jpg"
               alt="Hydraulic relief pressure adjustment diagram"
-              className="max-w-full h-auto rounded-xl border border-gray-200 shadow-sm"
+              className="doc-sm-img max-w-[190px] h-auto rounded-xl border border-gray-200 shadow-sm"
             />
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-5">
@@ -765,7 +753,7 @@ export default function OperationMaintenancePage() {
           </div>
 
           <h2 className="font-heading text-xl font-bold text-gray-900 mt-6 mb-4">Grease Points</h2>
-          <div className="grid sm:grid-cols-2 gap-3">
+          <div className="grid sm:grid-cols-3 gap-3">
             {[
               { name: "Hydraulic Gearbox Grease Points", image: "/parts-manuals/images/gearbox-grease-points.jpg", alt: "Hydraulic gearbox grease points diagram", note: "Caution — Excessive grease will pop front seal out" },
               { name: "Mast Lift Cylinder Grease Point", image: "/parts-manuals/images/grease-pulley-sheave.jpg", alt: "Mast lift cylinder grease point diagram" },
@@ -775,13 +763,13 @@ export default function OperationMaintenancePage() {
               { name: "Mast Cylinder Grease Point", image: "/parts-manuals/images/grease-mast-pulley.jpg", alt: "Mast cylinder grease point diagram" },
               { name: "Stabiliser Grease Point", image: "/parts-manuals/images/grease-hydraulic.jpg", alt: "Stabiliser grease point diagram" },
             ].map((g, i) => (
-              <div key={g.name} className="flex flex-col gap-3 bg-white border border-gray-200 rounded-lg p-3.5">
-                <div className="flex items-start gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
+              <div key={g.name} className="flex flex-col gap-2 bg-white border border-gray-200 rounded-lg p-3">
+                <div className="flex items-start gap-2.5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
                     {i + 1}
                   </span>
                   <div>
-                    <p className="font-semibold text-sm text-gray-800">{g.name}</p>
+                    <p className="font-semibold text-sm text-gray-800 leading-tight">{g.name}</p>
                     {g.note && (
                       <p className="text-xs text-amber-600 mt-1 flex items-center gap-1">
                         <AlertTriangle className="h-3 w-3" /> {g.note}
@@ -793,7 +781,7 @@ export default function OperationMaintenancePage() {
                   <img
                     src={g.image}
                     alt={g.alt}
-                    className="w-full h-auto rounded-lg border border-gray-200"
+                    className="doc-sm-img w-full h-36 object-contain rounded-lg border border-gray-200"
                   />
                 )}
               </div>
@@ -861,7 +849,7 @@ export default function OperationMaintenancePage() {
           <img
             src="/parts-manuals/images/lifting-point.jpg"
             alt="Lifting points and pintle hook diagram"
-            className="w-full h-auto max-w-lg rounded-lg border border-gray-200 mb-5"
+            className="doc-sm-img max-w-[190px] h-auto rounded-lg border border-gray-200 mb-4"
           />
 
           <h3 className="font-semibold text-gray-800 text-sm mb-3">Securing Positions</h3>
@@ -1320,6 +1308,12 @@ export default function OperationMaintenancePage() {
           a {
             color: black !important;
             text-decoration: underline;
+          }
+          /* Small component diagrams print at ~50mm so sections fit fewer pages */
+          img.doc-sm-img {
+            width: 50mm !important;
+            max-width: 50mm !important;
+            height: auto !important;
           }
         }
       `}</style>
