@@ -16,6 +16,13 @@ const manuals = [
     partsCount: 178,
     description: "Complete parts listing and diagrams for the Mickala fuel trailer range.",
   },
+  {
+    title: "Lighting Tower Controller Manual — ALC700 Series",
+    slug: "controller",
+    pages: 50,
+    partsCount: 0,
+    description: "Operation, protection, wiring and fault-finding for the ALC704/ALC708 lighting tower controller fitted to Mickala towers. Controller MM-CTRL-RU-001.",
+  },
 ]
 
 export default function PartsManualsPage() {
