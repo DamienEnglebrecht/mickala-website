@@ -163,10 +163,6 @@ export function LightingTowerClient({ slug, cat }: { slug: string; cat: Category
                 >
                   {/* Model name */}
                   <p className="text-sm font-bold text-white mb-1 tracking-wide">{m.name}</p>
-                  {/* Price */}
-                  {m.priceFrom && (
-                    <p className="text-[#DC2626] text-xs font-semibold mb-3">From {m.priceFrom}</p>
-                  )}
                   {/* Spec highlights */}
                   <div className="space-y-1 mt-3 pt-3 border-t border-white/[0.06]">
                     <p className="text-[11px] text-white/40 leading-snug">{m.led} LED output</p>
@@ -194,9 +190,6 @@ export function LightingTowerClient({ slug, cat }: { slug: string; cat: Category
             <div>
               <p className="text-[11px] text-[#DC2626] font-semibold tracking-[0.2em] uppercase mb-3">Selected Model</p>
               <h3 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">{selected.name}</h3>
-              {selected.priceFrom && (
-                <p className="text-2xl font-bold text-[#DC2626] mb-4">From {selected.priceFrom}</p>
-              )}
               <p className="text-sm text-white/60 leading-relaxed mb-8 max-w-sm">{selected.desc}</p>
 
               {/* Key specs for selected */}

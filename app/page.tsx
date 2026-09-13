@@ -405,6 +405,37 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+
+          {/* Glare Free Feature Callout — world first */}
+          <div className="mt-3 relative overflow-hidden border border-white/[0.08] bg-white/[0.02] hover:border-white/[0.15] transition-all duration-300 group">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#DC2626]/5 via-transparent to-transparent" />
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 p-8 sm:p-10">
+              <div className="flex items-start gap-5">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#DC2626]/15 flex items-center justify-center text-xl">
+                  💡
+                </div>
+                <div>
+                  <p className="text-[10px] text-[#DC2626] font-semibold tracking-[0.2em] uppercase mb-2">
+                    Industry First
+                  </p>
+                  <h3 className="text-xl sm:text-2xl font-black tracking-tight">
+                    Glare Free Lighting.{' '}
+                    <span className="text-white/50">The world&apos;s first.</span>
+                  </h3>
+                  <p className="text-sm text-white/40 mt-2 max-w-xl">
+                    Producing low-pollution, glare free lighting from a tower. Changing the way we light
+                    public areas and roadworks — a genuine world first.
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/products"
+                className="flex-shrink-0 inline-flex items-center px-6 py-3 border border-[#DC2626]/50 hover:border-[#DC2626] hover:bg-[#DC2626]/10 transition-all duration-300 text-sm font-bold text-[#DC2626] rounded-full"
+              >
+                Learn more →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
