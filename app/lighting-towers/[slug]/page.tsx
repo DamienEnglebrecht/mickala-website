@@ -1,11 +1,12 @@
-import Image from "next/image"
-import Link from "next/link"
-import { SiteHeader } from "@/components/site-header"
+// Server component — owns generateStaticParams and hands data to the client component
 import { notFound } from "next/navigation"
-import { Download } from "lucide-react"
-import { ModelCards } from "@/components/model-cards"
+import { LightingTowerClient } from "./LightingTowerClient"
 
-type ModelData = {
+// ---------------------------------------------------------------------------
+// Types (shared — also imported by the client component)
+// ---------------------------------------------------------------------------
+
+export type ModelData = {
   name: string
   led: string
   desc: string
@@ -16,7 +17,7 @@ type ModelData = {
   lightSim?: string
 }
 
-type CategoryData = {
+export type CategoryData = {
   title: string
   description: string
   heroImage: string
@@ -26,7 +27,9 @@ type CategoryData = {
   features: string[]
 }
 
-const categorySlug = (name: string) => name.toLowerCase().replace(/[\s-]+/g, "-")
+// ---------------------------------------------------------------------------
+// Data — unchanged from V1
+// ---------------------------------------------------------------------------
 
 const categories: Record<string, CategoryData> = {
   "single-axle": {
@@ -162,170 +165,21 @@ const categories: Record<string, CategoryData> = {
   },
 }
 
+// ---------------------------------------------------------------------------
+// Page — server component, passes plain data to client component
+// ---------------------------------------------------------------------------
+
 export default async function LightingTowerPage(props: { params: Promise<{ slug: string }> }) {
   const { slug } = await props.params
   const cat = categories[slug]
   if (!cat) notFound()
 
-  const navItems = ["Overview", "Models", "Specs", "Features", "Downloads"]
-
-  return (
-    <div className="bg-black text-white">
-      <SiteHeader />
-      {/* ===== SECTION NAV ===== */}
-      <div className="fixed top-[80px] inset-x-0 z-40 bg-black/60 backdrop-blur-md border-b border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6 h-10 flex items-center justify-between">
-          <nav className="flex items-center gap-6">
-            {navItems.map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">{item}</a>
-            ))}
-          </nav>
-          <a href="tel:1300642525" className="text-[11px] text-white/70 hover:text-white transition-colors tracking-wide uppercase">1300 642 525</a>
-        </div>
-      </div>
-
-      {/* ===== HERO ===== */}
-      <section id="overview" className="relative h-screen min-h-[600px]">
-        <Image src={cat.heroImage} alt="" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute bottom-0 inset-x-0 max-w-[1200px] mx-auto px-6 pb-32 sm:pb-40">
-          <p className="text-xs text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">{cat.title} Lighting Towers</p>
-          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tight leading-[0.9] mb-4">{cat.title}</h1>
-          <p className="text-base sm:text-lg text-white/60 max-w-lg">{cat.description}</p>
-        </div>
-      </section>
-
-      {/* ===== STAT STRIP ===== */}
-      <section className="border-b border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/[0.06]">
-            {[
-              { label: "Models", value: String(cat.models.length) },
-              { label: "Wattage", value: cat.models[0].led + " – " + cat.models[cat.models.length - 1].led.split(" – ").pop() },
-              { label: "Voltage", value: "ELV 24VDC" },
-              { label: "Warranty", value: "12 months" },
-            ].map((stat) => (
-              <div key={stat.label} className="py-8 sm:py-10 px-6 text-center">
-                <p className="text-2xl sm:text-3xl font-bold mb-1 whitespace-nowrap">{stat.value}</p>
-                <p className="text-[11px] text-white/40 font-medium tracking-[0.08em] uppercase whitespace-nowrap">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== MODELS ===== */}
-      <section id="models" className="py-20 sm:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Models</p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-10">Choose your configuration.</h2>
-          <ModelCards models={cat.models} />
-        </div>
-      </section>
-
-      {/* ===== SPECS ===== */}
-      <section id="specs" className="py-20 sm:py-28 bg-white/[0.02] border-t border-b border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <div>
-              <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Technical Specifications</p>
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-6">Built for the toughest sites.</h2>
-              <p className="text-sm text-white/50 leading-relaxed max-w-sm">Every Mickala lighting tower meets the highest mining safety and quality standards.</p>
-            </div>
-            <div>
-              <div className="border-t border-white/[0.06]">
-                {cat.specs.map((spec, i) => (
-                  <div key={spec[0]} className={`flex justify-between py-3 ${i < cat.specs.length - 1 ? "border-b border-white/[0.06]" : ""}`}>
-                    <span className="text-[11px] text-white/40 font-medium tracking-[0.08em] uppercase">{spec[0]}</span>
-                    <span className="text-sm font-semibold text-right ml-6">{spec[1]}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== FEATURES ===== */}
-      <section id="features" className="py-20 sm:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Standard Features</p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-10">Everything you need.</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
-            {cat.features.map((f) => (
-              <div key={f} className="flex items-start gap-3 py-2">
-                <span className="w-1 h-1 bg-[#DC2626] rounded-full mt-2.5 shrink-0" />
-                <span className="text-sm text-white/80 leading-snug">{f}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== DOWNLOADS ===== */}
-      <section id="downloads" className="py-20 sm:py-28 bg-white/[0.02] border-t border-white/[0.06]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">Downloads</p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-10">Spec sheets &amp; light simulations.</h2>
-          <div className="space-y-3">
-            {cat.models.map((m) => (
-              <div key={m.name} className="flex items-center justify-between py-4 border-b border-white/[0.06]">
-                <div>
-                  <p className="text-sm font-semibold">{m.name}</p>
-                  <p className="text-[11px] text-white/40">{m.led}</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  {m.specSheet && (
-                    <a href={m.specSheet} download className="inline-flex items-center gap-1.5 text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">
-                      <Download className="h-3 w-3" /> Spec Sheet
-                    </a>
-                  )}
-                  {m.lightSim && (
-                    <a href={m.lightSim} download className="inline-flex items-center gap-1.5 text-[11px] text-white/50 hover:text-white transition-colors tracking-wide uppercase">
-                      <Download className="h-3 w-3" /> Light Sim
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-          {cat.models.some((m) => m.specSheet) && (
-            <div className="mt-8 text-center">
-              <a
-                href={`/spec-sheets?category=${slug}`}
-                className="inline-flex items-center text-sm text-[#DC2626] hover:text-[#B91C1C] transition-colors font-semibold"
-              >
-                View all on spec sheets page →
-              </a>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ===== ENQUIRY FORM ===== */}
-      <section className="py-20 sm:py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4 text-center">Get a Quote</p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4 text-center">Need a {cat.title.toLowerCase()} tower?</h2>
-          <p className="text-sm text-white/50 text-center max-w-md mx-auto mb-10">Tell us what you need and we&apos;ll get back to you within 24 hours.</p>
-          <div className="max-w-lg mx-auto space-y-4">
-            <div className="grid sm:grid-cols-2 gap-4">
-              <input type="text" placeholder="Your Name *" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
-              <input type="email" placeholder="Email *" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
-            </div>
-            <input type="text" placeholder="Company / Site Name" className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626]" />
-            <textarea placeholder="Tell us about your requirements — number of towers, site conditions, duration..." className="w-full bg-white/[0.04] border border-white/[0.1] rounded-sm px-4 py-3 text-sm text-white/80 placeholder:text-white/20 focus:outline-none focus:border-[#DC2626] h-24 resize-none" />
-            <div className="flex items-center justify-between">
-              <p className="text-xs text-white/30">We&apos;ll respond within 24 hours</p>
-              <Link href="/quote" className="inline-flex items-center px-6 py-3 bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-sm font-semibold rounded-full">Submit Enquiry</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  )
+  return <LightingTowerClient slug={slug} cat={cat} />
 }
+
+// ---------------------------------------------------------------------------
+// Static params
+// ---------------------------------------------------------------------------
 
 export async function generateStaticParams() {
   return Object.keys(categories).map((slug) => ({ slug }))
