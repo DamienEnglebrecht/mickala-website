@@ -429,7 +429,7 @@ export default function HomePage() {
                 </div>
               </div>
               <Link
-                href="/products"
+                href="/glare-free-lighting"
                 className="flex-shrink-0 inline-flex items-center px-6 py-3 border border-[#DC2626]/50 hover:border-[#DC2626] hover:bg-[#DC2626]/10 transition-all duration-300 text-sm font-bold text-[#DC2626] rounded-full"
               >
                 Learn more →
