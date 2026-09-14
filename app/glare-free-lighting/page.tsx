@@ -83,7 +83,7 @@ export default function GlareFreelighting() {
           </h1>
           <p className="text-base sm:text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
             The world&apos;s first portable lighting tower with full-cutoff, zero-spill illumination.
-            Illuminate exactly what you need. Nothing else.
+            Used in residential, public, and sensitive environments where conventional towers simply cannot operate.
           </p>
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <Link
@@ -250,6 +250,64 @@ export default function GlareFreelighting() {
                 <p className="text-sm text-white/50 leading-relaxed">{app.body}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          IN THE FIELD — Real Mickala photography gallery
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-24 sm:py-32">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="max-w-xl mb-14">
+            <p className="text-[11px] text-[#DC2626] font-medium tracking-[0.15em] uppercase mb-4">
+              Real Applications
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight leading-[1.05]">
+              Seen in the field.
+            </h2>
+          </div>
+
+          {/* Hero image — full width */}
+          <div className="relative w-full aspect-[16/7] overflow-hidden mb-3">
+            <Image
+              src="/glare-free-garden-2.jpg"
+              alt="Mickala Glare Free tower illuminating a manicured lawn on a private estate at night"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <p className="absolute bottom-0 left-0 p-4 text-white/70 text-xs">
+              Private estate, Queensland. Zero light spill beyond the property boundary.
+            </p>
+          </div>
+
+          {/* Two images side by side */}
+          <div className="grid grid-cols-2 gap-3">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/glare-free-garden-1.jpg"
+                alt="Mickala Glare Free tower providing garden event lighting at night"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <p className="absolute bottom-0 left-0 p-4 text-white/70 text-xs">
+                Garden event lighting. No glare into adjacent properties.
+              </p>
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/glare-free-rural.jpg"
+                alt="Mickala Glare Free tower on a rural construction site at night"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <p className="absolute bottom-0 left-0 p-4 text-white/70 text-xs">
+                Rural construction site. Sharp beam edge, clean cut-off.
+              </p>
+            </div>
           </div>
         </div>
       </section>
