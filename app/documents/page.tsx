@@ -2,11 +2,10 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { FileText, CreditCard, CalendarCheck, Shield, LogOut, Mail } from "lucide-react"
-import { useState, useEffect } from "react"
-import { createClient } from "@/lib/supabase/client"
+import { FileText, CreditCard, CalendarCheck, Shield } from "lucide-react"
+import { useState } from "react"
 
-const ALLOWED_DOMAIN = "mickala.com.au"
+const STAFF_PIN = "Mickala2026"
 
 const sections = [
   {
@@ -46,138 +45,54 @@ const sections = [
 ]
 
 export default function DocumentsPage() {
-  const [user, setUser] = useState<any>(null)
-  const [email, setEmail] = useState("")
-  const [sent, setSent] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [pin, setPin] = useState("")
+  const [authed, setAuthed] = useState(false)
   const [error, setError] = useState("")
-  const [checking, setChecking] = useState(true)
 
-  const supabase = createClient()
-
-  useEffect(() => {
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      setUser(user)
-      setChecking(false)
-      if (user) {
-        fetch("/api/track", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ page: window.location.pathname, visitor: user.email })
-        }).catch(() => {})
-      }
-    })
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
-      setChecking(false)
-    })
-    return () => subscription.unsubscribe()
-  }, [])
-
-  const sendMagicLink = async () => {
-    setError("")
-    const trimmed = email.trim().toLowerCase()
-    if (!trimmed) return
-
-    if (!trimmed.endsWith("@" + ALLOWED_DOMAIN)) {
-      setError("Access is restricted to @mickala.com.au email addresses only.")
-      return
+  const handlePin = () => {
+    if (pin === STAFF_PIN) {
+      setAuthed(true)
+      setError("")
+    } else {
+      setError("Incorrect PIN. Contact Damien for access.")
+      setPin("")
     }
-
-    setLoading(true)
-    try {
-      const res = await fetch("/api/send-login-link", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: trimmed }),
-      })
-      const data = await res.json()
-      if (!res.ok) {
-        setError(data.error || "Something went wrong. Please try again or contact Damien.")
-      } else {
-        setSent(true)
-      }
-    } catch {
-      setError("Something went wrong. Please try again or contact Damien.")
-    }
-    setLoading(false)
   }
 
-  const signOut = async () => {
-    await supabase.auth.signOut()
-    setUser(null)
-    setSent(false)
-    setEmail("")
-  }
-
-  if (checking) return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
-      <div className="text-sm text-muted-foreground">Checking access...</div>
-    </div>
-  )
-
-  if (!user) return (
+  if (!authed) return (
     <div className="min-h-screen bg-background flex items-center justify-center">
       <div className="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl border border-border">
         <div className="text-center mb-6">
           <Image src="/logo-mickala.png" alt="Mickala Group" width={56} height={56} className="h-14 w-auto mx-auto mb-4" />
           <h2 className="text-lg font-bold text-gray-900">Mickala Staff Portal</h2>
-          <p className="text-sm text-gray-500 mt-1">Enter your @mickala.com.au email to receive a secure login link</p>
+          <p className="text-sm text-gray-500 mt-1">Enter your staff PIN to access documents</p>
         </div>
-
-        {sent ? (
-          <div className="text-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-50 mx-auto mb-4">
-              <Mail className="h-6 w-6 text-green-600" />
-            </div>
-            <h3 className="font-semibold text-gray-900 mb-1">Check your email</h3>
-            <p className="text-sm text-gray-500 mb-4">We sent a secure login link to <strong>{email}</strong>. Click the link to access the portal — it expires in 1 hour.</p>
-            <button onClick={() => setSent(false)} className="text-xs text-primary underline">Use a different email</button>
-          </div>
-        ) : (
-          <>
-            <input
-              type="email"
-              value={email}
-              onChange={e => { setEmail(e.target.value); setError("") }}
-              onKeyDown={e => e.key === "Enter" && sendMagicLink()}
-              placeholder="you@mickala.com.au"
-              className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-1 ${error ? "border-red-400 bg-red-50" : "border-gray-200"}`}
-              autoFocus
-            />
-            {error && <p className="text-xs text-red-600 mb-3">{error}</p>}
-            {!error && <div className="mb-3" />}
-            <button
-              onClick={sendMagicLink}
-              disabled={loading || !email.trim()}
-              className="w-full rounded-xl bg-red-600 text-white py-3 text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              <Mail className="h-4 w-4" />
-              {loading ? "Sending..." : "Send Login Link"}
-            </button>
-            <p className="text-[10px] text-gray-400 text-center mt-3">Access restricted to @mickala.com.au email addresses</p>
-          </>
-        )}
+        <input
+          type="password"
+          value={pin}
+          onChange={e => { setPin(e.target.value); setError("") }}
+          onKeyDown={e => e.key === "Enter" && handlePin()}
+          placeholder="Staff PIN"
+          className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-1 ${error ? "border-red-400 bg-red-50" : "border-gray-200"}`}
+          autoFocus
+        />
+        {error && <p className="text-xs text-red-600 mb-3">{error}</p>}
+        {!error && <div className="mb-3" />}
+        <button
+          onClick={handlePin}
+          disabled={!pin.trim()}
+          className="w-full rounded-xl bg-red-600 text-white py-3 text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
+        >
+          Access Portal
+        </button>
+        <p className="text-[10px] text-gray-400 text-center mt-3">Mickala Group staff access only</p>
       </div>
     </div>
   )
 
-  // Authenticated view
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto p-4 sm:p-8">
-
-        {/* User badge */}
-        <div className="flex items-center justify-end gap-2 mb-4 text-xs text-muted-foreground">
-          <span className="font-medium text-foreground">{user.email}</span>
-          <button
-            onClick={signOut}
-            className="flex items-center gap-1 underline hover:text-red-600 ml-2"
-          >
-            <LogOut className="h-3 w-3" /> Sign out
-          </button>
-        </div>
 
         {/* Header */}
         <div className="text-center mb-12">
@@ -199,13 +114,6 @@ export default function DocumentsPage() {
                     <a
                       key={item.href}
                       href={item.href}
-                      onClick={() => {
-                        fetch("/api/track", {
-                          method: "POST",
-                          headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({ page: item.href, visitor: user.email })
-                        }).catch(() => {})
-                      }}
                       className="group block rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-md"
                     >
                       <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4">
