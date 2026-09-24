@@ -90,7 +90,7 @@ export default function DocumentsPage() {
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: trimmed,
       options: {
-        emailRedirectTo: `${window.location.origin}/documents`,
+        emailRedirectTo: `https://mickala-website.vercel.app/documents`,
       }
     })
     setLoading(false)
