@@ -70,13 +70,22 @@ export default function TenderQuoteRegister() {
       return
     }
     setSendingLink(true)
-    const { error: authError } = await supabase.auth.signInWithOtp({
-      email: trimmed,
-      options: { emailRedirectTo: `https://mickala-website.vercel.app/quoting/register` }
-    })
+    try {
+      const res = await fetch("/api/send-login-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setLinkError(data.error || "Something went wrong. Try again or contact Damien.")
+      } else {
+        setSent(true)
+      }
+    } catch {
+      setLinkError("Something went wrong. Try again or contact Damien.")
+    }
     setSendingLink(false)
-    if (authError) setLinkError("Something went wrong. Try again or contact Damien.")
-    else setSent(true)
   }
 
   const signOut = async () => {

@@ -80,26 +80,28 @@ export default function DocumentsPage() {
     const trimmed = email.trim().toLowerCase()
     if (!trimmed) return
 
-    // Enforce @mickala.com.au domain
     if (!trimmed.endsWith("@" + ALLOWED_DOMAIN)) {
       setError("Access is restricted to @mickala.com.au email addresses only.")
       return
     }
 
     setLoading(true)
-    const { error: authError } = await supabase.auth.signInWithOtp({
-      email: trimmed,
-      options: {
-        emailRedirectTo: `https://mickala-website.vercel.app/documents`,
+    try {
+      const res = await fetch("/api/send-login-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again or contact Damien.")
+      } else {
+        setSent(true)
       }
-    })
-    setLoading(false)
-
-    if (authError) {
+    } catch {
       setError("Something went wrong. Please try again or contact Damien.")
-    } else {
-      setSent(true)
     }
+    setLoading(false)
   }
 
   const signOut = async () => {
