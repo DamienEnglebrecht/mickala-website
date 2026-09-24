@@ -29,9 +29,12 @@ export async function POST(req: NextRequest) {
     }
 
     const serviceKey = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || ""
-    if (!serviceKey) return NextResponse.json({ error: "Server configuration error" }, { status: 500 })
+    const resendKey = process.env.RESEND_API_KEY || ""
 
-    // Generate magic link via admin API — bypasses public rate limits
+    if (!serviceKey) return NextResponse.json({ error: "Server configuration error" }, { status: 500 })
+    if (!resendKey) return NextResponse.json({ error: "Email service not configured" }, { status: 500 })
+
+    // Step 1: Generate magic link via Supabase admin API (doesn't send email — just returns the link)
     const res = await fetch(`${SUPABASE_URL}/auth/v1/admin/generate_link`, {
       method: "POST",
       headers: {
@@ -43,7 +46,7 @@ export async function POST(req: NextRequest) {
         type: "magiclink",
         email: normalised,
         options: {
-          redirect_to: "https://mickala-website.vercel.app/documents",
+          redirect_to: "https://mickala-website.vercel.app/auth/callback",
         },
       }),
     })
@@ -61,38 +64,37 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No link generated" }, { status: 500 })
     }
 
-    // Send the email via Supabase's mailer (admin send email)
-    // We use the action_link directly — send it via our own email or Supabase mailer
-    // Supabase admin generate_link also triggers the email automatically when email_redirect_to matches
-    // But to be safe, we'll also send it via the admin users/send endpoint
+    // Step 2: Send the email via Resend HTTP API directly
+    const firstName = normalised.split("@")[0].charAt(0).toUpperCase() + normalised.split("@")[0].slice(1)
 
-    // Actually generate_link on its own doesn't send the email.
-    // We need to use the invite or recovery flow, or send it ourselves.
-    // Let's use the Supabase auth.admin.generateLink which returns the link
-    // and then send the email via the Supabase SMTP by calling the user's email via admin
-
-    // Re-trigger via OTP endpoint using service key as auth (higher limits on Pro)
-    const otpRes = await fetch(`${SUPABASE_URL}/auth/v1/otp`, {
+    const emailRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        apikey: serviceKey,
-        Authorization: `Bearer ${serviceKey}`,
+        Authorization: `Bearer ${resendKey}`,
       },
       body: JSON.stringify({
-        email: normalised,
-        create_user: false,
-        options: {
-          emailRedirectTo: "https://mickala-website.vercel.app/documents",
-        },
+        from: "Mickala Group <noreply@resend.dev>",
+        to: [normalised],
+        subject: "Your Mickala sign-in link",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
+            <img src="https://mickala-website.vercel.app/mickala-logo.png" alt="Mickala Group" style="height: 50px; margin-bottom: 30px;" />
+            <h2 style="color: #1a1a1a; margin-bottom: 16px;">Sign in to Mickala Staff Portal</h2>
+            <p style="color: #444; font-size: 15px; line-height: 1.6;">Hi ${firstName},</p>
+            <p style="color: #444; font-size: 15px; line-height: 1.6;">Click the button below to sign in. This link expires in 1 hour and can only be used once.</p>
+            <a href="${actionLink}" style="display: inline-block; background: #E31E24; color: white; padding: 14px 28px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 15px; margin: 24px 0;">Sign in to Staff Portal</a>
+            <p style="color: #888; font-size: 13px; margin-top: 32px;">If you didn't request this email, you can safely ignore it.</p>
+            <p style="color: #888; font-size: 13px;">— Mickala Group</p>
+          </div>
+        `,
       }),
     })
 
-    if (!otpRes.ok) {
-      const otpErr = await otpRes.text()
-      console.error("OTP send error:", otpErr)
-      // Still return success — the link was generated, user can try clicking it
-      return NextResponse.json({ success: true, fallback: true })
+    if (!emailRes.ok) {
+      const emailErr = await emailRes.text()
+      console.error("Resend send error:", emailErr)
+      return NextResponse.json({ error: "Failed to send login email" }, { status: 500 })
     }
 
     return NextResponse.json({ success: true })
