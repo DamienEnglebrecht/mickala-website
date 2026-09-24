@@ -24,6 +24,8 @@ interface Quote {
   delivery?: string
 }
 
+const REGISTER_PIN = "Mickala2026"
+
 export default function TenderQuoteRegister() {
   const [quotes, setQuotes] = useState<Quote[]>([])
   const [loading, setLoading] = useState(true)
@@ -33,8 +35,19 @@ export default function TenderQuoteRegister() {
   const [statusFilter, setStatusFilter] = useState("all")
   const [typeFilter, setTypeFilter] = useState("all")
   const [search, setSearch] = useState("")
+  const [pin, setPin] = useState("")
+  const [pinError, setPinError] = useState(false)
+  const [authed, setAuthed] = useState(false)
 
   useEffect(() => {
+    const auth = sessionStorage.getItem("mickala_register_auth")
+    if (auth === "1") {
+      setAuthed(true)
+      loadQuotes()
+    }
+  }, [])
+
+  const loadQuotes = () => {
     fetch("/api/quotes?limit=500")
       .then(r => r.json())
       .then(data => {
@@ -43,7 +56,18 @@ export default function TenderQuoteRegister() {
         setLoading(false)
       })
       .catch(() => { setError("Failed to load quotes"); setLoading(false) })
-  }, [])
+  }
+
+  const handlePinSubmit = () => {
+    if (pin === REGISTER_PIN) {
+      sessionStorage.setItem("mickala_register_auth", "1")
+      setAuthed(true)
+      setPinError(false)
+      loadQuotes()
+    } else {
+      setPinError(true)
+    }
+  }
 
   const toggleSort = (field: typeof sortField) => {
     if (sortField === field) {
@@ -141,6 +165,36 @@ export default function TenderQuoteRegister() {
 
   const totalValue = filtered.reduce((s, q) => s + (q.total || 0), 0)
   const wonValue = filtered.filter(q => q.status === "Won").reduce((s, q) => s + (q.total || 0), 0)
+
+  if (!authed) return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl">
+        <div className="text-center mb-6">
+          <Image src="/logo-mickala.png" alt="Mickala" width={48} height={48} className="h-12 w-auto mx-auto mb-4" />
+          <h2 className="text-lg font-bold text-gray-900">Quote Register</h2>
+          <p className="text-sm text-gray-500 mt-1">Enter staff PIN to access</p>
+        </div>
+        <input
+          type="password"
+          value={pin}
+          onChange={e => { setPin(e.target.value); setPinError(false) }}
+          onKeyDown={e => e.key === "Enter" && handlePinSubmit()}
+          placeholder="Staff PIN"
+          className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-1 ${pinError ? "border-red-500 bg-red-50" : "border-gray-200"}`}
+          autoFocus
+        />
+        {pinError && <p className="text-xs text-red-600 mb-3">Incorrect PIN.</p>}
+        {!pinError && <div className="mb-3" />}
+        <button
+          onClick={handlePinSubmit}
+          disabled={!pin}
+          className="w-full rounded-xl bg-red-600 text-white py-3 text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
+        >
+          Access Register
+        </button>
+      </div>
+    </div>
+  )
 
   if (loading) return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">

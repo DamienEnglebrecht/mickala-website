@@ -84,12 +84,26 @@ export default function PreDeliveryPage() {
         </div>
 
         {/* Sign-off */}
-        <div className="border rounded-lg p-3 text-xs">
-          <h2 className="font-bold text-primary text-sm mb-2">Sign-Off</h2>
+        <div className="border rounded-lg p-3 text-xs mb-3">
+          <h2 className="font-bold text-primary text-sm mb-2">Inspector Sign-Off</h2>
           <p className="text-gray-500 mb-2">I confirm that this equipment has been inspected and is ready for delivery.</p>
           <div className="grid grid-cols-2 gap-4">
             <div><label className="font-semibold block mb-0.5 text-gray-600">Inspector Name</label><input type="text" value={signature} onChange={e => setSignature(e.target.value)} className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 focus:outline-none focus:border-primary" /></div>
             <div><label className="font-semibold block mb-0.5 text-gray-600">Date</label><span className="block py-0.5 text-gray-700">{date}</span></div>
+          </div>
+        </div>
+
+        {/* Customer Acceptance */}
+        <div className="border-2 border-primary/30 rounded-lg p-3 text-xs bg-primary/5">
+          <h2 className="font-bold text-primary text-sm mb-1">Customer Acceptance</h2>
+          <p className="text-gray-500 mb-2">I confirm receipt of this equipment in the inspected condition described above. Warranty commences from the engine hours and date recorded above.</p>
+          <div className="grid grid-cols-2 gap-4 mb-2">
+            <div><label className="font-semibold block mb-0.5 text-gray-600">Customer Name</label><input type="text" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 focus:outline-none focus:border-primary" /></div>
+            <div><label className="font-semibold block mb-0.5 text-gray-600">Company</label><input type="text" className="border-b border-dashed border-gray-300 bg-transparent w-full px-1 py-0.5 focus:outline-none focus:border-primary" /></div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div><label className="font-semibold block mb-0.5 text-gray-600">Signature</label><div className="border-b border-dashed border-gray-300 h-8 w-full" /></div>
+            <div><label className="font-semibold block mb-0.5 text-gray-600">Date</label><div className="border-b border-dashed border-gray-300 h-8 w-full" /></div>
           </div>
         </div>
 

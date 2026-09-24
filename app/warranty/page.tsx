@@ -72,7 +72,7 @@ export default function WarrantyPage() {
         <div className="bg-primary/5 border border-primary/20 rounded-lg p-3 mb-6">
           <div className="text-[11px] font-bold text-primary mb-1 uppercase tracking-wider">Emergency Contacts</div>
           <div className="text-[10px] text-muted-foreground">
-            Technical Support: <span className="font-semibold text-foreground">(07) 4998 5447</span> or <span className="font-semibold text-foreground">1300 624 525</span>
+            Technical Support: <span className="font-semibold text-foreground">(07) 4998 5447</span> or <span className="font-semibold text-foreground">1300 642 525</span>
             &nbsp;|&nbsp; Email: <span className="font-semibold text-foreground">maintenance@mickala.com.au</span>
           </div>
         </div>

@@ -9,7 +9,7 @@ const sections = [
   {
     title: "Quoting & Sales",
     items: [
-      { name: "Credit Application", desc: "Credit account application — 8 step online form.", href: "/credit-application" },
+      { name: "Credit Application", desc: "Credit account application — 9 step online form.", href: "/credit-application" },
       { name: "Create Quote", desc: "Build, print and save professional quotes.", href: "/create-quote" },
       { name: "Quote Register", desc: "2026 Tender & Quote Register — view, search, update status.", href: "/quoting/register" },
       { name: "Hire Schedule", desc: "Equipment hire agreement — 4 step online form.", href: "/hire-schedule" },
@@ -42,14 +42,19 @@ const sections = [
   },
 ]
 
+const STAFF_PIN = "Mickala2026"
+
 export default function DocumentsPage() {
   const [visitor, setVisitor] = useState("")
+  const [pin, setPin] = useState("")
+  const [pinError, setPinError] = useState(false)
   const [showPrompt, setShowPrompt] = useState(false)
   const [blocked, setBlocked] = useState(true)
 
   useEffect(() => {
     const saved = localStorage.getItem("mickala_visitor")
-    if (saved) {
+    const auth = sessionStorage.getItem("mickala_docs_auth")
+    if (saved && auth === "1") {
       setVisitor(saved)
       setBlocked(false)
       fetch("/api/track", {
@@ -65,21 +70,29 @@ export default function DocumentsPage() {
 
   const saveVisitor = () => {
     const name = visitor.trim()
-    if (name) {
-      localStorage.setItem("mickala_visitor", name)
-      setShowPrompt(false)
-      setBlocked(false)
-      fetch("/api/track", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ page: window.location.pathname, visitor: name })
-      }).catch(() => {})
+    if (!name) return
+    if (pin !== STAFF_PIN) {
+      setPinError(true)
+      return
     }
+    localStorage.setItem("mickala_visitor", name)
+    sessionStorage.setItem("mickala_docs_auth", "1")
+    setShowPrompt(false)
+    setBlocked(false)
+    setPinError(false)
+    fetch("/api/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ page: window.location.pathname, visitor: name })
+    }).catch(() => {})
   }
 
   const changeVisitor = () => {
     localStorage.removeItem("mickala_visitor")
+    sessionStorage.removeItem("mickala_docs_auth")
     setVisitor("")
+    setPin("")
+    setPinError(false)
     setBlocked(true)
     setShowPrompt(true)
   }
@@ -94,8 +107,8 @@ export default function DocumentsPage() {
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-red-50 mx-auto mb-4">
                 <User className="h-6 w-6 text-red-600" />
               </span>
-              <h2 className="text-lg font-bold text-gray-900">Welcome to Mickala Documents</h2>
-              <p className="text-sm text-gray-500 mt-1">Enter your name to access company documents</p>
+              <h2 className="text-lg font-bold text-gray-900">Mickala Staff Portal</h2>
+              <p className="text-sm text-gray-500 mt-1">Enter your name and staff PIN to access documents</p>
             </div>
             <input
               type="text"
@@ -103,15 +116,25 @@ export default function DocumentsPage() {
               onChange={(e) => setVisitor(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && saveVisitor()}
               placeholder="Your name"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-4"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-3"
               autoFocus
             />
+            <input
+              type="password"
+              value={pin}
+              onChange={(e) => { setPin(e.target.value); setPinError(false) }}
+              onKeyDown={(e) => e.key === "Enter" && saveVisitor()}
+              placeholder="Staff PIN"
+              className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-1 ${pinError ? "border-red-500 bg-red-50" : "border-gray-200"}`}
+            />
+            {pinError && <p className="text-xs text-red-600 mb-3">Incorrect PIN. Please check with your manager.</p>}
+            {!pinError && <div className="mb-3" />}
             <button
               onClick={saveVisitor}
-              disabled={!visitor.trim()}
+              disabled={!visitor.trim() || !pin}
               className="w-full rounded-xl bg-red-600 text-white py-3 text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
             >
-              Continue
+              Access Documents
             </button>
           </div>
         </div>

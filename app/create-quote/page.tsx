@@ -113,13 +113,24 @@ export default function QuotePage() {
   const [delivery, setDelivery] = useState("FOB Paget QLD Depot")
 
   useEffect(() => {
-    const saved = localStorage.getItem("mickala_quote_counter")
-    if (saved) {
-      setQuoteNum(parseInt(saved))
-    } else {
-      localStorage.setItem("mickala_quote_counter", "119")
-      setQuoteNum(119)
-    }
+    // Sync quote counter with the live register (highest ID + 1)
+    fetch("/api/quotes?limit=1&sort=id_desc")
+      .then(r => r.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          const maxId = Math.max(...data.map((q: any) => Number(q.id) || 0).filter((n: number) => n < 10000))
+          const next = maxId > 0 ? maxId + 1 : 191
+          localStorage.setItem("mickala_quote_counter", String(next))
+          setQuoteNum(next)
+        } else {
+          const saved = localStorage.getItem("mickala_quote_counter")
+          setQuoteNum(saved ? parseInt(saved) : 191)
+        }
+      })
+      .catch(() => {
+        const saved = localStorage.getItem("mickala_quote_counter")
+        setQuoteNum(saved ? parseInt(saved) : 191)
+      })
     setDate(new Date().toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" }))
   }, [])
 
@@ -449,6 +460,16 @@ export default function QuotePage() {
             <tr className="bg-gray-50">
               <td colSpan={4} className="p-2 text-left font-bold">Subtotal (ex GST)</td>
               <td className="p-2 text-center font-bold">${subtotal.toFixed(2)}</td>
+              <td className="print:hidden"></td>
+            </tr>
+            <tr className="bg-gray-50">
+              <td colSpan={4} className="p-2 text-left text-gray-500">GST (10%)</td>
+              <td className="p-2 text-center text-gray-500">${(subtotal * 0.1).toFixed(2)}</td>
+              <td className="print:hidden"></td>
+            </tr>
+            <tr className="bg-gray-900 text-white">
+              <td colSpan={4} className="p-2 text-left font-bold">Total (inc. GST)</td>
+              <td className="p-2 text-center font-bold">${(subtotal * 1.1).toFixed(2)}</td>
               <td className="print:hidden"></td>
             </tr>
           </tfoot>
