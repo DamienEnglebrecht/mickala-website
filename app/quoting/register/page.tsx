@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { createClient } from "@/lib/supabase/client"
+import { Mail, LogOut } from "lucide-react"
+
+const ALLOWED_DOMAIN = "mickala.com.au"
 
 interface QuoteItem {
   qty: number
@@ -24,7 +28,7 @@ interface Quote {
   delivery?: string
 }
 
-const REGISTER_PIN = "Mickala2026"
+const REGISTER_PIN = "Mickala2026" // kept as fallback constant — not used in UI
 
 export default function TenderQuoteRegister() {
   const [quotes, setQuotes] = useState<Quote[]>([])
@@ -35,17 +39,53 @@ export default function TenderQuoteRegister() {
   const [statusFilter, setStatusFilter] = useState("all")
   const [typeFilter, setTypeFilter] = useState("all")
   const [search, setSearch] = useState("")
-  const [pin, setPin] = useState("")
-  const [pinError, setPinError] = useState(false)
-  const [authed, setAuthed] = useState(false)
+  const [user, setUser] = useState<any>(null)
+  const [checking, setChecking] = useState(true)
+  const [email, setEmail] = useState("")
+  const [sent, setSent] = useState(false)
+  const [sendingLink, setSendingLink] = useState(false)
+  const [linkError, setLinkError] = useState("")
+
+  const supabase = createClient()
 
   useEffect(() => {
-    const auth = sessionStorage.getItem("mickala_register_auth")
-    if (auth === "1") {
-      setAuthed(true)
-      loadQuotes()
-    }
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user)
+      setChecking(false)
+      if (user) loadQuotes()
+    })
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+      setChecking(false)
+      if (session?.user) loadQuotes()
+    })
+    return () => subscription.unsubscribe()
   }, [])
+
+  const sendMagicLink = async () => {
+    setLinkError("")
+    const trimmed = email.trim().toLowerCase()
+    if (!trimmed.endsWith("@" + ALLOWED_DOMAIN)) {
+      setLinkError("Access is restricted to @mickala.com.au email addresses only.")
+      return
+    }
+    setSendingLink(true)
+    const { error: authError } = await supabase.auth.signInWithOtp({
+      email: trimmed,
+      options: { emailRedirectTo: `${window.location.origin}/quoting/register` }
+    })
+    setSendingLink(false)
+    if (authError) setLinkError("Something went wrong. Try again or contact Damien.")
+    else setSent(true)
+  }
+
+  const signOut = async () => {
+    await supabase.auth.signOut()
+    setUser(null)
+    setSent(false)
+    setEmail("")
+    setQuotes([])
+  }
 
   const loadQuotes = () => {
     fetch("/api/quotes?limit=500")
@@ -58,16 +98,6 @@ export default function TenderQuoteRegister() {
       .catch(() => { setError("Failed to load quotes"); setLoading(false) })
   }
 
-  const handlePinSubmit = () => {
-    if (pin === REGISTER_PIN) {
-      sessionStorage.setItem("mickala_register_auth", "1")
-      setAuthed(true)
-      setPinError(false)
-      loadQuotes()
-    } else {
-      setPinError(true)
-    }
-  }
 
   const toggleSort = (field: typeof sortField) => {
     if (sortField === field) {
@@ -166,32 +196,53 @@ export default function TenderQuoteRegister() {
   const totalValue = filtered.reduce((s, q) => s + (q.total || 0), 0)
   const wonValue = filtered.filter(q => q.status === "Won").reduce((s, q) => s + (q.total || 0), 0)
 
-  if (!authed) return (
+  if (checking) return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <p className="text-gray-400 text-sm">Checking access...</p>
+    </div>
+  )
+
+  if (!user) return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl">
         <div className="text-center mb-6">
           <Image src="/logo-mickala.png" alt="Mickala" width={48} height={48} className="h-12 w-auto mx-auto mb-4" />
           <h2 className="text-lg font-bold text-gray-900">Quote Register</h2>
-          <p className="text-sm text-gray-500 mt-1">Enter staff PIN to access</p>
+          <p className="text-sm text-gray-500 mt-1">Enter your @mickala.com.au email to receive a secure login link</p>
         </div>
-        <input
-          type="password"
-          value={pin}
-          onChange={e => { setPin(e.target.value); setPinError(false) }}
-          onKeyDown={e => e.key === "Enter" && handlePinSubmit()}
-          placeholder="Staff PIN"
-          className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-1 ${pinError ? "border-red-500 bg-red-50" : "border-gray-200"}`}
-          autoFocus
-        />
-        {pinError && <p className="text-xs text-red-600 mb-3">Incorrect PIN.</p>}
-        {!pinError && <div className="mb-3" />}
-        <button
-          onClick={handlePinSubmit}
-          disabled={!pin}
-          className="w-full rounded-xl bg-red-600 text-white py-3 text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
-        >
-          Access Register
-        </button>
+        {sent ? (
+          <div className="text-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-50 mx-auto mb-4">
+              <Mail className="h-6 w-6 text-green-600" />
+            </div>
+            <h3 className="font-semibold text-gray-900 mb-1">Check your email</h3>
+            <p className="text-sm text-gray-500 mb-4">A secure login link was sent to <strong>{email}</strong>. Click it to access the register — it expires in 1 hour.</p>
+            <button onClick={() => setSent(false)} className="text-xs text-primary underline">Use a different email</button>
+          </div>
+        ) : (
+          <>
+            <input
+              type="email"
+              value={email}
+              onChange={e => { setEmail(e.target.value); setLinkError("") }}
+              onKeyDown={e => e.key === "Enter" && sendMagicLink()}
+              placeholder="you@mickala.com.au"
+              className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-1 ${linkError ? "border-red-400 bg-red-50" : "border-gray-200"}`}
+              autoFocus
+            />
+            {linkError && <p className="text-xs text-red-600 mb-3">{linkError}</p>}
+            {!linkError && <div className="mb-3" />}
+            <button
+              onClick={sendMagicLink}
+              disabled={sendingLink || !email.trim()}
+              className="w-full rounded-xl bg-red-600 text-white py-3 text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              <Mail className="h-4 w-4" />
+              {sendingLink ? "Sending..." : "Send Login Link"}
+            </button>
+            <p className="text-[10px] text-gray-400 text-center mt-3">Access restricted to @mickala.com.au addresses</p>
+          </>
+        )}
       </div>
     </div>
   )
@@ -221,6 +272,9 @@ export default function TenderQuoteRegister() {
           <div className="text-right">
             <div className="text-lg font-bold text-primary">${totalValue.toLocaleString()}</div>
             <div className="text-xs text-gray-400">{filtered.length} quotes · ${wonValue.toLocaleString()} won</div>
+            <button onClick={signOut} className="mt-1 flex items-center gap-1 text-[10px] text-gray-400 hover:text-red-600 ml-auto">
+              <LogOut className="h-3 w-3" /> Sign out ({user?.email})
+            </button>
           </div>
         </div>
 

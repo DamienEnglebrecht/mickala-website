@@ -2,8 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { FileText, CreditCard, CalendarCheck, Shield, User } from "lucide-react"
+import { FileText, CreditCard, CalendarCheck, Shield, LogOut, Mail } from "lucide-react"
 import { useState, useEffect } from "react"
+import { createClient } from "@/lib/supabase/client"
+
+const ALLOWED_DOMAIN = "mickala.com.au"
 
 const sections = [
   {
@@ -42,120 +45,137 @@ const sections = [
   },
 ]
 
-const STAFF_PIN = "Mickala2026"
-
 export default function DocumentsPage() {
-  const [visitor, setVisitor] = useState("")
-  const [pin, setPin] = useState("")
-  const [pinError, setPinError] = useState(false)
-  const [showPrompt, setShowPrompt] = useState(false)
-  const [blocked, setBlocked] = useState(true)
+  const [user, setUser] = useState<any>(null)
+  const [email, setEmail] = useState("")
+  const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+  const [checking, setChecking] = useState(true)
+
+  const supabase = createClient()
 
   useEffect(() => {
-    const saved = localStorage.getItem("mickala_visitor")
-    const auth = sessionStorage.getItem("mickala_docs_auth")
-    if (saved && auth === "1") {
-      setVisitor(saved)
-      setBlocked(false)
-      fetch("/api/track", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ page: window.location.pathname, visitor: saved })
-      }).catch(() => {})
-    } else {
-      setShowPrompt(true)
-      setBlocked(true)
-    }
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user)
+      setChecking(false)
+      if (user) {
+        fetch("/api/track", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ page: window.location.pathname, visitor: user.email })
+        }).catch(() => {})
+      }
+    })
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+      setChecking(false)
+    })
+    return () => subscription.unsubscribe()
   }, [])
 
-  const saveVisitor = () => {
-    const name = visitor.trim()
-    if (!name) return
-    if (pin !== STAFF_PIN) {
-      setPinError(true)
+  const sendMagicLink = async () => {
+    setError("")
+    const trimmed = email.trim().toLowerCase()
+    if (!trimmed) return
+
+    // Enforce @mickala.com.au domain
+    if (!trimmed.endsWith("@" + ALLOWED_DOMAIN)) {
+      setError("Access is restricted to @mickala.com.au email addresses only.")
       return
     }
-    localStorage.setItem("mickala_visitor", name)
-    sessionStorage.setItem("mickala_docs_auth", "1")
-    setShowPrompt(false)
-    setBlocked(false)
-    setPinError(false)
-    fetch("/api/track", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ page: window.location.pathname, visitor: name })
-    }).catch(() => {})
+
+    setLoading(true)
+    const { error: authError } = await supabase.auth.signInWithOtp({
+      email: trimmed,
+      options: {
+        emailRedirectTo: `${window.location.origin}/documents`,
+      }
+    })
+    setLoading(false)
+
+    if (authError) {
+      setError("Something went wrong. Please try again or contact Damien.")
+    } else {
+      setSent(true)
+    }
   }
 
-  const changeVisitor = () => {
-    localStorage.removeItem("mickala_visitor")
-    sessionStorage.removeItem("mickala_docs_auth")
-    setVisitor("")
-    setPin("")
-    setPinError(false)
-    setBlocked(true)
-    setShowPrompt(true)
+  const signOut = async () => {
+    await supabase.auth.signOut()
+    setUser(null)
+    setSent(false)
+    setEmail("")
   }
 
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Name Prompt Modal */}
-      {showPrompt && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl">
-            <div className="text-center mb-6">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-red-50 mx-auto mb-4">
-                <User className="h-6 w-6 text-red-600" />
-              </span>
-              <h2 className="text-lg font-bold text-gray-900">Mickala Staff Portal</h2>
-              <p className="text-sm text-gray-500 mt-1">Enter your name and staff PIN to access documents</p>
+  if (checking) return (
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="text-sm text-muted-foreground">Checking access...</div>
+    </div>
+  )
+
+  if (!user) return (
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl border border-border">
+        <div className="text-center mb-6">
+          <Image src="/logo-mickala.png" alt="Mickala Group" width={56} height={56} className="h-14 w-auto mx-auto mb-4" />
+          <h2 className="text-lg font-bold text-gray-900">Mickala Staff Portal</h2>
+          <p className="text-sm text-gray-500 mt-1">Enter your @mickala.com.au email to receive a secure login link</p>
+        </div>
+
+        {sent ? (
+          <div className="text-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-50 mx-auto mb-4">
+              <Mail className="h-6 w-6 text-green-600" />
             </div>
+            <h3 className="font-semibold text-gray-900 mb-1">Check your email</h3>
+            <p className="text-sm text-gray-500 mb-4">We sent a secure login link to <strong>{email}</strong>. Click the link to access the portal — it expires in 1 hour.</p>
+            <button onClick={() => setSent(false)} className="text-xs text-primary underline">Use a different email</button>
+          </div>
+        ) : (
+          <>
             <input
-              type="text"
-              value={visitor}
-              onChange={(e) => setVisitor(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && saveVisitor()}
-              placeholder="Your name"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-3"
+              type="email"
+              value={email}
+              onChange={e => { setEmail(e.target.value); setError("") }}
+              onKeyDown={e => e.key === "Enter" && sendMagicLink()}
+              placeholder="you@mickala.com.au"
+              className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-1 ${error ? "border-red-400 bg-red-50" : "border-gray-200"}`}
               autoFocus
             />
-            <input
-              type="password"
-              value={pin}
-              onChange={(e) => { setPin(e.target.value); setPinError(false) }}
-              onKeyDown={(e) => e.key === "Enter" && saveVisitor()}
-              placeholder="Staff PIN"
-              className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 mb-1 ${pinError ? "border-red-500 bg-red-50" : "border-gray-200"}`}
-            />
-            {pinError && <p className="text-xs text-red-600 mb-3">Incorrect PIN. Please check with your manager.</p>}
-            {!pinError && <div className="mb-3" />}
+            {error && <p className="text-xs text-red-600 mb-3">{error}</p>}
+            {!error && <div className="mb-3" />}
             <button
-              onClick={saveVisitor}
-              disabled={!visitor.trim() || !pin}
-              className="w-full rounded-xl bg-red-600 text-white py-3 text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
+              onClick={sendMagicLink}
+              disabled={loading || !email.trim()}
+              className="w-full rounded-xl bg-red-600 text-white py-3 text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
             >
-              Access Documents
+              <Mail className="h-4 w-4" />
+              {loading ? "Sending..." : "Send Login Link"}
             </button>
-          </div>
-        </div>
-      )}
-
-      {/* ===== PAGE CONTENT ===== */}
-      {!blocked && (
-      <div className="max-w-5xl mx-auto p-4 sm:p-8">
-        {/* Visitor badge */}
-        {visitor && (
-          <div className="flex items-center justify-end gap-2 mb-4 text-xs text-muted-foreground">
-            <User className="h-3 w-3" />
-            <span>{visitor}</span>
-            <button
-              onClick={changeVisitor}
-              className="underline hover:text-red-600 ml-2"
-            >
-              Change
-            </button>
-          </div>
+            <p className="text-[10px] text-gray-400 text-center mt-3">Access restricted to @mickala.com.au email addresses</p>
+          </>
         )}
+      </div>
+    </div>
+  )
+
+  // Authenticated view
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="max-w-5xl mx-auto p-4 sm:p-8">
+
+        {/* User badge */}
+        <div className="flex items-center justify-end gap-2 mb-4 text-xs text-muted-foreground">
+          <span className="font-medium text-foreground">{user.email}</span>
+          <button
+            onClick={signOut}
+            className="flex items-center gap-1 underline hover:text-red-600 ml-2"
+          >
+            <LogOut className="h-3 w-3" /> Sign out
+          </button>
+        </div>
 
         {/* Header */}
         <div className="text-center mb-12">
@@ -181,7 +201,7 @@ export default function DocumentsPage() {
                         fetch("/api/track", {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({ page: item.href, visitor })
+                          body: JSON.stringify({ page: item.href, visitor: user.email })
                         }).catch(() => {})
                       }}
                       className="group block rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-md"
@@ -204,7 +224,6 @@ export default function DocumentsPage() {
           Mickala Group &middot; 21 Caterpillar Drive, Paget QLD 4740 &middot; 1300 642 525
         </div>
       </div>
-      )}
     </div>
   )
 }
